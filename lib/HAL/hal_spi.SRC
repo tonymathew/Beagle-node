@@ -1,0 +1,434 @@
+; ../LE1/lib/HAL/hal_spi.SRC generated from: ../LE1/lib/HAL/hal_spi.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/HAL/hal_spi.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_HAL_HAL_SPI
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?_hal_spi_master_init?___LE1_LIB_HAL_HAL_SPI SEGMENT CODE 
+?PR?_hal_spi_master_read_write?___LE1_LIB_HAL_HAL_SPI SEGMENT CODE 
+	PUBLIC	_hal_spi_master_read_write
+	PUBLIC	_hal_spi_master_init
+; /* Copyright (c) 2008 Nordic Semiconductor. All Rights Reserved.
+;  *
+;  * The information contained herein is property of Nordic Semiconductor ASA.
+;  * Terms and conditions of usage are described in detail in NORDIC
+;  * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT. 
+;  *
+;  * Licensees are granted free, non-transferable use of the information. NO
+;  * WARRENTY of ANY KIND is provided. This heading must NOT be removed from
+;  * the file.
+;  *
+;  * $LastChangedRevision$
+;  */ 
+; 
+;  /** @file
+;  * @brief Implementation of  hal_spi
+;  */
+; 
+; #include <Nordic/reg24le1.h>
+; #include <HAL/hal_spi.h>
+; #include <HAL/nordic_common.h>
+; 
+; void hal_spi_master_init(hal_spi_clkdivider_t ck, hal_spi_mode_t mode, hal_spi_byte_order_t bo)
+
+	RSEG  ?PR?_hal_spi_master_init?___LE1_LIB_HAL_HAL_SPI
+_hal_spi_master_init:
+	USING	0
+			; SOURCE LINE # 22
+;---- Variable 'ck?040' assigned to Register 'R7' ----
+;---- Variable 'bo?042' assigned to Register 'R3' ----
+;---- Variable 'mode?041' assigned to Register 'R5' ----
+; {
+			; SOURCE LINE # 23
+;   SPIMCON0 = 0;                           // Default register settings
+			; SOURCE LINE # 24
+	CLR  	A
+	MOV  	SPIMCON0,A
+;   switch (ck)                             // Set desired clock divider
+			; SOURCE LINE # 25
+	MOV  	A,R7
+	DEC  	A
+	JZ   	?C0003
+	DEC  	A
+	JZ   	?C0004
+	DEC  	A
+	JZ   	?C0005
+	DEC  	A
+	JZ   	?C0006
+	ADD  	A,#04H
+	JNZ  	?C0008
+;   {
+			; SOURCE LINE # 26
+;     case SPI_CLK_DIV2:
+			; SOURCE LINE # 27
+?C0002:
+;       SPIMCON0 |= (0x00 << 4);
+			; SOURCE LINE # 28
+;       break;
+			; SOURCE LINE # 29
+	SJMP 	?C0001
+;     case SPI_CLK_DIV4:
+			; SOURCE LINE # 30
+?C0003:
+;       SPIMCON0 |= (0x01 << 4);
+			; SOURCE LINE # 31
+	ORL  	SPIMCON0,#010H
+;       break;
+			; SOURCE LINE # 32
+	SJMP 	?C0001
+;     case SPI_CLK_DIV8:
+			; SOURCE LINE # 33
+?C0004:
+;       SPIMCON0 |= (0x02 << 4);
+			; SOURCE LINE # 34
+	ORL  	SPIMCON0,#020H
+;       break;
+			; SOURCE LINE # 35
+	SJMP 	?C0001
+;     case SPI_CLK_DIV16:
+			; SOURCE LINE # 36
+?C0005:
+;       SPIMCON0 |= (0x03 << 4);
+			; SOURCE LINE # 37
+	ORL  	SPIMCON0,#030H
+;       break;
+			; SOURCE LINE # 38
+	SJMP 	?C0001
+;     case SPI_CLK_DIV32:
+			; SOURCE LINE # 39
+?C0006:
+;       SPIMCON0 |= (0x04 << 4);
+			; SOURCE LINE # 40
+	ORL  	SPIMCON0,#040H
+;       break;
+			; SOURCE LINE # 41
+	SJMP 	?C0001
+;     case SPI_CLK_DIV64:                   // We use clock divder 64 as default
+			; SOURCE LINE # 42
+;     default:
+			; SOURCE LINE # 43
+?C0008:
+;       SPIMCON0 |= (0x05 << 4);
+			; SOURCE LINE # 44
+	ORL  	SPIMCON0,#050H
+;       break;  
+			; SOURCE LINE # 45
+;   }
+			; SOURCE LINE # 46
+?C0001:
+;   switch(mode)                            // Set desired mode
+			; SOURCE LINE # 47
+	MOV  	A,R5
+	DEC  	A
+	JZ   	?C0011
+	DEC  	A
+	JZ   	?C0012
+	DEC  	A
+	JZ   	?C0013
+	ADD  	A,#03H
+;   {
+			; SOURCE LINE # 48
+;     case HAL_SPI_MODE_0:
+			; SOURCE LINE # 49
+?C0010:
+;       SPIMCON0 |= (0x00 << 1);
+			; SOURCE LINE # 50
+;       break;
+			; SOURCE LINE # 51
+	SJMP 	?C0009
+;     case HAL_SPI_MODE_1:
+			; SOURCE LINE # 52
+?C0011:
+;       SPIMCON0 |= (0x01 << 1);
+			; SOURCE LINE # 53
+	ORL  	SPIMCON0,#02H
+;       break;
+			; SOURCE LINE # 54
+	SJMP 	?C0009
+;     case HAL_SPI_MODE_2:
+			; SOURCE LINE # 55
+?C0012:
+;       SPIMCON0 |= (0x02 << 1);
+			; SOURCE LINE # 56
+	ORL  	SPIMCON0,#04H
+;       break;
+			; SOURCE LINE # 57
+	SJMP 	?C0009
+;     case HAL_SPI_MODE_3:      
+			; SOURCE LINE # 58
+?C0013:
+;       SPIMCON0 |= (0x03 << 1);
+			; SOURCE LINE # 59
+	ORL  	SPIMCON0,#06H
+;       break;
+			; SOURCE LINE # 60
+;   }
+			; SOURCE LINE # 61
+?C0009:
+;   
+;   if(bo == HAL_SPI_LSB_MSB)               // Set desired data order
+			; SOURCE LINE # 63
+	MOV  	A,R3
+	JNZ  	?C0014
+;   {
+			; SOURCE LINE # 64
+;     SPIMCON0 |= BIT_3;
+			; SOURCE LINE # 65
+	ORL  	SPIMCON0,#08H
+;   }
+			; SOURCE LINE # 66
+?C0014:
+; 
+;   SPIMCON0 |= BIT_0;                      // Enable SPI master
+			; SOURCE LINE # 68
+	ORL  	SPIMCON0,#01H
+; }
+			; SOURCE LINE # 69
+	RET  	
+; END OF _hal_spi_master_init
+
+; 
+; unsigned char hal_spi_master_read_write(unsigned char pLoad)
+
+	RSEG  ?PR?_hal_spi_master_read_write?___LE1_LIB_HAL_HAL_SPI
+_hal_spi_master_read_write:
+	USING	0
+			; SOURCE LINE # 71
+;---- Variable 'pLoad?143' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 72
+;   SPIMDAT = pLoad ;                       // Write data to SPI master
+			; SOURCE LINE # 73
+	MOV  	SPIMDAT,R7
+?C0016:
+;   while(!(SPIMSTAT & 0x04))               // Wait for data available in rx_fifo
+			; SOURCE LINE # 74
+	MOV  	A,SPIMSTAT
+	JNB  	ACC.2,?C0016
+?C0017:
+;   ;
+;   return SPIMDAT;                         // Return data register
+			; SOURCE LINE # 76
+	MOV  	R7,SPIMDAT
+; }			; SOURCE LINE # 77
+?C0018:
+	RET  	
+; END OF _hal_spi_master_read_write
+
+	END

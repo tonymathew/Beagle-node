@@ -1,0 +1,1121 @@
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE ___LE1_LIB_EPL_EPL_RF_EN
+OBJECT MODULE PLACED IN ../LE1/lib/EPL/epl_rf_en.OBJ
+COMPILER INVOKED BY: C:\KEIL\C51\BIN\C51.exe ../LE1/lib/EPL/epl_rf_en.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 W
+                    -L(0) PREPRINT
+
+line level    source
+
+   1          /* ===================================================================================== *
+   2           * Author(s): Tu Yi-Hsuan (cindyduh@nthu.us)                                             *
+   3           *            Embedded Platform Lab, NTHU                                                *
+   4           *                                                                                       *
+   5           * Copyright (c) 2009 National Tsing Hua University (NTHU)                               *
+   6           * Permission to copy, modify, and distribute this program is granted for noncommercial  *
+   7           * purposes, provided the author(s) and copyright notice are retained.                   *
+   8           * All other uses require explicit written permission from NTHU.                         *
+   9           * ===================================================================================== */
+  10          
+  11          /* epl_rf_en.c
+  12           * ------------------------------------------------------------------------------------- *
+  13           * Revision:
+  14           *              version 1.0     2009/02/03 = Tu Yi-Hsuan (cindyduh@nthu.us)
+  15           *                      - The original version.
+  16           * ------------------------------------------------------------------------------------- *
+  17           * Description:
+  18           *              The target platform of the radio driver in this file is Nordic nRF24LU1.
+  19           *              The original Nordic HAL_NRF driver is required for this driver.
+  20           * ------------------------------------------------------------------------------------- *
+  21           * How to Use:
+  22           *              1. You can use only "epl_rf_en_easy_start_tx" or "epl_rf_en_easy_start_rx" to
+  23           *         start to send or receive default RF packet.
+  24           *      or
+  25           *              2. You can use only "rf_quick_init" function as a simplest way to configure RF.
+  26           *              or
+  27           *              3. For more detailed configurations, use "rf_init" and "rf_rcv_pipe_config"
+  28           *                 instead of "rf_quick_init".
+  29           *
+  30           *              After RF initialization (2 or 3), use  "rf_enter_tx_mode" or "rf_enter_rx_mode"
+  31           *              to switch the mode you need.
+  32           * ------------------------------------------------------------------------------------- *
+  33           */
+  34          
+  35          #include <EPL/epl_rf_en.h>
+  36          #include <HAL/hal_nrf_hw.h>
+  37          #include <HAL/hal_nrf.h>
+  38          
+  39          /** Initialized the RF configurations and powre up the RF.
+  40           * Use this function to initialize RF configurations.
+  41           * Note that the pipe isn't opened in this function,
+  42           * please use "rf_rcv_pipe_config" after using this
+  43           * function to configure RX pipe.
+  44           *
+  45           * @param in_channel RF Frequency (in_channel + 2400MHz)
+  46           * @param in_datarate Data rate of the RF transmission. (1Mbps or 2Mbps)
+  47           * @param in_output_power RF output power configuration.
+  48           * @param in_auto_retr Enable auto retransmission or not.
+  49           * @param in_auto_retr_delay Auto retransmission delay.
+  50           * @param in_addr_width Address width configuration for both PTX and PRX pipe.
+  51           * @param in_crc_mode CRC enable or disable configuration.
+  52           * @param in_spi_clk_rate SPI clock rate. (SPI speed)
+  53           * @param in_rf_int RF interrupt enable bit.
+  54           */
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 2   
+
+  55          void epl_rf_en_init(unsigned char in_channel, epl_rf_en_datarate_t in_datarate, char in_output_power, unsi
+             -gned char in_auto_retr, unsigned int in_auto_retr_delay, char in_addr_width, epl_rf_en_crc_mode_t in_crc_mode, unsigned 
+             -char in_rf_int)
+  56          {
+  57   1      
+  58   1              RFCKEN = 1;     // RF clock enable.
+  59   1      
+  60   1              CE_LOW();
+  61   1      
+  62   1              //--- Default static setup. These setting is optimized to match the RF protocol with nRF24E1. ---//
+  63   1              hal_nrf_close_pipe(HAL_NRF_ALL); // Close all pipes first. By default, pipe0 and pipe1 are opened.
+  64   1      
+  65   1              hal_nrf_set_datarate(in_datarate);
+  66   1              hal_nrf_set_auto_retr(in_auto_retr, in_auto_retr_delay); // First parameter is set to zero indicating the
+             - auto retransmission is off.
+  67   1              hal_nrf_set_output_power(in_output_power); // Maximum radio output power (0dbm).
+  68   1              hal_nrf_set_crc_mode(in_crc_mode);
+  69   1      
+  70   1              hal_nrf_set_address_width(in_addr_width); // Both RX and TX's address width are Configured.
+  71   1      
+  72   1              hal_nrf_set_operation_mode(HAL_NRF_PTX); // Enter RF TX mode
+  73   1      
+  74   1              hal_nrf_set_rf_channel(in_channel);
+  75   1              hal_nrf_set_power_mode(HAL_NRF_PWR_UP); // Power up radio
+  76   1      
+  77   1              hal_nrf_get_clear_irq_flags();
+  78   1      
+  79   1              // IEN1 RF interrupt enable bit
+  80   1              RF = in_rf_int;
+  81   1      }
+  82          
+  83          
+  84          /** Setting receiver's pipe configuration.
+  85           * Use this function to open a designated pipe, and
+  86           * configure the payload length and auto-ack function.
+  87           * To be compatible with nRF24L01, please disable the
+  88           * auto ack function.
+  89           *
+  90           * @param in_pipe_num The pipe number you want to open.
+  91           * @param *in_pipe_rcv_addr The address for designated pipe.
+  92           * @param in_pipe_pload_length RX payload length for designated pipe.
+  93           * @param in_auto_ack Auto ack enable bit.
+  94           */
+  95          /* To be compatible with nRF24L01, please disable the auto ack function. */
+  96          void epl_rf_en_rcv_pipe_config(hal_nrf_address_t in_pipe_num, char *in_pipe_rcv_addr, unsigned char in_pip
+             -e_pload_length, epl_rf_en_auto_ack_t in_auto_ack) 
+  97          {
+  98   1              hal_nrf_open_pipe(in_pipe_num, in_auto_ack); // Open pipe and configure the auto ack function.
+  99   1              hal_nrf_set_address(in_pipe_num, in_pipe_rcv_addr); // Address for PRX pipe
+ 100   1              hal_nrf_set_rx_payload_width(in_pipe_num, in_pipe_pload_length);
+ 101   1      }
+ 102          
+ 103          /** Easy initialization for RF functions.
+ 104           * Use this function as a convenient way to initialize the RF as tx mode.
+ 105           * The default pipe is pipe0.
+ 106           *
+ 107           * @param channel RF channel, RF frequency = 2400 + channel (Hz)
+ 108           * @param auto_retr Number of retransmit, 0 equal retransmit OFF
+ 109           * @param delay Retransmit delay in us
+ 110           */
+ 111          void epl_rf_en_easy_start_tx(unsigned char channel, unsigned char auto_retr, unsigned int delay){
+ 112   1      
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 3   
+
+ 113   1              char my_tx_dst_addr[5] = {0x65,0x65,0x65,0x65,0x65};
+ 114   1      
+ 115   1              /* RF SFR configurations */
+ 116   1              epl_rf_en_init(channel,
+ 117   1                              RF_EN_1MBPS,
+ 118   1                              HAL_NRF_0DBM,
+ 119   1                              auto_retr,
+ 120   1                              delay,
+ 121   1                              5,
+ 122   1                              RF_EN_CRC_16BIT,
+ 123   1                              RF_EN_INT_ENABLE);
+ 124   1      
+ 125   1              epl_rf_en_set_dst_addr(my_tx_dst_addr);
+ 126   1      
+ 127   1              if( auto_retr != 0){
+ 128   2      
+ 129   2                      /* RF pipe configurations for auto ack*/
+ 130   2                      epl_rf_en_rcv_pipe_config(HAL_NRF_PIPE0,
+ 131   2                                                              my_tx_dst_addr,
+ 132   2                                                              8,
+ 133   2                                                              RF_EN_AUTO_ACK_ON
+ 134   2                                                              );
+ 135   2              }
+ 136   1      
+ 137   1              epl_rf_en_enter_tx_mode();
+ 138   1      }
+ 139          
+ 140          /** Easy initialization for RF functions.
+ 141           * Use this function as a convenient way to initialize the RF as rx mode.
+ 142           * The default pipe is pipe0.
+ 143           *
+ 144           * @param channel RF channel, RF frequency = 2400 + channel (Hz)
+ 145           * @param pload_len RX payload length for designated pipe.
+ 146           * @param auto_ack Auto ack bit
+ 147           */
+ 148          void epl_rf_en_easy_start_rx(unsigned char channel, unsigned char pload_len, unsigned char auto_ack){
+ 149   1      
+ 150   1              char my_rx_dst_addr[5] = {0x65,0x65,0x65,0x65,0x65};
+ 151   1      
+ 152   1              /* RF SFR configurations */
+ 153   1              epl_rf_en_init(channel,
+ 154   1                              RF_EN_1MBPS,
+ 155   1                              HAL_NRF_0DBM,
+ 156   1                              0,                                      //Ignore auto retransmission
+ 157   1                              0,
+ 158   1                              5,
+ 159   1                              RF_EN_CRC_16BIT,
+ 160   1                              RF_EN_INT_ENABLE);
+ 161   1      
+ 162   1              /* RF pipe configurations for auto ack*/
+ 163   1              epl_rf_en_rcv_pipe_config(HAL_NRF_PIPE0,
+ 164   1                                                              my_rx_dst_addr,
+ 165   1                                                              pload_len,
+ 166   1                                                              auto_ack
+ 167   1                                                              );
+ 168   1      
+ 169   1              epl_rf_en_enter_rx_mode();
+ 170   1      }
+ 171          
+ 172          /** Quick initialization for RF functions.
+ 173           * Use this function as a convenient way to initialize the RF.
+ 174           * The default pipe is pipe0.
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 4   
+
+ 175           *
+ 176           * @param *in_cfg A configuration structure to configure RF.
+ 177           */
+ 178          /* The default pipe is pipe0. */
+ 179          void epl_rf_en_quick_init(struct epl_lu1_rf_en_config *in_cfg)
+ 180          {
+ 181   1      
+ 182   1              /* RF SFR configurations */
+ 183   1              epl_rf_en_init(in_cfg->channel,
+ 184   1                              in_cfg->datarate,
+ 185   1                              HAL_NRF_0DBM,
+ 186   1                              in_cfg->auto_retr,
+ 187   1                              in_cfg->auto_retr_delay,
+ 188   1                              in_cfg->addr_width,
+ 189   1                              in_cfg->crc_mode,
+ 190   1                              RF_EN_INT_DISABLE);
+ 191   1      
+ 192   1              epl_rf_en_set_dst_addr(in_cfg->my_tx_dst_addr);
+ 193   1      
+ 194   1      
+ 195   1              /* RF pipe configurations */
+ 196   1              epl_rf_en_rcv_pipe_config(HAL_NRF_PIPE0,
+ 197   1                                                 in_cfg->my_prx_addr,
+ 198   1                                                 in_cfg->data_length,
+ 199   1                                                 in_cfg->auto_ack
+ 200   1                                                 );
+ 201   1      }
+ 202          
+ 203          /** Switch RF mode to TX mode.
+ 204           * Use this function to switch the mode to TX mode.
+ 205           */
+ 206          void epl_rf_en_enter_tx_mode(void)
+ 207          {
+ 208   1              RFCE = 0;
+ 209   1              hal_nrf_set_operation_mode(HAL_NRF_PTX); // Enter RF TX mode
+ 210   1      }
+ 211          
+ 212          /** Switch RF mode to RX mode.
+ 213           * Use this function to switch the mode to RX mode.
+ 214           */
+ 215          void epl_rf_en_enter_rx_mode(void)
+ 216          {
+ 217   1              RFCE = 1;
+ 218   1              hal_nrf_set_operation_mode(HAL_NRF_PRX); // Enter RF RX mode
+ 219   1      }
+ 220          
+ 221          /** Configuring the PTX address (destination address).
+ 222           * Use this function to configure destination address.
+ 223           *
+ 224           * @param *in_dst_addr The destination address.
+ 225           */
+ 226          void epl_rf_en_set_dst_addr(unsigned char *in_dst_addr)
+ 227          {
+ 228   1              hal_nrf_set_address(HAL_NRF_TX, in_dst_addr); // Address for PTX (The address of destination.)
+ 229   1      }
+ 230          
+ 231          /** Send the RF packet to designated destination.
+ 232           * Use this function to send RF packet.
+ 233           *
+ 234           * @param *in_dst_addr The destination address.
+ 235           * @param *in_tx_pload The pointer point to the packet to be sent.
+ 236           * @param in_length The packet length.
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 5   
+
+ 237           */
+ 238          void epl_rf_en_send_dst(unsigned char *in_dst_addr, unsigned char *in_tx_pload, unsigned char in_pload_len
+             -gth)
+ 239          {
+ 240   1              hal_nrf_set_address(HAL_NRF_TX, in_dst_addr); // Address for PTX (The address of destination.)
+ 241   1              epl_rf_en_enter_tx_mode();
+ 242   1              hal_nrf_write_tx_payload(in_tx_pload, in_pload_length);
+ 243   1              CE_PULSE();
+ 244   1      }
+ 245          
+ 246          /** Send the RF packet with the unchanged destination address.
+ 247           * Use this function to send RF packet with the last destination
+ 248           * address.
+ 249           *
+ 250           * @param *in_tx_pload The pointer point to the packet to be sent.
+ 251           * @param in_length The packet length.
+ 252           */
+ 253          void epl_rf_en_send(unsigned char *in_tx_pload, unsigned char in_pload_length)
+ 254          {
+ 255   1              epl_rf_en_enter_tx_mode();
+ 256   1              hal_nrf_write_tx_payload(in_tx_pload, in_pload_length);
+ 257   1              CE_PULSE();
+ 258   1      }
+ 259          
+ 260          /** Check the RX payload is empty or not.
+ 261           * Use this function to check the RX payload is empty or not.
+ 262           *
+ 263           * @param *in_tx_pload The pointer point to the packet to be sent.
+ 264           * @return True (1) for RX fifo empty or false for RX fifo not empty.
+ 265           */
+ 266          unsigned char epl_rf_en_rx_pload_is_empty(void)
+ 267          {
+ 268   1              unsigned char rx_fifo_status;
+ 269   1              rx_fifo_status = hal_nrf_get_rx_fifo_status();
+ 270   1              if (rx_fifo_status == 0x01)
+ 271   1              {
+ 272   2                      return 1;       // RX fifo is empty.
+ 273   2              }
+ 274   1              else
+ 275   1              {// rx_fifo_status == 0x00 or 0x02
+ 276   2                      return 0;       // RX fifo is not empty or is full.
+ 277   2              }
+ 278   1      }
+ 279          
+ 280          /** Read the RX payload.
+ 281           * Use this function to read the RX payload.
+ 282           *
+ 283           * @param *out_rx_pload The space to copy the RX payload.
+ 284            */
+ 285          void epl_rf_en_read_rx_pload(unsigned char *out_rx_pload)
+ 286          {
+ 287   1              hal_nrf_read_rx_payload(out_rx_pload);
+ 288   1              //or hal_nrf_read_multibyte_reg(UINT8(HAL_NRF_RX_PLOAD), out_rx_pload);
+ 289   1      }
+ 290          
+ 291          /** Wait until the RX payload is valid, and read the RX payload.
+ 292           * Use this function to read the RX payload, the function will
+ 293           * stay in a while loop unless a RX payload is valid.
+ 294           *
+ 295           * @param *out_rx_pload The space to copy the RX payload.
+ 296            */
+ 297          void epl_rf_en_wait_rcv_msg(unsigned char *out_rx_pload)
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 6   
+
+ 298          {
+ 299   1              epl_rf_en_enter_rx_mode();
+ 300   1              while (epl_rf_en_rx_pload_is_empty());
+ 301   1              hal_nrf_read_rx_payload(out_rx_pload);
+ 302   1      }
+ 303          
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 7   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION _epl_rf_en_init (BEGIN)
+                                           ; SOURCE LINE # 55
+0000 8F00        R     MOV     in_channel,R7
+0002 8D00        R     MOV     in_datarate,R5
+0004 8B00        R     MOV     in_output_power,R3
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 58
+0006 D2EA              SETB    RFCKEN
+                                           ; SOURCE LINE # 60
+0008 C2E8              CLR     RFCE
+                                           ; SOURCE LINE # 63
+000A 7FFF              MOV     R7,#0FFH
+000C 120000      E     LCALL   _hal_nrf_close_pipe
+                                           ; SOURCE LINE # 65
+000F AF00        R     MOV     R7,in_datarate
+0011 120000      E     LCALL   _hal_nrf_set_datarate
+                                           ; SOURCE LINE # 66
+0014 AD00        R     MOV     R5,in_auto_retr_delay+01H
+0016 AC00        R     MOV     R4,in_auto_retr_delay
+0018 AF00        R     MOV     R7,in_auto_retr
+001A 120000      E     LCALL   _hal_nrf_set_auto_retr
+                                           ; SOURCE LINE # 67
+001D AF00        R     MOV     R7,in_output_power
+001F 120000      E     LCALL   _hal_nrf_set_output_power
+                                           ; SOURCE LINE # 68
+0022 AF00        R     MOV     R7,in_crc_mode
+0024 120000      E     LCALL   _hal_nrf_set_crc_mode
+                                           ; SOURCE LINE # 70
+0027 AF00        R     MOV     R7,in_addr_width
+0029 120000      E     LCALL   _hal_nrf_set_address_width
+                                           ; SOURCE LINE # 72
+002C E4                CLR     A
+002D FF                MOV     R7,A
+002E 120000      E     LCALL   _hal_nrf_set_operation_mode
+                                           ; SOURCE LINE # 74
+0031 AF00        R     MOV     R7,in_channel
+0033 120000      E     LCALL   _hal_nrf_set_rf_channel
+                                           ; SOURCE LINE # 75
+0036 7F01              MOV     R7,#01H
+0038 120000      E     LCALL   _hal_nrf_set_power_mode
+                                           ; SOURCE LINE # 77
+003B 120000      E     LCALL   hal_nrf_get_clear_irq_flags
+                                           ; SOURCE LINE # 80
+003E E500        R     MOV     A,in_rf_int
+0040 24FF              ADD     A,#0FFH
+0042 92B9              MOV     RF,C
+                                           ; SOURCE LINE # 81
+0044 22                RET     
+             ; FUNCTION _epl_rf_en_init (END)
+
+             ; FUNCTION _epl_rf_en_rcv_pipe_config (BEGIN)
+                                           ; SOURCE LINE # 96
+0000 8F00        R     MOV     in_pipe_num,R7
+0002 8B00        R     MOV     in_pipe_rcv_addr,R3
+0004 8A00        R     MOV     in_pipe_rcv_addr+01H,R2
+0006 8900        R     MOV     in_pipe_rcv_addr+02H,R1
+                                           ; SOURCE LINE # 97
+                                           ; SOURCE LINE # 98
+0008 AD00        R     MOV     R5,in_auto_ack
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 8   
+
+000A 120000      E     LCALL   _hal_nrf_open_pipe
+                                           ; SOURCE LINE # 99
+000D AB00        R     MOV     R3,in_pipe_rcv_addr
+000F AA00        R     MOV     R2,in_pipe_rcv_addr+01H
+0011 A900        R     MOV     R1,in_pipe_rcv_addr+02H
+0013 AF00        R     MOV     R7,in_pipe_num
+0015 120000      E     LCALL   _hal_nrf_set_address
+                                           ; SOURCE LINE # 100
+0018 AD00        R     MOV     R5,in_pipe_pload_length
+001A AF00        R     MOV     R7,in_pipe_num
+001C 020000      E     LJMP    _hal_nrf_set_rx_payload_width
+             ; FUNCTION _epl_rf_en_rcv_pipe_config (END)
+
+             ; FUNCTION _epl_rf_en_easy_start_tx (BEGIN)
+                                           ; SOURCE LINE # 111
+0000 8F00        R     MOV     channel,R7
+0002 8D00        R     MOV     auto_retr,R5
+0004 8A00        R     MOV     delay,R2
+0006 8B00        R     MOV     delay+01H,R3
+                                           ; SOURCE LINE # 113
+0008 7800        R     MOV     R0,#LOW my_tx_dst_addr
+000A 7C00        R     MOV     R4,#HIGH my_tx_dst_addr
+000C 7D00              MOV     R5,#00H
+000E 7BFF              MOV     R3,#0FFH
+0010 7A00        R     MOV     R2,#HIGH _?ix1000
+0012 7900        R     MOV     R1,#LOW _?ix1000
+0014 7E00              MOV     R6,#00H
+0016 7F05              MOV     R7,#05H
+0018 120000      E     LCALL   ?C?COPY
+                                           ; SOURCE LINE # 116
+001B 850000      R     MOV     ?_epl_rf_en_init?BYTE+03H,auto_retr
+001E 850000      R     MOV     ?_epl_rf_en_init?BYTE+04H,delay
+0021 850000      R     MOV     ?_epl_rf_en_init?BYTE+05H,delay+01H
+0024 750005      R     MOV     ?_epl_rf_en_init?BYTE+06H,#05H
+0027 750002      R     MOV     ?_epl_rf_en_init?BYTE+07H,#02H
+002A 750001      R     MOV     ?_epl_rf_en_init?BYTE+08H,#01H
+002D 7B03              MOV     R3,#03H
+002F E4                CLR     A
+0030 FD                MOV     R5,A
+0031 AF00        R     MOV     R7,channel
+0033 120000      R     LCALL   _epl_rf_en_init
+                                           ; SOURCE LINE # 125
+0036 7B00              MOV     R3,#00H
+0038 7A00        R     MOV     R2,#HIGH my_tx_dst_addr
+003A 7900        R     MOV     R1,#LOW my_tx_dst_addr
+003C 120000      R     LCALL   _epl_rf_en_set_dst_addr
+                                           ; SOURCE LINE # 127
+003F E500        R     MOV     A,auto_retr
+0041 6011              JZ      ?C0006
+                                           ; SOURCE LINE # 130
+0043 7B00              MOV     R3,#00H
+0045 7A00        R     MOV     R2,#HIGH my_tx_dst_addr
+0047 7900        R     MOV     R1,#LOW my_tx_dst_addr
+0049 750008      R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+04H,#08H
+004C 750001      R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+05H,#01H
+004F E4                CLR     A
+0050 FF                MOV     R7,A
+0051 120000      R     LCALL   _epl_rf_en_rcv_pipe_config
+                                           ; SOURCE LINE # 135
+0054         ?C0006:
+                                           ; SOURCE LINE # 137
+0054 020000      R     LJMP    epl_rf_en_enter_tx_mode
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 9   
+
+             ; FUNCTION _epl_rf_en_easy_start_tx (END)
+
+             ; FUNCTION _epl_rf_en_easy_start_rx (BEGIN)
+                                           ; SOURCE LINE # 148
+0000 8F00        R     MOV     channel,R7
+0002 8D00        R     MOV     pload_len,R5
+0004 8B00        R     MOV     auto_ack,R3
+                                           ; SOURCE LINE # 150
+0006 7800        R     MOV     R0,#LOW my_rx_dst_addr
+0008 7C00        R     MOV     R4,#HIGH my_rx_dst_addr
+000A 7D00              MOV     R5,#00H
+000C 7BFF              MOV     R3,#0FFH
+000E 7A00        R     MOV     R2,#HIGH _?ix1001
+0010 7900        R     MOV     R1,#LOW _?ix1001
+0012 7E00              MOV     R6,#00H
+0014 7F05              MOV     R7,#05H
+0016 120000      E     LCALL   ?C?COPY
+                                           ; SOURCE LINE # 153
+0019 E4                CLR     A
+001A F500        R     MOV     ?_epl_rf_en_init?BYTE+03H,A
+001C F500        R     MOV     ?_epl_rf_en_init?BYTE+04H,A
+001E F500        R     MOV     ?_epl_rf_en_init?BYTE+05H,A
+0020 750005      R     MOV     ?_epl_rf_en_init?BYTE+06H,#05H
+0023 750002      R     MOV     ?_epl_rf_en_init?BYTE+07H,#02H
+0026 750001      R     MOV     ?_epl_rf_en_init?BYTE+08H,#01H
+0029 7B03              MOV     R3,#03H
+002B FD                MOV     R5,A
+002C AF00        R     MOV     R7,channel
+002E 120000      R     LCALL   _epl_rf_en_init
+                                           ; SOURCE LINE # 163
+0031 7B00              MOV     R3,#00H
+0033 7A00        R     MOV     R2,#HIGH my_rx_dst_addr
+0035 7900        R     MOV     R1,#LOW my_rx_dst_addr
+0037 850000      R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+04H,pload_len
+003A 850000      R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+05H,auto_ack
+003D E4                CLR     A
+003E FF                MOV     R7,A
+003F 120000      R     LCALL   _epl_rf_en_rcv_pipe_config
+                                           ; SOURCE LINE # 169
+0042 020000      R     LJMP    epl_rf_en_enter_rx_mode
+             ; FUNCTION _epl_rf_en_easy_start_rx (END)
+
+             ; FUNCTION _epl_rf_en_quick_init (BEGIN)
+                                           ; SOURCE LINE # 179
+0000 8B00        R     MOV     in_cfg,R3
+0002 8A00        R     MOV     in_cfg+01H,R2
+0004 8900        R     MOV     in_cfg+02H,R1
+                                           ; SOURCE LINE # 180
+                                           ; SOURCE LINE # 183
+0006 120000      E     LCALL   ?C?CLDPTR
+0009 FF                MOV     R7,A
+000A 90000D            MOV     DPTR,#0DH
+000D 120000      E     LCALL   ?C?CLDOPTR
+0010 FD                MOV     R5,A
+0011 900010            MOV     DPTR,#010H
+0014 120000      E     LCALL   ?C?CLDOPTR
+0017 F500        R     MOV     ?_epl_rf_en_init?BYTE+03H,A
+0019 900011            MOV     DPTR,#011H
+001C 120000      E     LCALL   ?C?ILDOPTR
+001F F500        R     MOV     ?_epl_rf_en_init?BYTE+05H,A
+0021 85F000      R     MOV     ?_epl_rf_en_init?BYTE+04H,B
+0024 900001            MOV     DPTR,#01H
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 10  
+
+0027 120000      E     LCALL   ?C?CLDOPTR
+002A F500        R     MOV     ?_epl_rf_en_init?BYTE+06H,A
+002C 90000E            MOV     DPTR,#0EH
+002F 120000      E     LCALL   ?C?CLDOPTR
+0032 F500        R     MOV     ?_epl_rf_en_init?BYTE+07H,A
+0034 E4                CLR     A
+0035 F500        R     MOV     ?_epl_rf_en_init?BYTE+08H,A
+0037 7B03              MOV     R3,#03H
+0039 120000      R     LCALL   _epl_rf_en_init
+                                           ; SOURCE LINE # 192
+003C AB00        R     MOV     R3,in_cfg
+003E E500        R     MOV     A,in_cfg+02H
+0040 2402              ADD     A,#02H
+0042 F9                MOV     R1,A
+0043 E4                CLR     A
+0044 3500        R     ADDC    A,in_cfg+01H
+0046 FA                MOV     R2,A
+0047 120000      R     LCALL   _epl_rf_en_set_dst_addr
+                                           ; SOURCE LINE # 196
+004A AB00        R     MOV     R3,in_cfg
+004C E500        R     MOV     A,in_cfg+02H
+004E 2407              ADD     A,#07H
+0050 F9                MOV     R1,A
+0051 E4                CLR     A
+0052 3500        R     ADDC    A,in_cfg+01H
+0054 FA                MOV     R2,A
+0055 C002              PUSH    AR2
+0057 C001              PUSH    AR1
+0059 AA00        R     MOV     R2,in_cfg+01H
+005B A900        R     MOV     R1,in_cfg+02H
+005D 90000C            MOV     DPTR,#0CH
+0060 120000      E     LCALL   ?C?CLDOPTR
+0063 F500        R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+04H,A
+0065 90000F            MOV     DPTR,#0FH
+0068 120000      E     LCALL   ?C?CLDOPTR
+006B F500        R     MOV     ?_epl_rf_en_rcv_pipe_config?BYTE+05H,A
+006D D001              POP     AR1
+006F D002              POP     AR2
+0071 E4                CLR     A
+0072 FF                MOV     R7,A
+0073 020000      R     LJMP    _epl_rf_en_rcv_pipe_config
+             ; FUNCTION _epl_rf_en_quick_init (END)
+
+             ; FUNCTION epl_rf_en_enter_tx_mode (BEGIN)
+                                           ; SOURCE LINE # 206
+                                           ; SOURCE LINE # 207
+                                           ; SOURCE LINE # 208
+0000 C2E8              CLR     RFCE
+                                           ; SOURCE LINE # 209
+0002 E4                CLR     A
+0003 FF                MOV     R7,A
+0004 020000      E     LJMP    _hal_nrf_set_operation_mode
+             ; FUNCTION epl_rf_en_enter_tx_mode (END)
+
+             ; FUNCTION epl_rf_en_enter_rx_mode (BEGIN)
+                                           ; SOURCE LINE # 215
+                                           ; SOURCE LINE # 216
+                                           ; SOURCE LINE # 217
+0000 D2E8              SETB    RFCE
+                                           ; SOURCE LINE # 218
+0002 7F01              MOV     R7,#01H
+0004 020000      E     LJMP    _hal_nrf_set_operation_mode
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 11  
+
+             ; FUNCTION epl_rf_en_enter_rx_mode (END)
+
+             ; FUNCTION _epl_rf_en_set_dst_addr (BEGIN)
+                                           ; SOURCE LINE # 226
+;---- Variable 'in_dst_addr' assigned to Register 'R1/R2/R3' ----
+                                           ; SOURCE LINE # 227
+                                           ; SOURCE LINE # 228
+0000 7F06              MOV     R7,#06H
+0002 020000      E     LJMP    _hal_nrf_set_address
+             ; FUNCTION _epl_rf_en_set_dst_addr (END)
+
+             ; FUNCTION _epl_rf_en_send_dst (BEGIN)
+                                           ; SOURCE LINE # 238
+;---- Variable 'in_dst_addr' assigned to Register 'R1/R2/R3' ----
+                                           ; SOURCE LINE # 239
+                                           ; SOURCE LINE # 240
+0000 7F06              MOV     R7,#06H
+0002 120000      E     LCALL   _hal_nrf_set_address
+                                           ; SOURCE LINE # 241
+0005 120000      R     LCALL   epl_rf_en_enter_tx_mode
+                                           ; SOURCE LINE # 242
+0008 AB00        R     MOV     R3,in_tx_pload
+000A AA00        R     MOV     R2,in_tx_pload+01H
+000C A900        R     MOV     R1,in_tx_pload+02H
+000E AD00        R     MOV     R5,in_pload_length
+0010 120000      E     LCALL   _hal_nrf_write_tx_payload
+                                           ; SOURCE LINE # 243
+0013 750014      R     MOV     count,#014H
+0016 D2E8              SETB    RFCE
+0018         ?C0019:
+0018 AF00        R     MOV     R7,count
+001A 1500        R     DEC     count
+001C EF                MOV     A,R7
+001D 70F9              JNZ     ?C0019
+001F         ?C0023:
+001F C2E8              CLR     RFCE
+                                           ; SOURCE LINE # 244
+0021 22                RET     
+             ; FUNCTION _epl_rf_en_send_dst (END)
+
+             ; FUNCTION _epl_rf_en_send (BEGIN)
+                                           ; SOURCE LINE # 253
+0000 8B00        R     MOV     in_tx_pload,R3
+0002 8A00        R     MOV     in_tx_pload+01H,R2
+0004 8900        R     MOV     in_tx_pload+02H,R1
+0006 8D00        R     MOV     in_pload_length,R5
+                                           ; SOURCE LINE # 254
+                                           ; SOURCE LINE # 255
+0008 120000      R     LCALL   epl_rf_en_enter_tx_mode
+                                           ; SOURCE LINE # 256
+000B AB00        R     MOV     R3,in_tx_pload
+000D AA00        R     MOV     R2,in_tx_pload+01H
+000F A900        R     MOV     R1,in_tx_pload+02H
+0011 AD00        R     MOV     R5,in_pload_length
+0013 120000      E     LCALL   _hal_nrf_write_tx_payload
+                                           ; SOURCE LINE # 257
+0016 750014      R     MOV     count,#014H
+0019 D2E8              SETB    RFCE
+001B         ?C0031:
+001B AF00        R     MOV     R7,count
+001D 1500        R     DEC     count
+001F EF                MOV     A,R7
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 12  
+
+0020 70F9              JNZ     ?C0031
+0022         ?C0035:
+0022 C2E8              CLR     RFCE
+                                           ; SOURCE LINE # 258
+0024 22                RET     
+             ; FUNCTION _epl_rf_en_send (END)
+
+             ; FUNCTION epl_rf_en_rx_pload_is_empty (BEGIN)
+                                           ; SOURCE LINE # 266
+                                           ; SOURCE LINE # 267
+                                           ; SOURCE LINE # 269
+0000 120000      E     LCALL   hal_nrf_get_rx_fifo_status
+;---- Variable 'rx_fifo_status' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 270
+0003 BF0103            CJNE    R7,#01H,?C0037
+                                           ; SOURCE LINE # 271
+                                           ; SOURCE LINE # 272
+0006 7F01              MOV     R7,#01H
+0008 22                RET     
+                                           ; SOURCE LINE # 273
+0009         ?C0037:
+                                           ; SOURCE LINE # 275
+                                           ; SOURCE LINE # 276
+0009 7F00              MOV     R7,#00H
+                                           ; SOURCE LINE # 277
+                                           ; SOURCE LINE # 278
+000B         ?C0038:
+000B 22                RET     
+             ; FUNCTION epl_rf_en_rx_pload_is_empty (END)
+
+             ; FUNCTION _epl_rf_en_read_rx_pload (BEGIN)
+                                           ; SOURCE LINE # 285
+;---- Variable 'out_rx_pload' assigned to Register 'R1/R2/R3' ----
+                                           ; SOURCE LINE # 286
+                                           ; SOURCE LINE # 287
+0000 020000      E     LJMP    _hal_nrf_read_rx_payload
+             ; FUNCTION _epl_rf_en_read_rx_pload (END)
+
+             ; FUNCTION _epl_rf_en_wait_rcv_msg (BEGIN)
+                                           ; SOURCE LINE # 297
+0000 8B00        R     MOV     out_rx_pload,R3
+0002 8A00        R     MOV     out_rx_pload+01H,R2
+0004 8900        R     MOV     out_rx_pload+02H,R1
+                                           ; SOURCE LINE # 298
+                                           ; SOURCE LINE # 299
+0006 120000      R     LCALL   epl_rf_en_enter_rx_mode
+0009         ?C0041:
+                                           ; SOURCE LINE # 300
+0009 120000      R     LCALL   epl_rf_en_rx_pload_is_empty
+000C EF                MOV     A,R7
+000D 70FA              JNZ     ?C0041
+000F         ?C0042:
+                                           ; SOURCE LINE # 301
+000F AB00        R     MOV     R3,out_rx_pload
+0011 AA00        R     MOV     R2,out_rx_pload+01H
+0013 A900        R     MOV     R1,out_rx_pload+02H
+0015 020000      E     LJMP    _hal_nrf_read_rx_payload
+             ; FUNCTION _epl_rf_en_wait_rcv_msg (END)
+
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 13  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+epl_lu1_rf_en_config . . . . . . . . .  * TAG *  -----  STRUCT   -----  19
+  channel. . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0000H  1
+  addr_width . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0001H  1
+  my_tx_dst_addr . . . . . . . . . . .  MEMBER   -----  ARRAY    0002H  5
+  my_prx_addr. . . . . . . . . . . . .  MEMBER   -----  ARRAY    0007H  5
+  data_length. . . . . . . . . . . . .  MEMBER   -----  U_CHAR   000CH  1
+  datarate . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   000DH  1
+  crc_mode . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   000EH  1
+  auto_ack . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   000FH  1
+  auto_retr. . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0010H  1
+  auto_retr_delay. . . . . . . . . . .  MEMBER   -----  U_INT    0011H  2
+hal_nrf_address_t. . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+HAL_NRF_CRC_16BIT. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+uint16_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+TB80 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+SPISSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BEH  1
+T2I0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+CCH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C3H  1
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+T2I1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+CCPDATO. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DFH  1
+CCH2 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C5H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+RF_EN_CRC_OFF. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+HAL_NRF_0DBM . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+CCH3 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C7H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+hal_nrf_address_width_t. . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+SM20 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+CCL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C2H  1
+_hal_nrf_set_rf_channel. . . . . . . .  EXTERN   CODE   PROC     -----  -----
+_hal_nrf_open_pipe . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+CCL2 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C4H  1
+epl_rf_en_enter_rx_mode. . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+BD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DFH  1
+RFSPI. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+T2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00CCH  2
+CCL3 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C6H  1
+SPISRDSZ . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B7H  1
+int32_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  LONG     -----  4
+epl_rf_en_enter_tx_mode. . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+HAL_NRF_6DBM . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+int16_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  INT      -----  2
+T2R0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+_epl_rf_en_set_dst_addr. . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  in_dst_addr. . . . . . . . . . . . .  * REG *  DATA   PTR      0001H  3
+T2R1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+_hal_nrf_write_tx_payload. . . . . . .  EXTERN   CODE   PROC     -----  -----
+hal_nrf_get_clear_irq_flags. . . . . .  EXTERN   CODE   PROC     -----  -----
+IEN0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+IEN1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+WUCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A5H  1
+DPH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0085H  1
+HAL_NRF_PWR_DOWN . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 14  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+COMPCON. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DBH  1
+CLKCTRL. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A3H  1
+DPL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0084H  1
+HAL_NRF_CRC_OFF. . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RF_EN_AUTO_ACK_OFF . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+I2FR . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+WUPIN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+I3FR . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+SPIMDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FFH  1
+EXF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C7H  1
+REN0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+T2CM . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+RF_EN_SPI_CLK_RATE_1_OVER_32 . . . . .  E_CONST  -----  U_CHAR   -----  1
+RF . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+RF_EN_SPI_CLK_RATE_1_OVER_16 . . . . .  E_CONST  -----  U_CHAR   -----  1
+WUIRQ. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+SPIRDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E7H  1
+CCEN . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C1H  1
+W2CON0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E2H  1
+SPISDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BFH  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+W2CON1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E1H  1
+RF_EN_SPI_CLK_RATE_1_OVER_64 . . . . .  E_CONST  -----  U_CHAR   -----  1
+_epl_rf_en_wait_rcv_msg. . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  out_rx_pload . . . . . . . . . . . .  AUTO     DATA   PTR      0000H  3
+HAL_NRF_RX_DR. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+HAL_NRF_ACK_PLOAD. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+FDCR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FBH  1
+RFCE . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E8H  1
+CRCH . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+HAL_NRF_TX_DS. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+_epl_rf_en_easy_start_rx . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  channel. . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  pload_len. . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0001H  1
+  auto_ack . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0002H  1
+  my_rx_dst_addr . . . . . . . . . . .  AUTO     DATA   ARRAY    0003H  5
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+_epl_rf_en_easy_start_tx . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  channel. . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  auto_retr. . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0001H  1
+  delay. . . . . . . . . . . . . . . .  AUTO     DATA   U_INT    0002H  2
+  my_tx_dst_addr . . . . . . . . . . .  AUTO     DATA   ARRAY    0004H  5
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+CRCL . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+CLKLFCTRL. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ADH  1
+_hal_nrf_set_power_mode. . . . . . . .  EXTERN   CODE   PROC     -----  -----
+epl_rf_en_crc_mode_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+RSTREAS. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B1H  1
+HAL_NRF_TX . . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+T2PS . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+_hal_nrf_set_rx_payload_width. . . . .  EXTERN   CODE   PROC     -----  -----
+FPCR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F9H  1
+MISC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+PWMDC0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A1H  1
+RTC2CMP0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B4H  1
+PWMDC1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A2H  1
+_hal_nrf_set_crc_mode. . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 15  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+RTC2CMP1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B5H  1
+P00. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
+S0RELH . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BAH  1
+epl_rf_en_datarate_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+P10. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+P01. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+epl_rf_en_auto_ack_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+P20. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+P11. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+P02. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
+HAL_NRF_AW_3BYTES. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P30. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+P21. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+P12. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
+P03. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
+SPIF . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C2H  1
+RDIS . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FAH  1
+_hal_nrf_set_output_power. . . . . . .  EXTERN   CODE   PROC     -----  -----
+HAL_NRF_AW_4BYTES. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P31. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+P22. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
+P13. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
+P04. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
+S0RELL . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AAH  1
+HAL_NRF_AW_5BYTES. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+HAL_NRF_12DBM. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P32. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+P23. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
+P14. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
+P05. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0085H  1
+W2SADR . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D9H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+P33. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+P24. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A4H  1
+P15. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0095H  1
+P06. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0086H  1
+P34. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P25. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+P16. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0096H  1
+P07. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0087H  1
+CC1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C2H  2
+P35. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+P26. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+P17. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0097H  1
+CC2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C4H  2
+_hal_nrf_set_datarate. . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+P36. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+P27. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+CC3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C6H  2
+P37. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+HAL_NRF_18DBM. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RFCKEN . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EAH  1
+WPEN . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F8H  1
+CCPDATIA . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DDH  1
+_epl_rf_en_send. . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 16  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+  in_tx_pload. . . . . . . . . . . . .  AUTO     DATA   PTR      0000H  3
+  in_pload_length. . . . . . . . . . .  AUTO     DATA   U_CHAR   0003H  1
+  count. . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0004H  1
+CCPDATIB . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DEH  1
+RF_EN_CRC_8BIT . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+RDYN . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FCH  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+epl_rf_en_rx_pload_is_empty. . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  rx_fifo_status . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+WUOPC0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CFH  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+MD0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E9H  1
+WUOPC1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CEH  1
+MEMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A7H  1
+MD1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EAH  1
+RNGDAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D7H  1
+_?ix1000 . . . . . . . . . . . . . . .  STATIC   CODE   ARRAY    0000H  5
+MD2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EBH  1
+_?ix1001 . . . . . . . . . . . . . . .  STATIC   CODE   ARRAY    0005H  5
+MD3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ECH  1
+MD4. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EDH  1
+WDSV . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AFH  1
+MD5. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EEH  1
+_epl_rf_en_init. . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  in_channel . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  in_datarate. . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0001H  1
+  in_output_power. . . . . . . . . . .  AUTO     DATA   CHAR     0002H  1
+  in_auto_retr . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0003H  1
+  in_auto_retr_delay . . . . . . . . .  AUTO     DATA   U_INT    0004H  2
+  in_addr_width. . . . . . . . . . . .  AUTO     DATA   CHAR     0006H  1
+  in_crc_mode. . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0007H  1
+  in_rf_int. . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0008H  1
+HAL_NRF_250KBPS. . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+POFCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DCH  1
+_epl_rf_en_quick_init. . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  in_cfg . . . . . . . . . . . . . . .  AUTO     DATA   PTR      0000H  3
+ES0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+_epl_rf_en_rcv_pipe_config . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  in_pipe_num. . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  in_pipe_rcv_addr . . . . . . . . . .  AUTO     DATA   PTR      0001H  3
+  in_pipe_pload_length . . . . . . . .  AUTO     DATA   U_CHAR   0004H  1
+  in_auto_ack. . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0005H  1
+_hal_nrf_set_auto_retr . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+IP0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+IP1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B9H  1
+ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+RI0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+RFSPIF . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C0H  1
+TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C6H  1
+SPIMCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FCH  1
+RNGCTL . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D6H  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 17  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+_hal_nrf_set_operation_mode. . . . . .  EXTERN   CODE   PROC     -----  -----
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+TI0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+SPIMCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FDH  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+TH2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+OPMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AEH  1
+HAL_NRF_CRC_8BIT . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+uint8_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+RF_EN_1MBPS. . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+SPIRCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E4H  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+RF_EN_2MBPS. . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+SPIRCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E5H  1
+TL2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+SPISCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BCH  1
+SPISCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BDH  1
+RF_EN_AUTO_ACK_ON. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+hal_nrf_crc_mode_t . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+PWMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B2H  1
+HAL_NRF_ALL. . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+hal_nrf_irq_source_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+_hal_nrf_set_address . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+CRC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00CAH  2
+int8_t . . . . . . . . . . . . . . . .  TYPEDEF  -----  CHAR     -----  1
+hal_nrf_output_power_t . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+INTEXP . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A6H  1
+WUPINF . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C3H  1
+FCR. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FAH  1
+ADCCON1. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D3H  1
+hal_nrf_get_rx_fifo_status . . . . . .  EXTERN   CODE   PROC     -----  -----
+_hal_nrf_set_address_width . . . . . .  EXTERN   CODE   PROC     -----  -----
+ADCCON2. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D2H  1
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+HAL_NRF_PIPE0. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+ADCCON3. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D1H  1
+epl_rf_en_spi_clk_rate_t . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+HAL_NRF_PIPE1. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RFF. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C1H  1
+HAL_NRF_PIPE2. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+hal_nrf_datarate_t . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+HAL_NRF_PIPE3. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P0DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0093H  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+HAL_NRF_PIPE4. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 18  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P0CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009EH  1
+S0BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+P1DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0094H  1
+HAL_NRF_PIPE5. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+HAL_NRF_1MBPS. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P1CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009FH  1
+P2DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0095H  1
+HAL_NRF_2MBPS. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BFH  1
+W2DAT. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DAH  1
+P2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0097H  1
+P3DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0096H  1
+RF_EN_SPI_CLK_RATE_1_OVER_2. . . . . .  E_CONST  -----  U_CHAR   -----  1
+PWRDWN . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A4H  1
+S0CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+P3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008FH  1
+RTC2CPT00. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B6H  1
+RF_EN_SPI_CLK_RATE_1_OVER_4. . . . . .  E_CONST  -----  U_CHAR   -----  1
+ADCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D8H  1
+RTC2CPT10. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
+RTC2CPT01. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ABH  1
+T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0092H  1
+_hal_nrf_close_pipe. . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+_epl_rf_en_send_dst. . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  in_dst_addr. . . . . . . . . . . . .  AUTO     DATA   PTR      0001H  3
+  in_tx_pload. . . . . . . . . . . . .  AUTO     DATA   PTR      0003H  3
+  in_pload_length. . . . . . . . . . .  AUTO     DATA   U_CHAR   0006H  1
+  count. . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0007H  1
+RF_EN_SPI_CLK_RATE_1_OVER_8. . . . . .  E_CONST  -----  U_CHAR   -----  1
+WEN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FDH  1
+hal_nrf_pload_command_t. . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+HAL_NRF_MAX_RT . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+FSR. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F8H  1
+ADCDATH. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D4H  1
+MPAGE. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
+SPI. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+RF_EN_CRC_16BIT. . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+_Bool. . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+_epl_rf_en_read_rx_pload . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  out_rx_pload . . . . . . . . . . . .  * REG *  DATA   PTR      0001H  3
+RDEND. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F9H  1
+ADCDATL. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D5H  1
+INFEN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FBH  1
+MCDIS. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FFH  1
+WUF. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C5H  1
+hal_nrf_operation_mode_t . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+MISCF. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C4H  1
+ARCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EFH  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+hal_nrf_pwr_mode_t . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+STP. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FEH  1
+_hal_nrf_read_rx_payload . . . . . . .  EXTERN   CODE   PROC     -----  -----
+HAL_NRF_PRX. . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+SPIMSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FEH  1
+RFCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E8H  1
+HAL_NRF_RX_PLOAD . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_RF_EN                                              06/03/2010 14:40:49 PAGE 19  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+HAL_NRF_PTX. . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+HAL_NRF_TX_PLOAD . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+uint32_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_LONG   -----  4
+RB80 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+IRCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C0H  1
+HAL_NRF_PWR_UP . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RFCSN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E9H  1
+SPIRSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E6H  1
+RTC2CON. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B3H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    503    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      51
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

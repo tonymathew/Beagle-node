@@ -1,0 +1,480 @@
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 1   
+
+
+C51 COMPILER V8.16, COMPILATION OF MODULE ___LE1_LIB_EPL_EPL_TEMP_TC77
+OBJECT MODULE PLACED IN ../LE1/lib/EPL/epl_temp_tc77.OBJ
+COMPILER INVOKED BY: C:\KEIL\C51\BIN\C51.exe ../LE1/lib/EPL/epl_temp_tc77.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OM
+                    -F2 WL(0) PREPRINT
+
+line level    source
+
+   1          /* Temperature TC77 sensor driver using external SPI implementation
+   2           *
+   3           * Brian Yang <asdyaya@gmail.com> 
+   4           * 2009/09/12
+   5           */
+   6          
+   7          #include <EPL/epl_temp_tc77.h>
+   8          #include <HAL/hal_spi.h>
+   9          #include <Nordic/reg24le1.h>
+  10          #include <EPL/epl_utils.h>
+  11          
+  12          static char temp_spimcon0;
+  13          static char org_spimcon0;
+  14          static void epl_temp_tc77_SPI_to_temp(void);
+  15          static void epl_temp_tc77_SPI_to_org(void);
+  16          
+  17          void epl_temp_tc77_init(void)
+  18          {
+  19   1              org_spimcon0 = SPIMCON0;
+  20   1              /* SPI configurations */
+  21   1              hal_spi_master_init(SPI_CLK_DIV4, HAL_SPI_MODE_3, HAL_SPI_MSB_LSB);
+  22   1              temp_spimcon0 = SPIMCON0;
+  23   1              
+  24   1              /* Configure SCSN as output port. */
+  25   1              TEMP_CSN_DIR_INIT();
+  26   1                      
+  27   1              /* Configure MMISO as input port. */
+  28   1              TEMP_DATA_DIR_INIT();
+  29   1              
+  30   1              /* Restore the original SPI settings */
+  31   1              SPIMCON0 = org_spimcon0;
+  32   1              
+  33   1              /* Wait to TC77 initialize */
+  34   1              epl_mdelay(300);
+  35   1      }
+  36          
+  37          
+  38          int epl_temp_tc77_read(void)
+  39          {
+  40   1              int read_data;
+  41   1              
+  42   1              epl_temp_tc77_SPI_to_temp();
+  43   1              TEMP_CSN = 0;
+  44   1              read_data = (hal_spi_master_read_write(0) << 8);
+  45   1              read_data += hal_spi_master_read_write(0);
+  46   1              TEMP_CSN = 1;
+  47   1              epl_temp_tc77_SPI_to_org();
+  48   1              
+  49   1              /* Check whether the completion of data convertion */
+  50   1              if(read_data & 0x0004) {
+  51   2                      /* Convert to centigrade degrees */
+  52   2                      return read_data >> 7;
+  53   2              }
+  54   1              else {
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 2   
+
+  55   2                      return DATA_ERROR;
+  56   2              }
+  57   1      }
+  58          
+  59          static void epl_temp_tc77_SPI_to_temp(void)
+  60          {
+  61   1              org_spimcon0 = SPIMCON0;
+  62   1              SPIMCON0 = temp_spimcon0;
+  63   1      }
+  64          static void epl_temp_tc77_SPI_to_org(void)
+  65          {
+  66   1              SPIMCON0 = org_spimcon0;
+  67   1      }
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION epl_temp_tc77_init (BEGIN)
+                                           ; SOURCE LINE # 17
+                                           ; SOURCE LINE # 18
+                                           ; SOURCE LINE # 19
+0000 85FC00      R     MOV     org_spimcon0,SPIMCON0
+                                           ; SOURCE LINE # 21
+0003 7B01              MOV     R3,#01H
+0005 7D03              MOV     R5,#03H
+0007 7F01              MOV     R7,#01H
+0009 120000      E     LCALL   _hal_spi_master_init
+                                           ; SOURCE LINE # 22
+000C 85FC00      R     MOV     temp_spimcon0,SPIMCON0
+                                           ; SOURCE LINE # 25
+000F 5394FD            ANL     P1DIR,#0FDH
+                                           ; SOURCE LINE # 28
+0012 439440            ORL     P1DIR,#040H
+                                           ; SOURCE LINE # 31
+0015 8500FC      R     MOV     SPIMCON0,org_spimcon0
+                                           ; SOURCE LINE # 34
+0018 7F2C              MOV     R7,#02CH
+001A 7E01              MOV     R6,#01H
+001C 020000      E     LJMP    _epl_mdelay
+             ; FUNCTION epl_temp_tc77_init (END)
+
+             ; FUNCTION epl_temp_tc77_read (BEGIN)
+                                           ; SOURCE LINE # 38
+                                           ; SOURCE LINE # 39
+                                           ; SOURCE LINE # 42
+0000 120000      R     LCALL   epl_temp_tc77_SPI_to_temp
+                                           ; SOURCE LINE # 43
+0003 C291              CLR     P11
+                                           ; SOURCE LINE # 44
+0005 E4                CLR     A
+0006 FF                MOV     R7,A
+0007 120000      E     LCALL   _hal_spi_master_read_write
+000A EF                MOV     A,R7
+000B 750000      R     MOV     read_data+01H,#00H
+000E F500        R     MOV     read_data,A
+                                           ; SOURCE LINE # 45
+0010 E4                CLR     A
+0011 FF                MOV     R7,A
+0012 120000      E     LCALL   _hal_spi_master_read_write
+0015 EF                MOV     A,R7
+0016 2500        R     ADD     A,read_data+01H
+0018 F500        R     MOV     read_data+01H,A
+001A E4                CLR     A
+001B 3500        R     ADDC    A,read_data
+001D F500        R     MOV     read_data,A
+                                           ; SOURCE LINE # 46
+001F D291              SETB    P11
+                                           ; SOURCE LINE # 47
+0021 120000      R     LCALL   epl_temp_tc77_SPI_to_org
+                                           ; SOURCE LINE # 50
+0024 E500        R     MOV     A,read_data+01H
+0026 30E20E            JNB     ACC.2,?C0002
+                                           ; SOURCE LINE # 52
+0029 AE00        R     MOV     R6,read_data
+002B 7807              MOV     R0,#07H
+002D         ?C0007:
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 4   
+
+002D CE                XCH     A,R6
+002E A2E7              MOV     C,ACC.7
+0030 13                RRC     A
+0031 CE                XCH     A,R6
+0032 13                RRC     A
+0033 D8F8              DJNZ    R0,?C0007
+0035 FF                MOV     R7,A
+0036 22                RET     
+                                           ; SOURCE LINE # 53
+0037         ?C0002:
+                                           ; SOURCE LINE # 54
+                                           ; SOURCE LINE # 55
+0037 7EFF              MOV     R6,#0FFH
+0039 7FFF              MOV     R7,#0FFH
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 57
+003B         ?C0003:
+003B 22                RET     
+             ; FUNCTION epl_temp_tc77_read (END)
+
+             ; FUNCTION epl_temp_tc77_SPI_to_temp (BEGIN)
+                                           ; SOURCE LINE # 59
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
+0000 85FC00      R     MOV     org_spimcon0,SPIMCON0
+                                           ; SOURCE LINE # 62
+0003 8500FC      R     MOV     SPIMCON0,temp_spimcon0
+                                           ; SOURCE LINE # 63
+0006 22                RET     
+             ; FUNCTION epl_temp_tc77_SPI_to_temp (END)
+
+             ; FUNCTION epl_temp_tc77_SPI_to_org (BEGIN)
+                                           ; SOURCE LINE # 64
+                                           ; SOURCE LINE # 65
+                                           ; SOURCE LINE # 66
+0000 8500FC      R     MOV     SPIMCON0,org_spimcon0
+                                           ; SOURCE LINE # 67
+0003 22                RET     
+             ; FUNCTION epl_temp_tc77_SPI_to_org (END)
+
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 5   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+uint16_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+TB80 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+SPISSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BEH  1
+T2I0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+CCH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C3H  1
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+T2I1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+CCPDATO. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DFH  1
+CCH2 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C5H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+epl_temp_tc77_read . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  read_data. . . . . . . . . . . . . .  AUTO     DATA   INT      0000H  2
+CCH3 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C7H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+SM20 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+CCL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C2H  1
+CCL2 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C4H  1
+BD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00DFH  1
+RFSPI. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+T2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00CCH  2
+CCL3 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C6H  1
+SPISRDSZ . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B7H  1
+int32_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  LONG     -----  4
+SPI_CLK_DIV128 . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+int16_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  INT      -----  2
+T2R0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+T2R1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+IEN0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+IEN1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+WUCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A5H  1
+DPH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0085H  1
+COMPCON. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DBH  1
+CLKCTRL. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A3H  1
+DPL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0084H  1
+I2FR . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+WUPIN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+I3FR . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+SPIMDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FFH  1
+EXF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C7H  1
+REN0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+T2CM . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+RF . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+epl_temp_tc77_init . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+WUIRQ. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+SPIRDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E7H  1
+CCEN . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C1H  1
+W2CON0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E2H  1
+SPISDAT. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BFH  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+W2CON1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E1H  1
+SPI_CLK_DIV2 . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+FDCR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FBH  1
+SPI_CLK_DIV4 . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RFCE . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E8H  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 6   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+CRCH . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+_epl_mdelay. . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+SPI_CLK_DIV8 . . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+CRCL . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+CLKLFCTRL. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ADH  1
+RSTREAS. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B1H  1
+HAL_SPI_MSB_LSB. . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+HAL_SPI_LSB_MSB. . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+T2PS . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+FPCR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F9H  1
+MISC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+PWMDC0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A1H  1
+epl_temp_tc77_SPI_to_temp. . . . . . .  STATIC   CODE   PROC     0000H  -----
+RTC2CMP0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B4H  1
+PWMDC1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A2H  1
+RTC2CMP1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B5H  1
+P00. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
+S0RELH . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BAH  1
+P10. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+P01. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+P20. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+P11. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+P02. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
+P30. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+P21. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+P12. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
+P03. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
+SPIF . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C2H  1
+RDIS . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FAH  1
+P31. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+P22. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
+P13. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
+P04. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
+S0RELL . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AAH  1
+P32. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+P23. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
+P14. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
+P05. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0085H  1
+W2SADR . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D9H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+P33. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+P24. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A4H  1
+P15. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0095H  1
+P06. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0086H  1
+P34. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P25. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+P16. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0096H  1
+P07. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0087H  1
+CC1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C2H  2
+P35. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+P26. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+P17. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0097H  1
+CC2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C4H  2
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 7   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P36. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+P27. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+CC3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00C6H  2
+HAL_SPI_MODE_0 . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+P37. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+HAL_SPI_MODE_1 . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RFCKEN . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EAH  1
+WPEN . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F8H  1
+HAL_SPI_MODE_2 . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+CCPDATIA . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DDH  1
+HAL_SPI_MODE_3 . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+CCPDATIB . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DEH  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+RDYN . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FCH  1
+epl_temp_tc77_SPI_to_org . . . . . . .  STATIC   CODE   PROC     0000H  -----
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+WUOPC0 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CFH  1
+hal_spi_mode_t . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+MD0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E9H  1
+WUOPC1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CEH  1
+MEMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A7H  1
+hal_spi_clkdivider_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+MD1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EAH  1
+RNGDAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D7H  1
+MD2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EBH  1
+MD3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ECH  1
+MD4. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EDH  1
+WDSV . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AFH  1
+MD5. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EEH  1
+temp_spimcon0. . . . . . . . . . . . .  STATIC   DATA   CHAR     0000H  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+POFCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DCH  1
+ES0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+IP0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+IP1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B9H  1
+ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+RI0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+RFSPIF . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C0H  1
+TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C6H  1
+SPIMCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FCH  1
+RNGCTL . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D6H  1
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+TI0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+SPIMCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FDH  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+TH2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+OPMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AEH  1
+uint8_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 8   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+hal_spi_byte_order_t . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+SPIRCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E4H  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+SPI_CLK_DIV32. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+SPIRCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E5H  1
+TL2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+SPISCON0 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BCH  1
+SPISCON1 . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BDH  1
+SPI_CLK_DIV16. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+PWMCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B2H  1
+SPI_CLK_DIV64. . . . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+org_spimcon0 . . . . . . . . . . . . .  STATIC   DATA   CHAR     0001H  1
+CRC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_INT    00CAH  2
+int8_t . . . . . . . . . . . . . . . .  TYPEDEF  -----  CHAR     -----  1
+INTEXP . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A6H  1
+WUPINF . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C3H  1
+FCR. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FAH  1
+ADCCON1. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D3H  1
+ADCCON2. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D2H  1
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+ADCCON3. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D1H  1
+RFF. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C1H  1
+P0DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0093H  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+P0CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009EH  1
+S0BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+P1DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0094H  1
+P1CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009FH  1
+P2DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0095H  1
+_hal_spi_master_read_write . . . . . .  EXTERN   CODE   PROC     -----  -----
+EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BFH  1
+W2DAT. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DAH  1
+P2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0097H  1
+P3DIR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0096H  1
+PWRDWN . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A4H  1
+S0CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+P3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008FH  1
+RTC2CPT00. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B6H  1
+ADCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D8H  1
+RTC2CPT10. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
+RTC2CPT01. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ABH  1
+T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0092H  1
+WEN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FDH  1
+FSR. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F8H  1
+ADCDATH. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D4H  1
+MPAGE. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
+_hal_spi_master_init . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+SPI. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+C51 COMPILER V8.16   ___LE1_LIB_EPL_EPL_TEMP_TC77                                          06/03/2010 14:40:50 PAGE 9   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+_Bool. . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+RDEND. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F9H  1
+ADCDATL. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D5H  1
+INFEN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FBH  1
+MCDIS. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FFH  1
+WUF. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C5H  1
+MISCF. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C4H  1
+ARCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EFH  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+STP. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FEH  1
+SPIMSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FEH  1
+RFCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E8H  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+uint32_t . . . . . . . . . . . . . . .  TYPEDEF  -----  U_LONG   -----  4
+RB80 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+IRCON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C0H  1
+RFCSN. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E9H  1
+SPIRSTAT . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E6H  1
+RTC2CON. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B3H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

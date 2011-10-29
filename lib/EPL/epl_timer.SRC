@@ -1,0 +1,432 @@
+; ../LE1/lib/EPL/epl_timer.SRC generated from: ../LE1/lib/EPL/epl_timer.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/EPL/epl_timer.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_EPL_EPL_TIMER
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?epl_timer_start?___LE1_LIB_EPL_EPL_TIMER SEGMENT CODE 
+?PR?_epl_timer_init?___LE1_LIB_EPL_EPL_TIMER SEGMENT CODE 
+?PR?timer_interrupt?___LE1_LIB_EPL_EPL_TIMER SEGMENT CODE 
+?PR?epl_timer_get_data?___LE1_LIB_EPL_EPL_TIMER SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?DT?___LE1_LIB_EPL_EPL_TIMER             SEGMENT DATA 
+	EXTRN	CODE (?C?UIDIV)
+	EXTRN	CODE (?C?IMUL)
+	PUBLIC	epl_timer_get_data
+	PUBLIC	timer_interrupt
+	PUBLIC	_epl_timer_init
+	PUBLIC	epl_timer_start
+
+	RSEG  ?DT?___LE1_LIB_EPL_EPL_TIMER
+   timer_reload:   DS   2
+     timer_data:   DS   2
+     timer_unit:   DS   1
+
+	RSEG  ?C_INITSEG
+	DB	002H
+	DB	timer_reload
+	DW	063C0H
+
+	DB	002H
+	DB	timer_data
+	DW	00000H
+
+; #include <EPL/epl_timer.h>
+; 
+; /*
+;  * 12 * 65536 tick 是一次 timer interrupt 最大值
+;  * 一次 tick 為 1 / 16 * 1000000
+;  * 12 * 1 / 16 / 1000000 * 4000 = 0.003 s = 3ms
+;  * counter = 40000 => 30ms
+;  * 
+;  * 注意讀出來的值要先乘上時間單位才是真正的值 
+;  * ex : 30ms 的counter 讀出來是500
+;  * 		500 * 30 (ms) / 1000 = 15(s)
+;  * 
+;  * 因為timer_data為unsigned int
+;  * 所以最多可計 65535 * 30 /1000/60 = 32.xxx (minute)
+;  */
+; 
+; static unsigned int timer_reload = 25536;
+; static unsigned int timer_data = 0;
+; static epl_timer_period_t timer_unit;
+; 
+; void epl_timer_start()
+
+	RSEG  ?PR?epl_timer_start?___LE1_LIB_EPL_EPL_TIMER
+epl_timer_start:
+	USING	0
+			; SOURCE LINE # 21
+; {
+			; SOURCE LINE # 22
+; 	TR0 = 1;
+			; SOURCE LINE # 23
+	SETB 	TR0
+; 	EA = 1;
+			; SOURCE LINE # 24
+	SETB 	EA
+; }
+			; SOURCE LINE # 25
+	RET  	
+; END OF epl_timer_start
+
+; 
+; void epl_timer_init(epl_timer_period_t tp)
+
+	RSEG  ?PR?_epl_timer_init?___LE1_LIB_EPL_EPL_TIMER
+_epl_timer_init:
+	USING	0
+			; SOURCE LINE # 27
+;---- Variable 'tp?140' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 28
+; 	timer_unit = tp;
+			; SOURCE LINE # 29
+	MOV  	timer_unit,R7
+; 	
+; 	timer_data = 0;
+			; SOURCE LINE # 31
+	CLR  	A
+	MOV  	timer_data,A
+	MOV  	timer_data+01H,A
+; 	
+; 	TL0 = timer_reload & 0xFF;
+			; SOURCE LINE # 33
+	MOV  	A,timer_reload+01H
+	MOV  	TL0,A
+; 	TH0 = (timer_reload >> 8) & 0xFF;
+			; SOURCE LINE # 34
+	MOV  	A,timer_reload
+	MOV  	TH0,A
+; 
+; 	TMOD |= 0x01;                     // Timer0: Mode 1, 16-bit timer
+			; SOURCE LINE # 36
+	ORL  	TMOD,#01H
+; 	TF0 = 0;                          // Timer0: interrupt flag clear
+			; SOURCE LINE # 37
+	CLR  	TF0
+; 	ET0 = 1;                          // Timer0: interrupt enable
+			; SOURCE LINE # 38
+	SETB 	ET0
+; 	TR0 = 0;                          // Timer0: stop timer
+			; SOURCE LINE # 39
+	CLR  	TR0
+; }
+			; SOURCE LINE # 40
+	RET  	
+; END OF _epl_timer_init
+
+CSEG	AT	0000BH
+	LJMP	timer_interrupt
+
+; 
+; void timer_interrupt(void) interrupt 1
+
+	RSEG  ?PR?timer_interrupt?___LE1_LIB_EPL_EPL_TIMER
+	USING	0
+timer_interrupt:
+	PUSH 	ACC
+	USING	0
+			; SOURCE LINE # 42
+; {
+; 	TL0 = timer_reload & 0xFF;
+			; SOURCE LINE # 44
+	MOV  	A,timer_reload+01H
+	MOV  	TL0,A
+; 	TH0 = (timer_reload >> 8) & 0xFF;
+			; SOURCE LINE # 45
+	MOV  	A,timer_reload
+	MOV  	TH0,A
+; 	
+; 	timer_data++;
+			; SOURCE LINE # 47
+	INC  	timer_data+01H
+	MOV  	A,timer_data+01H
+	JNZ  	?C0011
+	INC  	timer_data
+?C0011:
+; 
+; 	TR0 = 1;                          // start timer0
+			; SOURCE LINE # 49
+	SETB 	TR0
+; 	return;
+; }
+			; SOURCE LINE # 51
+?C0003:
+	POP  	ACC
+	RETI 	
+; END OF timer_interrupt
+
+; 
+; unsigned int epl_timer_get_data(){
+
+	RSEG  ?PR?epl_timer_get_data?___LE1_LIB_EPL_EPL_TIMER
+epl_timer_get_data:
+	USING	0
+			; SOURCE LINE # 53
+; 	if(timer_unit == TIMER_30MS)
+			; SOURCE LINE # 54
+	MOV  	A,timer_unit
+	JNZ  	?C0004
+; 		return timer_data;
+			; SOURCE LINE # 55
+	MOV  	R6,timer_data
+	MOV  	R7,timer_data+01H
+	RET  	
+?C0004:
+; 	else if(timer_unit == TIMER_300MS)
+			; SOURCE LINE # 56
+	MOV  	A,timer_unit
+	CJNE 	A,#01H,?C0007
+; 		return timer_data / 10;
+			; SOURCE LINE # 57
+	MOV  	R6,timer_data
+	MOV  	R7,timer_data+01H
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	SJMP 	?C0012
+?C0007:
+; 	else if(timer_unit == TIMER_1S)
+			; SOURCE LINE # 58
+	MOV  	A,timer_unit
+	CJNE 	A,#02H,?C0009
+; 		return timer_data * 3 / 100;
+			; SOURCE LINE # 59
+	MOV  	R6,timer_data
+	MOV  	R7,timer_data+01H
+	MOV  	R4,#00H
+	MOV  	R5,#03H
+	LCALL	?C?IMUL
+	MOV  	R5,#064H
+?C0012:
+	LJMP 	?C?UIDIV
+?C0009:
+; 	else
+; 		return 0;
+			; SOURCE LINE # 61
+	CLR  	A
+	MOV  	R6,A
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 62
+?C0005:
+	RET  	
+; END OF epl_timer_get_data
+
+	END

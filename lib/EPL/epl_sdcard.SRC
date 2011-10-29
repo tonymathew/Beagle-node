@@ -1,0 +1,1528 @@
+; ../LE1/lib/EPL/epl_sdcard.SRC generated from: ../LE1/lib/EPL/epl_sdcard.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/EPL/epl_sdcard.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_EPL_EPL_SDCARD
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?_epl_sdcard_write_char?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?PR?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?DT?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+?PR?_epl_sdcard_setRsector?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?PR?_epl_sdcard_setWsector?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?DT?___LE1_LIB_EPL_EPL_SDCARD            SEGMENT DATA 
+	EXTRN	CODE (_hal_spi_master_read_write)
+	EXTRN	CODE (_hal_spi_master_init)
+	EXTRN	CODE (?C?LMUL)
+	EXTRN	CODE (?C?ULSHR)
+	EXTRN	CODE (?C?CLDPTR)
+	PUBLIC	wcount
+	PUBLIC	rcount
+	PUBLIC	wsector
+	PUBLIC	rsector
+	PUBLIC	_epl_sdcard_setWsector
+	PUBLIC	_epl_sdcard_setRsector
+	PUBLIC	epl_sdcard_end_read
+	PUBLIC	epl_sdcard_read
+	PUBLIC	epl_sdcard_begin_read
+	PUBLIC	epl_sdcard_end_write
+	PUBLIC	_epl_sdcard_write_str
+	PUBLIC	_epl_sdcard_write_char
+	PUBLIC	epl_sdcard_begin_write
+	PUBLIC	epl_sdcard_open
+	PUBLIC	_epl_sdcard_setBlockLength
+	PUBLIC	epl_sdcard_checkBusy
+	PUBLIC	_epl_sdcard_getXXResponse
+	PUBLIC	epl_sdcard_getResponse
+	PUBLIC	epl_sdcard_goIdle
+	PUBLIC	epl_sdcard_init
+	PUBLIC	?_epl_sdcard_command?BYTE
+	PUBLIC	_epl_sdcard_command
+
+	RSEG  ?DT?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_begin_read?BYTE:
+      Addr?1264:   DS   4
+	ORG  4
+     hAddr?1265:   DS   2
+
+	RSEG  ?DT?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_begin_write?BYTE:
+       Addr?858:   DS   4
+	ORG  4
+      hAddr?859:   DS   2
+
+	RSEG  ?DT?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_getResponse?BYTE:
+          i?346:   DS   1
+
+	RSEG  ?DT?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_read?BYTE:
+         c?1367:   DS   1
+
+	RSEG  ?DT?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD
+?_epl_sdcard_setBlockLength?BYTE:
+       hCnt?654:   DS   2
+	ORG  2
+       lCnt?655:   DS   2
+
+	RSEG  ?DT?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_checkBusy?BYTE:
+          i?551:   DS   1
+	ORG  1
+   response?552:   DS   1
+	ORG  2
+     rvalue?553:   DS   1
+
+	RSEG  ?DT?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_open?BYTE:
+         tm?756:   DS   1
+
+	RSEG  ?DT?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_init?BYTE:
+          i?144:   DS   1
+
+	RSEG  ?DT?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_end_read?BYTE:
+         i?1468:   DS   2
+
+	RSEG  ?DT?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_end_write?BYTE:
+         i?1163:   DS   2
+
+	RSEG  ?DT?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD
+?_epl_sdcard_getXXResponse?BYTE:
+       resp?448:   DS   1
+	ORG  1
+          i?449:   DS   2
+
+	RSEG  ?DT?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD
+?epl_sdcard_goIdle?BYTE:
+   response?245:   DS   1
+
+	RSEG  ?DT?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD
+?_epl_sdcard_command?BYTE:
+       befF?040:   DS   1
+	ORG  1
+       AdrH?041:   DS   2
+	ORG  3
+       AdrL?042:   DS   2
+	ORG  5
+       befH?043:   DS   1
+
+	RSEG  ?DT?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD
+?_epl_sdcard_write_str?BYTE:
+         s?1062:   DS   3
+
+	RSEG  ?DT?___LE1_LIB_EPL_EPL_SDCARD
+        rsector:   DS   2
+        wsector:   DS   2
+         rcount:   DS   2
+         wcount:   DS   2
+
+	RSEG  ?C_INITSEG
+	DB	002H
+	DB	wsector
+	DW	00000H
+
+	DB	002H
+	DB	rsector
+	DW	00000H
+
+	DB	002H
+	DB	wcount
+	DW	00000H
+
+	DB	002H
+	DB	rcount
+	DW	00000H
+
+; /* SD Card driver for LE1
+;  *
+;  * Brian Yang <asdyaya@gmail.com> 
+;  * 2009/2/17 V1.0
+;  *
+;  * 
+;  */
+; 
+; #include <EPL/epl_sdcard.h>
+; #include <Nordic/reg24le1.h>
+; #include <HAL/hal_spi.h>
+; 
+; int wsector = 0;
+; int rsector = 0;
+; int wcount = 0;
+; int rcount = 0;
+; 
+; void epl_sdcard_command(char befF, unsigned int AdrH, unsigned int AdrL, char befH )
+
+	RSEG  ?PR?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD
+L?0073:
+	USING	0
+	MOV  	?_epl_sdcard_command?BYTE+05H,#0FFH
+	MOV  	R3,lCnt?655+01H
+	MOV  	R2,lCnt?655
+	MOV  	R5,hCnt?654+01H
+	MOV  	R4,hCnt?654
+	MOV  	R7,#050H
+_epl_sdcard_command:
+	USING	0
+			; SOURCE LINE # 18
+	MOV  	AdrH?041,R4
+	MOV  	AdrH?041+01H,R5
+	MOV  	AdrL?042,R2
+	MOV  	AdrL?042+01H,R3
+;---- Variable 'befF?040' assigned to Register 'R7' ----
+; {	
+			; SOURCE LINE # 19
+; 	// sends a command to the MMC	
+; 	hal_spi_master_read_write(befF|0x40);
+			; SOURCE LINE # 21
+	MOV  	A,R7
+	ORL  	A,#040H
+	MOV  	R7,A
+	LCALL	_hal_spi_master_read_write
+; 	hal_spi_master_read_write((char)(AdrH >> 8));
+			; SOURCE LINE # 22
+	MOV  	A,AdrH?041
+	MOV  	R7,A
+	LCALL	_hal_spi_master_read_write
+; 	hal_spi_master_read_write((char)(AdrH));
+			; SOURCE LINE # 23
+	MOV  	R7,AdrH?041+01H
+	LCALL	_hal_spi_master_read_write
+; 	hal_spi_master_read_write((char)(AdrL >> 8));
+			; SOURCE LINE # 24
+	MOV  	A,AdrL?042
+	MOV  	R7,A
+	LCALL	_hal_spi_master_read_write
+; 	hal_spi_master_read_write((char)(AdrL));
+			; SOURCE LINE # 25
+	MOV  	R7,AdrL?042+01H
+	LCALL	_hal_spi_master_read_write
+; 	hal_spi_master_read_write(befH);
+			; SOURCE LINE # 26
+	MOV  	R7,befH?043
+	LJMP 	_hal_spi_master_read_write
+; END OF _epl_sdcard_command
+
+; }
+; 
+; char epl_sdcard_init()
+
+	RSEG  ?PR?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_init:
+	USING	0
+			; SOURCE LINE # 29
+; {
+			; SOURCE LINE # 30
+; 	char i;
+; 	
+; 	//enable spi
+; 	hal_spi_master_init(SPI_CLK_DIV2,HAL_SPI_MODE_0,HAL_SPI_MSB_LSB);
+			; SOURCE LINE # 34
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_hal_spi_master_init
+; 	
+; 	// set P0.6 as output
+; 	P0DIR &= ~0x40;
+			; SOURCE LINE # 37
+	ANL  	P0DIR,#0BFH
+; 	
+; 	//disable MMC
+; 	SD_CS = 1;
+			; SOURCE LINE # 40
+	SETB 	P06
+; 	
+; 	// start MMC in SPI mode
+; 	for(i = 0; i < 10; i++) 
+			; SOURCE LINE # 43
+	CLR  	A
+	MOV  	i?144,A
+?C0002:
+; 		hal_spi_master_read_write(0xFF); // send 10*8=80 clock pulses
+			; SOURCE LINE # 44
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	INC  	i?144
+	CLR  	C
+	MOV  	A,i?144
+	XRL  	A,#080H
+	SUBB 	A,#08AH
+	JC   	?C0002
+?C0003:
+; 	
+; 	//go to idle mode
+; 	return (epl_sdcard_goIdle());	
+			; SOURCE LINE # 47
+	LCALL	epl_sdcard_goIdle
+; }
+			; SOURCE LINE # 48
+?C0005:
+	RET  	
+; END OF epl_sdcard_init
+
+; 
+; char epl_sdcard_goIdle()
+
+	RSEG  ?PR?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_goIdle:
+	USING	0
+			; SOURCE LINE # 50
+; {
+			; SOURCE LINE # 51
+; 	char response = 0x01;
+			; SOURCE LINE # 52
+	MOV  	response?245,#01H
+; 	
+; 	//enable MMC
+; 	SD_CS = 0;
+			; SOURCE LINE # 55
+	CLR  	P06
+; 	
+; 	//Send Command 0 to put MMC in SPI mode
+; 	epl_sdcard_command(MMC_GO_IDLE_STATE,0x0000,0x0000,0x95);
+			; SOURCE LINE # 58
+	MOV  	?_epl_sdcard_command?BYTE+05H,#095H
+	CLR  	A
+	MOV  	R3,A
+	MOV  	R2,A
+	MOV  	R5,A
+	MOV  	R4,A
+	MOV  	R7,#040H
+	LCALL	_epl_sdcard_command
+; 	
+; 	//Now wait for READY RESPONSE
+; 	if(epl_sdcard_getResponse() != 0x01)
+			; SOURCE LINE # 61
+	LCALL	epl_sdcard_getResponse
+	MOV  	A,R7
+	XRL  	A,#01H
+	JZ   	?C0008
+; 		return MMC_INIT_ERROR;
+			; SOURCE LINE # 62
+	MOV  	R7,#04H
+	RET  	
+?C0008:
+; 	
+; 	while(response == 0x01)
+			; SOURCE LINE # 64
+	MOV  	A,response?245
+	CJNE 	A,#01H,?C0009
+; 	{
+			; SOURCE LINE # 65
+; 	    SD_CS = 1;
+			; SOURCE LINE # 66
+	SETB 	P06
+; 	    hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 67
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+; 	    SD_CS = 0;
+			; SOURCE LINE # 68
+	CLR  	P06
+; 	    
+; 	    epl_sdcard_command(MMC_SEND_OP_COND,0x0000,0x0000,0xff);
+			; SOURCE LINE # 70
+	MOV  	?_epl_sdcard_command?BYTE+05H,#0FFH
+	CLR  	A
+	MOV  	R3,A
+	MOV  	R2,A
+	MOV  	R5,A
+	MOV  	R4,A
+	MOV  	R7,#041H
+	LCALL	_epl_sdcard_command
+; 	    response = epl_sdcard_getResponse();
+			; SOURCE LINE # 71
+	LCALL	epl_sdcard_getResponse
+	MOV  	response?245,R7
+; 	}
+			; SOURCE LINE # 72
+	SJMP 	?C0008
+?C0009:
+; 	
+; 	SD_CS = 1;
+			; SOURCE LINE # 74
+	SETB 	P06
+; 	hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 75
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;   	
+;   	return (MMC_SUCCESS);
+			; SOURCE LINE # 77
+	MOV  	R7,#00H
+; }
+			; SOURCE LINE # 78
+?C0007:
+	RET  	
+; END OF epl_sdcard_goIdle
+
+; 
+; // sd Get Responce
+; char epl_sdcard_getResponse()
+
+	RSEG  ?PR?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_getResponse:
+	USING	0
+			; SOURCE LINE # 81
+; {
+			; SOURCE LINE # 82
+;   	//Response comes 1-8bytes after command
+;   	//the first bit will be a 0
+;   	//followed by an error code
+;   	//data will be 0xff until response
+;   
+;   	char i = 0;
+			; SOURCE LINE # 88
+	CLR  	A
+	MOV  	i?346,A
+; 
+;   	char response = 0x00;
+			; SOURCE LINE # 90
+;---- Variable 'response?347' assigned to Register 'R7' ----
+?C0010:
+; 
+;   	while(i <= 64)
+			; SOURCE LINE # 92
+;   	{
+			; SOURCE LINE # 93
+;     	response = hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 94
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;     	if(response == 0x00)
+			; SOURCE LINE # 95
+	MOV  	A,R7
+	JZ   	?C0011
+;     		break;    
+			; SOURCE LINE # 96
+?C0012:
+;     	if(response == 0x01)
+			; SOURCE LINE # 97
+	MOV  	A,R7
+	XRL  	A,#01H
+	JZ   	?C0011
+;     		break;  
+			; SOURCE LINE # 98
+?C0013:
+;     	i++;
+			; SOURCE LINE # 99
+	INC  	i?346
+;   	}
+			; SOURCE LINE # 100
+	SETB 	C
+	MOV  	A,i?346
+	XRL  	A,#080H
+	SUBB 	A,#0C0H
+	JC   	?C0010
+?C0011:
+; 
+;   	return response;
+			; SOURCE LINE # 102
+; }
+			; SOURCE LINE # 103
+?C0014:
+	RET  	
+; END OF epl_sdcard_getResponse
+
+; 
+; char epl_sdcard_getXXResponse(char resp)
+
+	RSEG  ?PR?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_getXXResponse:
+	USING	0
+			; SOURCE LINE # 105
+	MOV  	resp?448,R7
+; {
+			; SOURCE LINE # 106
+; 	//Response comes 1-8bytes after command
+;   	//the first bit will be a 0
+;   	//followed by an error code
+;   	//data will be 0xff until response
+;   	int i = 0;
+			; SOURCE LINE # 111
+	CLR  	A
+	MOV  	i?449,A
+	MOV  	i?449+01H,A
+; 
+;   	char response = 0x00;
+			; SOURCE LINE # 113
+;---- Variable 'response?450' assigned to Register 'R7' ----
+; 
+;   	for(i = 0;i <= 1000;i++)
+			; SOURCE LINE # 115
+	MOV  	i?449,A
+	MOV  	i?449+01H,A
+?C0015:
+;   	{
+			; SOURCE LINE # 116
+;     	response = hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 117
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;     	if(response == resp)
+			; SOURCE LINE # 118
+	MOV  	A,R7
+	XRL  	A,resp?448
+	JZ   	?C0016
+;     		break;
+			; SOURCE LINE # 119
+;   	}	
+			; SOURCE LINE # 120
+?C0017:
+	INC  	i?449+01H
+	MOV  	A,i?449+01H
+	JNZ  	?C0063
+	INC  	i?449
+?C0063:
+	SETB 	C
+	SUBB 	A,#0E8H
+	MOV  	A,i?449
+	XRL  	A,#080H
+	SUBB 	A,#083H
+	JC   	?C0015
+?C0016:
+;   	return response;
+			; SOURCE LINE # 121
+; }
+			; SOURCE LINE # 122
+?C0019:
+	RET  	
+; END OF _epl_sdcard_getXXResponse
+
+; 
+; char epl_sdcard_checkBusy(void)
+
+	RSEG  ?PR?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_checkBusy:
+	USING	0
+			; SOURCE LINE # 124
+; {
+			; SOURCE LINE # 125
+;   	//Response comes 1-8bytes after command
+;   	//the first bit will be a 0
+;   	//followed by an error code
+;   	//data will be 0xff until response
+;   
+;   	char i = 0;
+			; SOURCE LINE # 131
+	CLR  	A
+	MOV  	i?551,A
+?C0020:
+;   	char response;
+;   	char rvalue;
+;   
+;   	while(i <= 64)
+			; SOURCE LINE # 135
+;   	{
+			; SOURCE LINE # 136
+;     	response = hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 137
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	MOV  	response?552,R7
+;     	response &= 0x1f;
+			; SOURCE LINE # 138
+	ANL  	response?552,#01FH
+;    		
+;    		switch(response)
+			; SOURCE LINE # 140
+	MOV  	A,response?552
+	ADD  	A,#0F5H
+	JZ   	?C0024
+	ADD  	A,#0FEH
+	JZ   	?C0026
+	ADD  	A,#08H
+	JNZ  	?C0027
+;     	{
+			; SOURCE LINE # 141
+;       		case 0x05: 
+			; SOURCE LINE # 142
+?C0023:
+;       			rvalue = MMC_SUCCESS;
+			; SOURCE LINE # 143
+	CLR  	A
+	MOV  	rvalue?553,A
+;       			break;
+			; SOURCE LINE # 144
+	SJMP 	?C0022
+;       		case 0x0b: 
+			; SOURCE LINE # 145
+?C0024:
+;       			return(MMC_CRC_ERROR);
+			; SOURCE LINE # 146
+	MOV  	R7,#010H
+	RET  	
+;       		case 0x0d: 
+			; SOURCE LINE # 147
+?C0026:
+;       			return(MMC_WRITE_ERROR);
+			; SOURCE LINE # 148
+	MOV  	R7,#011H
+	RET  	
+;       		default:
+			; SOURCE LINE # 149
+?C0027:
+;         		rvalue = MMC_OTHER_ERROR;
+			; SOURCE LINE # 150
+	MOV  	rvalue?553,#012H
+;         		break;
+			; SOURCE LINE # 151
+;     	}
+			; SOURCE LINE # 152
+?C0022:
+;     	if(rvalue == MMC_SUCCESS)
+			; SOURCE LINE # 153
+	MOV  	A,rvalue?553
+	JZ   	?C0031
+;     		break;    		
+			; SOURCE LINE # 154
+?C0028:
+;     	i++;
+			; SOURCE LINE # 155
+	INC  	i?551
+;   	}
+			; SOURCE LINE # 156
+	SETB 	C
+	MOV  	A,i?551
+	XRL  	A,#080H
+	SUBB 	A,#0C0H
+	JC   	?C0020
+?C0031:
+;    	do
+;   	{
+			; SOURCE LINE # 158
+;     	response = hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 159
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	MOV  	response?552,R7
+;   	}while(response == 0);
+			; SOURCE LINE # 160
+	MOV  	A,response?552
+	JZ   	?C0031
+;   
+;   	return response;
+			; SOURCE LINE # 162
+; }
+			; SOURCE LINE # 163
+?C0025:
+	RET  	
+; END OF epl_sdcard_checkBusy
+
+; 
+; char epl_sdcard_setBlockLength(unsigned int hCnt,unsigned int lCnt)
+
+	RSEG  ?PR?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_setBlockLength:
+	USING	0
+			; SOURCE LINE # 165
+	MOV  	hCnt?654,R6
+	MOV  	hCnt?654+01H,R7
+	MOV  	lCnt?655,R4
+	MOV  	lCnt?655+01H,R5
+; { 	
+			; SOURCE LINE # 166
+;   	SD_CS = 0;
+			; SOURCE LINE # 167
+	CLR  	P06
+;   
+;   	epl_sdcard_command(MMC_SET_BLOCKLEN,hCnt,lCnt,0xFF);
+			; SOURCE LINE # 169
+	LCALL	L?0073
+;   
+;   	if(epl_sdcard_getResponse() != 0x00)
+			; SOURCE LINE # 171
+	LCALL	epl_sdcard_getResponse
+	MOV  	A,R7
+	JZ   	?C0032
+;   	{ 
+			; SOURCE LINE # 172
+;   		epl_sdcard_init();
+			; SOURCE LINE # 173
+	LCALL	epl_sdcard_init
+;   		epl_sdcard_command(MMC_SET_BLOCKLEN,hCnt,lCnt,0xFF);
+			; SOURCE LINE # 174
+	LCALL	L?0073
+;   		epl_sdcard_getResponse();
+			; SOURCE LINE # 175
+	LCALL	epl_sdcard_getResponse
+;   	}
+			; SOURCE LINE # 176
+?C0032:
+; 
+;   	SD_CS = 1;
+			; SOURCE LINE # 178
+	SETB 	P06
+; 
+;   	// Send 8 Clock pulses of delay.
+;   	hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 181
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;  
+;   	return MMC_SUCCESS;
+			; SOURCE LINE # 183
+	MOV  	R7,#00H
+; }
+			; SOURCE LINE # 184
+?C0033:
+	RET  	
+; END OF _epl_sdcard_setBlockLength
+
+; 
+; char epl_sdcard_open()
+
+	RSEG  ?PR?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_open:
+	USING	0
+			; SOURCE LINE # 186
+; {
+			; SOURCE LINE # 187
+; 	char tm = 0;
+			; SOURCE LINE # 188
+	CLR  	A
+	MOV  	tm?756,A
+; 	char status = MMC_INIT_ERROR;
+			; SOURCE LINE # 189
+;---- Variable 'status?757' assigned to Register 'R7' ----
+	MOV  	R7,#04H
+?C0034:
+; 	
+; 	//init sd card
+; 	while (status != MMC_SUCCESS)
+			; SOURCE LINE # 192
+	MOV  	A,R7
+	JZ   	?C0035
+; 	{              
+			; SOURCE LINE # 193
+; 		// if return in not NULL an error did occur and the
+;         // MMC/SD-card will be initialized again 
+;     	status = epl_sdcard_init();
+			; SOURCE LINE # 196
+	LCALL	epl_sdcard_init
+;     	tm++;
+			; SOURCE LINE # 197
+	INC  	tm?756
+;     		
+;     	// Try 50 times till error
+;     	if (tm == 50){            	
+			; SOURCE LINE # 200
+	MOV  	A,tm?756
+	CJNE 	A,#032H,?C0034
+;       		return MMC_INIT_ERROR;
+			; SOURCE LINE # 201
+	MOV  	R7,#04H
+	RET  	
+;     	}
+			; SOURCE LINE # 202
+;   	}	
+			; SOURCE LINE # 203
+?C0035:
+; 	
+;   	//set block length 512
+;   	return epl_sdcard_setBlockLength(0,0x200);
+			; SOURCE LINE # 206
+	MOV  	R5,#00H
+	MOV  	R4,#02H
+	CLR  	A
+	MOV  	R7,A
+	MOV  	R6,A
+	LCALL	_epl_sdcard_setBlockLength
+; }
+			; SOURCE LINE # 207
+?C0037:
+	RET  	
+; END OF epl_sdcard_open
+
+; 
+; char epl_sdcard_begin_write()
+
+	RSEG  ?PR?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_begin_write:
+	USING	0
+			; SOURCE LINE # 209
+; {
+			; SOURCE LINE # 210
+; 	unsigned long Addr = 512ul * wsector;
+			; SOURCE LINE # 211
+	MOV  	R6,wsector
+	MOV  	R7,wsector+01H
+	MOV  	A,R6
+	RLC  	A
+	SUBB 	A,ACC
+	MOV  	R5,A
+	MOV  	R4,A
+	CLR  	A
+	MOV  	R3,A
+	MOV  	R2,#02H
+	MOV  	R1,A
+	MOV  	R0,A
+	LCALL	?C?LMUL
+	MOV  	Addr?858+03H,R7
+	MOV  	Addr?858+02H,R6
+	MOV  	Addr?858+01H,R5
+	MOV  	Addr?858,R4
+; 	unsigned int hAddr = (unsigned int)((Addr >> 16) & 0xFFFF);
+			; SOURCE LINE # 212
+	MOV  	R0,#010H
+	LCALL	?C?ULSHR
+	MOV  	hAddr?859,R6
+	MOV  	hAddr?859+01H,R7
+;   	unsigned int lAddr = (unsigned int)(Addr & 0xFFFF);
+			; SOURCE LINE # 213
+	MOV  	A,Addr?858+03H
+	MOV  	R7,A
+	MOV  	A,Addr?858+02H
+	MOV  	R6,A
+	CLR  	A
+;---- Variable 'lAddr?860' assigned to Register 'R2/R3' ----
+	MOV  	R3,AR7
+	MOV  	R2,AR6
+;   	
+;   	wcount = 0;
+			; SOURCE LINE # 215
+	MOV  	wcount,A
+	MOV  	wcount+01H,A
+; 	
+; 	//begin write to sd card
+;     SD_CS = 0;
+			; SOURCE LINE # 218
+	CLR  	P06
+;     
+;     // send write command
+;     epl_sdcard_command(MMC_WRITE_BLOCK,hAddr,lAddr, 0xFF);
+			; SOURCE LINE # 221
+	MOV  	?_epl_sdcard_command?BYTE+05H,#0FFH
+	MOV  	R5,hAddr?859+01H
+	MOV  	R4,hAddr?859
+	MOV  	R7,#058H
+	LCALL	_epl_sdcard_command
+; 
+;     // check if the MMC acknowledged the write block command
+;     // it will do this by sending an affirmative response
+;     // in the R1 format (0x00 is no errors)
+;     if(epl_sdcard_getXXResponse(MMC_R1_RESPONSE) == MMC_R1_RESPONSE)
+			; SOURCE LINE # 226
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_epl_sdcard_getXXResponse
+	MOV  	A,R7
+	JNZ  	?C0038
+;     {
+			; SOURCE LINE # 227
+;       	hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 228
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;       		
+;       	// send the data token to signify the start of the data	
+;       	hal_spi_master_read_write(0xfe);
+			; SOURCE LINE # 231
+	MOV  	R7,#0FEH
+	LCALL	_hal_spi_master_read_write
+;       		
+;       	return MMC_SUCCESS;
+			; SOURCE LINE # 233
+	MOV  	R7,#00H
+	RET  	
+;     }
+			; SOURCE LINE # 234
+?C0038:
+;       	
+;     return MMC_ERROR;
+			; SOURCE LINE # 236
+	MOV  	R7,#033H
+; }
+			; SOURCE LINE # 237
+?C0039:
+	RET  	
+; END OF epl_sdcard_begin_write
+
+;       		
+; void epl_sdcard_write_char(char c)
+
+	RSEG  ?PR?_epl_sdcard_write_char?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_write_char:
+	USING	0
+			; SOURCE LINE # 239
+;---- Variable 'c?961' assigned to Register 'R7' ----
+; {	
+			; SOURCE LINE # 240
+; 	//write a byte to sd
+; 	hal_spi_master_read_write(c);
+			; SOURCE LINE # 242
+	LCALL	_hal_spi_master_read_write
+; 
+; 	wcount += 1;
+			; SOURCE LINE # 244
+	INC  	wcount+01H
+	MOV  	A,wcount+01H
+	JNZ  	?C0064
+	INC  	wcount
+?C0064:
+; 	
+; 	if(wcount == 512){
+			; SOURCE LINE # 246
+	CJNE 	A,#00H,?C0041
+	MOV  	A,wcount
+	CJNE 	A,#02H,?C0041
+; 		epl_sdcard_end_write();
+			; SOURCE LINE # 247
+	LCALL	epl_sdcard_end_write
+; 		epl_sdcard_begin_write();
+			; SOURCE LINE # 248
+	LCALL	epl_sdcard_begin_write
+; 	}
+			; SOURCE LINE # 249
+; }
+			; SOURCE LINE # 250
+?C0041:
+	RET  	
+; END OF _epl_sdcard_write_char
+
+; 
+; void epl_sdcard_write_str(char *s)
+
+	RSEG  ?PR?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_write_str:
+	USING	0
+			; SOURCE LINE # 252
+	MOV  	s?1062,R3
+	MOV  	s?1062+01H,R2
+	MOV  	s?1062+02H,R1
+; {
+			; SOURCE LINE # 253
+?C0042:
+; 	while (*s)
+			; SOURCE LINE # 254
+	MOV  	R3,s?1062
+	MOV  	R2,s?1062+01H
+	MOV  	R1,s?1062+02H
+	LCALL	?C?CLDPTR
+	JZ   	?C0044
+; 		epl_sdcard_write_char(*s++);	
+			; SOURCE LINE # 255
+	INC  	s?1062+02H
+	MOV  	A,s?1062+02H
+	JNZ  	?C0066
+	INC  	s?1062+01H
+?C0066:
+	DEC  	A
+	MOV  	R1,A
+	LCALL	?C?CLDPTR
+	MOV  	R7,A
+	LCALL	_epl_sdcard_write_char
+	SJMP 	?C0042
+; }
+			; SOURCE LINE # 256
+?C0044:
+	RET  	
+; END OF _epl_sdcard_write_str
+
+; 
+; char epl_sdcard_end_write(){
+
+	RSEG  ?PR?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_end_write:
+	USING	0
+			; SOURCE LINE # 258
+; 	//end write to sd card
+; 	int i;
+; 
+; 	//padding to 512 bytes
+; 	i = wcount;
+			; SOURCE LINE # 263
+	MOV  	i?1163,wcount
+	MOV  	i?1163+01H,wcount+01H
+; 	
+; 	if(wcount != 0)
+			; SOURCE LINE # 265
+	MOV  	A,wcount+01H
+	ORL  	A,wcount
+	JZ   	?C0045
+; 	{
+			; SOURCE LINE # 266
+; 		for(;i < 512;i++)
+			; SOURCE LINE # 267
+?C0046:
+	CLR  	C
+	MOV  	A,i?1163
+	XRL  	A,#080H
+	SUBB 	A,#082H
+	JNC  	?C0045
+; 			hal_spi_master_read_write(0xFF);
+			; SOURCE LINE # 268
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	INC  	i?1163+01H
+	MOV  	A,i?1163+01H
+	JNZ  	?C0046
+	INC  	i?1163
+?C0067:
+	SJMP 	?C0046
+; 	}
+			; SOURCE LINE # 269
+?C0045:
+; 	wsector++;
+			; SOURCE LINE # 270
+	INC  	wsector+01H
+	MOV  	A,wsector+01H
+	JNZ  	?C0068
+	INC  	wsector
+?C0068:
+; 	
+; 	// put CRC bytes (not really needed by us, but required by MMC)
+;     hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 273
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;     hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 274
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;       				
+;     // read the data response xxx0<status>1 : status 010: Data accected, status 101: Data
+;     // rejected due to a crc error, status 110: Data rejected due to a Write error.
+;     epl_sdcard_checkBusy();
+			; SOURCE LINE # 278
+	LCALL	epl_sdcard_checkBusy
+;       	
+;     SD_CS = 1;
+			; SOURCE LINE # 280
+	SETB 	P06
+;   	// Send 8 Clock pulses of delay.
+;   	hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 282
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;   	
+;   	return MMC_SUCCESS;
+			; SOURCE LINE # 284
+	MOV  	R7,#00H
+; }
+			; SOURCE LINE # 285
+?C0049:
+	RET  	
+; END OF epl_sdcard_end_write
+
+; 
+; char epl_sdcard_begin_read()
+
+	RSEG  ?PR?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_begin_read:
+	USING	0
+			; SOURCE LINE # 287
+; {
+			; SOURCE LINE # 288
+; 	//begin read to sd card
+; 	
+; 	unsigned long Addr = 512ul * rsector;
+			; SOURCE LINE # 291
+	MOV  	R6,rsector
+	MOV  	R7,rsector+01H
+	MOV  	A,R6
+	RLC  	A
+	SUBB 	A,ACC
+	MOV  	R5,A
+	MOV  	R4,A
+	CLR  	A
+	MOV  	R3,A
+	MOV  	R2,#02H
+	MOV  	R1,A
+	MOV  	R0,A
+	LCALL	?C?LMUL
+	MOV  	Addr?1264+03H,R7
+	MOV  	Addr?1264+02H,R6
+	MOV  	Addr?1264+01H,R5
+	MOV  	Addr?1264,R4
+; 	unsigned int hAddr = (unsigned int)((Addr >> 16) & 0xFFFF);
+			; SOURCE LINE # 292
+	MOV  	R0,#010H
+	LCALL	?C?ULSHR
+	MOV  	hAddr?1265,R6
+	MOV  	hAddr?1265+01H,R7
+;   	unsigned int lAddr = (unsigned int)(Addr & 0xFFFF);
+			; SOURCE LINE # 293
+	MOV  	A,Addr?1264+03H
+	MOV  	R7,A
+	MOV  	A,Addr?1264+02H
+	MOV  	R6,A
+	CLR  	A
+;---- Variable 'lAddr?1266' assigned to Register 'R2/R3' ----
+	MOV  	R3,AR7
+	MOV  	R2,AR6
+; 	
+;   	rcount = 0;
+			; SOURCE LINE # 295
+	MOV  	rcount,A
+	MOV  	rcount+01H,A
+;   	
+;     SD_CS = 0;
+			; SOURCE LINE # 297
+	CLR  	P06
+;     
+;     // send read command MMC_READ_SINGLE_BLOCK=CMD17
+;     epl_sdcard_command(MMC_READ_SINGLE_BLOCK,hAddr,lAddr,0xFF);
+			; SOURCE LINE # 300
+	MOV  	?_epl_sdcard_command?BYTE+05H,#0FFH
+	MOV  	R5,hAddr?1265+01H
+	MOV  	R4,hAddr?1265
+	MOV  	R7,#051H
+	LCALL	_epl_sdcard_command
+;     
+;     // Send 8 Clock pulses of delay, check if the MMC acknowledged the read block command
+;     // it will do this by sending an affirmative response
+;     // in the R1 format (0x00 is no errors)
+;     if(epl_sdcard_getResponse() == 0x00)
+			; SOURCE LINE # 305
+	LCALL	epl_sdcard_getResponse
+	MOV  	A,R7
+	JNZ  	?C0050
+;     {
+			; SOURCE LINE # 306
+;       	// now look for the data token to signify the start of the data
+;       	if (((unsigned char)epl_sdcard_getXXResponse(MMC_START_DATA_BLOCK_TOKEN)) == MMC_START_DATA_BLOCK_TOKEN)
+			; SOURCE LINE # 308
+	MOV  	R7,#0FEH
+	LCALL	_epl_sdcard_getXXResponse
+	CJNE 	R7,#0FEH,?C0051
+;       		return MMC_SUCCESS;  
+			; SOURCE LINE # 309
+	MOV  	R7,#00H
+	RET  	
+?C0051:
+;       	else
+;         	return MMC_ERROR;      // 3  , the data token was never received
+			; SOURCE LINE # 311
+	MOV  	R7,#033H
+	RET  	
+;     }
+			; SOURCE LINE # 312
+?C0050:
+;       	
+;     return MMC_ERROR;
+			; SOURCE LINE # 314
+	MOV  	R7,#033H
+; }
+			; SOURCE LINE # 315
+?C0052:
+	RET  	
+; END OF epl_sdcard_begin_read
+
+; 
+; char epl_sdcard_read()
+
+	RSEG  ?PR?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_read:
+	USING	0
+			; SOURCE LINE # 317
+; {
+			; SOURCE LINE # 318
+; 	//read a byte from sd
+; 	char c = hal_spi_master_read_write(0xFF);
+			; SOURCE LINE # 320
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	MOV  	c?1367,R7
+; 	
+; 	rcount++;
+			; SOURCE LINE # 322
+	INC  	rcount+01H
+	MOV  	A,rcount+01H
+	JNZ  	?C0069
+	INC  	rcount
+?C0069:
+; 	
+; 	if(rcount == 512){
+			; SOURCE LINE # 324
+	CJNE 	A,#00H,?C0054
+	MOV  	A,rcount
+	CJNE 	A,#02H,?C0054
+; 		epl_sdcard_end_read();
+			; SOURCE LINE # 325
+	LCALL	epl_sdcard_end_read
+; 		epl_sdcard_begin_read();
+			; SOURCE LINE # 326
+	LCALL	epl_sdcard_begin_read
+; 	}
+			; SOURCE LINE # 327
+?C0054:
+; 	
+; 	return c;
+			; SOURCE LINE # 329
+	MOV  	R7,c?1367
+; }
+			; SOURCE LINE # 330
+?C0055:
+	RET  	
+; END OF epl_sdcard_read
+
+; 
+; char epl_sdcard_end_read()
+
+	RSEG  ?PR?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD
+epl_sdcard_end_read:
+	USING	0
+			; SOURCE LINE # 332
+; {
+			; SOURCE LINE # 333
+; 	//end read to sd card
+; 	
+; 	//read other bytes
+; 	int i;
+; 	
+; 	//padding to 512 bytes
+; 	
+; 	i = rcount;
+			; SOURCE LINE # 341
+	MOV  	i?1468,rcount
+	MOV  	i?1468+01H,rcount+01H
+; 	if(rcount != 0)
+			; SOURCE LINE # 342
+	MOV  	A,rcount+01H
+	ORL  	A,rcount
+	JZ   	?C0056
+; 	{
+			; SOURCE LINE # 343
+; 		for(;i < 512;i++)
+			; SOURCE LINE # 344
+?C0057:
+	CLR  	C
+	MOV  	A,i?1468
+	XRL  	A,#080H
+	SUBB 	A,#082H
+	JNC  	?C0056
+; 			hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 345
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+	INC  	i?1468+01H
+	MOV  	A,i?1468+01H
+	JNZ  	?C0057
+	INC  	i?1468
+?C0071:
+	SJMP 	?C0057
+; 	}
+			; SOURCE LINE # 346
+?C0056:
+; 	rsector++;
+			; SOURCE LINE # 347
+	INC  	rsector+01H
+	MOV  	A,rsector+01H
+	JNZ  	?C0072
+	INC  	rsector
+?C0072:
+; 	
+; 	// get CRC bytes (not really needed by us, but required by MMC)
+;     hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 350
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;     hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 351
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+; 	
+;     SD_CS = 1;
+			; SOURCE LINE # 353
+	SETB 	P06
+;     // Send 8 Clock pulses of delay.
+;     hal_spi_master_read_write(0xff);
+			; SOURCE LINE # 355
+	MOV  	R7,#0FFH
+	LCALL	_hal_spi_master_read_write
+;     
+; 	return MMC_SUCCESS;
+			; SOURCE LINE # 357
+	MOV  	R7,#00H
+; }
+			; SOURCE LINE # 358
+?C0060:
+	RET  	
+; END OF epl_sdcard_end_read
+
+; 
+; void epl_sdcard_setRsector(int sector)
+
+	RSEG  ?PR?_epl_sdcard_setRsector?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_setRsector:
+	USING	0
+			; SOURCE LINE # 360
+;---- Variable 'sector?1569' assigned to Register 'R6/R7' ----
+; {
+			; SOURCE LINE # 361
+; 	rsector = sector;	
+			; SOURCE LINE # 362
+	MOV  	rsector,R6
+	MOV  	rsector+01H,R7
+; }
+			; SOURCE LINE # 363
+	RET  	
+; END OF _epl_sdcard_setRsector
+
+; 
+; void epl_sdcard_setWsector(int sector)
+
+	RSEG  ?PR?_epl_sdcard_setWsector?___LE1_LIB_EPL_EPL_SDCARD
+_epl_sdcard_setWsector:
+	USING	0
+			; SOURCE LINE # 365
+;---- Variable 'sector?1670' assigned to Register 'R6/R7' ----
+; {
+			; SOURCE LINE # 366
+; 	wsector = sector;	
+			; SOURCE LINE # 367
+	MOV  	wsector,R6
+	MOV  	wsector+01H,R7
+; }
+			; SOURCE LINE # 368
+	RET  	
+; END OF _epl_sdcard_setWsector
+
+	END

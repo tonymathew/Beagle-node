@@ -1,0 +1,632 @@
+; ../LE1/lib/HAL/hal_adc.SRC generated from: ../LE1/lib/HAL/hal_adc.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/HAL/hal_adc.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_HAL_HAL_ADC
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?_hal_adc_set_input_channel?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_reference?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_input_mode?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_conversion_mode?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_sampling_rate?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_power_down_delay?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_acq_window?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_resolution?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?_hal_adc_set_data_just?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?hal_adc_start?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?hal_adc_read_LSB?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?hal_adc_read_MSB?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+?PR?hal_adc_busy?___LE1_LIB_HAL_HAL_ADC  SEGMENT CODE 
+?PR?hal_adc_get_overflow_status?___LE1_LIB_HAL_HAL_ADC SEGMENT CODE 
+	PUBLIC	hal_adc_get_overflow_status
+	PUBLIC	hal_adc_busy
+	PUBLIC	hal_adc_read_MSB
+	PUBLIC	hal_adc_read_LSB
+	PUBLIC	hal_adc_start
+	PUBLIC	_hal_adc_set_data_just
+	PUBLIC	_hal_adc_set_resolution
+	PUBLIC	_hal_adc_set_acq_window
+	PUBLIC	_hal_adc_set_power_down_delay
+	PUBLIC	_hal_adc_set_sampling_rate
+	PUBLIC	_hal_adc_set_conversion_mode
+	PUBLIC	_hal_adc_set_input_mode
+	PUBLIC	_hal_adc_set_reference
+	PUBLIC	_hal_adc_set_input_channel
+; /* Copyright (c) 2008 Nordic Semiconductor. All Rights Reserved.
+;  *
+;  * The information contained herein is property of Nordic Semiconductor ASA.
+;  * Terms and conditions of usage are described in detail in NORDIC
+;  * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT. 
+;  *
+;  * Licensees are granted free, non-transferable use of the information. NO
+;  * WARRENTY of ANY KIND is provided. This heading must NOT be removed from
+;  * the file.
+;  *
+;  * $LastChangedRevision$
+;  */ 
+; 
+; /** @file
+;  * @brief Implementation of hal_adc
+;  */
+; 
+; #include <stdint.h>
+; #include <stdbool.h>
+; 
+; #include <Nordic/reg24le1.h>
+; #include <HAL/nordic_common.h>
+; #include <HAL/hal_adc.h>
+; 
+; 
+; void hal_adc_set_input_channel(hal_adc_input_channel_t chsel)
+
+	RSEG  ?PR?_hal_adc_set_input_channel?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_input_channel:
+	USING	0
+			; SOURCE LINE # 26
+;---- Variable 'chsel?040' assigned to Register 'R7' ----
+; { // Update "chsel" bits
+			; SOURCE LINE # 27
+;   ADCCON1 = ((ADCCON1 & 0xC3) | (((unsigned char)(chsel) << 2) & ~0xC3));       
+			; SOURCE LINE # 28
+	MOV  	A,R7
+	ADD  	A,ACC
+	ADD  	A,ACC
+	ANL  	A,#03CH
+	MOV  	R7,A
+	MOV  	A,ADCCON1
+	ANL  	A,#0C3H
+	ORL  	A,R7
+	MOV  	ADCCON1,A
+; }
+			; SOURCE LINE # 29
+	RET  	
+; END OF _hal_adc_set_input_channel
+
+; 
+; 
+; void hal_adc_set_reference(hal_adc_reference_t refsel)
+
+	RSEG  ?PR?_hal_adc_set_reference?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_reference:
+	USING	0
+			; SOURCE LINE # 32
+;---- Variable 'refsel?141' assigned to Register 'R7' ----
+; { // Update "refsel" bits
+			; SOURCE LINE # 33
+;   ADCCON1 = ((ADCCON1 & 0xFC) | (((unsigned char)(refsel)) & ~0xFC));             
+			; SOURCE LINE # 34
+	MOV  	A,R7
+	ANL  	A,#03H
+	MOV  	R7,A
+	MOV  	A,ADCCON1
+	ANL  	A,#0FCH
+	ORL  	A,R7
+	MOV  	ADCCON1,A
+; }
+			; SOURCE LINE # 35
+	RET  	
+; END OF _hal_adc_set_reference
+
+; 
+; 
+; void hal_adc_set_input_mode(hal_adc_input_mode_t input_mode)
+
+	RSEG  ?PR?_hal_adc_set_input_mode?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_input_mode:
+	USING	0
+			; SOURCE LINE # 38
+;---- Variable 'input_mode?242' assigned to Register 'R7' ----
+; { // Update "diffm" bits
+			; SOURCE LINE # 39
+;   ADCCON2 = ((ADCCON2 & 0x3F) | ((unsigned char)(input_mode) << 6));  
+			; SOURCE LINE # 40
+	MOV  	A,R7
+	SWAP 	A
+	RLC  	A
+	RLC  	A
+	ANL  	A,#0C0H
+	MOV  	R7,A
+	MOV  	A,ADCCON2
+	ANL  	A,#03FH
+	ORL  	A,R7
+	MOV  	ADCCON2,A
+; }
+			; SOURCE LINE # 41
+	RET  	
+; END OF _hal_adc_set_input_mode
+
+; 
+; 
+; void hal_adc_set_conversion_mode(hal_adc_conversion_mode_t conv_mode)
+
+	RSEG  ?PR?_hal_adc_set_conversion_mode?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_conversion_mode:
+	USING	0
+			; SOURCE LINE # 44
+;---- Variable 'conv_mode?343' assigned to Register 'R7' ----
+; { // Update "cont" bit
+			; SOURCE LINE # 45
+;   ADCCON2 = ((ADCCON2 & 0xDF) | (((unsigned char)(conv_mode) << 5) & ~0xDF));   
+			; SOURCE LINE # 46
+	MOV  	A,R7
+	SWAP 	A
+	RLC  	A
+	ANL  	A,#020H
+	MOV  	R7,A
+	MOV  	A,ADCCON2
+	ANL  	A,#0DFH
+	ORL  	A,R7
+	MOV  	ADCCON2,A
+; }
+			; SOURCE LINE # 47
+	RET  	
+; END OF _hal_adc_set_conversion_mode
+
+; 
+; 
+; void hal_adc_set_sampling_rate(hal_adc_sampling_rate_t rate)
+
+	RSEG  ?PR?_hal_adc_set_sampling_rate?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_sampling_rate:
+	USING	0
+			; SOURCE LINE # 50
+;---- Variable 'rate?444' assigned to Register 'R7' ----
+; { // Update "rate" bits
+			; SOURCE LINE # 51
+;   ADCCON2 = ((ADCCON2 & 0xE3) | (((unsigned char)(rate) << 2) & ~0xE3));        
+			; SOURCE LINE # 52
+	MOV  	A,R7
+	ADD  	A,ACC
+	ADD  	A,ACC
+	ANL  	A,#01CH
+	MOV  	R7,A
+	MOV  	A,ADCCON2
+	ANL  	A,#0E3H
+	ORL  	A,R7
+	MOV  	ADCCON2,A
+; }
+			; SOURCE LINE # 53
+	RET  	
+; END OF _hal_adc_set_sampling_rate
+
+; 
+; 
+; void hal_adc_set_power_down_delay(hal_adc_power_down_delay_t pdd)
+
+	RSEG  ?PR?_hal_adc_set_power_down_delay?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_power_down_delay:
+	USING	0
+			; SOURCE LINE # 56
+;---- Variable 'pdd?545' assigned to Register 'R7' ----
+; { // Update "rate" bits
+			; SOURCE LINE # 57
+;   ADCCON2 = ((ADCCON2 & 0xE3) | (((unsigned char)(pdd) << 2) & ~0xE3));        
+			; SOURCE LINE # 58
+	MOV  	A,R7
+	ADD  	A,ACC
+	ADD  	A,ACC
+	ANL  	A,#01CH
+	MOV  	R7,A
+	MOV  	A,ADCCON2
+	ANL  	A,#0E3H
+	ORL  	A,R7
+	MOV  	ADCCON2,A
+; }
+			; SOURCE LINE # 59
+	RET  	
+; END OF _hal_adc_set_power_down_delay
+
+; 
+; 
+; void hal_adc_set_acq_window(hal_adc_acq_window_t tacq)
+
+	RSEG  ?PR?_hal_adc_set_acq_window?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_acq_window:
+	USING	0
+			; SOURCE LINE # 62
+;---- Variable 'tacq?646' assigned to Register 'R7' ----
+; { // Update "tacq" bits
+			; SOURCE LINE # 63
+;   ADCCON2 = ((ADCCON2 & 0xFC) | (((unsigned char)(tacq)) & ~0xFC));               
+			; SOURCE LINE # 64
+	MOV  	A,R7
+	ANL  	A,#03H
+	MOV  	R7,A
+	MOV  	A,ADCCON2
+	ANL  	A,#0FCH
+	ORL  	A,R7
+	MOV  	ADCCON2,A
+; }
+			; SOURCE LINE # 65
+	RET  	
+; END OF _hal_adc_set_acq_window
+
+; 
+; 
+; void hal_adc_set_resolution(hal_adc_resolution_t res)
+
+	RSEG  ?PR?_hal_adc_set_resolution?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_resolution:
+	USING	0
+			; SOURCE LINE # 68
+;---- Variable 'res?747' assigned to Register 'R7' ----
+; { // Update "resol" bits
+			; SOURCE LINE # 69
+;   ADCCON3 = ((ADCCON3 & 0x3F) | ((unsigned char)(res) << 6));         
+			; SOURCE LINE # 70
+	MOV  	A,R7
+	SWAP 	A
+	RLC  	A
+	RLC  	A
+	ANL  	A,#0C0H
+	MOV  	R7,A
+	MOV  	A,ADCCON3
+	ANL  	A,#03FH
+	ORL  	A,R7
+	MOV  	ADCCON3,A
+; }
+			; SOURCE LINE # 71
+	RET  	
+; END OF _hal_adc_set_resolution
+
+; 
+; 
+; void hal_adc_set_data_just(hal_adc_data_just_t just)
+
+	RSEG  ?PR?_hal_adc_set_data_just?___LE1_LIB_HAL_HAL_ADC
+_hal_adc_set_data_just:
+	USING	0
+			; SOURCE LINE # 74
+;---- Variable 'just?848' assigned to Register 'R7' ----
+; { // Update "rljust" bit
+			; SOURCE LINE # 75
+;   ADCCON3 = ((ADCCON3 & 0xDF) | (((unsigned char)(just) << 5) & ~0xDF));      
+			; SOURCE LINE # 76
+	MOV  	A,R7
+	SWAP 	A
+	RLC  	A
+	ANL  	A,#020H
+	MOV  	R7,A
+	MOV  	A,ADCCON3
+	ANL  	A,#0DFH
+	ORL  	A,R7
+	MOV  	ADCCON3,A
+; }
+			; SOURCE LINE # 77
+	RET  	
+; END OF _hal_adc_set_data_just
+
+; 
+; 
+; void hal_adc_start(void)
+
+	RSEG  ?PR?hal_adc_start?___LE1_LIB_HAL_HAL_ADC
+hal_adc_start:
+	USING	0
+			; SOURCE LINE # 80
+; {
+			; SOURCE LINE # 81
+;   unsigned char cnt = ADC_STARTUP_CNT;             // Get the counter value
+			; SOURCE LINE # 82
+;---- Variable 'cnt?949' assigned to Register 'R7' ----
+	MOV  	R7,#01H
+;   ADCCON1 = ADCCON1 | BIT_7;                 // Set "pwrup" bit
+			; SOURCE LINE # 83
+	ORL  	ADCCON1,#080H
+?C0010:
+;    
+;   while(cnt--);                              // Wait for busy bit to stabilize
+			; SOURCE LINE # 85
+	MOV  	R6,AR7
+	DEC  	R7
+	MOV  	A,R6
+	JNZ  	?C0010
+; }
+			; SOURCE LINE # 86
+?C0012:
+	RET  	
+; END OF hal_adc_start
+
+; 
+; 
+; unsigned char hal_adc_read_LSB(void)
+
+	RSEG  ?PR?hal_adc_read_LSB?___LE1_LIB_HAL_HAL_ADC
+hal_adc_read_LSB:
+	USING	0
+			; SOURCE LINE # 89
+; {
+			; SOURCE LINE # 90
+;   return ADCDATL;                            // Return value stored in ADCDATL
+			; SOURCE LINE # 91
+	MOV  	R7,ADCDATL
+; }
+			; SOURCE LINE # 92
+?C0013:
+	RET  	
+; END OF hal_adc_read_LSB
+
+; 
+; unsigned char hal_adc_read_MSB(void)
+
+	RSEG  ?PR?hal_adc_read_MSB?___LE1_LIB_HAL_HAL_ADC
+hal_adc_read_MSB:
+	USING	0
+			; SOURCE LINE # 94
+; {
+			; SOURCE LINE # 95
+;   return ADCDATH;                            // Return value stored in ADCDATH
+			; SOURCE LINE # 96
+	MOV  	R7,ADCDATH
+; }
+			; SOURCE LINE # 97
+?C0014:
+	RET  	
+; END OF hal_adc_read_MSB
+
+; 
+; unsigned char hal_adc_busy(void)
+
+	RSEG  ?PR?hal_adc_busy?___LE1_LIB_HAL_HAL_ADC
+hal_adc_busy:
+	USING	0
+			; SOURCE LINE # 99
+; {
+			; SOURCE LINE # 100
+;   return ((ADCCON1 & BIT_6) > 0);            // Return status of "busy" bit  
+			; SOURCE LINE # 101
+	MOV  	A,ADCCON1
+	ANL  	A,#040H
+	SETB 	C
+	SUBB 	A,#00H
+	MOV  	R7,#00H
+	JC   	?C0015
+	MOV  	R7,#01H
+?C0015:
+?C0016:
+; }
+			; SOURCE LINE # 102
+?C0017:
+	RET  	
+; END OF hal_adc_busy
+
+;                                                                                
+; hal_adc_overflow_t hal_adc_get_overflow_status(void)
+
+	RSEG  ?PR?hal_adc_get_overflow_status?___LE1_LIB_HAL_HAL_ADC
+hal_adc_get_overflow_status:
+	USING	0
+			; SOURCE LINE # 104
+; {
+			; SOURCE LINE # 105
+;   return (hal_adc_overflow_t)((ADCCON3 & (BIT_3 | BIT_4)) >> 3); 
+			; SOURCE LINE # 106
+	MOV  	A,ADCCON3
+	ANL  	A,#018H
+	RRC  	A
+	RRC  	A
+	RRC  	A
+	ANL  	A,#01FH
+	MOV  	R7,A
+; }                                            // Return status bits from ADCCON3			; SOURCE LINE # 107
+?C0018:
+	RET  	
+; END OF hal_adc_get_overflow_status
+
+	END

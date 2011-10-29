@@ -1,0 +1,3219 @@
+; ../LE1/lib/HAL/hal_nrf.SRC generated from: ../LE1/lib/HAL/hal_nrf.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/HAL/hal_nrf.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_HAL_HAL_NRF
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?_hal_nrf_set_operation_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_operation_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_power_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_power_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_crc_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_crc_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_irq_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_irq_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_get_clear_irq_flags?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_clear_irq_flag?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_irq_flags?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_open_pipe?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_open_pipe?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_close_pipe?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_close_pipe?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_address?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_address?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_get_address?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_get_address?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_auto_retr?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_auto_retr?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_address_width?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_address_width?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_get_address_width?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_set_rx_payload_width?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_get_pipe_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_get_pipe_status?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_get_auto_retr_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_packet_lost_ctr?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_get_rx_payload_width?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_get_rx_payload_width?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_rf_channel?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_rf_channel?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_output_power?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_output_power?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_set_datarate?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_datarate?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_rx_fifo_empty?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_rx_fifo_full?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_tx_fifo_empty?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_tx_fifo_full?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_tx_fifo_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_rx_fifo_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_fifo_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_transmit_attempts?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_carrier_detect?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_activate_features?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_setup_dynamic_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_setup_dynamic_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_enable_dynamic_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_enable_dynamic_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_enable_ack_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_enable_ack_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_enable_dynamic_ack?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_enable_dynamic_ack?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_write_tx_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_write_tx_payload_noack?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_write_ack_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_write_ack_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_read_rx_payload_width?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_read_rx_payload?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_rx_data_source?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_reuse_tx?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_get_reuse_tx_status?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_flush_rx?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_flush_tx?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?hal_nrf_nop?___LE1_LIB_HAL_HAL_NRF   SEGMENT CODE 
+?PR?_hal_nrf_set_pll_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_set_pll_mode?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?hal_nrf_get_rssi?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?hal_nrf_get_rssi?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_enable_continious_wave?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_enable_continious_wave?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_read_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?PR?_hal_nrf_write_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_write_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_read_multibyte_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_read_multibyte_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+?PR?_hal_nrf_write_multibyte_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT CODE 
+?DT?_hal_nrf_write_multibyte_reg?___LE1_LIB_HAL_HAL_NRF SEGMENT DATA OVERLAYABLE
+	EXTRN	CODE (_hal_nrf_rw)
+	EXTRN	CODE (?C?CLDPTR)
+	EXTRN	CODE (?C?CSTPTR)
+	EXTRN	CODE (?C?UIDIV)
+	PUBLIC	?_hal_nrf_write_multibyte_reg?BYTE
+	PUBLIC	_hal_nrf_write_multibyte_reg
+	PUBLIC	_hal_nrf_read_multibyte_reg
+	PUBLIC	_hal_nrf_write_reg
+	PUBLIC	_hal_nrf_read_reg
+	PUBLIC	_hal_nrf_enable_continious_wave
+	PUBLIC	hal_nrf_get_rssi
+	PUBLIC	_hal_nrf_set_pll_mode
+	PUBLIC	hal_nrf_nop
+	PUBLIC	hal_nrf_flush_tx
+	PUBLIC	hal_nrf_flush_rx
+	PUBLIC	hal_nrf_get_reuse_tx_status
+	PUBLIC	hal_nrf_reuse_tx
+	PUBLIC	hal_nrf_get_rx_data_source
+	PUBLIC	_hal_nrf_read_rx_payload
+	PUBLIC	hal_nrf_read_rx_payload_width
+	PUBLIC	?_hal_nrf_write_ack_payload?BYTE
+	PUBLIC	_hal_nrf_write_ack_payload
+	PUBLIC	_hal_nrf_write_tx_payload_noack
+	PUBLIC	_hal_nrf_write_tx_payload
+	PUBLIC	_hal_nrf_enable_dynamic_ack
+	PUBLIC	_hal_nrf_enable_ack_payload
+	PUBLIC	_hal_nrf_enable_dynamic_payload
+	PUBLIC	_hal_nrf_setup_dynamic_payload
+	PUBLIC	hal_nrf_activate_features
+	PUBLIC	hal_nrf_get_carrier_detect
+	PUBLIC	hal_nrf_get_transmit_attempts
+	PUBLIC	hal_nrf_get_fifo_status
+	PUBLIC	hal_nrf_get_rx_fifo_status
+	PUBLIC	hal_nrf_get_tx_fifo_status
+	PUBLIC	hal_nrf_tx_fifo_full
+	PUBLIC	hal_nrf_tx_fifo_empty
+	PUBLIC	hal_nrf_rx_fifo_full
+	PUBLIC	hal_nrf_rx_fifo_empty
+	PUBLIC	_hal_nrf_set_datarate
+	PUBLIC	_hal_nrf_set_output_power
+	PUBLIC	_hal_nrf_set_rf_channel
+	PUBLIC	_hal_nrf_get_rx_payload_width
+	PUBLIC	hal_nrf_get_packet_lost_ctr
+	PUBLIC	hal_nrf_get_auto_retr_status
+	PUBLIC	_hal_nrf_get_pipe_status
+	PUBLIC	_hal_nrf_set_rx_payload_width
+	PUBLIC	hal_nrf_get_address_width
+	PUBLIC	_hal_nrf_set_address_width
+	PUBLIC	_hal_nrf_set_auto_retr
+	PUBLIC	_hal_nrf_get_address
+	PUBLIC	_hal_nrf_set_address
+	PUBLIC	_hal_nrf_close_pipe
+	PUBLIC	_hal_nrf_open_pipe
+	PUBLIC	hal_nrf_get_irq_flags
+	PUBLIC	_hal_nrf_clear_irq_flag
+	PUBLIC	hal_nrf_get_clear_irq_flags
+	PUBLIC	_hal_nrf_set_irq_mode
+	PUBLIC	_hal_nrf_set_crc_mode
+	PUBLIC	_hal_nrf_set_power_mode
+	PUBLIC	_hal_nrf_set_operation_mode
+
+	RSEG  ?DT?_hal_nrf_set_rf_channel?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_rf_channel?BYTE:
+     rf_ch?1977:   DS   1
+
+	RSEG  ?DT?_hal_nrf_open_pipe?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_open_pipe?BYTE:
+   pipe_num?751:   DS   1
+	ORG  1
+   auto_ack?752:   DS   1
+	ORG  2
+  en_rxaddr?753:   DS   1
+	ORG  3
+      en_aa?754:   DS   1
+
+	RSEG  ?DT?_hal_nrf_enable_dynamic_ack?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_enable_dynamic_ack?BYTE:
+    enable?3588:   DS   1
+	ORG  1
+   feature?3589:   DS   1
+
+	RSEG  ?DT?_hal_nrf_enable_ack_payload?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_enable_ack_payload?BYTE:
+    enable?3486:   DS   1
+	ORG  1
+   feature?3487:   DS   1
+
+	RSEG  ?DT?_hal_nrf_write_reg?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_write_reg?BYTE:
+    value?51108:   DS   1
+	ORG  1
+   retval?51109:   DS   1
+
+	RSEG  ?DT?_hal_nrf_setup_dynamic_payload?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_setup_dynamic_payload?BYTE:
+     dynpd?3283:   DS   1
+
+	RSEG  ?DT?_hal_nrf_get_pipe_status?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_get_pipe_status?BYTE:
+  pipe_num?1569:   DS   1
+	ORG  1
+ en_rxaddr?1570:   DS   1
+	ORG  2
+     en_aa?1571:   DS   1
+	ORG  3
+   en_rx_r?1572:   DS   1
+	ORG  4
+   en_aa_r?1573:   DS   1
+
+	RSEG  ?DT?_hal_nrf_get_rx_payload_width?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_get_rx_payload_width?BYTE:
+        pw?1875:   DS   1
+
+	RSEG  ?DT?hal_nrf_get_rssi?___LE1_LIB_HAL_HAL_NRF
+?hal_nrf_get_rssi?BYTE:
+agc_config?48101:   DS   3
+	ORG  3
+    value?48102:   DS   2
+
+	RSEG  ?DT?_hal_nrf_set_power_mode?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_power_mode?BYTE:
+   pwr_mode?142:   DS   1
+	ORG  1
+     config?143:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_crc_mode?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_crc_mode?BYTE:
+   crc_mode?244:   DS   1
+	ORG  1
+     config?245:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_output_power?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_output_power?BYTE:
+     power?2078:   DS   1
+	ORG  1
+  rf_setup?2079:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_datarate?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_datarate?BYTE:
+  datarate?2180:   DS   1
+	ORG  1
+  rf_setup?2181:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_pll_mode?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_pll_mode?BYTE:
+  pll_lock?4799:   DS   1
+	ORG  1
+ rf_setup?47100:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_irq_mode?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_irq_mode?BYTE:
+ int_source?346:   DS   1
+	ORG  1
+  irq_state?347:   DS   1
+	ORG  2
+     config?348:   DS   1
+
+	RSEG  ?DT?_hal_nrf_read_multibyte_reg?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_read_multibyte_reg?BYTE:
+      reg?52110:   DS   1
+	ORG  1
+     pbuf?52111:   DS   3
+	ORG  4
+      ctr?52112:   DS   1
+	ORG  5
+   length?52113:   DS   1
+
+	RSEG  ?DT?_hal_nrf_enable_dynamic_payload?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_enable_dynamic_payload?BYTE:
+    enable?3384:   DS   1
+	ORG  1
+   feature?3385:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_auto_retr?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_auto_retr?BYTE:
+setup_retr?1164:   DS   1
+
+	RSEG  ?DT?_hal_nrf_get_address?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_get_address?BYTE:
+   address?1060:   DS   1
+	ORG  1
+      addr?1061:   DS   3
+
+	RSEG  ?DT?_hal_nrf_set_operation_mode?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_operation_mode?BYTE:
+    op_mode?040:   DS   1
+	ORG  1
+     config?041:   DS   1
+
+	RSEG  ?DT?_hal_nrf_write_ack_payload?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_write_ack_payload?BYTE:
+      pipe?3894:   DS   1
+  tx_pload?3895:   DS   3
+	ORG  4
+    length?3896:   DS   1
+
+	RSEG  ?DT?_hal_nrf_write_multibyte_reg?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_write_multibyte_reg?BYTE:
+      cmd?53114:   DS   1
+	ORG  1
+     pbuf?53115:   DS   3
+	ORG  4
+   length?53116:   DS   1
+
+	RSEG  ?DT?_hal_nrf_set_address?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_address?BYTE:
+    address?958:   DS   1
+	ORG  1
+       addr?959:   DS   3
+
+	RSEG  ?DT?_hal_nrf_set_address_width?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_set_address_width?BYTE:
+  setup_aw?1266:   DS   1
+
+	RSEG  ?DT?_hal_nrf_close_pipe?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_close_pipe?BYTE:
+   pipe_num?855:   DS   1
+	ORG  1
+  en_rxaddr?856:   DS   1
+	ORG  2
+      en_aa?857:   DS   1
+
+	RSEG  ?DT?_hal_nrf_enable_continious_wave?___LE1_LIB_HAL_HAL_NRF
+?_hal_nrf_enable_continious_wave?BYTE:
+   enable?49103:   DS   1
+	ORG  1
+ rf_setup?49104:   DS   1
+; /* Copyright (c) 2007 Nordic Semiconductor. All Rights Reserved.
+;  *
+;  * The information contained herein is property of Nordic Semiconductor ASA.
+;  * Terms and conditions of usage are described in detail in NORDIC
+;  * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT. 
+;  *
+;  * Licensees are granted free, non-transferable use of the information. NO
+;  * WARRENTY of ANY KIND is provided. This heading must NOT be removed from
+;  * the file.
+;  *
+;  * $LastChangedRevision: 4386 $
+;  */ 
+; 
+;  /** @file
+;   * @brief Implementation of hal_nrf
+;  */
+; /*lint -t2 */
+; /*lint -esym( 534, hal_nrf_write_reg ) */
+; /*lint -esym( 534, hal_nrf_rw ) */
+; /*lint -e708 */
+; /*lint -e46 */
+; 
+; #include <stdint.h>
+; #include <stdbool.h>
+; 
+; #include <HAL/nordic_common.h>
+; #include <HAL/hal_nrf.h>
+; 
+; #define SET_BIT(pos) ((unsigned char) (1<<( (unsigned char) (pos) )))
+; #define UINT8(t) ((unsigned char) (t))
+; 
+; /** Basis function read_reg.
+;  * Use this function to read the contents
+;  * of one radios register.
+;  *
+;  * @param reg Register to read
+;  * @return Register contents
+; */
+; unsigned char hal_nrf_read_reg(unsigned char reg);
+; 
+; /** Basis function write_reg.
+;  * Use this function to write a new value to
+;  * a radio register.
+;  *
+;  * @param reg Register to write
+;  * @param value New value to write
+;  * @return Status register
+; */
+; unsigned char hal_nrf_write_reg(unsigned char reg, unsigned char value);
+; 
+; /** Basis function, read_multibyte register .
+;  * Use this function to read multiple bytes from
+;  * a multibyte radio-register
+;  *
+;  * @param reg Multibyte register to read from
+;  * @param *pbuf Pointer to buffer in which to store read bytes to
+;  *
+;  * @return pipe# of received data (MSB), if operation used by a hal_nrf_read_rx_pload
+;  * @return length of read data (LSB), either for hal_nrf_read_rx_pload or
+;  * for hal_nrf_get_address.
+; */
+; unsigned int hal_nrf_read_multibyte_reg(unsigned char reg, unsigned char *pbuf);
+; 
+; /** Basis function, write_multibyte register.
+;  * Use this function to write multiple bytes to
+;  * a multiple radio register.
+;  *
+;  * @param reg Register to write
+;  * @param *pbuf pointer to buffer in which data to write is
+;  * @param length \# of bytes to write
+; */
+; void hal_nrf_write_multibyte_reg(unsigned char reg, const unsigned char *pbuf, unsigned char length);
+; 
+; /**
+;  * Typedef for the CONFIG register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char prim_rx : 1;
+; 		unsigned char pwr_up : 1;
+; 		unsigned char crc0 : 1;
+; 		unsigned char en_crc : 1;
+; 		unsigned char mask_max_rt : 1;
+; 		unsigned char mask_tx_ds : 1;
+; 		unsigned char mask_rx_dr : 1;
+; 		const unsigned char : 1;
+; 	} bits;
+; } config_t;
+; 
+; /**
+;  * Typedef for the EN_AA, EN_RXADDR and DYNPD registers. Contains all the 
+;  * bitaddressable settings in the bits struct and the value sent to the radio 
+;  * in the unsigned char 
+;  */
+; typedef union {
+;   unsigned char value;
+;   struct {
+;     unsigned char pipe_0 : 1;
+;     unsigned char pipe_1 : 1;
+;     unsigned char pipe_2 : 1;
+;     unsigned char pipe_3 : 1;
+;     unsigned char pipe_4 : 1;
+;     unsigned char pipe_5 : 1;
+;     const unsigned char : 2;
+;   } bits;
+; } en_pipes_t;
+; 
+; /**
+;  * Typedef for the SETUP_AW register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char aw : 2;
+; 		const unsigned char : 6;		
+; 	} bits;
+; } setup_aw_t;
+; 
+; /**
+;  * Typedef for the SETUP_RETR register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char arc : 4;
+; 		unsigned char ard : 4;
+; 	} bits;
+; } setup_retr_t;
+; 
+; /**
+;  * Typedef for the RF_CH register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char rf_ch : 7;
+; 		const unsigned char : 1;
+; 	} bits;
+; } rf_ch_t;
+; 
+; /**
+;  * Typedef for the RF_SETUP register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		const unsigned char : 1;
+; 		unsigned char rf_pwr : 2;
+; 		unsigned char rf_dr_high : 1;
+; 		unsigned char pll_lock : 1;
+; 		unsigned char rf_dr_low : 1;
+;     const unsigned char : 1;
+;     unsigned char cont_wave : 1;
+; 	} bits;
+; } rf_setup_t;
+; 
+; /**
+;  * Typedef for the RX_PW_Px registers. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char rx_pw : 6;
+; 		const unsigned char : 2;
+; 	} bits;
+; } rx_pw_t;
+; 
+; /**
+;  * Typedef for the FEATURE register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned char value;
+; 	struct {
+; 		unsigned char en_dyn_ack : 1;
+; 		unsigned char en_ack_pay : 1;
+; 		unsigned char en_dpl : 1;
+; 		const unsigned char : 5;
+; 	} bits;
+; } feature_t;
+; 
+; /**
+;  * Typedef for the AGC_CONFIG register. Contains all the bitaddressable 
+;  * settings in the bits struct and the value sent to the radio in the unsigned char
+;  */
+; typedef union {
+;   unsigned int value;
+;   struct {
+;     unsigned char lnb_out : 3;
+;     unsigned char lnb_in : 3;
+;     unsigned char agc_en : 1;
+;     unsigned char agc_th1mbit : 3;
+;     unsigned char agc_th2mbit : 3;
+;     unsigned char cd_th : 3;
+;   } bits;
+; } agc_config_t;
+; 
+; /** Content of the CONFIG register */
+; //static config_t config;
+; /** Content of the EN_AA register */
+; //static en_pipes_t en_aa;
+; /** Content of the EN_RXADDR register */
+; //static en_pipes_t en_rxaddr;
+; /** Content of the SETUP_AW register */
+; //static setup_aw_t setup_aw;
+; /** Content of the SETUP_RETR register */
+; //static setup_retr_t setup_retr;
+; /** Content of the RF_CH register */
+; //static rf_ch_t rf_ch;
+; /** Content of the RF_SETUP register */
+; //static rf_setup_t rf_setup;
+; /** Content of the RX_PW_P0 register */
+; //static rx_pw_t rx_pw_px;
+; /** Content of the DYNPD register */
+; //static en_pipes_t dynpd;
+; /** Content of the FEATURE register */
+; //static feature_t feature;
+; /** Content of the AGC_CONFIG register */
+; //static agc_config_t agc_config;
+; 
+; void hal_nrf_set_operation_mode(hal_nrf_operation_mode_t op_mode)
+
+	RSEG  ?PR?_hal_nrf_set_operation_mode?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_operation_mode:
+	USING	0
+			; SOURCE LINE # 228
+	MOV  	op_mode?040,R7
+; {
+			; SOURCE LINE # 229
+;   config_t config;
+;   config.value = hal_nrf_read_reg (CONFIG);
+			; SOURCE LINE # 231
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_read_reg
+	MOV  	config?041,R7
+; 
+;   if(op_mode == HAL_NRF_PRX)
+			; SOURCE LINE # 233
+	MOV  	A,op_mode?040
+	MOV  	R7,config?041
+	CJNE 	A,#01H,?C0001
+;   {
+			; SOURCE LINE # 234
+;     config.bits.prim_rx = 1;
+			; SOURCE LINE # 235
+	MOV  	A,R7
+	ORL  	A,#01H
+	MOV  	config?041,A
+;   }
+			; SOURCE LINE # 236
+	SJMP 	?C0002
+?C0001:
+;   else
+;   {
+			; SOURCE LINE # 238
+;     config.bits.prim_rx = 0;
+			; SOURCE LINE # 239
+	MOV  	A,R7
+	ANL  	A,#0FEH
+	MOV  	config?041,A
+;   }
+			; SOURCE LINE # 240
+?C0002:
+; 
+;   hal_nrf_write_reg (CONFIG, config.value);
+			; SOURCE LINE # 242
+	MOV  	R5,config?041
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_operation_mode
+
+; }
+; 
+; void hal_nrf_set_power_mode(hal_nrf_pwr_mode_t pwr_mode)
+
+	RSEG  ?PR?_hal_nrf_set_power_mode?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_power_mode:
+	USING	0
+			; SOURCE LINE # 245
+	MOV  	pwr_mode?142,R7
+; {
+			; SOURCE LINE # 246
+;   config_t config;
+;   config.value = hal_nrf_read_reg (CONFIG);
+			; SOURCE LINE # 248
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_read_reg
+	MOV  	config?143,R7
+; 
+;   if(pwr_mode == HAL_NRF_PWR_UP)
+			; SOURCE LINE # 250
+	MOV  	A,pwr_mode?142
+	MOV  	R7,config?143
+	CJNE 	A,#01H,?C0004
+;   {
+			; SOURCE LINE # 251
+;     config.bits.pwr_up = 1;
+			; SOURCE LINE # 252
+	MOV  	A,R7
+	ORL  	A,#02H
+	MOV  	config?143,A
+;   }
+			; SOURCE LINE # 253
+	SJMP 	?C0005
+?C0004:
+;   else
+;   {
+			; SOURCE LINE # 255
+;     config.bits.pwr_up = 0;
+			; SOURCE LINE # 256
+	MOV  	A,R7
+	ANL  	A,#0FDH
+	MOV  	config?143,A
+;   }
+			; SOURCE LINE # 257
+?C0005:
+;   
+;   hal_nrf_write_reg (CONFIG, config.value);
+			; SOURCE LINE # 259
+	MOV  	R5,config?143
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_power_mode
+
+; }
+; 
+; void hal_nrf_set_crc_mode(hal_nrf_crc_mode_t crc_mode)
+
+	RSEG  ?PR?_hal_nrf_set_crc_mode?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_crc_mode:
+	USING	0
+			; SOURCE LINE # 262
+	MOV  	crc_mode?244,R7
+; {
+			; SOURCE LINE # 263
+;   config_t config;
+;   config.value = hal_nrf_read_reg (CONFIG);
+			; SOURCE LINE # 265
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_read_reg
+	MOV  	config?245,R7
+; 
+; 	switch (crc_mode)
+			; SOURCE LINE # 267
+	MOV  	A,crc_mode?244
+	DEC  	A
+	JZ   	?C0009
+	DEC  	A
+	JZ   	?C0010
+	ADD  	A,#02H
+	JNZ  	?C0007
+; 	{
+			; SOURCE LINE # 268
+; 		case HAL_NRF_CRC_OFF:
+			; SOURCE LINE # 269
+?C0008:
+; 			config.bits.en_crc = 0;
+			; SOURCE LINE # 270
+	MOV  	R7,config?245
+	MOV  	A,R7
+	ANL  	A,#0F7H
+	MOV  	config?245,A
+; 			break;
+			; SOURCE LINE # 271
+	SJMP 	?C0007
+; 		case HAL_NRF_CRC_8BIT:
+			; SOURCE LINE # 272
+?C0009:
+; 			config.bits.en_crc = 1;
+			; SOURCE LINE # 273
+	MOV  	R7,config?245
+	MOV  	A,R7
+	ORL  	A,#08H
+	MOV  	config?245,A
+; 			config.bits.crc0 = 0;
+			; SOURCE LINE # 274
+	MOV  	R7,config?245
+	MOV  	A,R7
+	ANL  	A,#0FBH
+	MOV  	config?245,A
+; 			break;
+			; SOURCE LINE # 275
+	SJMP 	?C0007
+; 		case HAL_NRF_CRC_16BIT:
+			; SOURCE LINE # 276
+?C0010:
+; 			config.bits.en_crc = 1;
+			; SOURCE LINE # 277
+	MOV  	R7,config?245
+	MOV  	A,R7
+	ORL  	A,#08H
+	MOV  	config?245,A
+; 			config.bits.crc0 = 1;
+			; SOURCE LINE # 278
+	MOV  	R7,config?245
+	MOV  	A,R7
+	ORL  	A,#04H
+	MOV  	config?245,A
+; 			break;
+			; SOURCE LINE # 279
+; 		default:
+			; SOURCE LINE # 280
+; 			break;
+			; SOURCE LINE # 281
+; 	} 
+			; SOURCE LINE # 282
+?C0007:
+; 
+;   hal_nrf_write_reg (CONFIG, config.value);
+			; SOURCE LINE # 284
+	MOV  	R5,config?245
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_crc_mode
+
+; }
+; 
+; void hal_nrf_set_irq_mode(hal_nrf_irq_source_t int_source, unsigned char irq_state)
+
+	RSEG  ?PR?_hal_nrf_set_irq_mode?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_irq_mode:
+	USING	0
+			; SOURCE LINE # 287
+	MOV  	int_source?346,R7
+	MOV  	irq_state?347,R5
+; {
+			; SOURCE LINE # 288
+;   config_t config;
+;   config.value = hal_nrf_read_reg (CONFIG);
+			; SOURCE LINE # 290
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_read_reg
+	MOV  	config?348,R7
+; 
+; 	switch (int_source)
+			; SOURCE LINE # 292
+	MOV  	A,int_source?346
+	ADD  	A,#0FBH
+	JZ   	?C0017
+	DEC  	A
+	JZ   	?C0020
+	ADD  	A,#02H
+	JNZ  	?C0013
+; 	{
+			; SOURCE LINE # 293
+; 		case HAL_NRF_MAX_RT:
+			; SOURCE LINE # 294
+?C0014:
+; 			config.bits.mask_max_rt = irq_state ? 0 : 1;
+			; SOURCE LINE # 295
+	MOV  	A,irq_state?347
+	MOV  	R7,#01H
+	JZ   	?C0015
+	MOV  	R7,#00H
+?C0015:
+?C0016:
+	MOV  	A,R7
+	ANL  	A,#01H
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R7,A
+	MOV  	R6,config?348
+	MOV  	A,R6
+	ANL  	A,#0EFH
+;       break;
+			; SOURCE LINE # 296
+	SJMP 	?C0219
+;     case HAL_NRF_TX_DS:
+			; SOURCE LINE # 297
+?C0017:
+;       config.bits.mask_tx_ds = irq_state ? 0 : 1;
+			; SOURCE LINE # 298
+	MOV  	A,irq_state?347
+	MOV  	R7,#01H
+	JZ   	?C0018
+	MOV  	R7,#00H
+?C0018:
+?C0019:
+	MOV  	A,R7
+	ANL  	A,#01H
+	SWAP 	A
+	RLC  	A
+	ANL  	A,#0E0H
+	MOV  	R7,A
+	MOV  	R6,config?348
+	MOV  	A,R6
+	ANL  	A,#0DFH
+?C0218:
+;       break;
+			; SOURCE LINE # 299
+	SJMP 	?C0219
+;     case HAL_NRF_RX_DR:
+			; SOURCE LINE # 300
+?C0020:
+;       config.bits.mask_rx_dr = irq_state ? 0 : 1;
+			; SOURCE LINE # 301
+	MOV  	A,irq_state?347
+	MOV  	R7,#01H
+	JZ   	?C0021
+	MOV  	R7,#00H
+?C0021:
+?C0022:
+	MOV  	A,R7
+	ANL  	A,#01H
+	SWAP 	A
+	RLC  	A
+	RLC  	A
+	ANL  	A,#0C0H
+	MOV  	R7,A
+	MOV  	R6,config?348
+	MOV  	A,R6
+	ANL  	A,#0BFH
+?C0219:
+	ORL  	A,R7
+	MOV  	config?348,A
+;       break;
+			; SOURCE LINE # 302
+;   }
+			; SOURCE LINE # 303
+?C0013:
+;   
+;   hal_nrf_write_reg (CONFIG, config.value);
+			; SOURCE LINE # 305
+	MOV  	R5,config?348
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_irq_mode
+
+; }
+; 
+; unsigned char hal_nrf_get_clear_irq_flags(void)
+
+	RSEG  ?PR?hal_nrf_get_clear_irq_flags?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_clear_irq_flags:
+	USING	0
+			; SOURCE LINE # 308
+; {
+			; SOURCE LINE # 309
+;   unsigned char retval;
+;   
+;   retval = hal_nrf_write_reg (STATUS, (BIT_6|BIT_5|BIT_4));
+			; SOURCE LINE # 312
+	MOV  	R5,#070H
+	MOV  	R7,#07H
+	LCALL	_hal_nrf_write_reg
+;---- Variable 'retval?449' assigned to Register 'R7' ----
+; 
+;   return (retval & (BIT_6|BIT_5|BIT_4));
+			; SOURCE LINE # 314
+	MOV  	A,R7
+	ANL  	A,#070H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 315
+?C0024:
+	RET  	
+; END OF hal_nrf_get_clear_irq_flags
+
+; 
+; void hal_nrf_clear_irq_flag(hal_nrf_irq_source_t int_source)
+
+	RSEG  ?PR?_hal_nrf_clear_irq_flag?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_clear_irq_flag:
+	USING	0
+			; SOURCE LINE # 317
+;---- Variable 'int_source?550' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 318
+;   hal_nrf_write_reg (STATUS, SET_BIT(int_source));
+			; SOURCE LINE # 319
+	MOV  	A,#01H
+	MOV  	R0,AR7
+	INC  	R0
+	SJMP 	?C0211
+?C0210:
+	CLR  	C
+	RLC  	A
+?C0211:
+	DJNZ 	R0,?C0210
+	MOV  	R5,A
+	MOV  	R7,#07H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_clear_irq_flag
+
+; }
+; 
+; unsigned char hal_nrf_get_irq_flags(void)
+
+	RSEG  ?PR?hal_nrf_get_irq_flags?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_irq_flags:
+	USING	0
+			; SOURCE LINE # 322
+; {
+			; SOURCE LINE # 323
+;   return hal_nrf_nop() & (BIT_6|BIT_5|BIT_4);
+			; SOURCE LINE # 324
+	LCALL	hal_nrf_nop
+	MOV  	A,R7
+	ANL  	A,#070H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 325
+?C0026:
+	RET  	
+; END OF hal_nrf_get_irq_flags
+
+; 
+; void hal_nrf_open_pipe(hal_nrf_address_t pipe_num, unsigned char auto_ack)
+
+	RSEG  ?PR?_hal_nrf_open_pipe?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_open_pipe:
+	USING	0
+			; SOURCE LINE # 327
+	MOV  	pipe_num?751,R7
+	MOV  	auto_ack?752,R5
+; {
+			; SOURCE LINE # 328
+;   en_pipes_t en_rxaddr;
+;   en_pipes_t en_aa;
+;   en_rxaddr.value = hal_nrf_read_reg (EN_RXADDR);
+			; SOURCE LINE # 331
+	MOV  	R7,#02H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_rxaddr?753,R7
+;   en_aa.value = hal_nrf_read_reg (EN_AA);
+			; SOURCE LINE # 332
+	MOV  	R7,#01H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_aa?754,R7
+; 
+;   switch(pipe_num)
+			; SOURCE LINE # 334
+	MOV  	A,pipe_num?751
+	ADD  	A,#0FAH
+	JNC  	?C0033
+	ADD  	A,#07H
+	JZ   	?C0036
+	SJMP 	?C0027
+;   {
+			; SOURCE LINE # 335
+;     case HAL_NRF_PIPE0:
+			; SOURCE LINE # 336
+;     case HAL_NRF_PIPE1:
+			; SOURCE LINE # 337
+;     case HAL_NRF_PIPE2:
+			; SOURCE LINE # 338
+;     case HAL_NRF_PIPE3:
+			; SOURCE LINE # 339
+;     case HAL_NRF_PIPE4:
+			; SOURCE LINE # 340
+;     case HAL_NRF_PIPE5:
+			; SOURCE LINE # 341
+?C0033:
+;       en_rxaddr.value = en_rxaddr.value | SET_BIT(pipe_num);
+			; SOURCE LINE # 342
+	MOV  	R7,pipe_num?751
+	MOV  	A,#01H
+	MOV  	R0,AR7
+	INC  	R0
+	SJMP 	?C0213
+?C0212:
+	CLR  	C
+	RLC  	A
+?C0213:
+	DJNZ 	R0,?C0212
+	MOV  	R7,A
+	ORL  	en_rxaddr?753,A
+; 
+;       if(auto_ack)
+			; SOURCE LINE # 344
+	MOV  	A,auto_ack?752
+	JZ   	?C0034
+;       {
+			; SOURCE LINE # 345
+;         en_aa.value = en_aa.value | SET_BIT(pipe_num);
+			; SOURCE LINE # 346
+	MOV  	A,R7
+	ORL  	en_aa?754,A
+;       }
+			; SOURCE LINE # 347
+	SJMP 	?C0027
+?C0034:
+;       else
+;       {
+			; SOURCE LINE # 349
+;         en_aa.value = en_aa.value & ~SET_BIT(pipe_num);
+			; SOURCE LINE # 350
+	MOV  	A,R7
+	CPL  	A
+	ANL  	en_aa?754,A
+;       }
+			; SOURCE LINE # 351
+;       break;
+			; SOURCE LINE # 352
+	SJMP 	?C0027
+; 
+;     case HAL_NRF_ALL:
+			; SOURCE LINE # 354
+?C0036:
+;       en_rxaddr.value = ~(BIT_6|BIT_7);
+			; SOURCE LINE # 355
+	MOV  	en_rxaddr?753,#03FH
+;       
+;       if(auto_ack)
+			; SOURCE LINE # 357
+	MOV  	A,auto_ack?752
+	JZ   	?C0037
+;       {
+			; SOURCE LINE # 358
+;         en_aa.value = ~(BIT_6|BIT_7);
+			; SOURCE LINE # 359
+	MOV  	en_aa?754,#03FH
+;       }
+			; SOURCE LINE # 360
+	SJMP 	?C0027
+?C0037:
+;       else
+;       {
+			; SOURCE LINE # 362
+;         en_aa.value = 0;
+			; SOURCE LINE # 363
+	CLR  	A
+	MOV  	en_aa?754,A
+;       }
+			; SOURCE LINE # 364
+;       break;
+			; SOURCE LINE # 365
+;       
+;     default:
+			; SOURCE LINE # 367
+;       break;
+			; SOURCE LINE # 368
+;   }
+			; SOURCE LINE # 369
+?C0027:
+; 
+;   hal_nrf_write_reg (EN_RXADDR, en_rxaddr.value);
+			; SOURCE LINE # 371
+	MOV  	R5,en_rxaddr?753
+	MOV  	R7,#02H
+	LCALL	_hal_nrf_write_reg
+;   hal_nrf_write_reg (EN_AA, en_aa.value);
+			; SOURCE LINE # 372
+	MOV  	R5,en_aa?754
+	MOV  	R7,#01H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_open_pipe
+
+; }
+; 
+; void hal_nrf_close_pipe(hal_nrf_address_t pipe_num)
+
+	RSEG  ?PR?_hal_nrf_close_pipe?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_close_pipe:
+	USING	0
+			; SOURCE LINE # 375
+	MOV  	pipe_num?855,R7
+; {
+			; SOURCE LINE # 376
+;   en_pipes_t en_rxaddr;
+;   en_pipes_t en_aa;
+;   en_rxaddr.value = hal_nrf_read_reg (EN_RXADDR);
+			; SOURCE LINE # 379
+	MOV  	R7,#02H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_rxaddr?856,R7
+;   en_aa.value = hal_nrf_read_reg (EN_AA);
+			; SOURCE LINE # 380
+	MOV  	R7,#01H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_aa?857,R7
+; 
+;   switch(pipe_num)
+			; SOURCE LINE # 382
+	MOV  	A,pipe_num?855
+	ADD  	A,#0FAH
+	JNC  	?C0047
+	ADD  	A,#07H
+	JZ   	?C0048
+	SJMP 	?C0041
+;   {
+			; SOURCE LINE # 383
+;     case HAL_NRF_PIPE0:
+			; SOURCE LINE # 384
+;     case HAL_NRF_PIPE1:
+			; SOURCE LINE # 385
+;     case HAL_NRF_PIPE2:
+			; SOURCE LINE # 386
+;     case HAL_NRF_PIPE3:
+			; SOURCE LINE # 387
+;     case HAL_NRF_PIPE4:
+			; SOURCE LINE # 388
+;     case HAL_NRF_PIPE5:
+			; SOURCE LINE # 389
+?C0047:
+;       en_rxaddr.value = en_rxaddr.value & ~SET_BIT(pipe_num);
+			; SOURCE LINE # 390
+	MOV  	R7,pipe_num?855
+	MOV  	A,#01H
+	MOV  	R0,AR7
+	INC  	R0
+	SJMP 	?C0215
+?C0214:
+	CLR  	C
+	RLC  	A
+?C0215:
+	DJNZ 	R0,?C0214
+	CPL  	A
+	ANL  	en_rxaddr?856,A
+;       en_aa.value = en_aa.value & ~SET_BIT(pipe_num);
+			; SOURCE LINE # 391
+	ANL  	en_aa?857,A
+;       break;
+			; SOURCE LINE # 392
+	SJMP 	?C0041
+;     
+;     case HAL_NRF_ALL:
+			; SOURCE LINE # 394
+?C0048:
+;       en_rxaddr.value = 0;
+			; SOURCE LINE # 395
+	CLR  	A
+	MOV  	en_rxaddr?856,A
+;       en_aa.value = 0;
+			; SOURCE LINE # 396
+	MOV  	en_aa?857,A
+;       break;
+			; SOURCE LINE # 397
+;       
+;     default:
+			; SOURCE LINE # 399
+;       break;
+			; SOURCE LINE # 400
+;   }
+			; SOURCE LINE # 401
+?C0041:
+; 
+;   hal_nrf_write_reg (EN_RXADDR, en_rxaddr.value);
+			; SOURCE LINE # 403
+	MOV  	R5,en_rxaddr?856
+	MOV  	R7,#02H
+	LCALL	_hal_nrf_write_reg
+;   hal_nrf_write_reg (EN_AA, en_aa.value);
+			; SOURCE LINE # 404
+	MOV  	R5,en_aa?857
+	MOV  	R7,#01H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_close_pipe
+
+; }
+; 
+; void hal_nrf_set_address(const hal_nrf_address_t address, const unsigned char *addr)
+
+	RSEG  ?PR?_hal_nrf_set_address?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_address:
+	USING	0
+			; SOURCE LINE # 407
+	MOV  	address?958,R7
+	MOV  	addr?959,R3
+	MOV  	addr?959+01H,R2
+	MOV  	addr?959+02H,R1
+; {
+			; SOURCE LINE # 408
+;   switch(address)
+			; SOURCE LINE # 409
+	MOV  	A,address?958
+	DEC  	A
+	JZ   	?C0054
+	ADD  	A,#0FBH
+	JNC  	?C0058
+	JZ   	?C0054
+	ADD  	A,#06H
+	JNZ  	?C0060
+;   {
+			; SOURCE LINE # 410
+;     case HAL_NRF_TX:
+			; SOURCE LINE # 411
+;     case HAL_NRF_PIPE0:
+			; SOURCE LINE # 412
+;     case HAL_NRF_PIPE1:
+			; SOURCE LINE # 413
+?C0054:
+;       hal_nrf_write_multibyte_reg(W_REGISTER + RX_ADDR_P0 + (unsigned char) address, addr, hal_nrf_get_address_width());
+			; SOURCE LINE # 414
+	LCALL	hal_nrf_get_address_width
+	MOV  	?_hal_nrf_write_multibyte_reg?BYTE+04H,R7
+	MOV  	A,address?958
+	ADD  	A,#02AH
+	MOV  	R7,A
+	MOV  	R3,addr?959
+	MOV  	R2,addr?959+01H
+	MOV  	R1,addr?959+02H
+	LJMP 	_hal_nrf_write_multibyte_reg
+;       break;
+			; SOURCE LINE # 415
+;     case HAL_NRF_PIPE2:
+			; SOURCE LINE # 416
+;     case HAL_NRF_PIPE3:
+			; SOURCE LINE # 417
+;     case HAL_NRF_PIPE4:
+			; SOURCE LINE # 418
+;     case HAL_NRF_PIPE5:
+			; SOURCE LINE # 419
+?C0058:
+;       hal_nrf_write_reg (RX_ADDR_P0 + (unsigned char) address, *addr);
+			; SOURCE LINE # 420
+	MOV  	A,address?958
+	ADD  	A,#0AH
+	MOV  	R7,A
+	MOV  	R3,addr?959
+	MOV  	R2,addr?959+01H
+	MOV  	R1,addr?959+02H
+	LCALL	?C?CLDPTR
+	MOV  	R5,A
+	LCALL	_hal_nrf_write_reg
+;       break;
+			; SOURCE LINE # 421
+; 
+;     default:
+			; SOURCE LINE # 423
+;       break;
+			; SOURCE LINE # 424
+;   }
+			; SOURCE LINE # 425
+; }
+			; SOURCE LINE # 426
+?C0060:
+	RET  	
+; END OF _hal_nrf_set_address
+
+; 
+; unsigned char hal_nrf_get_address(unsigned char address, unsigned char *addr)
+
+	RSEG  ?PR?_hal_nrf_get_address?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_get_address:
+	USING	0
+			; SOURCE LINE # 428
+	MOV  	address?1060,R7
+	MOV  	addr?1061,R3
+	MOV  	addr?1061+01H,R2
+	MOV  	addr?1061+02H,R1
+; {
+			; SOURCE LINE # 429
+;   switch (address)
+			; SOURCE LINE # 430
+	MOV  	A,address?1060
+	DEC  	A
+	JZ   	?C0064
+	ADD  	A,#0FBH
+	JZ   	?C0064
+	ADD  	A,#06H
+	JNZ  	?C0066
+;   {
+			; SOURCE LINE # 431
+;     case HAL_NRF_PIPE0:
+			; SOURCE LINE # 432
+;     case HAL_NRF_PIPE1:
+			; SOURCE LINE # 433
+;     case HAL_NRF_TX:
+			; SOURCE LINE # 434
+?C0064:
+;       return hal_nrf_read_multibyte_reg (address, addr);
+			; SOURCE LINE # 435
+	MOV  	R3,addr?1061
+	MOV  	R2,addr?1061+01H
+	MOV  	R1,addr?1061+02H
+	MOV  	R7,address?1060
+	LJMP 	_hal_nrf_read_multibyte_reg
+;     default:
+			; SOURCE LINE # 436
+?C0066:
+;       *addr = hal_nrf_read_reg(RX_ADDR_P0 + address);
+			; SOURCE LINE # 437
+	MOV  	A,address?1060
+	ADD  	A,#0AH
+	MOV  	R7,A
+	LCALL	_hal_nrf_read_reg
+	MOV  	R3,addr?1061
+	MOV  	R2,addr?1061+01H
+	MOV  	R1,addr?1061+02H
+	MOV  	A,R7
+	LCALL	?C?CSTPTR
+;       return 1;
+			; SOURCE LINE # 438
+	MOV  	R7,#01H
+;   }
+			; SOURCE LINE # 439
+; }
+			; SOURCE LINE # 440
+?C0065:
+	RET  	
+; END OF _hal_nrf_get_address
+
+; 
+; void hal_nrf_set_auto_retr(unsigned char retr, unsigned int delay)
+
+	RSEG  ?PR?_hal_nrf_set_auto_retr?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_auto_retr:
+	USING	0
+			; SOURCE LINE # 442
+;---- Variable 'delay?1163' assigned to Register 'R4/R5' ----
+;---- Variable 'retr?1162' assigned to Register 'R3' ----
+	MOV  	R3,AR7
+; {
+			; SOURCE LINE # 443
+;   setup_retr_t setup_retr;
+;   setup_retr.bits.ard = (delay / 250) - 1;
+			; SOURCE LINE # 445
+	MOV  	R6,AR4
+	MOV  	R7,AR5
+	MOV  	R4,#00H
+	MOV  	R5,#0FAH
+	LCALL	?C?UIDIV
+	MOV  	A,R7
+	DEC  	A
+	ANL  	A,#0FH
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R7,A
+	MOV  	R6,setup_retr?1164
+	MOV  	A,R6
+	ANL  	A,#0FH
+	ORL  	A,R7
+	MOV  	setup_retr?1164,A
+;   setup_retr.bits.arc = retr;
+			; SOURCE LINE # 446
+	MOV  	A,R3
+	ANL  	A,#0FH
+	MOV  	R7,A
+	MOV  	R6,setup_retr?1164
+	MOV  	A,R6
+	ANL  	A,#0F0H
+	ORL  	A,R7
+	MOV  	setup_retr?1164,A
+; 
+;   hal_nrf_write_reg (SETUP_RETR, setup_retr.value);
+			; SOURCE LINE # 448
+	MOV  	R5,setup_retr?1164
+	MOV  	R7,#04H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_auto_retr
+
+; }
+; 
+; void hal_nrf_set_address_width(hal_nrf_address_width_t aw)
+
+	RSEG  ?PR?_hal_nrf_set_address_width?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_address_width:
+	USING	0
+			; SOURCE LINE # 451
+;---- Variable 'aw?1265' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 452
+;   setup_aw_t setup_aw;
+;   setup_aw.bits.aw = (unsigned char)aw - 2;
+			; SOURCE LINE # 454
+	MOV  	A,R7
+	ADD  	A,#0FEH
+	ANL  	A,#03H
+	MOV  	R7,A
+	MOV  	R6,setup_aw?1266
+	MOV  	A,R6
+	ANL  	A,#0FCH
+	ORL  	A,R7
+	MOV  	setup_aw?1266,A
+; 
+;   hal_nrf_write_reg (SETUP_AW, setup_aw.value);
+			; SOURCE LINE # 456
+	MOV  	R5,setup_aw?1266
+	MOV  	R7,#03H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_address_width
+
+; }
+; 
+; unsigned char hal_nrf_get_address_width (void)
+
+	RSEG  ?PR?hal_nrf_get_address_width?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_address_width:
+	USING	0
+			; SOURCE LINE # 459
+; {
+			; SOURCE LINE # 460
+;   return hal_nrf_read_reg (SETUP_AW) + 2;
+			; SOURCE LINE # 461
+	MOV  	R7,#03H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ADD  	A,#02H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 462
+?C0069:
+	RET  	
+; END OF hal_nrf_get_address_width
+
+; 
+; void hal_nrf_set_rx_payload_width(unsigned char pipe_num, unsigned char pload_width)
+
+	RSEG  ?PR?_hal_nrf_set_rx_payload_width?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_rx_payload_width:
+	USING	0
+			; SOURCE LINE # 464
+;---- Variable 'pload_width?1468' assigned to Register 'R5' ----
+;---- Variable 'pipe_num?1467' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 465
+;   hal_nrf_write_reg (RX_PW_P0 + pipe_num, pload_width);
+			; SOURCE LINE # 466
+	MOV  	A,R7
+	ADD  	A,#011H
+	MOV  	R7,A
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_rx_payload_width
+
+; }
+; 
+; unsigned char hal_nrf_get_pipe_status(unsigned char pipe_num)
+
+	RSEG  ?PR?_hal_nrf_get_pipe_status?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_get_pipe_status:
+	USING	0
+			; SOURCE LINE # 469
+	MOV  	pipe_num?1569,R7
+; {
+			; SOURCE LINE # 470
+;   en_pipes_t en_rxaddr;
+;   en_pipes_t en_aa;
+;   unsigned char en_rx_r, en_aa_r;
+;   
+;   en_rxaddr.value = hal_nrf_read_reg (EN_RXADDR);
+			; SOURCE LINE # 475
+	MOV  	R7,#02H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_rxaddr?1570,R7
+;   en_aa.value = hal_nrf_read_reg (EN_AA);
+			; SOURCE LINE # 476
+	MOV  	R7,#01H
+	LCALL	_hal_nrf_read_reg
+	MOV  	en_aa?1571,R7
+; 
+;   switch (pipe_num)
+			; SOURCE LINE # 478
+	MOV  	A,pipe_num?1569
+	DEC  	A
+	JZ   	?C0073
+	DEC  	A
+	JZ   	?C0074
+	DEC  	A
+	JZ   	?C0075
+	DEC  	A
+	JZ   	?C0076
+	DEC  	A
+	JZ   	?C0077
+	ADD  	A,#05H
+	JNZ  	?C0078
+;   {
+			; SOURCE LINE # 479
+;     case 0:
+			; SOURCE LINE # 480
+?C0072:
+;       en_rx_r = en_rxaddr.bits.pipe_0;
+			; SOURCE LINE # 481
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_0;
+			; SOURCE LINE # 482
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+;       break;
+			; SOURCE LINE # 483
+	SJMP 	?C0224
+;     case 1:
+			; SOURCE LINE # 484
+?C0073:
+;       en_rx_r = en_rxaddr.bits.pipe_1;
+			; SOURCE LINE # 485
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	CLR  	C
+	RRC  	A
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_1;
+			; SOURCE LINE # 486
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+	CLR  	C
+	RRC  	A
+?C0220:
+;       break;
+			; SOURCE LINE # 487
+	SJMP 	?C0224
+;     case 2:
+			; SOURCE LINE # 488
+?C0074:
+;       en_rx_r = en_rxaddr.bits.pipe_2;
+			; SOURCE LINE # 489
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	RRC  	A
+	RRC  	A
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_2;
+			; SOURCE LINE # 490
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+	RRC  	A
+	RRC  	A
+?C0221:
+;       break;
+			; SOURCE LINE # 491
+	SJMP 	?C0224
+;     case 3:
+			; SOURCE LINE # 492
+?C0075:
+;       en_rx_r = en_rxaddr.bits.pipe_3;
+			; SOURCE LINE # 493
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	RRC  	A
+	RRC  	A
+	RRC  	A
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_3;
+			; SOURCE LINE # 494
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+	RRC  	A
+	RRC  	A
+	RRC  	A
+?C0222:
+;       break;
+			; SOURCE LINE # 495
+	SJMP 	?C0224
+;     case 4:
+			; SOURCE LINE # 496
+?C0076:
+;       en_rx_r = en_rxaddr.bits.pipe_4;
+			; SOURCE LINE # 497
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	SWAP 	A
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_4;
+			; SOURCE LINE # 498
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+	SWAP 	A
+?C0223:
+;       break;
+			; SOURCE LINE # 499
+	SJMP 	?C0224
+;     case 5:
+			; SOURCE LINE # 500
+?C0077:
+;       en_rx_r = en_rxaddr.bits.pipe_5;
+			; SOURCE LINE # 501
+	MOV  	R7,en_rxaddr?1570
+	MOV  	A,R7
+	SWAP 	A
+	RRC  	A
+	ANL  	A,#01H
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = en_aa.bits.pipe_5;
+			; SOURCE LINE # 502
+	MOV  	R7,en_aa?1571
+	MOV  	A,R7
+	SWAP 	A
+	RRC  	A
+?C0224:
+	ANL  	A,#01H
+	MOV  	en_aa_r?1573,A
+;       break;
+			; SOURCE LINE # 503
+	SJMP 	?C0071
+;     default:
+			; SOURCE LINE # 504
+?C0078:
+;       en_rx_r = 0;
+			; SOURCE LINE # 505
+	CLR  	A
+	MOV  	en_rx_r?1572,A
+;       en_aa_r = 0;
+			; SOURCE LINE # 506
+	MOV  	en_aa_r?1573,A
+;       break;
+			; SOURCE LINE # 507
+;   }
+			; SOURCE LINE # 508
+?C0071:
+;   
+;   return (unsigned char)(en_aa_r << 1) + en_rx_r;
+			; SOURCE LINE # 510
+	MOV  	A,en_aa_r?1573
+	ADD  	A,ACC
+	ADD  	A,en_rx_r?1572
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 511
+?C0079:
+	RET  	
+; END OF _hal_nrf_get_pipe_status
+
+; 
+; 
+; unsigned char hal_nrf_get_auto_retr_status(void)
+
+	RSEG  ?PR?hal_nrf_get_auto_retr_status?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_auto_retr_status:
+	USING	0
+			; SOURCE LINE # 514
+; {
+			; SOURCE LINE # 515
+;   return hal_nrf_read_reg(OBSERVE_TX);
+			; SOURCE LINE # 516
+	MOV  	R7,#08H
+	LCALL	_hal_nrf_read_reg
+; }
+			; SOURCE LINE # 517
+?C0080:
+	RET  	
+; END OF hal_nrf_get_auto_retr_status
+
+; 
+; unsigned char hal_nrf_get_packet_lost_ctr(void)
+
+	RSEG  ?PR?hal_nrf_get_packet_lost_ctr?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_packet_lost_ctr:
+	USING	0
+			; SOURCE LINE # 519
+; {
+			; SOURCE LINE # 520
+;   return ((hal_nrf_read_reg(OBSERVE_TX) & (BIT_7|BIT_6|BIT_5|BIT_4)) >> 4);
+			; SOURCE LINE # 521
+	MOV  	R7,#08H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#0F0H
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 522
+?C0081:
+	RET  	
+; END OF hal_nrf_get_packet_lost_ctr
+
+; 
+; unsigned char hal_nrf_get_rx_payload_width(unsigned char pipe_num)
+
+	RSEG  ?PR?_hal_nrf_get_rx_payload_width?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_get_rx_payload_width:
+	USING	0
+			; SOURCE LINE # 524
+;---- Variable 'pipe_num?1874' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 525
+;   unsigned char pw;
+; 
+;   switch (pipe_num)
+			; SOURCE LINE # 528
+	MOV  	A,R7
+	DEC  	A
+	JZ   	?C0084
+	DEC  	A
+	JZ   	?C0085
+	DEC  	A
+	JZ   	?C0086
+	DEC  	A
+	JZ   	?C0087
+	DEC  	A
+	JZ   	?C0088
+	ADD  	A,#05H
+	JNZ  	?C0089
+;   {
+			; SOURCE LINE # 529
+;     case 0:
+			; SOURCE LINE # 530
+?C0083:
+;       pw = hal_nrf_read_reg (RX_PW_P0);
+			; SOURCE LINE # 531
+	MOV  	R7,#011H
+;       break;      
+			; SOURCE LINE # 532
+	SJMP 	?C0229
+;     case 1:
+			; SOURCE LINE # 533
+?C0084:
+;       pw = hal_nrf_read_reg (RX_PW_P1);
+			; SOURCE LINE # 534
+	MOV  	R7,#012H
+?C0225:
+;       break;
+			; SOURCE LINE # 535
+	SJMP 	?C0229
+;     case 2:
+			; SOURCE LINE # 536
+?C0085:
+;       pw = hal_nrf_read_reg (RX_PW_P2);
+			; SOURCE LINE # 537
+	MOV  	R7,#013H
+?C0226:
+;       break;
+			; SOURCE LINE # 538
+	SJMP 	?C0229
+;     case 3:
+			; SOURCE LINE # 539
+?C0086:
+;       pw = hal_nrf_read_reg (RX_PW_P3);
+			; SOURCE LINE # 540
+	MOV  	R7,#014H
+?C0227:
+;       break;
+			; SOURCE LINE # 541
+	SJMP 	?C0229
+;     case 4:
+			; SOURCE LINE # 542
+?C0087:
+;       pw = hal_nrf_read_reg (RX_PW_P4);
+			; SOURCE LINE # 543
+	MOV  	R7,#015H
+?C0228:
+;       break;
+			; SOURCE LINE # 544
+	SJMP 	?C0229
+;     case 5:
+			; SOURCE LINE # 545
+?C0088:
+;       pw = hal_nrf_read_reg (RX_PW_P5);
+			; SOURCE LINE # 546
+	MOV  	R7,#016H
+?C0229:
+	LCALL	_hal_nrf_read_reg
+	MOV  	pw?1875,R7
+;       break;
+			; SOURCE LINE # 547
+	SJMP 	?C0082
+;     default:
+			; SOURCE LINE # 548
+?C0089:
+;       pw = 0;
+			; SOURCE LINE # 549
+	CLR  	A
+	MOV  	pw?1875,A
+;       break;
+			; SOURCE LINE # 550
+;   }
+			; SOURCE LINE # 551
+?C0082:
+; 
+;   return pw;
+			; SOURCE LINE # 553
+	MOV  	R7,pw?1875
+; }
+			; SOURCE LINE # 554
+?C0090:
+	RET  	
+; END OF _hal_nrf_get_rx_payload_width
+
+; 
+; void hal_nrf_set_rf_channel(unsigned char channel)
+
+	RSEG  ?PR?_hal_nrf_set_rf_channel?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_rf_channel:
+	USING	0
+			; SOURCE LINE # 556
+;---- Variable 'channel?1976' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 557
+;   rf_ch_t rf_ch;
+;   rf_ch.bits.rf_ch = channel;
+			; SOURCE LINE # 559
+	MOV  	A,R7
+	ANL  	A,#07FH
+	MOV  	R7,A
+	MOV  	R6,rf_ch?1977
+	MOV  	A,R6
+	ANL  	A,#080H
+	ORL  	A,R7
+	MOV  	rf_ch?1977,A
+;   
+;   hal_nrf_write_reg (RF_CH, rf_ch.value);
+			; SOURCE LINE # 561
+	MOV  	R5,rf_ch?1977
+	MOV  	R7,#05H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_rf_channel
+
+; }
+; 
+; void hal_nrf_set_output_power(hal_nrf_output_power_t power)
+
+	RSEG  ?PR?_hal_nrf_set_output_power?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_output_power:
+	USING	0
+			; SOURCE LINE # 564
+	MOV  	power?2078,R7
+; {
+			; SOURCE LINE # 565
+;   rf_setup_t rf_setup;
+;   rf_setup.value = hal_nrf_read_reg (RF_SETUP);
+			; SOURCE LINE # 567
+	MOV  	R7,#06H
+	LCALL	_hal_nrf_read_reg
+	MOV  	rf_setup?2079,R7
+; 
+;   rf_setup.bits.rf_pwr = (unsigned char)power;
+			; SOURCE LINE # 569
+	MOV  	A,power?2078
+	ANL  	A,#03H
+	ADD  	A,ACC
+	MOV  	R7,A
+	MOV  	R6,rf_setup?2079
+	MOV  	A,R6
+	ANL  	A,#0F9H
+	ORL  	A,R7
+	MOV  	rf_setup?2079,A
+;   
+;   hal_nrf_write_reg (RF_SETUP, rf_setup.value);
+			; SOURCE LINE # 571
+	MOV  	R5,rf_setup?2079
+	MOV  	R7,#06H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_output_power
+
+; }
+; 
+; void hal_nrf_set_datarate(hal_nrf_datarate_t datarate)
+
+	RSEG  ?PR?_hal_nrf_set_datarate?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_datarate:
+	USING	0
+			; SOURCE LINE # 574
+	MOV  	datarate?2180,R7
+; {
+			; SOURCE LINE # 575
+;   rf_setup_t rf_setup;
+;   rf_setup.value = hal_nrf_read_reg (RF_SETUP);
+			; SOURCE LINE # 577
+	MOV  	R7,#06H
+	LCALL	_hal_nrf_read_reg
+	MOV  	rf_setup?2181,R7
+;   
+;   switch (datarate)
+			; SOURCE LINE # 579
+	MOV  	A,datarate?2180
+	JZ   	?C0095
+	ADD  	A,#0FEH
+	JNZ  	?C0097
+;   {
+			; SOURCE LINE # 580
+;     case HAL_NRF_250KBPS:
+			; SOURCE LINE # 581
+?C0094:
+;       rf_setup.bits.rf_dr_low = 1;
+			; SOURCE LINE # 582
+	MOV  	R7,rf_setup?2181
+	MOV  	A,R7
+	ORL  	A,#020H
+;       rf_setup.bits.rf_dr_high = 0;
+			; SOURCE LINE # 583
+;       break;
+			; SOURCE LINE # 584
+	SJMP 	?C0230
+;     case HAL_NRF_1MBPS:
+			; SOURCE LINE # 585
+?C0095:
+;       rf_setup.bits.rf_dr_low = 0;
+			; SOURCE LINE # 586
+	MOV  	R7,rf_setup?2181
+	MOV  	A,R7
+	ANL  	A,#0DFH
+?C0230:
+	MOV  	rf_setup?2181,A
+;       rf_setup.bits.rf_dr_high = 0;
+			; SOURCE LINE # 587
+	MOV  	R7,rf_setup?2181
+	MOV  	A,R7
+	ANL  	A,#0F7H
+	MOV  	rf_setup?2181,A
+;       break;
+			; SOURCE LINE # 588
+	SJMP 	?C0093
+;     case HAL_NRF_2MBPS:
+			; SOURCE LINE # 589
+;     default:
+			; SOURCE LINE # 590
+?C0097:
+;       rf_setup.bits.rf_dr_low = 0;
+			; SOURCE LINE # 591
+	MOV  	R7,rf_setup?2181
+	MOV  	A,R7
+	ANL  	A,#0DFH
+	MOV  	rf_setup?2181,A
+;       rf_setup.bits.rf_dr_high = 1;
+			; SOURCE LINE # 592
+	MOV  	R7,rf_setup?2181
+	MOV  	A,R7
+	ORL  	A,#08H
+	MOV  	rf_setup?2181,A
+;       break;
+			; SOURCE LINE # 593
+;   }
+			; SOURCE LINE # 594
+?C0093:
+;   
+;   hal_nrf_write_reg (RF_SETUP, rf_setup.value);
+			; SOURCE LINE # 596
+	MOV  	R5,rf_setup?2181
+	MOV  	R7,#06H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_datarate
+
+; }
+; 
+; unsigned char hal_nrf_rx_fifo_empty(void)
+
+	RSEG  ?PR?hal_nrf_rx_fifo_empty?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_rx_fifo_empty:
+	USING	0
+			; SOURCE LINE # 599
+; {
+			; SOURCE LINE # 600
+;   if(hal_nrf_get_rx_data_source()==7)
+			; SOURCE LINE # 601
+	LCALL	hal_nrf_get_rx_data_source
+	CJNE 	R7,#07H,?C0099
+;   {
+			; SOURCE LINE # 602
+;     return true;
+			; SOURCE LINE # 603
+	MOV  	R7,#01H
+	RET  	
+;   }
+			; SOURCE LINE # 604
+?C0099:
+;   else
+;   {
+			; SOURCE LINE # 606
+;     return false;
+			; SOURCE LINE # 607
+	MOV  	R7,#00H
+;   }
+			; SOURCE LINE # 608
+; }
+			; SOURCE LINE # 609
+?C0100:
+	RET  	
+; END OF hal_nrf_rx_fifo_empty
+
+; 
+; unsigned char hal_nrf_rx_fifo_full(void)
+
+	RSEG  ?PR?hal_nrf_rx_fifo_full?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_rx_fifo_full:
+	USING	0
+			; SOURCE LINE # 611
+; {
+			; SOURCE LINE # 612
+;   return (unsigned char)((hal_nrf_read_reg(FIFO_STATUS)>> RX_EMPTY) & 1);
+			; SOURCE LINE # 613
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#01H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 614
+?C0102:
+	RET  	
+; END OF hal_nrf_rx_fifo_full
+
+; 
+; unsigned char hal_nrf_tx_fifo_empty(void)
+
+	RSEG  ?PR?hal_nrf_tx_fifo_empty?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_tx_fifo_empty:
+	USING	0
+			; SOURCE LINE # 616
+; {
+			; SOURCE LINE # 617
+;   return (unsigned char)((hal_nrf_read_reg(FIFO_STATUS) >> TX_EMPTY) & 1);
+			; SOURCE LINE # 618
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	SWAP 	A
+	ANL  	A,#01H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 619
+?C0103:
+	RET  	
+; END OF hal_nrf_tx_fifo_empty
+
+; 
+; unsigned char hal_nrf_tx_fifo_full(void)
+
+	RSEG  ?PR?hal_nrf_tx_fifo_full?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_tx_fifo_full:
+	USING	0
+			; SOURCE LINE # 621
+; {
+			; SOURCE LINE # 622
+;   return (unsigned char)((hal_nrf_read_reg(FIFO_STATUS) >> TX_FIFO_FULL) & 1);
+			; SOURCE LINE # 623
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	SWAP 	A
+	RRC  	A
+	ANL  	A,#01H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 624
+?C0104:
+	RET  	
+; END OF hal_nrf_tx_fifo_full
+
+; 
+; unsigned char hal_nrf_get_tx_fifo_status(void)
+
+	RSEG  ?PR?hal_nrf_get_tx_fifo_status?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_tx_fifo_status:
+	USING	0
+			; SOURCE LINE # 626
+; {
+			; SOURCE LINE # 627
+;   return ((hal_nrf_read_reg(FIFO_STATUS) & ((1<<TX_FIFO_FULL)|(1<<TX_EMPTY))) >> 4);
+			; SOURCE LINE # 628
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#030H
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 629
+?C0105:
+	RET  	
+; END OF hal_nrf_get_tx_fifo_status
+
+; 
+; unsigned char hal_nrf_get_rx_fifo_status(void)
+
+	RSEG  ?PR?hal_nrf_get_rx_fifo_status?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_rx_fifo_status:
+	USING	0
+			; SOURCE LINE # 631
+; {
+			; SOURCE LINE # 632
+;   return (hal_nrf_read_reg(FIFO_STATUS) & ((1<<RX_FULL)|(1<<RX_EMPTY)));
+			; SOURCE LINE # 633
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#03H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 634
+?C0106:
+	RET  	
+; END OF hal_nrf_get_rx_fifo_status
+
+; 
+; unsigned char hal_nrf_get_fifo_status(void)
+
+	RSEG  ?PR?hal_nrf_get_fifo_status?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_fifo_status:
+	USING	0
+			; SOURCE LINE # 636
+; {
+			; SOURCE LINE # 637
+;   return hal_nrf_read_reg(FIFO_STATUS);
+			; SOURCE LINE # 638
+	MOV  	R7,#017H
+	LCALL	_hal_nrf_read_reg
+; }
+			; SOURCE LINE # 639
+?C0107:
+	RET  	
+; END OF hal_nrf_get_fifo_status
+
+; 
+; unsigned char hal_nrf_get_transmit_attempts(void)
+
+	RSEG  ?PR?hal_nrf_get_transmit_attempts?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_transmit_attempts:
+	USING	0
+			; SOURCE LINE # 641
+; {
+			; SOURCE LINE # 642
+;   return (hal_nrf_read_reg(OBSERVE_TX) & (BIT_3|BIT_2|BIT_1|BIT_0));
+			; SOURCE LINE # 643
+	MOV  	R7,#08H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#0FH
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 644
+?C0108:
+	RET  	
+; END OF hal_nrf_get_transmit_attempts
+
+; 
+; unsigned char hal_nrf_get_carrier_detect(void)
+
+	RSEG  ?PR?hal_nrf_get_carrier_detect?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_carrier_detect:
+	USING	0
+			; SOURCE LINE # 646
+; {
+			; SOURCE LINE # 647
+;   return hal_nrf_read_reg(CD) & 1;
+			; SOURCE LINE # 648
+	MOV  	R7,#09H
+	LCALL	_hal_nrf_read_reg
+	MOV  	A,R7
+	ANL  	A,#01H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 649
+?C0109:
+	RET  	
+; END OF hal_nrf_get_carrier_detect
+
+; 
+; void hal_nrf_activate_features(void)
+
+	RSEG  ?PR?hal_nrf_activate_features?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_activate_features:
+	USING	0
+			; SOURCE LINE # 651
+; {return;}
+			; SOURCE LINE # 652
+?C0110:
+	RET  	
+; END OF hal_nrf_activate_features
+
+; 
+; void hal_nrf_setup_dynamic_payload (unsigned char setup)
+
+	RSEG  ?PR?_hal_nrf_setup_dynamic_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_setup_dynamic_payload:
+	USING	0
+			; SOURCE LINE # 654
+;---- Variable 'setup?3282' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 655
+;   en_pipes_t dynpd;
+;   dynpd.value = setup & ~0xC0;
+			; SOURCE LINE # 657
+	MOV  	A,R7
+	ANL  	A,#03FH
+	MOV  	dynpd?3283,A
+; 
+;   hal_nrf_write_reg (DYNPD, dynpd.value);
+			; SOURCE LINE # 659
+	MOV  	R5,dynpd?3283
+	MOV  	R7,#01CH
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_setup_dynamic_payload
+
+; }
+; 
+; void hal_nrf_enable_dynamic_payload(unsigned char enable)
+
+	RSEG  ?PR?_hal_nrf_enable_dynamic_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_enable_dynamic_payload:
+	USING	0
+			; SOURCE LINE # 662
+	MOV  	enable?3384,R7
+; {
+			; SOURCE LINE # 663
+;   feature_t feature;
+;   feature.value = hal_nrf_read_reg (FEATURE);
+			; SOURCE LINE # 665
+	MOV  	R7,#01DH
+	LCALL	_hal_nrf_read_reg
+	MOV  	feature?3385,R7
+;   feature.bits.en_dpl = (enable) ? 1 : 0;
+			; SOURCE LINE # 666
+	MOV  	A,enable?3384
+	MOV  	R7,#00H
+	JZ   	?C0112
+	MOV  	R7,#01H
+?C0112:
+?C0113:
+	MOV  	A,R7
+	ANL  	A,#01H
+	ADD  	A,ACC
+	ADD  	A,ACC
+	MOV  	R7,A
+	MOV  	R6,feature?3385
+	MOV  	A,R6
+	ANL  	A,#0FBH
+	ORL  	A,R7
+	MOV  	feature?3385,A
+; 
+;   hal_nrf_write_reg (FEATURE, feature.value);
+			; SOURCE LINE # 668
+	MOV  	R5,feature?3385
+	MOV  	R7,#01DH
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_enable_dynamic_payload
+
+; }
+; 
+; void hal_nrf_enable_ack_payload(unsigned char enable)
+
+	RSEG  ?PR?_hal_nrf_enable_ack_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_enable_ack_payload:
+	USING	0
+			; SOURCE LINE # 671
+	MOV  	enable?3486,R7
+; {
+			; SOURCE LINE # 672
+;   feature_t feature;
+;   feature.value = hal_nrf_read_reg (FEATURE);
+			; SOURCE LINE # 674
+	MOV  	R7,#01DH
+	LCALL	_hal_nrf_read_reg
+	MOV  	feature?3487,R7
+;   feature.bits.en_ack_pay = (enable) ? 1 : 0;
+			; SOURCE LINE # 675
+	MOV  	A,enable?3486
+	MOV  	R7,#00H
+	JZ   	?C0115
+	MOV  	R7,#01H
+?C0115:
+?C0116:
+	MOV  	A,R7
+	ANL  	A,#01H
+	ADD  	A,ACC
+	MOV  	R7,A
+	MOV  	R6,feature?3487
+	MOV  	A,R6
+	ANL  	A,#0FDH
+	ORL  	A,R7
+	MOV  	feature?3487,A
+; 
+;   hal_nrf_write_reg (FEATURE, feature.value);
+			; SOURCE LINE # 677
+	MOV  	R5,feature?3487
+	MOV  	R7,#01DH
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_enable_ack_payload
+
+; }
+; 
+; void hal_nrf_enable_dynamic_ack(unsigned char enable)
+
+	RSEG  ?PR?_hal_nrf_enable_dynamic_ack?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_enable_dynamic_ack:
+	USING	0
+			; SOURCE LINE # 680
+	MOV  	enable?3588,R7
+; {
+			; SOURCE LINE # 681
+;   feature_t feature;
+;   feature.value = hal_nrf_read_reg (FEATURE);
+			; SOURCE LINE # 683
+	MOV  	R7,#01DH
+	LCALL	_hal_nrf_read_reg
+	MOV  	feature?3589,R7
+;   feature.bits.en_dyn_ack = (enable) ? 1 : 0;
+			; SOURCE LINE # 684
+	MOV  	A,enable?3588
+	MOV  	R7,#00H
+	JZ   	?C0118
+	MOV  	R7,#01H
+?C0118:
+?C0119:
+	MOV  	A,R7
+	ANL  	A,#01H
+	MOV  	R7,A
+	MOV  	R6,feature?3589
+	MOV  	A,R6
+	ANL  	A,#0FEH
+	ORL  	A,R7
+	MOV  	feature?3589,A
+; 
+;   hal_nrf_write_reg (FEATURE, feature.value);
+			; SOURCE LINE # 686
+	MOV  	R5,feature?3589
+	MOV  	R7,#01DH
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_enable_dynamic_ack
+
+; }
+; 
+; void hal_nrf_write_tx_payload(const unsigned char *tx_pload, unsigned char length)
+
+	RSEG  ?PR?_hal_nrf_write_tx_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_write_tx_payload:
+	USING	0
+			; SOURCE LINE # 689
+;---- Variable 'length?3691' assigned to Register 'R5' ----
+;---- Variable 'tx_pload?3690' assigned to Register 'R1/R2/R3' ----
+; {
+			; SOURCE LINE # 690
+;   hal_nrf_write_multibyte_reg(W_TX_PAYLOAD, tx_pload, length);
+			; SOURCE LINE # 691
+	MOV  	?_hal_nrf_write_multibyte_reg?BYTE+04H,R5
+	MOV  	R7,#0A0H
+	LJMP 	_hal_nrf_write_multibyte_reg
+; END OF _hal_nrf_write_tx_payload
+
+; }
+; 
+; void hal_nrf_write_tx_payload_noack(const unsigned char *tx_pload, unsigned char length)
+
+	RSEG  ?PR?_hal_nrf_write_tx_payload_noack?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_write_tx_payload_noack:
+	USING	0
+			; SOURCE LINE # 694
+;---- Variable 'length?3793' assigned to Register 'R5' ----
+;---- Variable 'tx_pload?3792' assigned to Register 'R1/R2/R3' ----
+; {
+			; SOURCE LINE # 695
+;   hal_nrf_write_multibyte_reg(W_TX_PAYLOAD_NOACK, tx_pload, length);
+			; SOURCE LINE # 696
+	MOV  	?_hal_nrf_write_multibyte_reg?BYTE+04H,R5
+	MOV  	R7,#0B0H
+	LJMP 	_hal_nrf_write_multibyte_reg
+; END OF _hal_nrf_write_tx_payload_noack
+
+; }
+; 
+; void hal_nrf_write_ack_payload(unsigned char pipe, const unsigned char *tx_pload, unsigned char length)
+
+	RSEG  ?PR?_hal_nrf_write_ack_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_write_ack_payload:
+	USING	0
+			; SOURCE LINE # 699
+;---- Variable 'tx_pload?3895' assigned to Register 'R1/R2/R3' ----
+;---- Variable 'pipe?3894' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 700
+;   hal_nrf_write_multibyte_reg(W_ACK_PAYLOAD | pipe, tx_pload, length);
+			; SOURCE LINE # 701
+	MOV  	A,R7
+	ORL  	A,#0A8H
+	MOV  	R7,A
+	MOV  	?_hal_nrf_write_multibyte_reg?BYTE+04H,length?3896
+	LJMP 	_hal_nrf_write_multibyte_reg
+; END OF _hal_nrf_write_ack_payload
+
+; }
+; 
+; unsigned char hal_nrf_read_rx_payload_width()
+
+	RSEG  ?PR?hal_nrf_read_rx_payload_width?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_read_rx_payload_width:
+	USING	0
+			; SOURCE LINE # 704
+; {
+			; SOURCE LINE # 705
+;   return hal_nrf_read_reg(R_RX_PL_WID);
+			; SOURCE LINE # 706
+	MOV  	R7,#060H
+	LCALL	_hal_nrf_read_reg
+; }
+			; SOURCE LINE # 707
+?C0124:
+	RET  	
+; END OF hal_nrf_read_rx_payload_width
+
+; 
+; unsigned int hal_nrf_read_rx_payload(unsigned char *rx_pload)
+
+	RSEG  ?PR?_hal_nrf_read_rx_payload?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_read_rx_payload:
+	USING	0
+			; SOURCE LINE # 709
+;---- Variable 'rx_pload?4097' assigned to Register 'R1/R2/R3' ----
+; {
+			; SOURCE LINE # 710
+;   return hal_nrf_read_multibyte_reg(UINT8(HAL_NRF_RX_PLOAD), rx_pload);
+			; SOURCE LINE # 711
+	MOV  	R7,#08H
+	LCALL	_hal_nrf_read_multibyte_reg
+; }
+			; SOURCE LINE # 712
+?C0125:
+	RET  	
+; END OF _hal_nrf_read_rx_payload
+
+; 
+; unsigned char hal_nrf_get_rx_data_source(void)
+
+	RSEG  ?PR?hal_nrf_get_rx_data_source?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_rx_data_source:
+	USING	0
+			; SOURCE LINE # 714
+; {
+			; SOURCE LINE # 715
+;   return ((hal_nrf_nop() & (BIT_3|BIT_2|BIT_1)) >> 1);
+			; SOURCE LINE # 716
+	LCALL	hal_nrf_nop
+	MOV  	A,R7
+	ANL  	A,#0EH
+	CLR  	C
+	RRC  	A
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 717
+?C0126:
+	RET  	
+; END OF hal_nrf_get_rx_data_source
+
+; 
+; void hal_nrf_reuse_tx(void)
+
+	RSEG  ?PR?hal_nrf_reuse_tx?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_reuse_tx:
+	USING	0
+			; SOURCE LINE # 719
+; {
+			; SOURCE LINE # 720
+;   CSN_LOW();
+			; SOURCE LINE # 721
+	CLR  	RFCSN
+;   hal_nrf_rw(REUSE_TX_PL);
+			; SOURCE LINE # 722
+	MOV  	R7,#0E3H
+	LCALL	_hal_nrf_rw
+;   CSN_HIGH();
+			; SOURCE LINE # 723
+	SETB 	RFCSN
+; }
+			; SOURCE LINE # 724
+	RET  	
+; END OF hal_nrf_reuse_tx
+
+; 
+; unsigned char hal_nrf_get_reuse_tx_status(void)
+
+	RSEG  ?PR?hal_nrf_get_reuse_tx_status?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_reuse_tx_status:
+	USING	0
+			; SOURCE LINE # 726
+; {
+			; SOURCE LINE # 727
+;   return (unsigned char)((hal_nrf_get_fifo_status() & (1<<TX_REUSE)) >> TX_REUSE);
+			; SOURCE LINE # 728
+	LCALL	hal_nrf_get_fifo_status
+	MOV  	A,R7
+	ANL  	A,#040H
+	SWAP 	A
+	RRC  	A
+	RRC  	A
+	ANL  	A,#03H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 729
+?C0134:
+	RET  	
+; END OF hal_nrf_get_reuse_tx_status
+
+; 
+; void hal_nrf_flush_rx(void)
+
+	RSEG  ?PR?hal_nrf_flush_rx?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_flush_rx:
+	USING	0
+			; SOURCE LINE # 731
+; {
+			; SOURCE LINE # 732
+;   CSN_LOW();
+			; SOURCE LINE # 733
+	CLR  	RFCSN
+;   hal_nrf_rw(FLUSH_RX);
+			; SOURCE LINE # 734
+	MOV  	R7,#0E2H
+	LCALL	_hal_nrf_rw
+;   CSN_HIGH();
+			; SOURCE LINE # 735
+	SETB 	RFCSN
+; }
+			; SOURCE LINE # 736
+	RET  	
+; END OF hal_nrf_flush_rx
+
+; 
+; void hal_nrf_flush_tx(void)
+
+	RSEG  ?PR?hal_nrf_flush_tx?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_flush_tx:
+	USING	0
+			; SOURCE LINE # 738
+; {
+			; SOURCE LINE # 739
+;   CSN_LOW();
+			; SOURCE LINE # 740
+	CLR  	RFCSN
+;   hal_nrf_rw(FLUSH_TX);
+			; SOURCE LINE # 741
+	MOV  	R7,#0E1H
+	LCALL	_hal_nrf_rw
+;   CSN_HIGH();
+			; SOURCE LINE # 742
+	SETB 	RFCSN
+; }
+			; SOURCE LINE # 743
+	RET  	
+; END OF hal_nrf_flush_tx
+
+; 
+; unsigned char hal_nrf_nop(void)
+
+	RSEG  ?PR?hal_nrf_nop?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_nop:
+	USING	0
+			; SOURCE LINE # 745
+; {
+			; SOURCE LINE # 746
+;   unsigned char retval;
+; 
+;   CSN_LOW();
+			; SOURCE LINE # 749
+	CLR  	RFCSN
+;   retval = hal_nrf_rw(NOP);
+			; SOURCE LINE # 750
+	MOV  	R7,#0FFH
+	LCALL	_hal_nrf_rw
+;---- Variable 'retval?4698' assigned to Register 'R7' ----
+;   CSN_HIGH();
+			; SOURCE LINE # 751
+	SETB 	RFCSN
+; 
+;   return retval;
+			; SOURCE LINE # 753
+; }
+			; SOURCE LINE # 754
+?C0155:
+	RET  	
+; END OF hal_nrf_nop
+
+; 
+; void hal_nrf_set_pll_mode(unsigned char pll_lock)
+
+	RSEG  ?PR?_hal_nrf_set_pll_mode?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_set_pll_mode:
+	USING	0
+			; SOURCE LINE # 756
+	MOV  	pll_lock?4799,R7
+; {
+			; SOURCE LINE # 757
+;   rf_setup_t rf_setup;
+;   rf_setup.value = hal_nrf_read_reg (RF_SETUP);
+			; SOURCE LINE # 759
+	MOV  	R7,#06H
+	LCALL	_hal_nrf_read_reg
+	MOV  	rf_setup?47100,R7
+;   rf_setup.bits.pll_lock = (pll_lock) ? 1 : 0;
+			; SOURCE LINE # 760
+	MOV  	A,pll_lock?4799
+	MOV  	R7,#00H
+	JZ   	?C0156
+	MOV  	R7,#01H
+?C0156:
+?C0157:
+	MOV  	A,R7
+	ANL  	A,#01H
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R7,A
+	MOV  	R6,rf_setup?47100
+	MOV  	A,R6
+	ANL  	A,#0EFH
+	ORL  	A,R7
+	MOV  	rf_setup?47100,A
+; 
+;   hal_nrf_write_reg(RF_SETUP, rf_setup.value);
+			; SOURCE LINE # 762
+	MOV  	R5,rf_setup?47100
+	MOV  	R7,#06H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_set_pll_mode
+
+; }
+; 
+; unsigned char hal_nrf_get_rssi(void)
+
+	RSEG  ?PR?hal_nrf_get_rssi?___LE1_LIB_HAL_HAL_NRF
+hal_nrf_get_rssi:
+	USING	0
+			; SOURCE LINE # 765
+; {
+			; SOURCE LINE # 766
+;   agc_config_t agc_config;
+;   unsigned char value[2];
+;   hal_nrf_read_multibyte_reg(AGC_CONFIG, value);
+			; SOURCE LINE # 769
+	MOV  	R3,#00H
+	MOV  	R2,#HIGH (value?48102)
+	MOV  	R1,#LOW (value?48102)
+	MOV  	R7,#01EH
+	LCALL	_hal_nrf_read_multibyte_reg
+;   agc_config.value = ((value[1]) | (value[0] << 8));
+			; SOURCE LINE # 770
+	MOV  	A,value?48102
+	MOV  	R5,value?48102+01H
+	MOV  	agc_config?48101,A
+	MOV  	A,R5
+	MOV  	agc_config?48101+01H,A
+;   return UINT8(agc_config.bits.lnb_out);
+			; SOURCE LINE # 771
+	MOV  	R7,agc_config?48101
+	MOV  	A,R7
+	ANL  	A,#07H
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 772
+?C0159:
+	RET  	
+; END OF hal_nrf_get_rssi
+
+; 
+; void hal_nrf_enable_continious_wave (unsigned char enable)
+
+	RSEG  ?PR?_hal_nrf_enable_continious_wave?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_enable_continious_wave:
+	USING	0
+			; SOURCE LINE # 774
+	MOV  	enable?49103,R7
+; {
+			; SOURCE LINE # 775
+;   rf_setup_t rf_setup;
+;   rf_setup.value = hal_nrf_read_reg (RF_SETUP);
+			; SOURCE LINE # 777
+	MOV  	R7,#06H
+	LCALL	_hal_nrf_read_reg
+	MOV  	rf_setup?49104,R7
+;   rf_setup.bits.cont_wave = (enable ? 1 : 0);
+			; SOURCE LINE # 778
+	MOV  	A,enable?49103
+	MOV  	R7,#00H
+	JZ   	?C0160
+	MOV  	R7,#01H
+?C0160:
+?C0161:
+	MOV  	A,R7
+	ANL  	A,#01H
+	SWAP 	A
+	RLC  	A
+	RLC  	A
+	RLC  	A
+	ANL  	A,#080H
+	MOV  	R7,A
+	MOV  	R6,rf_setup?49104
+	MOV  	A,R6
+	ANL  	A,#07FH
+	ORL  	A,R7
+	MOV  	rf_setup?49104,A
+; 
+;   hal_nrf_write_reg(RF_SETUP, rf_setup.value);
+			; SOURCE LINE # 780
+	MOV  	R5,rf_setup?49104
+	MOV  	R7,#06H
+	LJMP 	_hal_nrf_write_reg
+; END OF _hal_nrf_enable_continious_wave
+
+; }
+; 
+; unsigned char hal_nrf_read_reg(unsigned char reg)
+
+	RSEG  ?PR?_hal_nrf_read_reg?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_read_reg:
+	USING	0
+			; SOURCE LINE # 783
+;---- Variable 'reg?50105' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 784
+;   unsigned char temp;
+; 
+;   CSN_LOW();
+			; SOURCE LINE # 787
+	CLR  	RFCSN
+;   hal_nrf_rw(reg);
+			; SOURCE LINE # 788
+	LCALL	_hal_nrf_rw
+;   temp = hal_nrf_rw(0);
+			; SOURCE LINE # 789
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_rw
+;---- Variable 'temp?50106' assigned to Register 'R7' ----
+;   CSN_HIGH();
+			; SOURCE LINE # 790
+	SETB 	RFCSN
+; 
+;   return temp;
+			; SOURCE LINE # 792
+; }
+			; SOURCE LINE # 793
+?C0169:
+	RET  	
+; END OF _hal_nrf_read_reg
+
+; 
+; unsigned char hal_nrf_write_reg(unsigned char reg, unsigned char value)
+
+	RSEG  ?PR?_hal_nrf_write_reg?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_write_reg:
+	USING	0
+			; SOURCE LINE # 795
+	MOV  	value?51108,R5
+;---- Variable 'reg?51107' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 796
+;   unsigned char retval;
+;   
+;   CSN_LOW();
+			; SOURCE LINE # 799
+	CLR  	RFCSN
+;   retval = hal_nrf_rw(W_REGISTER + reg);
+			; SOURCE LINE # 800
+	MOV  	A,R7
+	ADD  	A,#020H
+	MOV  	R7,A
+	LCALL	_hal_nrf_rw
+	MOV  	retval?51109,R7
+;   hal_nrf_rw(value);
+			; SOURCE LINE # 801
+	MOV  	R7,value?51108
+	LCALL	_hal_nrf_rw
+;   CSN_HIGH();
+			; SOURCE LINE # 802
+	SETB 	RFCSN
+; 
+;   return retval;
+			; SOURCE LINE # 804
+	MOV  	R7,retval?51109
+; }
+			; SOURCE LINE # 805
+?C0176:
+	RET  	
+; END OF _hal_nrf_write_reg
+
+; 
+; unsigned int hal_nrf_read_multibyte_reg(unsigned char reg, unsigned char *pbuf)
+
+	RSEG  ?PR?_hal_nrf_read_multibyte_reg?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_read_multibyte_reg:
+	USING	0
+			; SOURCE LINE # 807
+	MOV  	reg?52110,R7
+	MOV  	pbuf?52111,R3
+	MOV  	pbuf?52111+01H,R2
+	MOV  	pbuf?52111+02H,R1
+; {
+			; SOURCE LINE # 808
+;   unsigned char ctr, length;
+;   switch(reg)
+			; SOURCE LINE # 810
+	MOV  	A,reg?52110
+	DEC  	A
+	JZ   	?C0180
+	ADD  	A,#0FBH
+	JZ   	?C0180
+	ADD  	A,#0FEH
+	JZ   	?C0184
+	ADD  	A,#0EAH
+	JZ   	?C0190
+	ADD  	A,#01EH
+	JNZ  	?C0194
+;   {
+			; SOURCE LINE # 811
+;     case HAL_NRF_PIPE0:
+			; SOURCE LINE # 812
+;     case HAL_NRF_PIPE1:
+			; SOURCE LINE # 813
+;     case HAL_NRF_TX:
+			; SOURCE LINE # 814
+?C0180:
+;       length = ctr = hal_nrf_get_address_width();
+			; SOURCE LINE # 815
+	LCALL	hal_nrf_get_address_width
+	MOV  	ctr?52112,R7
+	MOV  	length?52113,R7
+;       CSN_LOW();
+			; SOURCE LINE # 816
+	CLR  	RFCSN
+;       hal_nrf_rw(RX_ADDR_P0 + reg);
+			; SOURCE LINE # 817
+	MOV  	A,reg?52110
+	ADD  	A,#0AH
+	MOV  	R7,A
+;       break;
+			; SOURCE LINE # 818
+	SJMP 	?C0232
+;       
+;     case HAL_NRF_RX_PLOAD:
+			; SOURCE LINE # 820
+?C0184:
+;       if( (reg = hal_nrf_get_rx_data_source()) < 7)
+			; SOURCE LINE # 821
+	LCALL	hal_nrf_get_rx_data_source
+	MOV  	reg?52110,R7
+	MOV  	A,R7
+	CLR  	C
+	SUBB 	A,#07H
+	JNC  	?C0233
+;       {
+			; SOURCE LINE # 822
+;         length = ctr = hal_nrf_read_rx_payload_width();
+			; SOURCE LINE # 823
+	LCALL	hal_nrf_read_rx_payload_width
+	MOV  	ctr?52112,R7
+	MOV  	length?52113,R7
+; 
+;         CSN_LOW();
+			; SOURCE LINE # 825
+	CLR  	RFCSN
+;         hal_nrf_rw(R_RX_PAYLOAD);
+			; SOURCE LINE # 826
+	MOV  	R7,#061H
+?C0231:
+;       }
+			; SOURCE LINE # 827
+	SJMP 	?C0232
+;       else
+;       {
+;        ctr = length = 0;
+;       }
+;       break;
+; 
+;     case AGC_CONFIG:
+			; SOURCE LINE # 834
+?C0190:
+;       ctr = length = 2;
+			; SOURCE LINE # 835
+	MOV  	length?52113,#02H
+	MOV  	ctr?52112,#02H
+;       CSN_LOW();
+			; SOURCE LINE # 836
+	CLR  	RFCSN
+;       hal_nrf_rw (AGC_CONFIG);
+			; SOURCE LINE # 837
+	MOV  	R7,#01EH
+?C0232:
+	LCALL	_hal_nrf_rw
+;       break;
+			; SOURCE LINE # 838
+	SJMP 	?C0195
+; 
+;     default:
+			; SOURCE LINE # 840
+?C0194:
+;       ctr = length = 0;
+			; SOURCE LINE # 841
+?C0233:
+	CLR  	A
+	MOV  	length?52113,A
+	MOV  	ctr?52112,A
+;       break;
+			; SOURCE LINE # 842
+;   }
+			; SOURCE LINE # 843
+?C0195:
+; 
+;   while(ctr--)
+			; SOURCE LINE # 845
+	MOV  	R7,ctr?52112
+	DEC  	ctr?52112
+	MOV  	A,R7
+	JZ   	?C0199
+;   {
+			; SOURCE LINE # 846
+;     *pbuf++ = hal_nrf_rw(0);
+			; SOURCE LINE # 847
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_hal_nrf_rw
+	MOV  	R3,pbuf?52111
+	INC  	pbuf?52111+02H
+	MOV  	A,pbuf?52111+02H
+	MOV  	R2,pbuf?52111+01H
+	JNZ  	?C0216
+	INC  	pbuf?52111+01H
+?C0216:
+	DEC  	A
+	MOV  	R1,A
+	MOV  	A,R7
+	LCALL	?C?CSTPTR
+;   }
+			; SOURCE LINE # 848
+	SJMP 	?C0195
+?C0199:
+; 
+;   CSN_HIGH();
+			; SOURCE LINE # 850
+	SETB 	RFCSN
+; 
+;   return (((unsigned int) reg << 8) | length);
+			; SOURCE LINE # 852
+	MOV  	A,reg?52110
+	MOV  	R6,A
+	MOV  	A,length?52113
+	MOV  	R7,A
+; }
+			; SOURCE LINE # 853
+?C0200:
+	RET  	
+; END OF _hal_nrf_read_multibyte_reg
+
+; 
+; void hal_nrf_write_multibyte_reg(unsigned char cmd, const unsigned char *pbuf, unsigned char length)
+
+	RSEG  ?PR?_hal_nrf_write_multibyte_reg?___LE1_LIB_HAL_HAL_NRF
+_hal_nrf_write_multibyte_reg:
+	USING	0
+			; SOURCE LINE # 855
+	MOV  	pbuf?53115,R3
+	MOV  	pbuf?53115+01H,R2
+	MOV  	pbuf?53115+02H,R1
+;---- Variable 'cmd?53114' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 856
+;   CSN_LOW();
+			; SOURCE LINE # 857
+	CLR  	RFCSN
+; 
+;   hal_nrf_rw(cmd);
+			; SOURCE LINE # 859
+	SJMP 	?C0234
+?C0204:
+; 
+;   while(length--)
+			; SOURCE LINE # 861
+	MOV  	R7,length?53116
+	DEC  	length?53116
+	MOV  	A,R7
+	JZ   	?C0208
+;   {
+			; SOURCE LINE # 862
+;     hal_nrf_rw(*pbuf++);
+			; SOURCE LINE # 863
+	MOV  	R3,pbuf?53115
+	INC  	pbuf?53115+02H
+	MOV  	A,pbuf?53115+02H
+	MOV  	R2,pbuf?53115+01H
+	JNZ  	?C0217
+	INC  	pbuf?53115+01H
+?C0217:
+	DEC  	A
+	MOV  	R1,A
+	LCALL	?C?CLDPTR
+	MOV  	R7,A
+?C0234:
+	LCALL	_hal_nrf_rw
+;   }
+			; SOURCE LINE # 864
+	SJMP 	?C0204
+?C0208:
+; 
+;   CSN_HIGH();
+			; SOURCE LINE # 866
+	SETB 	RFCSN
+; }
+			; SOURCE LINE # 867
+	RET  	
+; END OF _hal_nrf_write_multibyte_reg
+
+	END

@@ -1,0 +1,537 @@
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN ../LE1/lib/HAL/hal_nrf_hw.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.exe ../LE1/lib/HAL/hal_nrf_hw.src
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; ../LE1/lib/HAL/hal_nrf_hw.SRC generated from: ../LE1/lib/HAL/hal_nrf_hw.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/HAL/hal_nrf_hw.c INCDIR(../LE1/include) BROWSE 
+                             DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    ___LE1_LIB_HAL_HAL_NRF_HW
+                       8     
+  009B                 9     TB80    BIT     098H.3
+  00BE                10     SPISSTAT        DATA    0BEH
+  00C8                11     T2I0    BIT     0C8H.0
+  00C3                12     CCH1    DATA    0C3H
+  0080                13     P0      DATA    080H
+  00C9                14     T2I1    BIT     0C8H.1
+  00DF                15     CCPDATO DATA    0DFH
+  00C5                16     CCH2    DATA    0C5H
+  0090                17     P1      DATA    090H
+  00C7                18     CCH3    DATA    0C7H
+  00A0                19     P2      DATA    0A0H
+  009D                20     SM20    BIT     098H.5
+  00B0                21     P3      DATA    0B0H
+  00D6                22     AC      BIT     0D0H.6
+  00C2                23     CCL1    DATA    0C2H
+  00C4                24     CCL2    DATA    0C4H
+  00DF                25     BD      BIT     0D8H.7
+  00B8                26     RFSPI   BIT     0B8H.0
+  00AF                27     EA      BIT     0A8H.7
+  00CC                28     T2      DATA    0CCH
+  00C6                29     CCL3    DATA    0C6H
+  00B7                30     SPISRDSZ        DATA    0B7H
+  00CB                31     T2R0    BIT     0C8H.3
+  00CC                32     T2R1    BIT     0C8H.4
+  00A8                33     IEN0    DATA    0A8H
+  00B8                34     IEN1    DATA    0B8H
+  00A5                35     WUCON   DATA    0A5H
+  0085                36     DPH1    DATA    085H
+  00DB                37     COMPCON DATA    0DBH
+  00A3                38     CLKCTRL DATA    0A3H
+  0084                39     DPL1    DATA    084H
+  00CD                40     I2FR    BIT     0C8H.5
+  00BB                41     WUPIN   BIT     0B8H.3
+  00CE                42     I3FR    BIT     0C8H.6
+  00FF                43     SPIMDAT DATA    0FFH
+  00C7                44     EXF2    BIT     0C0H.7
+  009C                45     REN0    BIT     098H.4
+  00CA                46     T2CM    BIT     0C8H.2
+  00B9                47     RF      BIT     0B8H.1
+  00BD                48     WUIRQ   BIT     0B8H.5
+  00E7                49     SPIRDAT DATA    0E7H
+  00C1                50     CCEN    DATA    0C1H
+  00E2                51     W2CON0  DATA    0E2H
+  00BF                52     SPISDAT DATA    0BFH
+  00D7                53     CY      BIT     0D0H.7
+  00E1                54     W2CON1  DATA    0E1H
+  00FB                55     FDCR    DATA    0FBH
+  00E8                56     RFCE    BIT     0E8H.0
+  00CB                57     CRCH    DATA    0CBH
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     2
+
+  0081                58     SP      DATA    081H
+  00D2                59     OV      BIT     0D0H.2
+  00CA                60     CRCL    DATA    0CAH
+  00AD                61     CLKLFCTRL       DATA    0ADH
+  00B1                62     RSTREAS DATA    0B1H
+  00CF                63     T2PS    BIT     0C8H.7
+  00F9                64     FPCR    DATA    0F9H
+  00BC                65     MISC    BIT     0B8H.4
+  00A1                66     PWMDC0  DATA    0A1H
+  00B4                67     RTC2CMP0        DATA    0B4H
+  00A2                68     PWMDC1  DATA    0A2H
+  00B5                69     RTC2CMP1        DATA    0B5H
+  0080                70     P00     BIT     080H.0
+  00BA                71     S0RELH  DATA    0BAH
+  0090                72     P10     BIT     090H.0
+  0081                73     P01     BIT     080H.1
+  0087                74     PCON    DATA    087H
+  00A0                75     P20     BIT     0A0H.0
+  0091                76     P11     BIT     090H.1
+  0082                77     P02     BIT     080H.2
+  00B0                78     P30     BIT     0B0H.0
+  00A1                79     P21     BIT     0A0H.1
+  0092                80     P12     BIT     090H.2
+  0083                81     P03     BIT     080H.3
+  00C2                82     SPIF    BIT     0C0H.2
+  00FA                83     RDIS    BIT     0F8H.2
+  00B1                84     P31     BIT     0B0H.1
+  00A2                85     P22     BIT     0A0H.2
+  0093                86     P13     BIT     090H.3
+  0084                87     P04     BIT     080H.4
+  00AA                88     S0RELL  DATA    0AAH
+  00B2                89     P32     BIT     0B0H.2
+  00A3                90     P23     BIT     0A0H.3
+  0094                91     P14     BIT     090H.4
+  0085                92     P05     BIT     080H.5
+  00D9                93     W2SADR  DATA    0D9H
+  0089                94     TMOD    DATA    089H
+  0088                95     TCON    DATA    088H
+  00B3                96     P33     BIT     0B0H.3
+  00A4                97     P24     BIT     0A0H.4
+  0095                98     P15     BIT     090H.5
+  0086                99     P06     BIT     080H.6
+  00B4               100     P34     BIT     0B0H.4
+  00A5               101     P25     BIT     0A0H.5
+  0096               102     P16     BIT     090H.6
+  0087               103     P07     BIT     080H.7
+  00C2               104     CC1     DATA    0C2H
+  00B5               105     P35     BIT     0B0H.5
+  00A6               106     P26     BIT     0A0H.6
+  0097               107     P17     BIT     090H.7
+  00C4               108     CC2     DATA    0C4H
+  00B6               109     P36     BIT     0B0H.6
+  00A7               110     P27     BIT     0A0H.7
+  00C6               111     CC3     DATA    0C6H
+  00B7               112     P37     BIT     0B0H.7
+  00EA               113     RFCKEN  BIT     0E8H.2
+  00F8               114     WPEN    BIT     0F8H.0
+  00DD               115     CCPDATIA        DATA    0DDH
+  00DE               116     CCPDATIB        DATA    0DEH
+  0089               117     IE0     BIT     088H.1
+  00FC               118     RDYN    BIT     0F8H.4
+  008B               119     IE1     BIT     088H.3
+  00CF               120     WUOPC0  DATA    0CFH
+  00F0               121     B       DATA    0F0H
+  00E9               122     MD0     DATA    0E9H
+  00CE               123     WUOPC1  DATA    0CEH
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     3
+
+  00A7               124     MEMCON  DATA    0A7H
+  00EA               125     MD1     DATA    0EAH
+  00D7               126     RNGDAT  DATA    0D7H
+  00EB               127     MD2     DATA    0EBH
+  00EC               128     MD3     DATA    0ECH
+  00ED               129     MD4     DATA    0EDH
+  00AF               130     WDSV    DATA    0AFH
+  00EE               131     MD5     DATA    0EEH
+  00E0               132     ACC     DATA    0E0H
+  00DC               133     POFCON  DATA    0DCH
+  00AC               134     ES0     BIT     0A8H.4
+  00A9               135     ET0     BIT     0A8H.1
+  00A9               136     IP0     DATA    0A9H
+  00AB               137     ET1     BIT     0A8H.3
+  008D               138     TF0     BIT     088H.5
+  00B9               139     IP1     DATA    0B9H
+  00AD               140     ET2     BIT     0A8H.5
+  0098               141     RI0     BIT     098H.0
+  008F               142     TF1     BIT     088H.7
+  00C0               143     RFSPIF  BIT     0C0H.0
+  00C6               144     TF2     BIT     0C0H.6
+  00FC               145     SPIMCON0        DATA    0FCH
+  00D6               146     RNGCTL  DATA    0D6H
+  008C               147     TH0     DATA    08CH
+  00A8               148     EX0     BIT     0A8H.0
+  0099               149     TI0     BIT     098H.1
+  0088               150     IT0     BIT     088H.0
+  00FD               151     SPIMCON1        DATA    0FDH
+  008D               152     TH1     DATA    08DH
+  00AA               153     EX1     BIT     0A8H.2
+  008A               154     IT1     BIT     088H.2
+  00CD               155     TH2     DATA    0CDH
+  00AE               156     OPMCON  DATA    0AEH
+  00D0               157     P       BIT     0D0H.0
+  009F               158     SM0     BIT     098H.7
+  008A               159     TL0     DATA    08AH
+  009E               160     SM1     BIT     098H.6
+  00E4               161     SPIRCON0        DATA    0E4H
+  008B               162     TL1     DATA    08BH
+  00E5               163     SPIRCON1        DATA    0E5H
+  00CC               164     TL2     DATA    0CCH
+  00BC               165     SPISCON0        DATA    0BCH
+  00BD               166     SPISCON1        DATA    0BDH
+  00D3               167     RS0     BIT     0D0H.3
+  008C               168     TR0     BIT     088H.4
+  00D4               169     RS1     BIT     0D0H.4
+  00B2               170     PWMCON  DATA    0B2H
+  008E               171     TR1     BIT     088H.6
+  00CA               172     CRC     DATA    0CAH
+  00A6               173     INTEXP  DATA    0A6H
+  00C3               174     WUPINF  BIT     0C0H.3
+  00FA               175     FCR     DATA    0FAH
+  00D3               176     ADCCON1 DATA    0D3H
+  00D2               177     ADCCON2 DATA    0D2H
+  0083               178     DPH     DATA    083H
+  00D1               179     ADCCON3 DATA    0D1H
+  00C1               180     RFF     BIT     0C0H.1
+  0093               181     P0DIR   DATA    093H
+  0082               182     DPL     DATA    082H
+  009E               183     P0CON   DATA    09EH
+  0099               184     S0BUF   DATA    099H
+  0094               185     P1DIR   DATA    094H
+  009F               186     P1CON   DATA    09FH
+  0095               187     P2DIR   DATA    095H
+  00BF               188     EXEN2   BIT     0B8H.7
+  00DA               189     W2DAT   DATA    0DAH
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     4
+
+  0097               190     P2CON   DATA    097H
+  0096               191     P3DIR   DATA    096H
+  00A4               192     PWRDWN  DATA    0A4H
+  0098               193     S0CON   DATA    098H
+  008F               194     P3CON   DATA    08FH
+  00B6               195     RTC2CPT00       DATA    0B6H
+  00D8               196     ADCON   DATA    0D8H
+  00AC               197     RTC2CPT10       DATA    0ACH
+  00AB               198     RTC2CPT01       DATA    0ABH
+  00C8               199     T2CON   DATA    0C8H
+  0092               200     DPS     DATA    092H
+  00FD               201     WEN     BIT     0F8H.5
+  00F8               202     FSR     DATA    0F8H
+  00D4               203     ADCDATH DATA    0D4H
+  00C9               204     MPAGE   DATA    0C9H
+  00BA               205     SPI     BIT     0B8H.2
+  00F9               206     RDEND   BIT     0F8H.1
+  00D5               207     ADCDATL DATA    0D5H
+  00FB               208     INFEN   BIT     0F8H.3
+  00FF               209     MCDIS   BIT     0F8H.7
+  00C5               210     WUF     BIT     0C0H.5
+  00C4               211     MISCF   BIT     0C0H.4
+  00EF               212     ARCON   DATA    0EFH
+  00D5               213     F0      BIT     0D0H.5
+  00FE               214     STP     BIT     0F8H.6
+  00FE               215     SPIMSTAT        DATA    0FEH
+  00E8               216     RFCON   DATA    0E8H
+  00D0               217     PSW     DATA    0D0H
+  009A               218     RB80    BIT     098H.2
+  00C0               219     IRCON   DATA    0C0H
+  00E9               220     RFCSN   BIT     0E8H.1
+  00E6               221     SPIRSTAT        DATA    0E6H
+  00B3               222     RTC2CON DATA    0B3H
+                     223     ?PR?_hal_nrf_rw?___LE1_LIB_HAL_HAL_NRF_HW SEGMENT CODE 
+                     224             PUBLIC  _hal_nrf_rw
+                     225     ; /* Copyright (c) 2008 Nordic Semiconductor. All Rights Reserved.
+                     226     ;  *
+                     227     ;  * The information contained herein is property of Nordic Semiconductor ASA.
+                     228     ;  * Terms and conditions of usage are described in detail in NORDIC
+                     229     ;  * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT. 
+                     230     ;  *
+                     231     ;  * Licensees are granted free, non-transferable use of the information. NO
+                     232     ;  * WARRENTY of ANY KIND is provided. This heading must NOT be removed from
+                     233     ;  * the file.
+                     234     ;  *
+                     235     ;  * $LastChangedRevision$
+                     236     ;  */
+                     237     ; 
+                     238     ; /** @file
+                     239     ;  * @brief Implementation of #hal_nrf_rw.
+                     240     ;  * 
+                     241     ;  * @details #hal_nrf_rw is an SPI function which is hardware dependent. This file
+                     242     ;  * contains an implementation for nRF24LE1.
+                     243     ;  */
+                     244     ; 
+                     245     ; #include <Nordic/reg24le1.h>
+                     246     ; #include <stdint.h>
+                     247     ; #include <HAL/hal_nrf.h>
+                     248     ; 
+                     249     ; unsigned char hal_nrf_rw(unsigned char value)
+                     250     
+----                 251             RSEG  ?PR?_hal_nrf_rw?___LE1_LIB_HAL_HAL_NRF_HW
+0000                 252     _hal_nrf_rw:
+                     253             USING   0
+                     254                             ; SOURCE LINE # 25
+                     255     ;---- Variable 'value?040' assigned to Register 'R7' ----
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     5
+
+                     256     ; {
+                     257                             ; SOURCE LINE # 26
+                     258     ;   SPIRDAT = value;
+                     259                             ; SOURCE LINE # 27
+0000 8FE7            260             MOV     SPIRDAT,R7
+0002                 261     ?C0001:
+                     262     ;                                                                                          
+                                 
+                     263     ;   while(!(SPIRSTAT & 0x02));  // wait for byte transfer finished
+                     264                             ; SOURCE LINE # 29
+0002 E5E6            265             MOV     A,SPIRSTAT
+0004 30E1FB          266             JNB     ACC.1,?C0001
+0007                 267     ?C0002:
+                     268     ;     ;
+                     269     ;   return SPIRDAT;             // return SPI read value
+                     270                             ; SOURCE LINE # 31
+0007 AFE7            271             MOV     R7,SPIRDAT
+                     272     ; }
+                     273                             ; SOURCE LINE # 32
+0009                 274     ?C0003:
+0009 22              275             RET     
+                     276     ; END OF _hal_nrf_rw
+                     277     
+                     278             END
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                    T Y P E  V A L U E   ATTRIBUTES
+
+?C0001. . . . . . . . . . . . . . . . .    C ADDR   0002H   R   SEG=?PR?_HAL_NRF_RW?___LE1_LIB_HAL_HAL_NRF_HW
+?C0002. . . . . . . . . . . . . . . . .    C ADDR   0007H   R   SEG=?PR?_HAL_NRF_RW?___LE1_LIB_HAL_HAL_NRF_HW
+?C0003. . . . . . . . . . . . . . . . .    C ADDR   0009H   R   SEG=?PR?_HAL_NRF_RW?___LE1_LIB_HAL_HAL_NRF_HW
+?PR?_HAL_NRF_RW?___LE1_LIB_HAL_HAL_NRF_HW  C SEG    000AH       REL=UNIT
+AC. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . . . . .    D ADDR   00E0H   A   
+ADCCON1 . . . . . . . . . . . . . . . .    D ADDR   00D3H   A   
+ADCCON2 . . . . . . . . . . . . . . . .    D ADDR   00D2H   A   
+ADCCON3 . . . . . . . . . . . . . . . .    D ADDR   00D1H   A   
+ADCDATH . . . . . . . . . . . . . . . .    D ADDR   00D4H   A   
+ADCDATL . . . . . . . . . . . . . . . .    D ADDR   00D5H   A   
+ADCON . . . . . . . . . . . . . . . . .    D ADDR   00D8H   A   
+ARCON . . . . . . . . . . . . . . . . .    D ADDR   00EFH   A   
+B . . . . . . . . . . . . . . . . . . .    D ADDR   00F0H   A   
+BD. . . . . . . . . . . . . . . . . . .    B ADDR   00D8H.7 A   
+CC1 . . . . . . . . . . . . . . . . . .    D ADDR   00C2H   A   
+CC2 . . . . . . . . . . . . . . . . . .    D ADDR   00C4H   A   
+CC3 . . . . . . . . . . . . . . . . . .    D ADDR   00C6H   A   
+CCEN. . . . . . . . . . . . . . . . . .    D ADDR   00C1H   A   
+CCH1. . . . . . . . . . . . . . . . . .    D ADDR   00C3H   A   
+CCH2. . . . . . . . . . . . . . . . . .    D ADDR   00C5H   A   
+CCH3. . . . . . . . . . . . . . . . . .    D ADDR   00C7H   A   
+CCL1. . . . . . . . . . . . . . . . . .    D ADDR   00C2H   A   
+CCL2. . . . . . . . . . . . . . . . . .    D ADDR   00C4H   A   
+CCL3. . . . . . . . . . . . . . . . . .    D ADDR   00C6H   A   
+CCPDATIA. . . . . . . . . . . . . . . .    D ADDR   00DDH   A   
+CCPDATIB. . . . . . . . . . . . . . . .    D ADDR   00DEH   A   
+CCPDATO . . . . . . . . . . . . . . . .    D ADDR   00DFH   A   
+CLKCTRL . . . . . . . . . . . . . . . .    D ADDR   00A3H   A   
+CLKLFCTRL . . . . . . . . . . . . . . .    D ADDR   00ADH   A   
+COMPCON . . . . . . . . . . . . . . . .    D ADDR   00DBH   A   
+CRC . . . . . . . . . . . . . . . . . .    D ADDR   00CAH   A   
+CRCH. . . . . . . . . . . . . . . . . .    D ADDR   00CBH   A   
+CRCL. . . . . . . . . . . . . . . . . .    D ADDR   00CAH   A   
+CY. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.7 A   
+DPH . . . . . . . . . . . . . . . . . .    D ADDR   0083H   A   
+DPH1. . . . . . . . . . . . . . . . . .    D ADDR   0085H   A   
+DPL . . . . . . . . . . . . . . . . . .    D ADDR   0082H   A   
+DPL1. . . . . . . . . . . . . . . . . .    D ADDR   0084H   A   
+DPS . . . . . . . . . . . . . . . . . .    D ADDR   0092H   A   
+EA. . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.7 A   
+ES0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . . . . . .    B ADDR   00B8H.7 A   
+EXF2. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.7 A   
+F0. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.5 A   
+FCR . . . . . . . . . . . . . . . . . .    D ADDR   00FAH   A   
+FDCR. . . . . . . . . . . . . . . . . .    D ADDR   00FBH   A   
+FPCR. . . . . . . . . . . . . . . . . .    D ADDR   00F9H   A   
+FSR . . . . . . . . . . . . . . . . . .    D ADDR   00F8H   A   
+I2FR. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.5 A   
+I3FR. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.6 A   
+IE0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.3 A   
+IEN0. . . . . . . . . . . . . . . . . .    D ADDR   00A8H   A   
+IEN1. . . . . . . . . . . . . . . . . .    D ADDR   00B8H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     7
+
+INFEN . . . . . . . . . . . . . . . . .    B ADDR   00F8H.3 A   
+INTEXP. . . . . . . . . . . . . . . . .    D ADDR   00A6H   A   
+IP0 . . . . . . . . . . . . . . . . . .    D ADDR   00A9H   A   
+IP1 . . . . . . . . . . . . . . . . . .    D ADDR   00B9H   A   
+IRCON . . . . . . . . . . . . . . . . .    D ADDR   00C0H   A   
+IT0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.2 A   
+MCDIS . . . . . . . . . . . . . . . . .    B ADDR   00F8H.7 A   
+MD0 . . . . . . . . . . . . . . . . . .    D ADDR   00E9H   A   
+MD1 . . . . . . . . . . . . . . . . . .    D ADDR   00EAH   A   
+MD2 . . . . . . . . . . . . . . . . . .    D ADDR   00EBH   A   
+MD3 . . . . . . . . . . . . . . . . . .    D ADDR   00ECH   A   
+MD4 . . . . . . . . . . . . . . . . . .    D ADDR   00EDH   A   
+MD5 . . . . . . . . . . . . . . . . . .    D ADDR   00EEH   A   
+MEMCON. . . . . . . . . . . . . . . . .    D ADDR   00A7H   A   
+MISC. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.4 A   
+MISCF . . . . . . . . . . . . . . . . .    B ADDR   00C0H.4 A   
+MPAGE . . . . . . . . . . . . . . . . .    D ADDR   00C9H   A   
+OPMCON. . . . . . . . . . . . . . . . .    D ADDR   00AEH   A   
+OV. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . . . . .    D ADDR   0080H   A   
+P00 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.7 A   
+P0CON . . . . . . . . . . . . . . . . .    D ADDR   009EH   A   
+P0DIR . . . . . . . . . . . . . . . . .    D ADDR   0093H   A   
+P1. . . . . . . . . . . . . . . . . . .    D ADDR   0090H   A   
+P10 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.7 A   
+P1CON . . . . . . . . . . . . . . . . .    D ADDR   009FH   A   
+P1DIR . . . . . . . . . . . . . . . . .    D ADDR   0094H   A   
+P2. . . . . . . . . . . . . . . . . . .    D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.7 A   
+P2CON . . . . . . . . . . . . . . . . .    D ADDR   0097H   A   
+P2DIR . . . . . . . . . . . . . . . . .    D ADDR   0095H   A   
+P3. . . . . . . . . . . . . . . . . . .    D ADDR   00B0H   A   
+P30 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.7 A   
+P3CON . . . . . . . . . . . . . . . . .    D ADDR   008FH   A   
+P3DIR . . . . . . . . . . . . . . . . .    D ADDR   0096H   A   
+PCON. . . . . . . . . . . . . . . . . .    D ADDR   0087H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     8
+
+POFCON. . . . . . . . . . . . . . . . .    D ADDR   00DCH   A   
+PSW . . . . . . . . . . . . . . . . . .    D ADDR   00D0H   A   
+PWMCON. . . . . . . . . . . . . . . . .    D ADDR   00B2H   A   
+PWMDC0. . . . . . . . . . . . . . . . .    D ADDR   00A1H   A   
+PWMDC1. . . . . . . . . . . . . . . . .    D ADDR   00A2H   A   
+PWRDWN. . . . . . . . . . . . . . . . .    D ADDR   00A4H   A   
+RB80. . . . . . . . . . . . . . . . . .    B ADDR   0098H.2 A   
+RDEND . . . . . . . . . . . . . . . . .    B ADDR   00F8H.1 A   
+RDIS. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.2 A   
+RDYN. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.4 A   
+REN0. . . . . . . . . . . . . . . . . .    B ADDR   0098H.4 A   
+RF. . . . . . . . . . . . . . . . . . .    B ADDR   00B8H.1 A   
+RFCE. . . . . . . . . . . . . . . . . .    B ADDR   00E8H.0 A   
+RFCKEN. . . . . . . . . . . . . . . . .    B ADDR   00E8H.2 A   
+RFCON . . . . . . . . . . . . . . . . .    D ADDR   00E8H   A   
+RFCSN . . . . . . . . . . . . . . . . .    B ADDR   00E8H.1 A   
+RFF . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.1 A   
+RFSPI . . . . . . . . . . . . . . . . .    B ADDR   00B8H.0 A   
+RFSPIF. . . . . . . . . . . . . . . . .    B ADDR   00C0H.0 A   
+RI0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.0 A   
+RNGCTL. . . . . . . . . . . . . . . . .    D ADDR   00D6H   A   
+RNGDAT. . . . . . . . . . . . . . . . .    D ADDR   00D7H   A   
+RS0 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.4 A   
+RSTREAS . . . . . . . . . . . . . . . .    D ADDR   00B1H   A   
+RTC2CMP0. . . . . . . . . . . . . . . .    D ADDR   00B4H   A   
+RTC2CMP1. . . . . . . . . . . . . . . .    D ADDR   00B5H   A   
+RTC2CON . . . . . . . . . . . . . . . .    D ADDR   00B3H   A   
+RTC2CPT00 . . . . . . . . . . . . . . .    D ADDR   00B6H   A   
+RTC2CPT01 . . . . . . . . . . . . . . .    D ADDR   00ABH   A   
+RTC2CPT10 . . . . . . . . . . . . . . .    D ADDR   00ACH   A   
+S0BUF . . . . . . . . . . . . . . . . .    D ADDR   0099H   A   
+S0CON . . . . . . . . . . . . . . . . .    D ADDR   0098H   A   
+S0RELH. . . . . . . . . . . . . . . . .    D ADDR   00BAH   A   
+S0RELL. . . . . . . . . . . . . . . . .    D ADDR   00AAH   A   
+SM0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . . . . . . . .    B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . . . . . . .    D ADDR   0081H   A   
+SPI . . . . . . . . . . . . . . . . . .    B ADDR   00B8H.2 A   
+SPIF. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.2 A   
+SPIMCON0. . . . . . . . . . . . . . . .    D ADDR   00FCH   A   
+SPIMCON1. . . . . . . . . . . . . . . .    D ADDR   00FDH   A   
+SPIMDAT . . . . . . . . . . . . . . . .    D ADDR   00FFH   A   
+SPIMSTAT. . . . . . . . . . . . . . . .    D ADDR   00FEH   A   
+SPIRCON0. . . . . . . . . . . . . . . .    D ADDR   00E4H   A   
+SPIRCON1. . . . . . . . . . . . . . . .    D ADDR   00E5H   A   
+SPIRDAT . . . . . . . . . . . . . . . .    D ADDR   00E7H   A   
+SPIRSTAT. . . . . . . . . . . . . . . .    D ADDR   00E6H   A   
+SPISCON0. . . . . . . . . . . . . . . .    D ADDR   00BCH   A   
+SPISCON1. . . . . . . . . . . . . . . .    D ADDR   00BDH   A   
+SPISDAT . . . . . . . . . . . . . . . .    D ADDR   00BFH   A   
+SPISRDSZ. . . . . . . . . . . . . . . .    D ADDR   00B7H   A   
+SPISSTAT. . . . . . . . . . . . . . . .    D ADDR   00BEH   A   
+STP . . . . . . . . . . . . . . . . . .    B ADDR   00F8H.6 A   
+T2. . . . . . . . . . . . . . . . . . .    D ADDR   00CCH   A   
+T2CM. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.2 A   
+T2CON . . . . . . . . . . . . . . . . .    D ADDR   00C8H   A   
+T2I0. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.0 A   
+T2I1. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.1 A   
+T2PS. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.7 A   
+T2R0. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.3 A   
+T2R1. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.4 A   
+TB80. . . . . . . . . . . . . . . . . .    B ADDR   0098H.3 A   
+TCON. . . . . . . . . . . . . . . . . .    D ADDR   0088H   A   
+TF0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.5 A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_HAL_HAL_NRF_HW                                            06/03/2010 14:40:48 PAGE     9
+
+TF1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.6 A   
+TH0 . . . . . . . . . . . . . . . . . .    D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . . . . .    D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . . . . .    D ADDR   00CDH   A   
+TI0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . . . . . .    D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . . . . . .    D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . . . . .    D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . . . . . . .    D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.6 A   
+W2CON0. . . . . . . . . . . . . . . . .    D ADDR   00E2H   A   
+W2CON1. . . . . . . . . . . . . . . . .    D ADDR   00E1H   A   
+W2DAT . . . . . . . . . . . . . . . . .    D ADDR   00DAH   A   
+W2SADR. . . . . . . . . . . . . . . . .    D ADDR   00D9H   A   
+WDSV. . . . . . . . . . . . . . . . . .    D ADDR   00AFH   A   
+WEN . . . . . . . . . . . . . . . . . .    B ADDR   00F8H.5 A   
+WPEN. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.0 A   
+WUCON . . . . . . . . . . . . . . . . .    D ADDR   00A5H   A   
+WUF . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.5 A   
+WUIRQ . . . . . . . . . . . . . . . . .    B ADDR   00B8H.5 A   
+WUOPC0. . . . . . . . . . . . . . . . .    D ADDR   00CFH   A   
+WUOPC1. . . . . . . . . . . . . . . . .    D ADDR   00CEH   A   
+WUPIN . . . . . . . . . . . . . . . . .    B ADDR   00B8H.3 A   
+WUPINF. . . . . . . . . . . . . . . . .    B ADDR   00C0H.3 A   
+_HAL_NRF_RW . . . . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_HAL_NRF_RW?___LE1_LIB_HAL_HAL_NRF_HW
+___LE1_LIB_HAL_HAL_NRF_HW . . . . . . .    N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

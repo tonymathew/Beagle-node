@@ -1,0 +1,1991 @@
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN ../LE1/lib/EPL/epl_sdcard.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.exe ../LE1/lib/EPL/epl_sdcard.src
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; ../LE1/lib/EPL/epl_sdcard.SRC generated from: ../LE1/lib/EPL/epl_sdcard.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/EPL/epl_sdcard.c INCDIR(../LE1/include) BROWSE 
+                             DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    ___LE1_LIB_EPL_EPL_SDCARD
+                       8     
+  009B                 9     TB80    BIT     098H.3
+  00BE                10     SPISSTAT        DATA    0BEH
+  00C8                11     T2I0    BIT     0C8H.0
+  00C3                12     CCH1    DATA    0C3H
+  0080                13     P0      DATA    080H
+  00C9                14     T2I1    BIT     0C8H.1
+  00DF                15     CCPDATO DATA    0DFH
+  00C5                16     CCH2    DATA    0C5H
+  0090                17     P1      DATA    090H
+  00C7                18     CCH3    DATA    0C7H
+  00A0                19     P2      DATA    0A0H
+  009D                20     SM20    BIT     098H.5
+  00B0                21     P3      DATA    0B0H
+  00D6                22     AC      BIT     0D0H.6
+  00C2                23     CCL1    DATA    0C2H
+  00C4                24     CCL2    DATA    0C4H
+  00DF                25     BD      BIT     0D8H.7
+  00B8                26     RFSPI   BIT     0B8H.0
+  00AF                27     EA      BIT     0A8H.7
+  00CC                28     T2      DATA    0CCH
+  00C6                29     CCL3    DATA    0C6H
+  00B7                30     SPISRDSZ        DATA    0B7H
+  00CB                31     T2R0    BIT     0C8H.3
+  00CC                32     T2R1    BIT     0C8H.4
+  00A8                33     IEN0    DATA    0A8H
+  00B8                34     IEN1    DATA    0B8H
+  00A5                35     WUCON   DATA    0A5H
+  0085                36     DPH1    DATA    085H
+  00DB                37     COMPCON DATA    0DBH
+  00A3                38     CLKCTRL DATA    0A3H
+  0084                39     DPL1    DATA    084H
+  00CD                40     I2FR    BIT     0C8H.5
+  00BB                41     WUPIN   BIT     0B8H.3
+  00CE                42     I3FR    BIT     0C8H.6
+  00FF                43     SPIMDAT DATA    0FFH
+  00C7                44     EXF2    BIT     0C0H.7
+  009C                45     REN0    BIT     098H.4
+  00CA                46     T2CM    BIT     0C8H.2
+  00B9                47     RF      BIT     0B8H.1
+  00BD                48     WUIRQ   BIT     0B8H.5
+  00E7                49     SPIRDAT DATA    0E7H
+  00C1                50     CCEN    DATA    0C1H
+  00E2                51     W2CON0  DATA    0E2H
+  00BF                52     SPISDAT DATA    0BFH
+  00D7                53     CY      BIT     0D0H.7
+  00E1                54     W2CON1  DATA    0E1H
+  00FB                55     FDCR    DATA    0FBH
+  00E8                56     RFCE    BIT     0E8H.0
+  00CB                57     CRCH    DATA    0CBH
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     2
+
+  0081                58     SP      DATA    081H
+  00D2                59     OV      BIT     0D0H.2
+  00CA                60     CRCL    DATA    0CAH
+  00AD                61     CLKLFCTRL       DATA    0ADH
+  00B1                62     RSTREAS DATA    0B1H
+  00CF                63     T2PS    BIT     0C8H.7
+  00F9                64     FPCR    DATA    0F9H
+  00BC                65     MISC    BIT     0B8H.4
+  00A1                66     PWMDC0  DATA    0A1H
+  00B4                67     RTC2CMP0        DATA    0B4H
+  00A2                68     PWMDC1  DATA    0A2H
+  00B5                69     RTC2CMP1        DATA    0B5H
+  0080                70     P00     BIT     080H.0
+  00BA                71     S0RELH  DATA    0BAH
+  0090                72     P10     BIT     090H.0
+  0081                73     P01     BIT     080H.1
+  0087                74     PCON    DATA    087H
+  00A0                75     P20     BIT     0A0H.0
+  0091                76     P11     BIT     090H.1
+  0082                77     P02     BIT     080H.2
+  00B0                78     P30     BIT     0B0H.0
+  00A1                79     P21     BIT     0A0H.1
+  0092                80     P12     BIT     090H.2
+  0083                81     P03     BIT     080H.3
+  00C2                82     SPIF    BIT     0C0H.2
+  00FA                83     RDIS    BIT     0F8H.2
+  00B1                84     P31     BIT     0B0H.1
+  00A2                85     P22     BIT     0A0H.2
+  0093                86     P13     BIT     090H.3
+  0084                87     P04     BIT     080H.4
+  00AA                88     S0RELL  DATA    0AAH
+  00B2                89     P32     BIT     0B0H.2
+  00A3                90     P23     BIT     0A0H.3
+  0094                91     P14     BIT     090H.4
+  0085                92     P05     BIT     080H.5
+  00D9                93     W2SADR  DATA    0D9H
+  0089                94     TMOD    DATA    089H
+  0088                95     TCON    DATA    088H
+  00B3                96     P33     BIT     0B0H.3
+  00A4                97     P24     BIT     0A0H.4
+  0095                98     P15     BIT     090H.5
+  0086                99     P06     BIT     080H.6
+  00B4               100     P34     BIT     0B0H.4
+  00A5               101     P25     BIT     0A0H.5
+  0096               102     P16     BIT     090H.6
+  0087               103     P07     BIT     080H.7
+  00C2               104     CC1     DATA    0C2H
+  00B5               105     P35     BIT     0B0H.5
+  00A6               106     P26     BIT     0A0H.6
+  0097               107     P17     BIT     090H.7
+  00C4               108     CC2     DATA    0C4H
+  00B6               109     P36     BIT     0B0H.6
+  00A7               110     P27     BIT     0A0H.7
+  00C6               111     CC3     DATA    0C6H
+  00B7               112     P37     BIT     0B0H.7
+  00EA               113     RFCKEN  BIT     0E8H.2
+  00F8               114     WPEN    BIT     0F8H.0
+  00DD               115     CCPDATIA        DATA    0DDH
+  00DE               116     CCPDATIB        DATA    0DEH
+  0089               117     IE0     BIT     088H.1
+  00FC               118     RDYN    BIT     0F8H.4
+  008B               119     IE1     BIT     088H.3
+  00CF               120     WUOPC0  DATA    0CFH
+  00F0               121     B       DATA    0F0H
+  00E9               122     MD0     DATA    0E9H
+  00CE               123     WUOPC1  DATA    0CEH
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     3
+
+  00A7               124     MEMCON  DATA    0A7H
+  00EA               125     MD1     DATA    0EAH
+  00D7               126     RNGDAT  DATA    0D7H
+  00EB               127     MD2     DATA    0EBH
+  00EC               128     MD3     DATA    0ECH
+  00ED               129     MD4     DATA    0EDH
+  00AF               130     WDSV    DATA    0AFH
+  00EE               131     MD5     DATA    0EEH
+  00E0               132     ACC     DATA    0E0H
+  00DC               133     POFCON  DATA    0DCH
+  00AC               134     ES0     BIT     0A8H.4
+  00A9               135     ET0     BIT     0A8H.1
+  00A9               136     IP0     DATA    0A9H
+  00AB               137     ET1     BIT     0A8H.3
+  008D               138     TF0     BIT     088H.5
+  00B9               139     IP1     DATA    0B9H
+  00AD               140     ET2     BIT     0A8H.5
+  0098               141     RI0     BIT     098H.0
+  008F               142     TF1     BIT     088H.7
+  00C0               143     RFSPIF  BIT     0C0H.0
+  00C6               144     TF2     BIT     0C0H.6
+  00FC               145     SPIMCON0        DATA    0FCH
+  00D6               146     RNGCTL  DATA    0D6H
+  008C               147     TH0     DATA    08CH
+  00A8               148     EX0     BIT     0A8H.0
+  0099               149     TI0     BIT     098H.1
+  0088               150     IT0     BIT     088H.0
+  00FD               151     SPIMCON1        DATA    0FDH
+  008D               152     TH1     DATA    08DH
+  00AA               153     EX1     BIT     0A8H.2
+  008A               154     IT1     BIT     088H.2
+  00CD               155     TH2     DATA    0CDH
+  00AE               156     OPMCON  DATA    0AEH
+  00D0               157     P       BIT     0D0H.0
+  009F               158     SM0     BIT     098H.7
+  008A               159     TL0     DATA    08AH
+  009E               160     SM1     BIT     098H.6
+  00E4               161     SPIRCON0        DATA    0E4H
+  008B               162     TL1     DATA    08BH
+  00E5               163     SPIRCON1        DATA    0E5H
+  00CC               164     TL2     DATA    0CCH
+  00BC               165     SPISCON0        DATA    0BCH
+  00BD               166     SPISCON1        DATA    0BDH
+  00D3               167     RS0     BIT     0D0H.3
+  008C               168     TR0     BIT     088H.4
+  00D4               169     RS1     BIT     0D0H.4
+  00B2               170     PWMCON  DATA    0B2H
+  008E               171     TR1     BIT     088H.6
+  00CA               172     CRC     DATA    0CAH
+  00A6               173     INTEXP  DATA    0A6H
+  00C3               174     WUPINF  BIT     0C0H.3
+  00FA               175     FCR     DATA    0FAH
+  00D3               176     ADCCON1 DATA    0D3H
+  00D2               177     ADCCON2 DATA    0D2H
+  0083               178     DPH     DATA    083H
+  00D1               179     ADCCON3 DATA    0D1H
+  00C1               180     RFF     BIT     0C0H.1
+  0093               181     P0DIR   DATA    093H
+  0082               182     DPL     DATA    082H
+  009E               183     P0CON   DATA    09EH
+  0099               184     S0BUF   DATA    099H
+  0094               185     P1DIR   DATA    094H
+  009F               186     P1CON   DATA    09FH
+  0095               187     P2DIR   DATA    095H
+  00BF               188     EXEN2   BIT     0B8H.7
+  00DA               189     W2DAT   DATA    0DAH
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     4
+
+  0097               190     P2CON   DATA    097H
+  0096               191     P3DIR   DATA    096H
+  00A4               192     PWRDWN  DATA    0A4H
+  0098               193     S0CON   DATA    098H
+  008F               194     P3CON   DATA    08FH
+  00B6               195     RTC2CPT00       DATA    0B6H
+  00D8               196     ADCON   DATA    0D8H
+  00AC               197     RTC2CPT10       DATA    0ACH
+  00AB               198     RTC2CPT01       DATA    0ABH
+  00C8               199     T2CON   DATA    0C8H
+  0092               200     DPS     DATA    092H
+  00FD               201     WEN     BIT     0F8H.5
+  00F8               202     FSR     DATA    0F8H
+  00D4               203     ADCDATH DATA    0D4H
+  00C9               204     MPAGE   DATA    0C9H
+  00BA               205     SPI     BIT     0B8H.2
+  00F9               206     RDEND   BIT     0F8H.1
+  00D5               207     ADCDATL DATA    0D5H
+  00FB               208     INFEN   BIT     0F8H.3
+  00FF               209     MCDIS   BIT     0F8H.7
+  00C5               210     WUF     BIT     0C0H.5
+  00C4               211     MISCF   BIT     0C0H.4
+  00EF               212     ARCON   DATA    0EFH
+  00D5               213     F0      BIT     0D0H.5
+  00FE               214     STP     BIT     0F8H.6
+  00FE               215     SPIMSTAT        DATA    0FEH
+  00E8               216     RFCON   DATA    0E8H
+  00D0               217     PSW     DATA    0D0H
+  009A               218     RB80    BIT     098H.2
+  00C0               219     IRCON   DATA    0C0H
+  00E9               220     RFCSN   BIT     0E8H.1
+  00E6               221     SPIRSTAT        DATA    0E6H
+  00B3               222     RTC2CON DATA    0B3H
+                     223     ?PR?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     224     ?DT?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     225     ?PR?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     226     ?DT?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     227     ?PR?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     228     ?DT?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     229     ?PR?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     230     ?DT?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     231     ?PR?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     232     ?DT?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     233     ?PR?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     234     ?DT?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     235     ?PR?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     236     ?DT?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     237     ?PR?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     238     ?DT?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     239     ?PR?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     240     ?DT?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     241     ?PR?_epl_sdcard_write_char?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     242     ?PR?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     243     ?DT?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     244     ?PR?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     245     ?DT?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     246     ?PR?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     247     ?DT?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     248     ?PR?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     249     ?DT?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     250     ?PR?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     251     ?DT?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD SEGMENT DATA OVERLAYABLE
+                     252     ?PR?_epl_sdcard_setRsector?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     253     ?PR?_epl_sdcard_setWsector?___LE1_LIB_EPL_EPL_SDCARD SEGMENT CODE 
+                     254     ?C_INITSEG           SEGMENT CODE 
+                     255     ?DT?___LE1_LIB_EPL_EPL_SDCARD            SEGMENT DATA 
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     5
+
+                     256             EXTRN   CODE (_hal_spi_master_read_write)
+                     257             EXTRN   CODE (_hal_spi_master_init)
+                     258             EXTRN   CODE (?C?LMUL)
+                     259             EXTRN   CODE (?C?ULSHR)
+                     260             EXTRN   CODE (?C?CLDPTR)
+                     261             PUBLIC  wcount
+                     262             PUBLIC  rcount
+                     263             PUBLIC  wsector
+                     264             PUBLIC  rsector
+                     265             PUBLIC  _epl_sdcard_setWsector
+                     266             PUBLIC  _epl_sdcard_setRsector
+                     267             PUBLIC  epl_sdcard_end_read
+                     268             PUBLIC  epl_sdcard_read
+                     269             PUBLIC  epl_sdcard_begin_read
+                     270             PUBLIC  epl_sdcard_end_write
+                     271             PUBLIC  _epl_sdcard_write_str
+                     272             PUBLIC  _epl_sdcard_write_char
+                     273             PUBLIC  epl_sdcard_begin_write
+                     274             PUBLIC  epl_sdcard_open
+                     275             PUBLIC  _epl_sdcard_setBlockLength
+                     276             PUBLIC  epl_sdcard_checkBusy
+                     277             PUBLIC  _epl_sdcard_getXXResponse
+                     278             PUBLIC  epl_sdcard_getResponse
+                     279             PUBLIC  epl_sdcard_goIdle
+                     280             PUBLIC  epl_sdcard_init
+                     281             PUBLIC  ?_epl_sdcard_command?BYTE
+                     282             PUBLIC  _epl_sdcard_command
+                     283     
+----                 284             RSEG  ?DT?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                 285     ?epl_sdcard_begin_read?BYTE:
+0000                 286           Addr?1264:   DS   4
+0004                 287             ORG  4
+0004                 288          hAddr?1265:   DS   2
+                     289     
+----                 290             RSEG  ?DT?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD
+0000                 291     ?epl_sdcard_begin_write?BYTE:
+0000                 292            Addr?858:   DS   4
+0004                 293             ORG  4
+0004                 294           hAddr?859:   DS   2
+                     295     
+----                 296             RSEG  ?DT?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD
+0000                 297     ?epl_sdcard_getResponse?BYTE:
+0000                 298               i?346:   DS   1
+                     299     
+----                 300             RSEG  ?DT?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                 301     ?epl_sdcard_read?BYTE:
+0000                 302              c?1367:   DS   1
+                     303     
+----                 304             RSEG  ?DT?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD
+0000                 305     ?_epl_sdcard_setBlockLength?BYTE:
+0000                 306            hCnt?654:   DS   2
+0002                 307             ORG  2
+0002                 308            lCnt?655:   DS   2
+                     309     
+----                 310             RSEG  ?DT?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD
+0000                 311     ?epl_sdcard_checkBusy?BYTE:
+0000                 312               i?551:   DS   1
+0001                 313             ORG  1
+0001                 314        response?552:   DS   1
+0002                 315             ORG  2
+0002                 316          rvalue?553:   DS   1
+                     317     
+----                 318             RSEG  ?DT?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD
+0000                 319     ?epl_sdcard_open?BYTE:
+0000                 320              tm?756:   DS   1
+                     321     
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     6
+
+----                 322             RSEG  ?DT?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD
+0000                 323     ?epl_sdcard_init?BYTE:
+0000                 324               i?144:   DS   1
+                     325     
+----                 326             RSEG  ?DT?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                 327     ?epl_sdcard_end_read?BYTE:
+0000                 328              i?1468:   DS   2
+                     329     
+----                 330             RSEG  ?DT?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD
+0000                 331     ?epl_sdcard_end_write?BYTE:
+0000                 332              i?1163:   DS   2
+                     333     
+----                 334             RSEG  ?DT?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD
+0000                 335     ?_epl_sdcard_getXXResponse?BYTE:
+0000                 336            resp?448:   DS   1
+0001                 337             ORG  1
+0001                 338               i?449:   DS   2
+                     339     
+----                 340             RSEG  ?DT?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD
+0000                 341     ?epl_sdcard_goIdle?BYTE:
+0000                 342        response?245:   DS   1
+                     343     
+----                 344             RSEG  ?DT?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD
+0000                 345     ?_epl_sdcard_command?BYTE:
+0000                 346            befF?040:   DS   1
+0001                 347             ORG  1
+0001                 348            AdrH?041:   DS   2
+0003                 349             ORG  3
+0003                 350            AdrL?042:   DS   2
+0005                 351             ORG  5
+0005                 352            befH?043:   DS   1
+                     353     
+----                 354             RSEG  ?DT?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD
+0000                 355     ?_epl_sdcard_write_str?BYTE:
+0000                 356              s?1062:   DS   3
+                     357     
+----                 358             RSEG  ?DT?___LE1_LIB_EPL_EPL_SDCARD
+0000                 359             rsector:   DS   2
+0002                 360             wsector:   DS   2
+0004                 361              rcount:   DS   2
+0006                 362              wcount:   DS   2
+                     363     
+----                 364             RSEG  ?C_INITSEG
+0000 02              365             DB      002H
+0001 00       F      366             DB      wsector
+0002 0000            367             DW      00000H
+                     368     
+0004 02              369             DB      002H
+0005 00       F      370             DB      rsector
+0006 0000            371             DW      00000H
+                     372     
+0008 02              373             DB      002H
+0009 00       F      374             DB      wcount
+000A 0000            375             DW      00000H
+                     376     
+000C 02              377             DB      002H
+000D 00       F      378             DB      rcount
+000E 0000            379             DW      00000H
+                     380     
+                     381     ; /* SD Card driver for LE1
+                     382     ;  *
+                     383     ;  * Brian Yang <asdyaya@gmail.com> 
+                     384     ;  * 2009/2/17 V1.0
+                     385     ;  *
+                     386     ;  * 
+                     387     ;  */
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     7
+
+                     388     ; 
+                     389     ; #include <EPL/epl_sdcard.h>
+                     390     ; #include <Nordic/reg24le1.h>
+                     391     ; #include <HAL/hal_spi.h>
+                     392     ; 
+                     393     ; int wsector = 0;
+                     394     ; int rsector = 0;
+                     395     ; int wcount = 0;
+                     396     ; int rcount = 0;
+                     397     ; 
+                     398     ; void epl_sdcard_command(char befF, unsigned int AdrH, unsigned int AdrL, char befH )
+                     399     
+----                 400             RSEG  ?PR?_epl_sdcard_command?___LE1_LIB_EPL_EPL_SDCARD
+0000                 401     L?0073:
+                     402             USING   0
+0000 7500FF   F      403             MOV     ?_epl_sdcard_command?BYTE+05H,#0FFH
+0003 AB00     F      404             MOV     R3,lCnt?655+01H
+0005 AA00     F      405             MOV     R2,lCnt?655
+0007 AD00     F      406             MOV     R5,hCnt?654+01H
+0009 AC00     F      407             MOV     R4,hCnt?654
+000B 7F50            408             MOV     R7,#050H
+000D                 409     _epl_sdcard_command:
+                     410             USING   0
+                     411                             ; SOURCE LINE # 18
+000D 8C00     F      412             MOV     AdrH?041,R4
+000F 8D00     F      413             MOV     AdrH?041+01H,R5
+0011 8A00     F      414             MOV     AdrL?042,R2
+0013 8B00     F      415             MOV     AdrL?042+01H,R3
+                     416     ;---- Variable 'befF?040' assigned to Register 'R7' ----
+                     417     ; {     
+                     418                             ; SOURCE LINE # 19
+                     419     ;       // sends a command to the MMC   
+                     420     ;       hal_spi_master_read_write(befF|0x40);
+                     421                             ; SOURCE LINE # 21
+0015 EF              422             MOV     A,R7
+0016 4440            423             ORL     A,#040H
+0018 FF              424             MOV     R7,A
+0019 120000   F      425             LCALL   _hal_spi_master_read_write
+                     426     ;       hal_spi_master_read_write((char)(AdrH >> 8));
+                     427                             ; SOURCE LINE # 22
+001C E500     F      428             MOV     A,AdrH?041
+001E FF              429             MOV     R7,A
+001F 120000   F      430             LCALL   _hal_spi_master_read_write
+                     431     ;       hal_spi_master_read_write((char)(AdrH));
+                     432                             ; SOURCE LINE # 23
+0022 AF00     F      433             MOV     R7,AdrH?041+01H
+0024 120000   F      434             LCALL   _hal_spi_master_read_write
+                     435     ;       hal_spi_master_read_write((char)(AdrL >> 8));
+                     436                             ; SOURCE LINE # 24
+0027 E500     F      437             MOV     A,AdrL?042
+0029 FF              438             MOV     R7,A
+002A 120000   F      439             LCALL   _hal_spi_master_read_write
+                     440     ;       hal_spi_master_read_write((char)(AdrL));
+                     441                             ; SOURCE LINE # 25
+002D AF00     F      442             MOV     R7,AdrL?042+01H
+002F 120000   F      443             LCALL   _hal_spi_master_read_write
+                     444     ;       hal_spi_master_read_write(befH);
+                     445                             ; SOURCE LINE # 26
+0032 AF00     F      446             MOV     R7,befH?043
+0034 020000   F      447             LJMP    _hal_spi_master_read_write
+                     448     ; END OF _epl_sdcard_command
+                     449     
+                     450     ; }
+                     451     ; 
+                     452     ; char epl_sdcard_init()
+                     453     
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     8
+
+----                 454             RSEG  ?PR?epl_sdcard_init?___LE1_LIB_EPL_EPL_SDCARD
+0000                 455     epl_sdcard_init:
+                     456             USING   0
+                     457                             ; SOURCE LINE # 29
+                     458     ; {
+                     459                             ; SOURCE LINE # 30
+                     460     ;       char i;
+                     461     ;       
+                     462     ;       //enable spi
+                     463     ;       hal_spi_master_init(SPI_CLK_DIV2,HAL_SPI_MODE_0,HAL_SPI_MSB_LSB);
+                     464                             ; SOURCE LINE # 34
+0000 7B01            465             MOV     R3,#01H
+0002 E4              466             CLR     A
+0003 FD              467             MOV     R5,A
+0004 FF              468             MOV     R7,A
+0005 120000   F      469             LCALL   _hal_spi_master_init
+                     470     ;       
+                     471     ;       // set P0.6 as output
+                     472     ;       P0DIR &= ~0x40;
+                     473                             ; SOURCE LINE # 37
+0008 5393BF          474             ANL     P0DIR,#0BFH
+                     475     ;       
+                     476     ;       //disable MMC
+                     477     ;       SD_CS = 1;
+                     478                             ; SOURCE LINE # 40
+000B D286            479             SETB    P06
+                     480     ;       
+                     481     ;       // start MMC in SPI mode
+                     482     ;       for(i = 0; i < 10; i++) 
+                     483                             ; SOURCE LINE # 43
+000D E4              484             CLR     A
+000E F500     F      485             MOV     i?144,A
+0010                 486     ?C0002:
+                     487     ;               hal_spi_master_read_write(0xFF); // send 10*8=80 clock pulses
+                     488                             ; SOURCE LINE # 44
+0010 7FFF            489             MOV     R7,#0FFH
+0012 120000   F      490             LCALL   _hal_spi_master_read_write
+0015 0500     F      491             INC     i?144
+0017 C3              492             CLR     C
+0018 E500     F      493             MOV     A,i?144
+001A 6480            494             XRL     A,#080H
+001C 948A            495             SUBB    A,#08AH
+001E 40F0            496             JC      ?C0002
+0020                 497     ?C0003:
+                     498     ;       
+                     499     ;       //go to idle mode
+                     500     ;       return (epl_sdcard_goIdle());   
+                     501                             ; SOURCE LINE # 47
+0020 120000   F      502             LCALL   epl_sdcard_goIdle
+                     503     ; }
+                     504                             ; SOURCE LINE # 48
+0023                 505     ?C0005:
+0023 22              506             RET     
+                     507     ; END OF epl_sdcard_init
+                     508     
+                     509     ; 
+                     510     ; char epl_sdcard_goIdle()
+                     511     
+----                 512             RSEG  ?PR?epl_sdcard_goIdle?___LE1_LIB_EPL_EPL_SDCARD
+0000                 513     epl_sdcard_goIdle:
+                     514             USING   0
+                     515                             ; SOURCE LINE # 50
+                     516     ; {
+                     517                             ; SOURCE LINE # 51
+                     518     ;       char response = 0x01;
+                     519                             ; SOURCE LINE # 52
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE     9
+
+0000 750001   F      520             MOV     response?245,#01H
+                     521     ;       
+                     522     ;       //enable MMC
+                     523     ;       SD_CS = 0;
+                     524                             ; SOURCE LINE # 55
+0003 C286            525             CLR     P06
+                     526     ;       
+                     527     ;       //Send Command 0 to put MMC in SPI mode
+                     528     ;       epl_sdcard_command(MMC_GO_IDLE_STATE,0x0000,0x0000,0x95);
+                     529                             ; SOURCE LINE # 58
+0005 750095   F      530             MOV     ?_epl_sdcard_command?BYTE+05H,#095H
+0008 E4              531             CLR     A
+0009 FB              532             MOV     R3,A
+000A FA              533             MOV     R2,A
+000B FD              534             MOV     R5,A
+000C FC              535             MOV     R4,A
+000D 7F40            536             MOV     R7,#040H
+000F 120000   F      537             LCALL   _epl_sdcard_command
+                     538     ;       
+                     539     ;       //Now wait for READY RESPONSE
+                     540     ;       if(epl_sdcard_getResponse() != 0x01)
+                     541                             ; SOURCE LINE # 61
+0012 120000   F      542             LCALL   epl_sdcard_getResponse
+0015 EF              543             MOV     A,R7
+0016 6401            544             XRL     A,#01H
+0018 6003            545             JZ      ?C0008
+                     546     ;               return MMC_INIT_ERROR;
+                     547                             ; SOURCE LINE # 62
+001A 7F04            548             MOV     R7,#04H
+001C 22              549             RET     
+001D                 550     ?C0008:
+                     551     ;       
+                     552     ;       while(response == 0x01)
+                     553                             ; SOURCE LINE # 64
+001D E500     F      554             MOV     A,response?245
+001F B4011D          555             CJNE    A,#01H,?C0009
+                     556     ;       {
+                     557                             ; SOURCE LINE # 65
+                     558     ;           SD_CS = 1;
+                     559                             ; SOURCE LINE # 66
+0022 D286            560             SETB    P06
+                     561     ;           hal_spi_master_read_write(0xff);
+                     562                             ; SOURCE LINE # 67
+0024 7FFF            563             MOV     R7,#0FFH
+0026 120000   F      564             LCALL   _hal_spi_master_read_write
+                     565     ;           SD_CS = 0;
+                     566                             ; SOURCE LINE # 68
+0029 C286            567             CLR     P06
+                     568     ;           
+                     569     ;           epl_sdcard_command(MMC_SEND_OP_COND,0x0000,0x0000,0xff);
+                     570                             ; SOURCE LINE # 70
+002B 7500FF   F      571             MOV     ?_epl_sdcard_command?BYTE+05H,#0FFH
+002E E4              572             CLR     A
+002F FB              573             MOV     R3,A
+0030 FA              574             MOV     R2,A
+0031 FD              575             MOV     R5,A
+0032 FC              576             MOV     R4,A
+0033 7F41            577             MOV     R7,#041H
+0035 120000   F      578             LCALL   _epl_sdcard_command
+                     579     ;           response = epl_sdcard_getResponse();
+                     580                             ; SOURCE LINE # 71
+0038 120000   F      581             LCALL   epl_sdcard_getResponse
+003B 8F00     F      582             MOV     response?245,R7
+                     583     ;       }
+                     584                             ; SOURCE LINE # 72
+003D 80DE            585             SJMP    ?C0008
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    10
+
+003F                 586     ?C0009:
+                     587     ;       
+                     588     ;       SD_CS = 1;
+                     589                             ; SOURCE LINE # 74
+003F D286            590             SETB    P06
+                     591     ;       hal_spi_master_read_write(0xff);
+                     592                             ; SOURCE LINE # 75
+0041 7FFF            593             MOV     R7,#0FFH
+0043 120000   F      594             LCALL   _hal_spi_master_read_write
+                     595     ;       
+                     596     ;       return (MMC_SUCCESS);
+                     597                             ; SOURCE LINE # 77
+0046 7F00            598             MOV     R7,#00H
+                     599     ; }
+                     600                             ; SOURCE LINE # 78
+0048                 601     ?C0007:
+0048 22              602             RET     
+                     603     ; END OF epl_sdcard_goIdle
+                     604     
+                     605     ; 
+                     606     ; // sd Get Responce
+                     607     ; char epl_sdcard_getResponse()
+                     608     
+----                 609             RSEG  ?PR?epl_sdcard_getResponse?___LE1_LIB_EPL_EPL_SDCARD
+0000                 610     epl_sdcard_getResponse:
+                     611             USING   0
+                     612                             ; SOURCE LINE # 81
+                     613     ; {
+                     614                             ; SOURCE LINE # 82
+                     615     ;       //Response comes 1-8bytes after command
+                     616     ;       //the first bit will be a 0
+                     617     ;       //followed by an error code
+                     618     ;       //data will be 0xff until response
+                     619     ;   
+                     620     ;       char i = 0;
+                     621                             ; SOURCE LINE # 88
+0000 E4              622             CLR     A
+0001 F500     F      623             MOV     i?346,A
+                     624     ; 
+                     625     ;       char response = 0x00;
+                     626                             ; SOURCE LINE # 90
+                     627     ;---- Variable 'response?347' assigned to Register 'R7' ----
+0003                 628     ?C0010:
+                     629     ; 
+                     630     ;       while(i <= 64)
+                     631                             ; SOURCE LINE # 92
+                     632     ;       {
+                     633                             ; SOURCE LINE # 93
+                     634     ;       response = hal_spi_master_read_write(0xff);
+                     635                             ; SOURCE LINE # 94
+0003 7FFF            636             MOV     R7,#0FFH
+0005 120000   F      637             LCALL   _hal_spi_master_read_write
+                     638     ;       if(response == 0x00)
+                     639                             ; SOURCE LINE # 95
+0008 EF              640             MOV     A,R7
+0009 6010            641             JZ      ?C0011
+                     642     ;               break;    
+                     643                             ; SOURCE LINE # 96
+000B                 644     ?C0012:
+                     645     ;       if(response == 0x01)
+                     646                             ; SOURCE LINE # 97
+000B EF              647             MOV     A,R7
+000C 6401            648             XRL     A,#01H
+000E 600B            649             JZ      ?C0011
+                     650     ;               break;  
+                     651                             ; SOURCE LINE # 98
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    11
+
+0010                 652     ?C0013:
+                     653     ;       i++;
+                     654                             ; SOURCE LINE # 99
+0010 0500     F      655             INC     i?346
+                     656     ;       }
+                     657                             ; SOURCE LINE # 100
+0012 D3              658             SETB    C
+0013 E500     F      659             MOV     A,i?346
+0015 6480            660             XRL     A,#080H
+0017 94C0            661             SUBB    A,#0C0H
+0019 40E8            662             JC      ?C0010
+001B                 663     ?C0011:
+                     664     ; 
+                     665     ;       return response;
+                     666                             ; SOURCE LINE # 102
+                     667     ; }
+                     668                             ; SOURCE LINE # 103
+001B                 669     ?C0014:
+001B 22              670             RET     
+                     671     ; END OF epl_sdcard_getResponse
+                     672     
+                     673     ; 
+                     674     ; char epl_sdcard_getXXResponse(char resp)
+                     675     
+----                 676             RSEG  ?PR?_epl_sdcard_getXXResponse?___LE1_LIB_EPL_EPL_SDCARD
+0000                 677     _epl_sdcard_getXXResponse:
+                     678             USING   0
+                     679                             ; SOURCE LINE # 105
+0000 8F00     F      680             MOV     resp?448,R7
+                     681     ; {
+                     682                             ; SOURCE LINE # 106
+                     683     ;       //Response comes 1-8bytes after command
+                     684     ;       //the first bit will be a 0
+                     685     ;       //followed by an error code
+                     686     ;       //data will be 0xff until response
+                     687     ;       int i = 0;
+                     688                             ; SOURCE LINE # 111
+0002 E4              689             CLR     A
+0003 F500     F      690             MOV     i?449,A
+0005 F500     F      691             MOV     i?449+01H,A
+                     692     ; 
+                     693     ;       char response = 0x00;
+                     694                             ; SOURCE LINE # 113
+                     695     ;---- Variable 'response?450' assigned to Register 'R7' ----
+                     696     ; 
+                     697     ;       for(i = 0;i <= 1000;i++)
+                     698                             ; SOURCE LINE # 115
+0007 F500     F      699             MOV     i?449,A
+0009 F500     F      700             MOV     i?449+01H,A
+000B                 701     ?C0015:
+                     702     ;       {
+                     703                             ; SOURCE LINE # 116
+                     704     ;       response = hal_spi_master_read_write(0xff);
+                     705                             ; SOURCE LINE # 117
+000B 7FFF            706             MOV     R7,#0FFH
+000D 120000   F      707             LCALL   _hal_spi_master_read_write
+                     708     ;       if(response == resp)
+                     709                             ; SOURCE LINE # 118
+0010 EF              710             MOV     A,R7
+0011 6500     F      711             XRL     A,resp?448
+0013 6013            712             JZ      ?C0016
+                     713     ;               break;
+                     714                             ; SOURCE LINE # 119
+                     715     ;       }       
+                     716                             ; SOURCE LINE # 120
+0015                 717     ?C0017:
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    12
+
+0015 0500     F      718             INC     i?449+01H
+0017 E500     F      719             MOV     A,i?449+01H
+0019 7002            720             JNZ     ?C0063
+001B 0500     F      721             INC     i?449
+001D                 722     ?C0063:
+001D D3              723             SETB    C
+001E 94E8            724             SUBB    A,#0E8H
+0020 E500     F      725             MOV     A,i?449
+0022 6480            726             XRL     A,#080H
+0024 9483            727             SUBB    A,#083H
+0026 40E3            728             JC      ?C0015
+0028                 729     ?C0016:
+                     730     ;       return response;
+                     731                             ; SOURCE LINE # 121
+                     732     ; }
+                     733                             ; SOURCE LINE # 122
+0028                 734     ?C0019:
+0028 22              735             RET     
+                     736     ; END OF _epl_sdcard_getXXResponse
+                     737     
+                     738     ; 
+                     739     ; char epl_sdcard_checkBusy(void)
+                     740     
+----                 741             RSEG  ?PR?epl_sdcard_checkBusy?___LE1_LIB_EPL_EPL_SDCARD
+0000                 742     epl_sdcard_checkBusy:
+                     743             USING   0
+                     744                             ; SOURCE LINE # 124
+                     745     ; {
+                     746                             ; SOURCE LINE # 125
+                     747     ;       //Response comes 1-8bytes after command
+                     748     ;       //the first bit will be a 0
+                     749     ;       //followed by an error code
+                     750     ;       //data will be 0xff until response
+                     751     ;   
+                     752     ;       char i = 0;
+                     753                             ; SOURCE LINE # 131
+0000 E4              754             CLR     A
+0001 F500     F      755             MOV     i?551,A
+0003                 756     ?C0020:
+                     757     ;       char response;
+                     758     ;       char rvalue;
+                     759     ;   
+                     760     ;       while(i <= 64)
+                     761                             ; SOURCE LINE # 135
+                     762     ;       {
+                     763                             ; SOURCE LINE # 136
+                     764     ;       response = hal_spi_master_read_write(0xff);
+                     765                             ; SOURCE LINE # 137
+0003 7FFF            766             MOV     R7,#0FFH
+0005 120000   F      767             LCALL   _hal_spi_master_read_write
+0008 8F00     F      768             MOV     response?552,R7
+                     769     ;       response &= 0x1f;
+                     770                             ; SOURCE LINE # 138
+000A 53001F   F      771             ANL     response?552,#01FH
+                     772     ;               
+                     773     ;               switch(response)
+                     774                             ; SOURCE LINE # 140
+000D E500     F      775             MOV     A,response?552
+000F 24F5            776             ADD     A,#0F5H
+0011 600D            777             JZ      ?C0024
+0013 24FE            778             ADD     A,#0FEH
+0015 600C            779             JZ      ?C0026
+0017 2408            780             ADD     A,#08H
+0019 700B            781             JNZ     ?C0027
+                     782     ;       {
+                     783                             ; SOURCE LINE # 141
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    13
+
+                     784     ;                       case 0x05: 
+                     785                             ; SOURCE LINE # 142
+001B                 786     ?C0023:
+                     787     ;                               rvalue = MMC_SUCCESS;
+                     788                             ; SOURCE LINE # 143
+001B E4              789             CLR     A
+001C F500     F      790             MOV     rvalue?553,A
+                     791     ;                               break;
+                     792                             ; SOURCE LINE # 144
+001E 8009            793             SJMP    ?C0022
+                     794     ;                       case 0x0b: 
+                     795                             ; SOURCE LINE # 145
+0020                 796     ?C0024:
+                     797     ;                               return(MMC_CRC_ERROR);
+                     798                             ; SOURCE LINE # 146
+0020 7F10            799             MOV     R7,#010H
+0022 22              800             RET     
+                     801     ;                       case 0x0d: 
+                     802                             ; SOURCE LINE # 147
+0023                 803     ?C0026:
+                     804     ;                               return(MMC_WRITE_ERROR);
+                     805                             ; SOURCE LINE # 148
+0023 7F11            806             MOV     R7,#011H
+0025 22              807             RET     
+                     808     ;                       default:
+                     809                             ; SOURCE LINE # 149
+0026                 810     ?C0027:
+                     811     ;                       rvalue = MMC_OTHER_ERROR;
+                     812                             ; SOURCE LINE # 150
+0026 750012   F      813             MOV     rvalue?553,#012H
+                     814     ;                       break;
+                     815                             ; SOURCE LINE # 151
+                     816     ;       }
+                     817                             ; SOURCE LINE # 152
+0029                 818     ?C0022:
+                     819     ;       if(rvalue == MMC_SUCCESS)
+                     820                             ; SOURCE LINE # 153
+0029 E500     F      821             MOV     A,rvalue?553
+002B 600B            822             JZ      ?C0031
+                     823     ;               break;                  
+                     824                             ; SOURCE LINE # 154
+002D                 825     ?C0028:
+                     826     ;       i++;
+                     827                             ; SOURCE LINE # 155
+002D 0500     F      828             INC     i?551
+                     829     ;       }
+                     830                             ; SOURCE LINE # 156
+002F D3              831             SETB    C
+0030 E500     F      832             MOV     A,i?551
+0032 6480            833             XRL     A,#080H
+0034 94C0            834             SUBB    A,#0C0H
+0036 40CB            835             JC      ?C0020
+0038                 836     ?C0031:
+                     837     ;       do
+                     838     ;       {
+                     839                             ; SOURCE LINE # 158
+                     840     ;       response = hal_spi_master_read_write(0xff);
+                     841                             ; SOURCE LINE # 159
+0038 7FFF            842             MOV     R7,#0FFH
+003A 120000   F      843             LCALL   _hal_spi_master_read_write
+003D 8F00     F      844             MOV     response?552,R7
+                     845     ;       }while(response == 0);
+                     846                             ; SOURCE LINE # 160
+003F E500     F      847             MOV     A,response?552
+0041 60F5            848             JZ      ?C0031
+                     849     ;   
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    14
+
+                     850     ;       return response;
+                     851                             ; SOURCE LINE # 162
+                     852     ; }
+                     853                             ; SOURCE LINE # 163
+0043                 854     ?C0025:
+0043 22              855             RET     
+                     856     ; END OF epl_sdcard_checkBusy
+                     857     
+                     858     ; 
+                     859     ; char epl_sdcard_setBlockLength(unsigned int hCnt,unsigned int lCnt)
+                     860     
+----                 861             RSEG  ?PR?_epl_sdcard_setBlockLength?___LE1_LIB_EPL_EPL_SDCARD
+0000                 862     _epl_sdcard_setBlockLength:
+                     863             USING   0
+                     864                             ; SOURCE LINE # 165
+0000 8E00     F      865             MOV     hCnt?654,R6
+0002 8F00     F      866             MOV     hCnt?654+01H,R7
+0004 8C00     F      867             MOV     lCnt?655,R4
+0006 8D00     F      868             MOV     lCnt?655+01H,R5
+                     869     ; {     
+                     870                             ; SOURCE LINE # 166
+                     871     ;       SD_CS = 0;
+                     872                             ; SOURCE LINE # 167
+0008 C286            873             CLR     P06
+                     874     ;   
+                     875     ;       epl_sdcard_command(MMC_SET_BLOCKLEN,hCnt,lCnt,0xFF);
+                     876                             ; SOURCE LINE # 169
+000A 120000   F      877             LCALL   L?0073
+                     878     ;   
+                     879     ;       if(epl_sdcard_getResponse() != 0x00)
+                     880                             ; SOURCE LINE # 171
+000D 120000   F      881             LCALL   epl_sdcard_getResponse
+0010 EF              882             MOV     A,R7
+0011 6009            883             JZ      ?C0032
+                     884     ;       { 
+                     885                             ; SOURCE LINE # 172
+                     886     ;               epl_sdcard_init();
+                     887                             ; SOURCE LINE # 173
+0013 120000   F      888             LCALL   epl_sdcard_init
+                     889     ;               epl_sdcard_command(MMC_SET_BLOCKLEN,hCnt,lCnt,0xFF);
+                     890                             ; SOURCE LINE # 174
+0016 120000   F      891             LCALL   L?0073
+                     892     ;               epl_sdcard_getResponse();
+                     893                             ; SOURCE LINE # 175
+0019 120000   F      894             LCALL   epl_sdcard_getResponse
+                     895     ;       }
+                     896                             ; SOURCE LINE # 176
+001C                 897     ?C0032:
+                     898     ; 
+                     899     ;       SD_CS = 1;
+                     900                             ; SOURCE LINE # 178
+001C D286            901             SETB    P06
+                     902     ; 
+                     903     ;       // Send 8 Clock pulses of delay.
+                     904     ;       hal_spi_master_read_write(0xff);
+                     905                             ; SOURCE LINE # 181
+001E 7FFF            906             MOV     R7,#0FFH
+0020 120000   F      907             LCALL   _hal_spi_master_read_write
+                     908     ;  
+                     909     ;       return MMC_SUCCESS;
+                     910                             ; SOURCE LINE # 183
+0023 7F00            911             MOV     R7,#00H
+                     912     ; }
+                     913                             ; SOURCE LINE # 184
+0025                 914     ?C0033:
+0025 22              915             RET     
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    15
+
+                     916     ; END OF _epl_sdcard_setBlockLength
+                     917     
+                     918     ; 
+                     919     ; char epl_sdcard_open()
+                     920     
+----                 921             RSEG  ?PR?epl_sdcard_open?___LE1_LIB_EPL_EPL_SDCARD
+0000                 922     epl_sdcard_open:
+                     923             USING   0
+                     924                             ; SOURCE LINE # 186
+                     925     ; {
+                     926                             ; SOURCE LINE # 187
+                     927     ;       char tm = 0;
+                     928                             ; SOURCE LINE # 188
+0000 E4              929             CLR     A
+0001 F500     F      930             MOV     tm?756,A
+                     931     ;       char status = MMC_INIT_ERROR;
+                     932                             ; SOURCE LINE # 189
+                     933     ;---- Variable 'status?757' assigned to Register 'R7' ----
+0003 7F04            934             MOV     R7,#04H
+0005                 935     ?C0034:
+                     936     ;       
+                     937     ;       //init sd card
+                     938     ;       while (status != MMC_SUCCESS)
+                     939                             ; SOURCE LINE # 192
+0005 EF              940             MOV     A,R7
+0006 600D            941             JZ      ?C0035
+                     942     ;       {              
+                     943                             ; SOURCE LINE # 193
+                     944     ;               // if return in not NULL an error did occur and the
+                     945     ;         // MMC/SD-card will be initialized again 
+                     946     ;       status = epl_sdcard_init();
+                     947                             ; SOURCE LINE # 196
+0008 120000   F      948             LCALL   epl_sdcard_init
+                     949     ;       tm++;
+                     950                             ; SOURCE LINE # 197
+000B 0500     F      951             INC     tm?756
+                     952     ;               
+                     953     ;       // Try 50 times till error
+                     954     ;       if (tm == 50){                  
+                     955                             ; SOURCE LINE # 200
+000D E500     F      956             MOV     A,tm?756
+000F B432F3          957             CJNE    A,#032H,?C0034
+                     958     ;                       return MMC_INIT_ERROR;
+                     959                             ; SOURCE LINE # 201
+0012 7F04            960             MOV     R7,#04H
+0014 22              961             RET     
+                     962     ;       }
+                     963                             ; SOURCE LINE # 202
+                     964     ;       }       
+                     965                             ; SOURCE LINE # 203
+0015                 966     ?C0035:
+                     967     ;       
+                     968     ;       //set block length 512
+                     969     ;       return epl_sdcard_setBlockLength(0,0x200);
+                     970                             ; SOURCE LINE # 206
+0015 7D00            971             MOV     R5,#00H
+0017 7C02            972             MOV     R4,#02H
+0019 E4              973             CLR     A
+001A FF              974             MOV     R7,A
+001B FE              975             MOV     R6,A
+001C 120000   F      976             LCALL   _epl_sdcard_setBlockLength
+                     977     ; }
+                     978                             ; SOURCE LINE # 207
+001F                 979     ?C0037:
+001F 22              980             RET     
+                     981     ; END OF epl_sdcard_open
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    16
+
+                     982     
+                     983     ; 
+                     984     ; char epl_sdcard_begin_write()
+                     985     
+----                 986             RSEG  ?PR?epl_sdcard_begin_write?___LE1_LIB_EPL_EPL_SDCARD
+0000                 987     epl_sdcard_begin_write:
+                     988             USING   0
+                     989                             ; SOURCE LINE # 209
+                     990     ; {
+                     991                             ; SOURCE LINE # 210
+                     992     ;       unsigned long Addr = 512ul * wsector;
+                     993                             ; SOURCE LINE # 211
+0000 AE00     F      994             MOV     R6,wsector
+0002 AF00     F      995             MOV     R7,wsector+01H
+0004 EE              996             MOV     A,R6
+0005 33              997             RLC     A
+0006 95E0            998             SUBB    A,ACC
+0008 FD              999             MOV     R5,A
+0009 FC             1000             MOV     R4,A
+000A E4             1001             CLR     A
+000B FB             1002             MOV     R3,A
+000C 7A02           1003             MOV     R2,#02H
+000E F9             1004             MOV     R1,A
+000F F8             1005             MOV     R0,A
+0010 120000   F     1006             LCALL   ?C?LMUL
+0013 8F00     F     1007             MOV     Addr?858+03H,R7
+0015 8E00     F     1008             MOV     Addr?858+02H,R6
+0017 8D00     F     1009             MOV     Addr?858+01H,R5
+0019 8C00     F     1010             MOV     Addr?858,R4
+                    1011     ;       unsigned int hAddr = (unsigned int)((Addr >> 16) & 0xFFFF);
+                    1012                             ; SOURCE LINE # 212
+001B 7810           1013             MOV     R0,#010H
+001D 120000   F     1014             LCALL   ?C?ULSHR
+0020 8E00     F     1015             MOV     hAddr?859,R6
+0022 8F00     F     1016             MOV     hAddr?859+01H,R7
+                    1017     ;       unsigned int lAddr = (unsigned int)(Addr & 0xFFFF);
+                    1018                             ; SOURCE LINE # 213
+0024 E500     F     1019             MOV     A,Addr?858+03H
+0026 FF             1020             MOV     R7,A
+0027 E500     F     1021             MOV     A,Addr?858+02H
+0029 FE             1022             MOV     R6,A
+002A E4             1023             CLR     A
+                    1024     ;---- Variable 'lAddr?860' assigned to Register 'R2/R3' ----
+002B AB07           1025             MOV     R3,AR7
+002D AA06           1026             MOV     R2,AR6
+                    1027     ;       
+                    1028     ;       wcount = 0;
+                    1029                             ; SOURCE LINE # 215
+002F F500     F     1030             MOV     wcount,A
+0031 F500     F     1031             MOV     wcount+01H,A
+                    1032     ;       
+                    1033     ;       //begin write to sd card
+                    1034     ;     SD_CS = 0;
+                    1035                             ; SOURCE LINE # 218
+0033 C286           1036             CLR     P06
+                    1037     ;     
+                    1038     ;     // send write command
+                    1039     ;     epl_sdcard_command(MMC_WRITE_BLOCK,hAddr,lAddr, 0xFF);
+                    1040                             ; SOURCE LINE # 221
+0035 7500FF   F     1041             MOV     ?_epl_sdcard_command?BYTE+05H,#0FFH
+0038 AD00     F     1042             MOV     R5,hAddr?859+01H
+003A AC00     F     1043             MOV     R4,hAddr?859
+003C 7F58           1044             MOV     R7,#058H
+003E 120000   F     1045             LCALL   _epl_sdcard_command
+                    1046     ; 
+                    1047     ;     // check if the MMC acknowledged the write block command
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    17
+
+                    1048     ;     // it will do this by sending an affirmative response
+                    1049     ;     // in the R1 format (0x00 is no errors)
+                    1050     ;     if(epl_sdcard_getXXResponse(MMC_R1_RESPONSE) == MMC_R1_RESPONSE)
+                    1051                             ; SOURCE LINE # 226
+0041 E4             1052             CLR     A
+0042 FF             1053             MOV     R7,A
+0043 120000   F     1054             LCALL   _epl_sdcard_getXXResponse
+0046 EF             1055             MOV     A,R7
+0047 700D           1056             JNZ     ?C0038
+                    1057     ;     {
+                    1058                             ; SOURCE LINE # 227
+                    1059     ;               hal_spi_master_read_write(0xff);
+                    1060                             ; SOURCE LINE # 228
+0049 7FFF           1061             MOV     R7,#0FFH
+004B 120000   F     1062             LCALL   _hal_spi_master_read_write
+                    1063     ;                       
+                    1064     ;               // send the data token to signify the start of the data 
+                    1065     ;               hal_spi_master_read_write(0xfe);
+                    1066                             ; SOURCE LINE # 231
+004E 7FFE           1067             MOV     R7,#0FEH
+0050 120000   F     1068             LCALL   _hal_spi_master_read_write
+                    1069     ;                       
+                    1070     ;               return MMC_SUCCESS;
+                    1071                             ; SOURCE LINE # 233
+0053 7F00           1072             MOV     R7,#00H
+0055 22             1073             RET     
+                    1074     ;     }
+                    1075                             ; SOURCE LINE # 234
+0056                1076     ?C0038:
+                    1077     ;               
+                    1078     ;     return MMC_ERROR;
+                    1079                             ; SOURCE LINE # 236
+0056 7F33           1080             MOV     R7,#033H
+                    1081     ; }
+                    1082                             ; SOURCE LINE # 237
+0058                1083     ?C0039:
+0058 22             1084             RET     
+                    1085     ; END OF epl_sdcard_begin_write
+                    1086     
+                    1087     ;                       
+                    1088     ; void epl_sdcard_write_char(char c)
+                    1089     
+----                1090             RSEG  ?PR?_epl_sdcard_write_char?___LE1_LIB_EPL_EPL_SDCARD
+0000                1091     _epl_sdcard_write_char:
+                    1092             USING   0
+                    1093                             ; SOURCE LINE # 239
+                    1094     ;---- Variable 'c?961' assigned to Register 'R7' ----
+                    1095     ; {     
+                    1096                             ; SOURCE LINE # 240
+                    1097     ;       //write a byte to sd
+                    1098     ;       hal_spi_master_read_write(c);
+                    1099                             ; SOURCE LINE # 242
+0000 120000   F     1100             LCALL   _hal_spi_master_read_write
+                    1101     ; 
+                    1102     ;       wcount += 1;
+                    1103                             ; SOURCE LINE # 244
+0003 0500     F     1104             INC     wcount+01H
+0005 E500     F     1105             MOV     A,wcount+01H
+0007 7002           1106             JNZ     ?C0064
+0009 0500     F     1107             INC     wcount
+000B                1108     ?C0064:
+                    1109     ;       
+                    1110     ;       if(wcount == 512){
+                    1111                             ; SOURCE LINE # 246
+000B B4000B         1112             CJNE    A,#00H,?C0041
+000E E500     F     1113             MOV     A,wcount
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    18
+
+0010 B40206         1114             CJNE    A,#02H,?C0041
+                    1115     ;               epl_sdcard_end_write();
+                    1116                             ; SOURCE LINE # 247
+0013 120000   F     1117             LCALL   epl_sdcard_end_write
+                    1118     ;               epl_sdcard_begin_write();
+                    1119                             ; SOURCE LINE # 248
+0016 120000   F     1120             LCALL   epl_sdcard_begin_write
+                    1121     ;       }
+                    1122                             ; SOURCE LINE # 249
+                    1123     ; }
+                    1124                             ; SOURCE LINE # 250
+0019                1125     ?C0041:
+0019 22             1126             RET     
+                    1127     ; END OF _epl_sdcard_write_char
+                    1128     
+                    1129     ; 
+                    1130     ; void epl_sdcard_write_str(char *s)
+                    1131     
+----                1132             RSEG  ?PR?_epl_sdcard_write_str?___LE1_LIB_EPL_EPL_SDCARD
+0000                1133     _epl_sdcard_write_str:
+                    1134             USING   0
+                    1135                             ; SOURCE LINE # 252
+0000 8B00     F     1136             MOV     s?1062,R3
+0002 8A00     F     1137             MOV     s?1062+01H,R2
+0004 8900     F     1138             MOV     s?1062+02H,R1
+                    1139     ; {
+                    1140                             ; SOURCE LINE # 253
+0006                1141     ?C0042:
+                    1142     ;       while (*s)
+                    1143                             ; SOURCE LINE # 254
+0006 AB00     F     1144             MOV     R3,s?1062
+0008 AA00     F     1145             MOV     R2,s?1062+01H
+000A A900     F     1146             MOV     R1,s?1062+02H
+000C 120000   F     1147             LCALL   ?C?CLDPTR
+000F 6013           1148             JZ      ?C0044
+                    1149     ;               epl_sdcard_write_char(*s++);    
+                    1150                             ; SOURCE LINE # 255
+0011 0500     F     1151             INC     s?1062+02H
+0013 E500     F     1152             MOV     A,s?1062+02H
+0015 7002           1153             JNZ     ?C0066
+0017 0500     F     1154             INC     s?1062+01H
+0019                1155     ?C0066:
+0019 14             1156             DEC     A
+001A F9             1157             MOV     R1,A
+001B 120000   F     1158             LCALL   ?C?CLDPTR
+001E FF             1159             MOV     R7,A
+001F 120000   F     1160             LCALL   _epl_sdcard_write_char
+0022 80E2           1161             SJMP    ?C0042
+                    1162     ; }
+                    1163                             ; SOURCE LINE # 256
+0024                1164     ?C0044:
+0024 22             1165             RET     
+                    1166     ; END OF _epl_sdcard_write_str
+                    1167     
+                    1168     ; 
+                    1169     ; char epl_sdcard_end_write(){
+                    1170     
+----                1171             RSEG  ?PR?epl_sdcard_end_write?___LE1_LIB_EPL_EPL_SDCARD
+0000                1172     epl_sdcard_end_write:
+                    1173             USING   0
+                    1174                             ; SOURCE LINE # 258
+                    1175     ;       //end write to sd card
+                    1176     ;       int i;
+                    1177     ; 
+                    1178     ;       //padding to 512 bytes
+                    1179     ;       i = wcount;
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    19
+
+                    1180                             ; SOURCE LINE # 263
+0000 850000   F     1181             MOV     i?1163,wcount
+0003 850000   F     1182             MOV     i?1163+01H,wcount+01H
+                    1183     ;       
+                    1184     ;       if(wcount != 0)
+                    1185                             ; SOURCE LINE # 265
+0006 E500     F     1186             MOV     A,wcount+01H
+0008 4500     F     1187             ORL     A,wcount
+000A 6018           1188             JZ      ?C0045
+                    1189     ;       {
+                    1190                             ; SOURCE LINE # 266
+                    1191     ;               for(;i < 512;i++)
+                    1192                             ; SOURCE LINE # 267
+000C                1193     ?C0046:
+000C C3             1194             CLR     C
+000D E500     F     1195             MOV     A,i?1163
+000F 6480           1196             XRL     A,#080H
+0011 9482           1197             SUBB    A,#082H
+0013 500F           1198             JNC     ?C0045
+                    1199     ;                       hal_spi_master_read_write(0xFF);
+                    1200                             ; SOURCE LINE # 268
+0015 7FFF           1201             MOV     R7,#0FFH
+0017 120000   F     1202             LCALL   _hal_spi_master_read_write
+001A 0500     F     1203             INC     i?1163+01H
+001C E500     F     1204             MOV     A,i?1163+01H
+001E 70EC           1205             JNZ     ?C0046
+0020 0500     F     1206             INC     i?1163
+0022                1207     ?C0067:
+0022 80E8           1208             SJMP    ?C0046
+                    1209     ;       }
+                    1210                             ; SOURCE LINE # 269
+0024                1211     ?C0045:
+                    1212     ;       wsector++;
+                    1213                             ; SOURCE LINE # 270
+0024 0500     F     1214             INC     wsector+01H
+0026 E500     F     1215             MOV     A,wsector+01H
+0028 7002           1216             JNZ     ?C0068
+002A 0500     F     1217             INC     wsector
+002C                1218     ?C0068:
+                    1219     ;       
+                    1220     ;       // put CRC bytes (not really needed by us, but required by MMC)
+                    1221     ;     hal_spi_master_read_write(0xff);
+                    1222                             ; SOURCE LINE # 273
+002C 7FFF           1223             MOV     R7,#0FFH
+002E 120000   F     1224             LCALL   _hal_spi_master_read_write
+                    1225     ;     hal_spi_master_read_write(0xff);
+                    1226                             ; SOURCE LINE # 274
+0031 7FFF           1227             MOV     R7,#0FFH
+0033 120000   F     1228             LCALL   _hal_spi_master_read_write
+                    1229     ;                                       
+                    1230     ;     // read the data response xxx0<status>1 : status 010: Data accected, status 101: Data
+                    1231     ;     // rejected due to a crc error, status 110: Data rejected due to a Write error.
+                    1232     ;     epl_sdcard_checkBusy();
+                    1233                             ; SOURCE LINE # 278
+0036 120000   F     1234             LCALL   epl_sdcard_checkBusy
+                    1235     ;               
+                    1236     ;     SD_CS = 1;
+                    1237                             ; SOURCE LINE # 280
+0039 D286           1238             SETB    P06
+                    1239     ;       // Send 8 Clock pulses of delay.
+                    1240     ;       hal_spi_master_read_write(0xff);
+                    1241                             ; SOURCE LINE # 282
+003B 7FFF           1242             MOV     R7,#0FFH
+003D 120000   F     1243             LCALL   _hal_spi_master_read_write
+                    1244     ;       
+                    1245     ;       return MMC_SUCCESS;
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    20
+
+                    1246                             ; SOURCE LINE # 284
+0040 7F00           1247             MOV     R7,#00H
+                    1248     ; }
+                    1249                             ; SOURCE LINE # 285
+0042                1250     ?C0049:
+0042 22             1251             RET     
+                    1252     ; END OF epl_sdcard_end_write
+                    1253     
+                    1254     ; 
+                    1255     ; char epl_sdcard_begin_read()
+                    1256     
+----                1257             RSEG  ?PR?epl_sdcard_begin_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                1258     epl_sdcard_begin_read:
+                    1259             USING   0
+                    1260                             ; SOURCE LINE # 287
+                    1261     ; {
+                    1262                             ; SOURCE LINE # 288
+                    1263     ;       //begin read to sd card
+                    1264     ;       
+                    1265     ;       unsigned long Addr = 512ul * rsector;
+                    1266                             ; SOURCE LINE # 291
+0000 AE00     F     1267             MOV     R6,rsector
+0002 AF00     F     1268             MOV     R7,rsector+01H
+0004 EE             1269             MOV     A,R6
+0005 33             1270             RLC     A
+0006 95E0           1271             SUBB    A,ACC
+0008 FD             1272             MOV     R5,A
+0009 FC             1273             MOV     R4,A
+000A E4             1274             CLR     A
+000B FB             1275             MOV     R3,A
+000C 7A02           1276             MOV     R2,#02H
+000E F9             1277             MOV     R1,A
+000F F8             1278             MOV     R0,A
+0010 120000   F     1279             LCALL   ?C?LMUL
+0013 8F00     F     1280             MOV     Addr?1264+03H,R7
+0015 8E00     F     1281             MOV     Addr?1264+02H,R6
+0017 8D00     F     1282             MOV     Addr?1264+01H,R5
+0019 8C00     F     1283             MOV     Addr?1264,R4
+                    1284     ;       unsigned int hAddr = (unsigned int)((Addr >> 16) & 0xFFFF);
+                    1285                             ; SOURCE LINE # 292
+001B 7810           1286             MOV     R0,#010H
+001D 120000   F     1287             LCALL   ?C?ULSHR
+0020 8E00     F     1288             MOV     hAddr?1265,R6
+0022 8F00     F     1289             MOV     hAddr?1265+01H,R7
+                    1290     ;       unsigned int lAddr = (unsigned int)(Addr & 0xFFFF);
+                    1291                             ; SOURCE LINE # 293
+0024 E500     F     1292             MOV     A,Addr?1264+03H
+0026 FF             1293             MOV     R7,A
+0027 E500     F     1294             MOV     A,Addr?1264+02H
+0029 FE             1295             MOV     R6,A
+002A E4             1296             CLR     A
+                    1297     ;---- Variable 'lAddr?1266' assigned to Register 'R2/R3' ----
+002B AB07           1298             MOV     R3,AR7
+002D AA06           1299             MOV     R2,AR6
+                    1300     ;       
+                    1301     ;       rcount = 0;
+                    1302                             ; SOURCE LINE # 295
+002F F500     F     1303             MOV     rcount,A
+0031 F500     F     1304             MOV     rcount+01H,A
+                    1305     ;       
+                    1306     ;     SD_CS = 0;
+                    1307                             ; SOURCE LINE # 297
+0033 C286           1308             CLR     P06
+                    1309     ;     
+                    1310     ;     // send read command MMC_READ_SINGLE_BLOCK=CMD17
+                    1311     ;     epl_sdcard_command(MMC_READ_SINGLE_BLOCK,hAddr,lAddr,0xFF);
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    21
+
+                    1312                             ; SOURCE LINE # 300
+0035 7500FF   F     1313             MOV     ?_epl_sdcard_command?BYTE+05H,#0FFH
+0038 AD00     F     1314             MOV     R5,hAddr?1265+01H
+003A AC00     F     1315             MOV     R4,hAddr?1265
+003C 7F51           1316             MOV     R7,#051H
+003E 120000   F     1317             LCALL   _epl_sdcard_command
+                    1318     ;     
+                    1319     ;     // Send 8 Clock pulses of delay, check if the MMC acknowledged the read block command
+                    1320     ;     // it will do this by sending an affirmative response
+                    1321     ;     // in the R1 format (0x00 is no errors)
+                    1322     ;     if(epl_sdcard_getResponse() == 0x00)
+                    1323                             ; SOURCE LINE # 305
+0041 120000   F     1324             LCALL   epl_sdcard_getResponse
+0044 EF             1325             MOV     A,R7
+0045 700E           1326             JNZ     ?C0050
+                    1327     ;     {
+                    1328                             ; SOURCE LINE # 306
+                    1329     ;               // now look for the data token to signify the start of the data
+                    1330     ;               if (((unsigned char)epl_sdcard_getXXResponse(MMC_START_DATA_BLOCK_TOKEN)) =
+                             = MMC_START_DATA_BLOCK_TOKEN)
+                    1331                             ; SOURCE LINE # 308
+0047 7FFE           1332             MOV     R7,#0FEH
+0049 120000   F     1333             LCALL   _epl_sdcard_getXXResponse
+004C BFFE03         1334             CJNE    R7,#0FEH,?C0051
+                    1335     ;                       return MMC_SUCCESS;  
+                    1336                             ; SOURCE LINE # 309
+004F 7F00           1337             MOV     R7,#00H
+0051 22             1338             RET     
+0052                1339     ?C0051:
+                    1340     ;               else
+                    1341     ;               return MMC_ERROR;      // 3  , the data token was never received
+                    1342                             ; SOURCE LINE # 311
+0052 7F33           1343             MOV     R7,#033H
+0054 22             1344             RET     
+                    1345     ;     }
+                    1346                             ; SOURCE LINE # 312
+0055                1347     ?C0050:
+                    1348     ;               
+                    1349     ;     return MMC_ERROR;
+                    1350                             ; SOURCE LINE # 314
+0055 7F33           1351             MOV     R7,#033H
+                    1352     ; }
+                    1353                             ; SOURCE LINE # 315
+0057                1354     ?C0052:
+0057 22             1355             RET     
+                    1356     ; END OF epl_sdcard_begin_read
+                    1357     
+                    1358     ; 
+                    1359     ; char epl_sdcard_read()
+                    1360     
+----                1361             RSEG  ?PR?epl_sdcard_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                1362     epl_sdcard_read:
+                    1363             USING   0
+                    1364                             ; SOURCE LINE # 317
+                    1365     ; {
+                    1366                             ; SOURCE LINE # 318
+                    1367     ;       //read a byte from sd
+                    1368     ;       char c = hal_spi_master_read_write(0xFF);
+                    1369                             ; SOURCE LINE # 320
+0000 7FFF           1370             MOV     R7,#0FFH
+0002 120000   F     1371             LCALL   _hal_spi_master_read_write
+0005 8F00     F     1372             MOV     c?1367,R7
+                    1373     ;       
+                    1374     ;       rcount++;
+                    1375                             ; SOURCE LINE # 322
+0007 0500     F     1376             INC     rcount+01H
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    22
+
+0009 E500     F     1377             MOV     A,rcount+01H
+000B 7002           1378             JNZ     ?C0069
+000D 0500     F     1379             INC     rcount
+000F                1380     ?C0069:
+                    1381     ;       
+                    1382     ;       if(rcount == 512){
+                    1383                             ; SOURCE LINE # 324
+000F B4000B         1384             CJNE    A,#00H,?C0054
+0012 E500     F     1385             MOV     A,rcount
+0014 B40206         1386             CJNE    A,#02H,?C0054
+                    1387     ;               epl_sdcard_end_read();
+                    1388                             ; SOURCE LINE # 325
+0017 120000   F     1389             LCALL   epl_sdcard_end_read
+                    1390     ;               epl_sdcard_begin_read();
+                    1391                             ; SOURCE LINE # 326
+001A 120000   F     1392             LCALL   epl_sdcard_begin_read
+                    1393     ;       }
+                    1394                             ; SOURCE LINE # 327
+001D                1395     ?C0054:
+                    1396     ;       
+                    1397     ;       return c;
+                    1398                             ; SOURCE LINE # 329
+001D AF00     F     1399             MOV     R7,c?1367
+                    1400     ; }
+                    1401                             ; SOURCE LINE # 330
+001F                1402     ?C0055:
+001F 22             1403             RET     
+                    1404     ; END OF epl_sdcard_read
+                    1405     
+                    1406     ; 
+                    1407     ; char epl_sdcard_end_read()
+                    1408     
+----                1409             RSEG  ?PR?epl_sdcard_end_read?___LE1_LIB_EPL_EPL_SDCARD
+0000                1410     epl_sdcard_end_read:
+                    1411             USING   0
+                    1412                             ; SOURCE LINE # 332
+                    1413     ; {
+                    1414                             ; SOURCE LINE # 333
+                    1415     ;       //end read to sd card
+                    1416     ;       
+                    1417     ;       //read other bytes
+                    1418     ;       int i;
+                    1419     ;       
+                    1420     ;       //padding to 512 bytes
+                    1421     ;       
+                    1422     ;       i = rcount;
+                    1423                             ; SOURCE LINE # 341
+0000 850000   F     1424             MOV     i?1468,rcount
+0003 850000   F     1425             MOV     i?1468+01H,rcount+01H
+                    1426     ;       if(rcount != 0)
+                    1427                             ; SOURCE LINE # 342
+0006 E500     F     1428             MOV     A,rcount+01H
+0008 4500     F     1429             ORL     A,rcount
+000A 6018           1430             JZ      ?C0056
+                    1431     ;       {
+                    1432                             ; SOURCE LINE # 343
+                    1433     ;               for(;i < 512;i++)
+                    1434                             ; SOURCE LINE # 344
+000C                1435     ?C0057:
+000C C3             1436             CLR     C
+000D E500     F     1437             MOV     A,i?1468
+000F 6480           1438             XRL     A,#080H
+0011 9482           1439             SUBB    A,#082H
+0013 500F           1440             JNC     ?C0056
+                    1441     ;                       hal_spi_master_read_write(0xff);
+                    1442                             ; SOURCE LINE # 345
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    23
+
+0015 7FFF           1443             MOV     R7,#0FFH
+0017 120000   F     1444             LCALL   _hal_spi_master_read_write
+001A 0500     F     1445             INC     i?1468+01H
+001C E500     F     1446             MOV     A,i?1468+01H
+001E 70EC           1447             JNZ     ?C0057
+0020 0500     F     1448             INC     i?1468
+0022                1449     ?C0071:
+0022 80E8           1450             SJMP    ?C0057
+                    1451     ;       }
+                    1452                             ; SOURCE LINE # 346
+0024                1453     ?C0056:
+                    1454     ;       rsector++;
+                    1455                             ; SOURCE LINE # 347
+0024 0500     F     1456             INC     rsector+01H
+0026 E500     F     1457             MOV     A,rsector+01H
+0028 7002           1458             JNZ     ?C0072
+002A 0500     F     1459             INC     rsector
+002C                1460     ?C0072:
+                    1461     ;       
+                    1462     ;       // get CRC bytes (not really needed by us, but required by MMC)
+                    1463     ;     hal_spi_master_read_write(0xff);
+                    1464                             ; SOURCE LINE # 350
+002C 7FFF           1465             MOV     R7,#0FFH
+002E 120000   F     1466             LCALL   _hal_spi_master_read_write
+                    1467     ;     hal_spi_master_read_write(0xff);
+                    1468                             ; SOURCE LINE # 351
+0031 7FFF           1469             MOV     R7,#0FFH
+0033 120000   F     1470             LCALL   _hal_spi_master_read_write
+                    1471     ;       
+                    1472     ;     SD_CS = 1;
+                    1473                             ; SOURCE LINE # 353
+0036 D286           1474             SETB    P06
+                    1475     ;     // Send 8 Clock pulses of delay.
+                    1476     ;     hal_spi_master_read_write(0xff);
+                    1477                             ; SOURCE LINE # 355
+0038 7FFF           1478             MOV     R7,#0FFH
+003A 120000   F     1479             LCALL   _hal_spi_master_read_write
+                    1480     ;     
+                    1481     ;       return MMC_SUCCESS;
+                    1482                             ; SOURCE LINE # 357
+003D 7F00           1483             MOV     R7,#00H
+                    1484     ; }
+                    1485                             ; SOURCE LINE # 358
+003F                1486     ?C0060:
+003F 22             1487             RET     
+                    1488     ; END OF epl_sdcard_end_read
+                    1489     
+                    1490     ; 
+                    1491     ; void epl_sdcard_setRsector(int sector)
+                    1492     
+----                1493             RSEG  ?PR?_epl_sdcard_setRsector?___LE1_LIB_EPL_EPL_SDCARD
+0000                1494     _epl_sdcard_setRsector:
+                    1495             USING   0
+                    1496                             ; SOURCE LINE # 360
+                    1497     ;---- Variable 'sector?1569' assigned to Register 'R6/R7' ----
+                    1498     ; {
+                    1499                             ; SOURCE LINE # 361
+                    1500     ;       rsector = sector;       
+                    1501                             ; SOURCE LINE # 362
+0000 8E00     F     1502             MOV     rsector,R6
+0002 8F00     F     1503             MOV     rsector+01H,R7
+                    1504     ; }
+                    1505                             ; SOURCE LINE # 363
+0004 22             1506             RET     
+                    1507     ; END OF _epl_sdcard_setRsector
+                    1508     
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    24
+
+                    1509     ; 
+                    1510     ; void epl_sdcard_setWsector(int sector)
+                    1511     
+----                1512             RSEG  ?PR?_epl_sdcard_setWsector?___LE1_LIB_EPL_EPL_SDCARD
+0000                1513     _epl_sdcard_setWsector:
+                    1514             USING   0
+                    1515                             ; SOURCE LINE # 365
+                    1516     ;---- Variable 'sector?1670' assigned to Register 'R6/R7' ----
+                    1517     ; {
+                    1518                             ; SOURCE LINE # 366
+                    1519     ;       wsector = sector;       
+                    1520                             ; SOURCE LINE # 367
+0000 8E00     F     1521             MOV     wsector,R6
+0002 8F00     F     1522             MOV     wsector+01H,R7
+                    1523     ; }
+                    1524                             ; SOURCE LINE # 368
+0004 22             1525             RET     
+                    1526     ; END OF _epl_sdcard_setWsector
+                    1527     
+                    1528             END
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    25
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                    T Y P E  V A L U E   ATTRIBUTES
+
+?C0002. . . . . . . . . . . . . . . . .    C ADDR   0010H   R   SEG=?PR?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+?C0003. . . . . . . . . . . . . . . . .    C ADDR   0020H   R   SEG=?PR?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+?C0005. . . . . . . . . . . . . . . . .    C ADDR   0023H   R   SEG=?PR?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+?C0007. . . . . . . . . . . . . . . . .    C ADDR   0048H   R   SEG=?PR?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+?C0008. . . . . . . . . . . . . . . . .    C ADDR   001DH   R   SEG=?PR?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+?C0009. . . . . . . . . . . . . . . . .    C ADDR   003FH   R   SEG=?PR?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+?C0010. . . . . . . . . . . . . . . . .    C ADDR   0003H   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?C0011. . . . . . . . . . . . . . . . .    C ADDR   001BH   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?C0012. . . . . . . . . . . . . . . . .    C ADDR   000BH   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?C0013. . . . . . . . . . . . . . . . .    C ADDR   0010H   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?C0014. . . . . . . . . . . . . . . . .    C ADDR   001BH   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?C0015. . . . . . . . . . . . . . . . .    C ADDR   000BH   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?C0016. . . . . . . . . . . . . . . . .    C ADDR   0028H   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?C0017. . . . . . . . . . . . . . . . .    C ADDR   0015H   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?C0019. . . . . . . . . . . . . . . . .    C ADDR   0028H   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?C0020. . . . . . . . . . . . . . . . .    C ADDR   0003H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0022. . . . . . . . . . . . . . . . .    C ADDR   0029H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0023. . . . . . . . . . . . . . . . .    C ADDR   001BH   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0024. . . . . . . . . . . . . . . . .    C ADDR   0020H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0025. . . . . . . . . . . . . . . . .    C ADDR   0043H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0026. . . . . . . . . . . . . . . . .    C ADDR   0023H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0027. . . . . . . . . . . . . . . . .    C ADDR   0026H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0028. . . . . . . . . . . . . . . . .    C ADDR   002DH   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0031. . . . . . . . . . . . . . . . .    C ADDR   0038H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?C0032. . . . . . . . . . . . . . . . .    C ADDR   001CH   R   SEG=?PR?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+?C0033. . . . . . . . . . . . . . . . .    C ADDR   0025H   R   SEG=?PR?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+?C0034. . . . . . . . . . . . . . . . .    C ADDR   0005H   R   SEG=?PR?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+?C0035. . . . . . . . . . . . . . . . .    C ADDR   0015H   R   SEG=?PR?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+?C0037. . . . . . . . . . . . . . . . .    C ADDR   001FH   R   SEG=?PR?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+?C0038. . . . . . . . . . . . . . . . .    C ADDR   0056H   R   SEG=?PR?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0039. . . . . . . . . . . . . . . . .    C ADDR   0058H   R   SEG=?PR?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0041. . . . . . . . . . . . . . . . .    C ADDR   0019H   R   SEG=?PR?_EPL_SDCARD_WRITE_CHAR?___LE1_LIB_EPL_EPL_SDCARD
+?C0042. . . . . . . . . . . . . . . . .    C ADDR   0006H   R   SEG=?PR?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+?C0044. . . . . . . . . . . . . . . . .    C ADDR   0024H   R   SEG=?PR?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+?C0045. . . . . . . . . . . . . . . . .    C ADDR   0024H   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0046. . . . . . . . . . . . . . . . .    C ADDR   000CH   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0049. . . . . . . . . . . . . . . . .    C ADDR   0042H   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0050. . . . . . . . . . . . . . . . .    C ADDR   0055H   R   SEG=?PR?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0051. . . . . . . . . . . . . . . . .    C ADDR   0052H   R   SEG=?PR?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0052. . . . . . . . . . . . . . . . .    C ADDR   0057H   R   SEG=?PR?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0054. . . . . . . . . . . . . . . . .    C ADDR   001DH   R   SEG=?PR?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0055. . . . . . . . . . . . . . . . .    C ADDR   001FH   R   SEG=?PR?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0056. . . . . . . . . . . . . . . . .    C ADDR   0024H   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0057. . . . . . . . . . . . . . . . .    C ADDR   000CH   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0060. . . . . . . . . . . . . . . . .    C ADDR   003FH   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0063. . . . . . . . . . . . . . . . .    C ADDR   001DH   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?C0064. . . . . . . . . . . . . . . . .    C ADDR   000BH   R   SEG=?PR?_EPL_SDCARD_WRITE_CHAR?___LE1_LIB_EPL_EPL_SDCARD
+?C0066. . . . . . . . . . . . . . . . .    C ADDR   0019H   R   SEG=?PR?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+?C0067. . . . . . . . . . . . . . . . .    C ADDR   0022H   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0068. . . . . . . . . . . . . . . . .    C ADDR   002CH   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?C0069. . . . . . . . . . . . . . . . .    C ADDR   000FH   R   SEG=?PR?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0071. . . . . . . . . . . . . . . . .    C ADDR   0022H   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+?C0072. . . . . . . . . . . . . . . . .    C ADDR   002CH   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    26
+
+?C?CLDPTR . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+?C?LMUL . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+?C?ULSHR. . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+?C_INITSEG. . . . . . . . . . . . . . .    C SEG    0010H       REL=UNIT
+?DT?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPD SEG RD 0006H       REL=UNIT
+?DT?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_ED SEG ARD0006H       REL=UNIT
+?DT?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPLD SEG D  0003H       REL=UNIT
+?DT?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_D SEG    0002H       REL=UNIT
+?DT?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPLD SEG D  0002H       REL=UNIT
+?DT?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_ED SEG ARD0001H       REL=UNIT
+?DT?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDD SEG    0001H       REL=UNIT
+?DT?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCAD SEG    0001H       REL=UNIT
+?DT?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCAD SEG    0001H       REL=UNIT
+?DT?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCAD SEG    0001H       REL=UNIT
+?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_D SEG    0006H       REL=UNIT
+?DT?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPD SEG SDC0003H       REL=UNIT
+?DT?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_ED SEG _SD0004H       REL=UNIT
+?DT?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPD SEG RD 0003H       REL=UNIT
+?DT?___LE1_LIB_EPL_EPL_SDCARD . . . . .    D SEG    0008H       REL=UNIT
+?EPL_SDCARD_BEGIN_READ?BYTE . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_BEGIN_WRITE?BYTE. . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_CHECKBUSY?BYTE. . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_END_READ?BYTE . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_END_WRITE?BYTE. . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_GETRESPONSE?BYTE. . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_GOIDLE?BYTE . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_INIT?BYTE . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_OPEN?BYTE . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+?EPL_SDCARD_READ?BYTE . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+?PR?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPC SEG RD 0058H       REL=UNIT
+?PR?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EC SEG ARD0059H       REL=UNIT
+?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPLC SEG D  0044H       REL=UNIT
+?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_C SEG    0040H       REL=UNIT
+?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPLC SEG D  0043H       REL=UNIT
+?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EC SEG ARD001CH       REL=UNIT
+?PR?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDC SEG    0049H       REL=UNIT
+?PR?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCAC SEG    0024H       REL=UNIT
+?PR?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCAC SEG    0020H       REL=UNIT
+?PR?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCAC SEG    0020H       REL=UNIT
+?PR?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_C SEG    0037H       REL=UNIT
+?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPC SEG SDC0029H       REL=UNIT
+?PR?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EC SEG _SD0026H       REL=UNIT
+?PR?_EPL_SDCARD_SETRSECTOR?___LE1_LIB_EPL_EC SEG ARD0005H       REL=UNIT
+?PR?_EPL_SDCARD_SETWSECTOR?___LE1_LIB_EPL_EC SEG ARD0005H       REL=UNIT
+?PR?_EPL_SDCARD_WRITE_CHAR?___LE1_LIB_EPL_EC SEG ARD001AH       REL=UNIT
+?PR?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPC SEG RD 0025H       REL=UNIT
+?_EPL_SDCARD_COMMAND?BYTE . . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+?_EPL_SDCARD_GETXXRESPONSE?BYTE . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+?_EPL_SDCARD_SETBLOCKLENGTH?BYTE. . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+?_EPL_SDCARD_WRITE_STR?BYTE . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+AC. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . . . . .    D ADDR   00E0H   A   
+ADCCON1 . . . . . . . . . . . . . . . .    D ADDR   00D3H   A   
+ADCCON2 . . . . . . . . . . . . . . . .    D ADDR   00D2H   A   
+ADCCON3 . . . . . . . . . . . . . . . .    D ADDR   00D1H   A   
+ADCDATH . . . . . . . . . . . . . . . .    D ADDR   00D4H   A   
+ADCDATL . . . . . . . . . . . . . . . .    D ADDR   00D5H   A   
+ADCON . . . . . . . . . . . . . . . . .    D ADDR   00D8H   A   
+ADDR?1264 . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+ADDR?858. . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+ADRH?041. . . . . . . . . . . . . . . .    D ADDR   0001H   R   SEG=?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+ADRL?042. . . . . . . . . . . . . . . .    D ADDR   0003H   R   SEG=?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+AR6 . . . . . . . . . . . . . . . . . .    D ADDR   0006H   A   
+AR7 . . . . . . . . . . . . . . . . . .    D ADDR   0007H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    27
+
+ARCON . . . . . . . . . . . . . . . . .    D ADDR   00EFH   A   
+B . . . . . . . . . . . . . . . . . . .    D ADDR   00F0H   A   
+BD. . . . . . . . . . . . . . . . . . .    B ADDR   00D8H.7 A   
+BEFF?040. . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+BEFH?043. . . . . . . . . . . . . . . .    D ADDR   0005H   R   SEG=?DT?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+C?1367. . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+CC1 . . . . . . . . . . . . . . . . . .    D ADDR   00C2H   A   
+CC2 . . . . . . . . . . . . . . . . . .    D ADDR   00C4H   A   
+CC3 . . . . . . . . . . . . . . . . . .    D ADDR   00C6H   A   
+CCEN. . . . . . . . . . . . . . . . . .    D ADDR   00C1H   A   
+CCH1. . . . . . . . . . . . . . . . . .    D ADDR   00C3H   A   
+CCH2. . . . . . . . . . . . . . . . . .    D ADDR   00C5H   A   
+CCH3. . . . . . . . . . . . . . . . . .    D ADDR   00C7H   A   
+CCL1. . . . . . . . . . . . . . . . . .    D ADDR   00C2H   A   
+CCL2. . . . . . . . . . . . . . . . . .    D ADDR   00C4H   A   
+CCL3. . . . . . . . . . . . . . . . . .    D ADDR   00C6H   A   
+CCPDATIA. . . . . . . . . . . . . . . .    D ADDR   00DDH   A   
+CCPDATIB. . . . . . . . . . . . . . . .    D ADDR   00DEH   A   
+CCPDATO . . . . . . . . . . . . . . . .    D ADDR   00DFH   A   
+CLKCTRL . . . . . . . . . . . . . . . .    D ADDR   00A3H   A   
+CLKLFCTRL . . . . . . . . . . . . . . .    D ADDR   00ADH   A   
+COMPCON . . . . . . . . . . . . . . . .    D ADDR   00DBH   A   
+CRC . . . . . . . . . . . . . . . . . .    D ADDR   00CAH   A   
+CRCH. . . . . . . . . . . . . . . . . .    D ADDR   00CBH   A   
+CRCL. . . . . . . . . . . . . . . . . .    D ADDR   00CAH   A   
+CY. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.7 A   
+DPH . . . . . . . . . . . . . . . . . .    D ADDR   0083H   A   
+DPH1. . . . . . . . . . . . . . . . . .    D ADDR   0085H   A   
+DPL . . . . . . . . . . . . . . . . . .    D ADDR   0082H   A   
+DPL1. . . . . . . . . . . . . . . . . .    D ADDR   0084H   A   
+DPS . . . . . . . . . . . . . . . . . .    D ADDR   0092H   A   
+EA. . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.7 A   
+EPL_SDCARD_BEGIN_READ . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_BEGIN_WRITE. . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_CHECKBUSY. . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_END_READ . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_END_WRITE. . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_GETRESPONSE. . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_GOIDLE . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_INIT . . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_OPEN . . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+EPL_SDCARD_READ . . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?EPL_SDCARD_READ?___LE1_LIB_EPL_EPL_SDCARD
+ES0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . . . . . .    B ADDR   00B8H.7 A   
+EXF2. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.7 A   
+F0. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.5 A   
+FCR . . . . . . . . . . . . . . . . . .    D ADDR   00FAH   A   
+FDCR. . . . . . . . . . . . . . . . . .    D ADDR   00FBH   A   
+FPCR. . . . . . . . . . . . . . . . . .    D ADDR   00F9H   A   
+FSR . . . . . . . . . . . . . . . . . .    D ADDR   00F8H   A   
+HADDR?1265. . . . . . . . . . . . . . .    D ADDR   0004H   R   SEG=?DT?EPL_SDCARD_BEGIN_READ?___LE1_LIB_EPL_EPL_SDCARD
+HADDR?859 . . . . . . . . . . . . . . .    D ADDR   0004H   R   SEG=?DT?EPL_SDCARD_BEGIN_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+HCNT?654. . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+I2FR. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.5 A   
+I3FR. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.6 A   
+I?1163. . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_END_WRITE?___LE1_LIB_EPL_EPL_SDCARD
+I?144 . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_INIT?___LE1_LIB_EPL_EPL_SDCARD
+I?1468. . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_END_READ?___LE1_LIB_EPL_EPL_SDCARD
+I?346 . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_GETRESPONSE?___LE1_LIB_EPL_EPL_SDCARD
+I?449 . . . . . . . . . . . . . . . . .    D ADDR   0001H   R   SEG=?DT?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    28
+
+                                         ARD
+I?551 . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+IE0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.3 A   
+IEN0. . . . . . . . . . . . . . . . . .    D ADDR   00A8H   A   
+IEN1. . . . . . . . . . . . . . . . . .    D ADDR   00B8H   A   
+INFEN . . . . . . . . . . . . . . . . .    B ADDR   00F8H.3 A   
+INTEXP. . . . . . . . . . . . . . . . .    D ADDR   00A6H   A   
+IP0 . . . . . . . . . . . . . . . . . .    D ADDR   00A9H   A   
+IP1 . . . . . . . . . . . . . . . . . .    D ADDR   00B9H   A   
+IRCON . . . . . . . . . . . . . . . . .    D ADDR   00C0H   A   
+IT0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.2 A   
+L?0073. . . . . . . . . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+LCNT?655. . . . . . . . . . . . . . . .    D ADDR   0002H   R   SEG=?DT?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+MCDIS . . . . . . . . . . . . . . . . .    B ADDR   00F8H.7 A   
+MD0 . . . . . . . . . . . . . . . . . .    D ADDR   00E9H   A   
+MD1 . . . . . . . . . . . . . . . . . .    D ADDR   00EAH   A   
+MD2 . . . . . . . . . . . . . . . . . .    D ADDR   00EBH   A   
+MD3 . . . . . . . . . . . . . . . . . .    D ADDR   00ECH   A   
+MD4 . . . . . . . . . . . . . . . . . .    D ADDR   00EDH   A   
+MD5 . . . . . . . . . . . . . . . . . .    D ADDR   00EEH   A   
+MEMCON. . . . . . . . . . . . . . . . .    D ADDR   00A7H   A   
+MISC. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.4 A   
+MISCF . . . . . . . . . . . . . . . . .    B ADDR   00C0H.4 A   
+MPAGE . . . . . . . . . . . . . . . . .    D ADDR   00C9H   A   
+OPMCON. . . . . . . . . . . . . . . . .    D ADDR   00AEH   A   
+OV. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . . . . .    D ADDR   0080H   A   
+P00 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . . . . . . .    B ADDR   0080H.7 A   
+P0CON . . . . . . . . . . . . . . . . .    D ADDR   009EH   A   
+P0DIR . . . . . . . . . . . . . . . . .    D ADDR   0093H   A   
+P1. . . . . . . . . . . . . . . . . . .    D ADDR   0090H   A   
+P10 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . . . . . . .    B ADDR   0090H.7 A   
+P1CON . . . . . . . . . . . . . . . . .    D ADDR   009FH   A   
+P1DIR . . . . . . . . . . . . . . . . .    D ADDR   0094H   A   
+P2. . . . . . . . . . . . . . . . . . .    D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . . . . . . .    B ADDR   00A0H.7 A   
+P2CON . . . . . . . . . . . . . . . . .    D ADDR   0097H   A   
+P2DIR . . . . . . . . . . . . . . . . .    D ADDR   0095H   A   
+P3. . . . . . . . . . . . . . . . . . .    D ADDR   00B0H   A   
+P30 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.1 A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    29
+
+P32 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . . . . . . .    B ADDR   00B0H.7 A   
+P3CON . . . . . . . . . . . . . . . . .    D ADDR   008FH   A   
+P3DIR . . . . . . . . . . . . . . . . .    D ADDR   0096H   A   
+PCON. . . . . . . . . . . . . . . . . .    D ADDR   0087H   A   
+POFCON. . . . . . . . . . . . . . . . .    D ADDR   00DCH   A   
+PSW . . . . . . . . . . . . . . . . . .    D ADDR   00D0H   A   
+PWMCON. . . . . . . . . . . . . . . . .    D ADDR   00B2H   A   
+PWMDC0. . . . . . . . . . . . . . . . .    D ADDR   00A1H   A   
+PWMDC1. . . . . . . . . . . . . . . . .    D ADDR   00A2H   A   
+PWRDWN. . . . . . . . . . . . . . . . .    D ADDR   00A4H   A   
+RB80. . . . . . . . . . . . . . . . . .    B ADDR   0098H.2 A   
+RCOUNT. . . . . . . . . . . . . . . . .    D ADDR   0004H   R   SEG=?DT?___LE1_LIB_EPL_EPL_SDCARD
+RDEND . . . . . . . . . . . . . . . . .    B ADDR   00F8H.1 A   
+RDIS. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.2 A   
+RDYN. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.4 A   
+REN0. . . . . . . . . . . . . . . . . .    B ADDR   0098H.4 A   
+RESP?448. . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+RESPONSE?245. . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_GOIDLE?___LE1_LIB_EPL_EPL_SDCARD
+RESPONSE?552. . . . . . . . . . . . . .    D ADDR   0001H   R   SEG=?DT?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+RF. . . . . . . . . . . . . . . . . . .    B ADDR   00B8H.1 A   
+RFCE. . . . . . . . . . . . . . . . . .    B ADDR   00E8H.0 A   
+RFCKEN. . . . . . . . . . . . . . . . .    B ADDR   00E8H.2 A   
+RFCON . . . . . . . . . . . . . . . . .    D ADDR   00E8H   A   
+RFCSN . . . . . . . . . . . . . . . . .    B ADDR   00E8H.1 A   
+RFF . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.1 A   
+RFSPI . . . . . . . . . . . . . . . . .    B ADDR   00B8H.0 A   
+RFSPIF. . . . . . . . . . . . . . . . .    B ADDR   00C0H.0 A   
+RI0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.0 A   
+RNGCTL. . . . . . . . . . . . . . . . .    D ADDR   00D6H   A   
+RNGDAT. . . . . . . . . . . . . . . . .    D ADDR   00D7H   A   
+RS0 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.4 A   
+RSECTOR . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?___LE1_LIB_EPL_EPL_SDCARD
+RSTREAS . . . . . . . . . . . . . . . .    D ADDR   00B1H   A   
+RTC2CMP0. . . . . . . . . . . . . . . .    D ADDR   00B4H   A   
+RTC2CMP1. . . . . . . . . . . . . . . .    D ADDR   00B5H   A   
+RTC2CON . . . . . . . . . . . . . . . .    D ADDR   00B3H   A   
+RTC2CPT00 . . . . . . . . . . . . . . .    D ADDR   00B6H   A   
+RTC2CPT01 . . . . . . . . . . . . . . .    D ADDR   00ABH   A   
+RTC2CPT10 . . . . . . . . . . . . . . .    D ADDR   00ACH   A   
+RVALUE?553. . . . . . . . . . . . . . .    D ADDR   0002H   R   SEG=?DT?EPL_SDCARD_CHECKBUSY?___LE1_LIB_EPL_EPL_SDCARD
+S0BUF . . . . . . . . . . . . . . . . .    D ADDR   0099H   A   
+S0CON . . . . . . . . . . . . . . . . .    D ADDR   0098H   A   
+S0RELH. . . . . . . . . . . . . . . . .    D ADDR   00BAH   A   
+S0RELL. . . . . . . . . . . . . . . . .    D ADDR   00AAH   A   
+S?1062. . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+SM0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . . . . . . . .    B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . . . . . . .    D ADDR   0081H   A   
+SPI . . . . . . . . . . . . . . . . . .    B ADDR   00B8H.2 A   
+SPIF. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.2 A   
+SPIMCON0. . . . . . . . . . . . . . . .    D ADDR   00FCH   A   
+SPIMCON1. . . . . . . . . . . . . . . .    D ADDR   00FDH   A   
+SPIMDAT . . . . . . . . . . . . . . . .    D ADDR   00FFH   A   
+SPIMSTAT. . . . . . . . . . . . . . . .    D ADDR   00FEH   A   
+SPIRCON0. . . . . . . . . . . . . . . .    D ADDR   00E4H   A   
+SPIRCON1. . . . . . . . . . . . . . . .    D ADDR   00E5H   A   
+SPIRDAT . . . . . . . . . . . . . . . .    D ADDR   00E7H   A   
+SPIRSTAT. . . . . . . . . . . . . . . .    D ADDR   00E6H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_EPL_EPL_SDCARD                                            06/03/2010 14:40:50 PAGE    30
+
+SPISCON0. . . . . . . . . . . . . . . .    D ADDR   00BCH   A   
+SPISCON1. . . . . . . . . . . . . . . .    D ADDR   00BDH   A   
+SPISDAT . . . . . . . . . . . . . . . .    D ADDR   00BFH   A   
+SPISRDSZ. . . . . . . . . . . . . . . .    D ADDR   00B7H   A   
+SPISSTAT. . . . . . . . . . . . . . . .    D ADDR   00BEH   A   
+STP . . . . . . . . . . . . . . . . . .    B ADDR   00F8H.6 A   
+T2. . . . . . . . . . . . . . . . . . .    D ADDR   00CCH   A   
+T2CM. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.2 A   
+T2CON . . . . . . . . . . . . . . . . .    D ADDR   00C8H   A   
+T2I0. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.0 A   
+T2I1. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.1 A   
+T2PS. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.7 A   
+T2R0. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.3 A   
+T2R1. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.4 A   
+TB80. . . . . . . . . . . . . . . . . .    B ADDR   0098H.3 A   
+TCON. . . . . . . . . . . . . . . . . .    D ADDR   0088H   A   
+TF0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.6 A   
+TH0 . . . . . . . . . . . . . . . . . .    D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . . . . .    D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . . . . .    D ADDR   00CDH   A   
+TI0 . . . . . . . . . . . . . . . . . .    B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . . . . . .    D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . . . . . .    D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . . . . .    D ADDR   00CCH   A   
+TM?756. . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=?DT?EPL_SDCARD_OPEN?___LE1_LIB_EPL_EPL_SDCARD
+TMOD. . . . . . . . . . . . . . . . . .    D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . . . . .    B ADDR   0088H.6 A   
+W2CON0. . . . . . . . . . . . . . . . .    D ADDR   00E2H   A   
+W2CON1. . . . . . . . . . . . . . . . .    D ADDR   00E1H   A   
+W2DAT . . . . . . . . . . . . . . . . .    D ADDR   00DAH   A   
+W2SADR. . . . . . . . . . . . . . . . .    D ADDR   00D9H   A   
+WCOUNT. . . . . . . . . . . . . . . . .    D ADDR   0006H   R   SEG=?DT?___LE1_LIB_EPL_EPL_SDCARD
+WDSV. . . . . . . . . . . . . . . . . .    D ADDR   00AFH   A   
+WEN . . . . . . . . . . . . . . . . . .    B ADDR   00F8H.5 A   
+WPEN. . . . . . . . . . . . . . . . . .    B ADDR   00F8H.0 A   
+WSECTOR . . . . . . . . . . . . . . . .    D ADDR   0002H   R   SEG=?DT?___LE1_LIB_EPL_EPL_SDCARD
+WUCON . . . . . . . . . . . . . . . . .    D ADDR   00A5H   A   
+WUF . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.5 A   
+WUIRQ . . . . . . . . . . . . . . . . .    B ADDR   00B8H.5 A   
+WUOPC0. . . . . . . . . . . . . . . . .    D ADDR   00CFH   A   
+WUOPC1. . . . . . . . . . . . . . . . .    D ADDR   00CEH   A   
+WUPIN . . . . . . . . . . . . . . . . .    B ADDR   00B8H.3 A   
+WUPINF. . . . . . . . . . . . . . . . .    B ADDR   00C0H.3 A   
+_EPL_SDCARD_COMMAND . . . . . . . . . .    C ADDR   000DH   R   SEG=?PR?_EPL_SDCARD_COMMAND?___LE1_LIB_EPL_EPL_SDCARD
+_EPL_SDCARD_GETXXRESPONSE . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_GETXXRESPONSE?___LE1_LIB_EPL_EPL_SDC
+                                         ARD
+_EPL_SDCARD_SETBLOCKLENGTH. . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_SETBLOCKLENGTH?___LE1_LIB_EPL_EPL_SD
+                                         CARD
+_EPL_SDCARD_SETRSECTOR. . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_SETRSECTOR?___LE1_LIB_EPL_EPL_SDCARD
+_EPL_SDCARD_SETWSECTOR. . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_SETWSECTOR?___LE1_LIB_EPL_EPL_SDCARD
+_EPL_SDCARD_WRITE_CHAR. . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_WRITE_CHAR?___LE1_LIB_EPL_EPL_SDCARD
+_EPL_SDCARD_WRITE_STR . . . . . . . . .    C ADDR   0000H   R   SEG=?PR?_EPL_SDCARD_WRITE_STR?___LE1_LIB_EPL_EPL_SDCARD
+_HAL_SPI_MASTER_INIT. . . . . . . . . .    C ADDR   -----       EXT
+_HAL_SPI_MASTER_READ_WRITE. . . . . . .    C ADDR   -----       EXT
+___LE1_LIB_EPL_EPL_SDCARD . . . . . . .    N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,1628 @@
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN ../LE1/lib/mass/mass.OBJ
+ASSEMBLER INVOKED BY: C:\KEIL\C51\BIN\A51.exe ../LE1/lib/mass/mass.src
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; ../LE1/lib/mass/mass.SRC generated from: ../LE1/lib/mass/mass.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/mass/mass.c INCDIR(../LE1/include) BROWSE DEBUG
+                              CD SB OMF2 WL(0) PREPRINT SRC
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    ___LE1_LIB_MASS_MASS
+                       8     
+  009B                 9     TB80    BIT     098H.3
+  00BE                10     SPISSTAT        DATA    0BEH
+  00C8                11     T2I0    BIT     0C8H.0
+  00C3                12     CCH1    DATA    0C3H
+  0080                13     P0      DATA    080H
+  00C9                14     T2I1    BIT     0C8H.1
+  00DF                15     CCPDATO DATA    0DFH
+  00C5                16     CCH2    DATA    0C5H
+  0090                17     P1      DATA    090H
+  00C7                18     CCH3    DATA    0C7H
+  00A0                19     P2      DATA    0A0H
+  009D                20     SM20    BIT     098H.5
+  00B0                21     P3      DATA    0B0H
+  00D6                22     AC      BIT     0D0H.6
+  00C2                23     CCL1    DATA    0C2H
+  00C4                24     CCL2    DATA    0C4H
+  00DF                25     BD      BIT     0D8H.7
+  00B8                26     RFSPI   BIT     0B8H.0
+  00AF                27     EA      BIT     0A8H.7
+  00CC                28     T2      DATA    0CCH
+  00C6                29     CCL3    DATA    0C6H
+  00B7                30     SPISRDSZ        DATA    0B7H
+  00CB                31     T2R0    BIT     0C8H.3
+  00CC                32     T2R1    BIT     0C8H.4
+  00A8                33     IEN0    DATA    0A8H
+  00B8                34     IEN1    DATA    0B8H
+  00A5                35     WUCON   DATA    0A5H
+  0085                36     DPH1    DATA    085H
+  00DB                37     COMPCON DATA    0DBH
+  00A3                38     CLKCTRL DATA    0A3H
+  0084                39     DPL1    DATA    084H
+  00CD                40     I2FR    BIT     0C8H.5
+  00BB                41     WUPIN   BIT     0B8H.3
+  00CE                42     I3FR    BIT     0C8H.6
+  00FF                43     SPIMDAT DATA    0FFH
+  00C7                44     EXF2    BIT     0C0H.7
+  009C                45     REN0    BIT     098H.4
+  00CA                46     T2CM    BIT     0C8H.2
+  00B9                47     RF      BIT     0B8H.1
+  00BD                48     WUIRQ   BIT     0B8H.5
+  00E7                49     SPIRDAT DATA    0E7H
+  00C1                50     CCEN    DATA    0C1H
+  00E2                51     W2CON0  DATA    0E2H
+  00BF                52     SPISDAT DATA    0BFH
+  00D7                53     CY      BIT     0D0H.7
+  00E1                54     W2CON1  DATA    0E1H
+  00FB                55     FDCR    DATA    0FBH
+  00E8                56     RFCE    BIT     0E8H.0
+  00CB                57     CRCH    DATA    0CBH
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     2
+
+  0081                58     SP      DATA    081H
+  00D2                59     OV      BIT     0D0H.2
+  00CA                60     CRCL    DATA    0CAH
+  00AD                61     CLKLFCTRL       DATA    0ADH
+  00B1                62     RSTREAS DATA    0B1H
+  00CF                63     T2PS    BIT     0C8H.7
+  00F9                64     FPCR    DATA    0F9H
+  00BC                65     MISC    BIT     0B8H.4
+  00A1                66     PWMDC0  DATA    0A1H
+  00B4                67     RTC2CMP0        DATA    0B4H
+  00A2                68     PWMDC1  DATA    0A2H
+  00B5                69     RTC2CMP1        DATA    0B5H
+  0080                70     P00     BIT     080H.0
+  00BA                71     S0RELH  DATA    0BAH
+  0090                72     P10     BIT     090H.0
+  0081                73     P01     BIT     080H.1
+  0087                74     PCON    DATA    087H
+  00A0                75     P20     BIT     0A0H.0
+  0091                76     P11     BIT     090H.1
+  0082                77     P02     BIT     080H.2
+  00B0                78     P30     BIT     0B0H.0
+  00A1                79     P21     BIT     0A0H.1
+  0092                80     P12     BIT     090H.2
+  0083                81     P03     BIT     080H.3
+  00C2                82     SPIF    BIT     0C0H.2
+  00FA                83     RDIS    BIT     0F8H.2
+  00B1                84     P31     BIT     0B0H.1
+  00A2                85     P22     BIT     0A0H.2
+  0093                86     P13     BIT     090H.3
+  0084                87     P04     BIT     080H.4
+  00AA                88     S0RELL  DATA    0AAH
+  00B2                89     P32     BIT     0B0H.2
+  00A3                90     P23     BIT     0A0H.3
+  0094                91     P14     BIT     090H.4
+  0085                92     P05     BIT     080H.5
+  00D9                93     W2SADR  DATA    0D9H
+  0089                94     TMOD    DATA    089H
+  0088                95     TCON    DATA    088H
+  00B3                96     P33     BIT     0B0H.3
+  00A4                97     P24     BIT     0A0H.4
+  0095                98     P15     BIT     090H.5
+  0086                99     P06     BIT     080H.6
+  00B4               100     P34     BIT     0B0H.4
+  00A5               101     P25     BIT     0A0H.5
+  0096               102     P16     BIT     090H.6
+  0087               103     P07     BIT     080H.7
+  00C2               104     CC1     DATA    0C2H
+  00B5               105     P35     BIT     0B0H.5
+  00A6               106     P26     BIT     0A0H.6
+  0097               107     P17     BIT     090H.7
+  00C4               108     CC2     DATA    0C4H
+  00B6               109     P36     BIT     0B0H.6
+  00A7               110     P27     BIT     0A0H.7
+  00C6               111     CC3     DATA    0C6H
+  00B7               112     P37     BIT     0B0H.7
+  00EA               113     RFCKEN  BIT     0E8H.2
+  00F8               114     WPEN    BIT     0F8H.0
+  00DD               115     CCPDATIA        DATA    0DDH
+  00DE               116     CCPDATIB        DATA    0DEH
+  0089               117     IE0     BIT     088H.1
+  00FC               118     RDYN    BIT     0F8H.4
+  008B               119     IE1     BIT     088H.3
+  00CF               120     WUOPC0  DATA    0CFH
+  00F0               121     B       DATA    0F0H
+  00E9               122     MD0     DATA    0E9H
+  00CE               123     WUOPC1  DATA    0CEH
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     3
+
+  00A7               124     MEMCON  DATA    0A7H
+  00EA               125     MD1     DATA    0EAH
+  00D7               126     RNGDAT  DATA    0D7H
+  00EB               127     MD2     DATA    0EBH
+  00EC               128     MD3     DATA    0ECH
+  00ED               129     MD4     DATA    0EDH
+  00AF               130     WDSV    DATA    0AFH
+  00EE               131     MD5     DATA    0EEH
+  00E0               132     ACC     DATA    0E0H
+  00DC               133     POFCON  DATA    0DCH
+  00AC               134     ES0     BIT     0A8H.4
+  00A9               135     ET0     BIT     0A8H.1
+  00A9               136     IP0     DATA    0A9H
+  00AB               137     ET1     BIT     0A8H.3
+  008D               138     TF0     BIT     088H.5
+  00B9               139     IP1     DATA    0B9H
+  00AD               140     ET2     BIT     0A8H.5
+  0098               141     RI0     BIT     098H.0
+  008F               142     TF1     BIT     088H.7
+  00C0               143     RFSPIF  BIT     0C0H.0
+  00C6               144     TF2     BIT     0C0H.6
+  00FC               145     SPIMCON0        DATA    0FCH
+  00D6               146     RNGCTL  DATA    0D6H
+  008C               147     TH0     DATA    08CH
+  00A8               148     EX0     BIT     0A8H.0
+  0099               149     TI0     BIT     098H.1
+  0088               150     IT0     BIT     088H.0
+  00FD               151     SPIMCON1        DATA    0FDH
+  008D               152     TH1     DATA    08DH
+  00AA               153     EX1     BIT     0A8H.2
+  008A               154     IT1     BIT     088H.2
+  00CD               155     TH2     DATA    0CDH
+  00AE               156     OPMCON  DATA    0AEH
+  00D0               157     P       BIT     0D0H.0
+  009F               158     SM0     BIT     098H.7
+  008A               159     TL0     DATA    08AH
+  009E               160     SM1     BIT     098H.6
+  00E4               161     SPIRCON0        DATA    0E4H
+  008B               162     TL1     DATA    08BH
+  00E5               163     SPIRCON1        DATA    0E5H
+  00CC               164     TL2     DATA    0CCH
+  00BC               165     SPISCON0        DATA    0BCH
+  00BD               166     SPISCON1        DATA    0BDH
+  00D3               167     RS0     BIT     0D0H.3
+  008C               168     TR0     BIT     088H.4
+  00D4               169     RS1     BIT     0D0H.4
+  00B2               170     PWMCON  DATA    0B2H
+  008E               171     TR1     BIT     088H.6
+  00CA               172     CRC     DATA    0CAH
+  00A6               173     INTEXP  DATA    0A6H
+  00C3               174     WUPINF  BIT     0C0H.3
+  00FA               175     FCR     DATA    0FAH
+  00D3               176     ADCCON1 DATA    0D3H
+  00D2               177     ADCCON2 DATA    0D2H
+  0083               178     DPH     DATA    083H
+  00D1               179     ADCCON3 DATA    0D1H
+  00C1               180     RFF     BIT     0C0H.1
+  0093               181     P0DIR   DATA    093H
+  0082               182     DPL     DATA    082H
+  009E               183     P0CON   DATA    09EH
+  0099               184     S0BUF   DATA    099H
+  0094               185     P1DIR   DATA    094H
+  009F               186     P1CON   DATA    09FH
+  0095               187     P2DIR   DATA    095H
+  00BF               188     EXEN2   BIT     0B8H.7
+  00DA               189     W2DAT   DATA    0DAH
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     4
+
+  0097               190     P2CON   DATA    097H
+  0096               191     P3DIR   DATA    096H
+  00A4               192     PWRDWN  DATA    0A4H
+  0098               193     S0CON   DATA    098H
+  008F               194     P3CON   DATA    08FH
+  00B6               195     RTC2CPT00       DATA    0B6H
+  00D8               196     ADCON   DATA    0D8H
+  00AC               197     RTC2CPT10       DATA    0ACH
+  00AB               198     RTC2CPT01       DATA    0ABH
+  00C8               199     T2CON   DATA    0C8H
+  0092               200     DPS     DATA    092H
+  00FD               201     WEN     BIT     0F8H.5
+  00F8               202     FSR     DATA    0F8H
+  00D4               203     ADCDATH DATA    0D4H
+  00C9               204     MPAGE   DATA    0C9H
+  00BA               205     SPI     BIT     0B8H.2
+  00F9               206     RDEND   BIT     0F8H.1
+  00D5               207     ADCDATL DATA    0D5H
+  00FB               208     INFEN   BIT     0F8H.3
+  00FF               209     MCDIS   BIT     0F8H.7
+  00C5               210     WUF     BIT     0C0H.5
+  00C4               211     MISCF   BIT     0C0H.4
+  00EF               212     ARCON   DATA    0EFH
+  00D5               213     F0      BIT     0D0H.5
+  00FE               214     STP     BIT     0F8H.6
+  00FE               215     SPIMSTAT        DATA    0FEH
+  00E8               216     RFCON   DATA    0E8H
+  00D0               217     PSW     DATA    0D0H
+  009A               218     RB80    BIT     098H.2
+  00C0               219     IRCON   DATA    0C0H
+  00E9               220     RFCSN   BIT     0E8H.1
+  00E6               221     SPIRSTAT        DATA    0E6H
+  00B3               222     RTC2CON DATA    0B3H
+                     223     ?PR?get_data?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     224     ?PR?set_data?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     225     ?PR?get_ram?___LE1_LIB_MASS_MASS         SEGMENT CODE 
+                     226     ?PR?ret_char?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     227     ?PR?ret_int?___LE1_LIB_MASS_MASS         SEGMENT CODE 
+                     228     ?PR?ret_long?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     229     ?PR?ret_ptr?___LE1_LIB_MASS_MASS         SEGMENT CODE 
+                     230     ?PR?ret_func?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     231     ?DT?ret_func?___LE1_LIB_MASS_MASS        SEGMENT DATA OVERLAYABLE
+                     232     ?PR?set_rfaddr?___LE1_LIB_MASS_MASS      SEGMENT CODE 
+                     233     ?PR?ret_bitmap?___LE1_LIB_MASS_MASS      SEGMENT CODE 
+                     234     ?DT?ret_bitmap?___LE1_LIB_MASS_MASS      SEGMENT DATA OVERLAYABLE
+                     235     ?PR?set_bitmap?___LE1_LIB_MASS_MASS      SEGMENT CODE 
+                     236     ?PR?put_addr?___LE1_LIB_MASS_MASS        SEGMENT CODE 
+                     237             EXTRN   XDATA (bm0)
+                     238             EXTRN   DATA (rf_ack_idx)
+                     239             EXTRN   DATA (return_flag)
+                     240             EXTRN   DATA (rf_rx_addr)
+                     241             EXTRN   CODE (_epl_mdelay)
+                     242             EXTRN   CODE (_epl_uart_putchar)
+                     243             EXTRN   XDATA (result_buf)
+                     244             EXTRN   DATA (id)
+                     245             EXTRN   DATA (rf_rx_addr2)
+                     246             EXTRN   CODE (_hal_nrf_set_address)
+                     247             EXTRN   XDATA (group_id)
+                     248             EXTRN   CODE (_?epl_uart_putint)
+                     249             EXTRN   XDATA (rf_buf)
+                     250             PUBLIC  put_addr
+                     251             PUBLIC  set_bitmap
+                     252             PUBLIC  ret_bitmap
+                     253             PUBLIC  set_rfaddr
+                     254             PUBLIC  ret_func
+                     255             PUBLIC  ret_ptr
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     5
+
+                     256             PUBLIC  ret_long
+                     257             PUBLIC  ret_int
+                     258             PUBLIC  ret_char
+                     259             PUBLIC  get_ram
+                     260             PUBLIC  set_data
+                     261             PUBLIC  get_data
+                     262     
+----                 263             RSEG  ?DT?ret_bitmap?___LE1_LIB_MASS_MASS
+0000                 264     ?ret_bitmap?BYTE:
+0000                 265               j?944:   DS   1
+                     266     
+----                 267             RSEG  ?DT?ret_func?___LE1_LIB_MASS_MASS
+0000                 268     ?ret_func?BYTE:
+0000                 269               i?740:   DS   2
+0002                 270             ORG  2
+0002                 271               j?741:   DS   1
+                     272     ; #include <Nordic/reg24le1.h>
+                     273     ; #include <EPL/epl_uart.h>
+                     274     ; #include <HAL/hal_nrf.h>
+                     275     ; #include <EPL/epl_utils.h>
+                     276     ; #include <mass/mass.h>
+                     277     ; 
+                     278     ; extern unsigned char id;
+                     279     ; extern unsigned char xdata group_id;
+                     280     ; extern unsigned int xdata pkt_seq;
+                     281     ; extern unsigned char rf_ack_idx;
+                     282     ; extern volatile unsigned char return_flag;
+                     283     ; extern struct radio_buffer xdata rf_buf;
+                     284     ; extern unsigned char xdata result_buf[RF_BUF_LEN];
+                     285     ; extern unsigned char rf_rx_addr[5];
+                     286     ; extern unsigned char rf_rx_addr2[5];
+                     287     ; extern unsigned char xdata bm0[BITMAP_LEN];
+                     288     ; 
+                     289     ; //Cindy  - test OK 20091011
+                     290     ; void get_data()
+                     291     
+----                 292             RSEG  ?PR?get_data?___LE1_LIB_MASS_MASS
+0000                 293     get_data:
+                     294             USING   0
+                     295                             ; SOURCE LINE # 19
+                     296     ; {
+                     297                             ; SOURCE LINE # 20
+                     298     ;       #pragma asm
+                     299     ;               ; Pop ret address to ret directly back to while loop
+                     300               ; Pop ret address to ret directly back to while loop
+                     301     ;               POP             B
+0000 D0F0            302               POP           B
+                     303     ;               POP             B
+0002 D0F0            304               POP           B
+                     305     ;       #pragma endasm
+                     306     ;               
+                     307     ;       /* Set xdata as data space */
+                     308     ;       MEMCON = 0x00;
+                     309                             ; SOURCE LINE # 28
+0004 E4              310             CLR     A
+0005 F5A7            311             MOV     MEMCON,A
+                     312     ; 
+                     313     ;       #pragma asm
+                     314     ;               MOV     DPTR,#rf_buf+05H
+0007 900000   F      315               MOV   DPTR,#rf_buf+05H
+                     316     ;       
+                     317               
+                     318     ;               WHILE_LOOP:
+000A                 319               WHILE_LOOP:
+                     320     ;                       MOV             A, R2
+000A EA              321               MOV           A, R2
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     6
+
+                     322     ;                       JZ              END_GET_DATA
+000B 6007            323               JZ            END_GET_DATA
+                     324     ;                       DEC             R2
+000D 1A              325               DEC           R2
+                     326     ; 
+                     327               
+                     328     ;                       MOV             A, @R0
+000E E6              329               MOV           A, @R0
+                     330     ;                       MOVX    @DPTR,A
+000F F0              331               MOVX  @DPTR,A
+                     332     ;                       INC             R0
+0010 08              333               INC           R0
+                     334     ;                       INC     DPTR
+0011 A3              335               INC   DPTR
+                     336     ;                       SJMP    WHILE_LOOP
+0012 80F6            337               SJMP  WHILE_LOOP
+                     338     ; 
+                     339               
+                     340     ;               END_GET_DATA:
+0014                 341               END_GET_DATA:
+                     342     ;       #pragma endasm
+                     343     ; 
+                     344     ; #ifdef DEBUG  
+                     345     ;       epl_uart_putint(1); 
+                     346                             ; SOURCE LINE # 48
+0014 7E00            347             MOV     R6,#00H
+0016 7F01            348             MOV     R7,#01H
+0018 020000   F      349             LJMP    _?epl_uart_putint
+                     350     ; END OF get_data
+                     351     
+                     352     ; #endif
+                     353     ; 
+                     354     ; }
+                     355     ; 
+                     356     ; //Cindy  - test OK 20091011
+                     357     ; void set_data()
+                     358     
+----                 359             RSEG  ?PR?set_data?___LE1_LIB_MASS_MASS
+0000                 360     set_data:
+                     361             USING   0
+                     362                             ; SOURCE LINE # 54
+                     363     ; {
+                     364                             ; SOURCE LINE # 55
+                     365     ;       #pragma asm
+                     366     ; 
+                     367               
+                     368     ;               ; Pop ret address to ret directly back to main while loop
+                     369               ; Pop ret address to ret directly back to main while loop
+                     370     ;               POP             B
+0000 D0F0            371               POP           B
+                     372     ;               POP             B
+0002 D0F0            373               POP           B
+                     374     ;       #pragma endasm
+                     375     ;               
+                     376     ;       /* Set xdata as data space */
+                     377     ;       MEMCON = 0x00;
+                     378                             ; SOURCE LINE # 64
+0004 E4              379             CLR     A
+0005 F5A7            380             MOV     MEMCON,A
+                     381     ;     
+                     382     ;       #pragma asm
+                     383     ; 
+                     384               
+                     385     ;               MOV     DPTR,#rf_buf+0FH
+0007 900000   F      386               MOV   DPTR,#rf_buf+0FH
+                     387     ;       WHILE_LOOP?3:
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     7
+
+000A                 388               WHILE_LOOP?3:
+                     389     ;               MOV             A, R2
+000A EA              390               MOV           A, R2
+                     391     ;               JZ              END_SET_DATA
+000B 6007            392               JZ            END_SET_DATA
+                     393     ;               DEC             R2
+000D 1A              394               DEC           R2
+                     395     ;               ; Copy data from rf_buf
+                     396               ; Copy data from rf_buf
+                     397     ;               MOVX    A, @DPTR
+000E E0              398               MOVX  A, @DPTR
+                     399     ;               //MOV A,#01H
+                     400               
+                     401     ;               ; Write into designated location in IDATA
+                     402               ; Write into designated location in IDATA
+                     403     ;               MOV             @R0, A
+000F F6              404               MOV           @R0, A
+                     405     ; 
+                     406               
+                     407     ;               INC             R0
+0010 08              408               INC           R0
+                     409     ;               INC             DPTR
+0011 A3              410               INC           DPTR
+                     411     ;               SJMP    WHILE_LOOP?3
+0012 80F6            412               SJMP  WHILE_LOOP?3
+                     413     ;       END_SET_DATA:
+0014                 414               END_SET_DATA:
+                     415     ; 
+                     416               
+                     417     ;       #pragma endasm
+                     418     ; 
+                     419     ; #ifdef DEBUG  
+                     420     ;       epl_uart_putint(2);     
+                     421                             ; SOURCE LINE # 87
+0014 7E00            422             MOV     R6,#00H
+0016 7F02            423             MOV     R7,#02H
+0018 020000   F      424             LJMP    _?epl_uart_putint
+                     425     ; END OF set_data
+                     426     
+                     427     ; #endif
+                     428     ; }
+                     429     ; 
+                     430     ; //---------------Cindy - 暫時不會用到的func--------------------------//
+                     431     ; //要get flash program memory的值
+                     432     ; void get_ram()
+                     433     
+----                 434             RSEG  ?PR?get_ram?___LE1_LIB_MASS_MASS
+0000                 435     get_ram:
+                     436             USING   0
+                     437                             ; SOURCE LINE # 93
+                     438     ; {
+                     439                             ; SOURCE LINE # 94
+                     440     ;       #pragma asm
+                     441     ;               ; Pop ret address to ret directly back to main while loop
+                     442               ; Pop ret address to ret directly back to main while loop
+                     443     ;               POP             B
+0000 D0F0            444               POP           B
+                     445     ;               POP             B
+0002 D0F0            446               POP           B
+                     447     ;       #pragma endasm
+                     448     ;               
+                     449     ;       /* Set xdata as data space */
+                     450     ;       MEMCON = 0x00;
+                     451                             ; SOURCE LINE # 102
+0004 E4              452             CLR     A
+0005 F5A7            453             MOV     MEMCON,A
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     8
+
+                     454     ; 
+                     455     ;       #pragma asm     
+                     456     ;               
+                     457               
+                     458     ;               //Cindy - R0 stores len, DPTR stores ram_addr
+                     459               
+                     460     ;               ; Write into address starting from rf_buf.buffer[4]
+                     461               ; Write into address starting from rf_buf.buffer[4]
+                     462     ;               MOV             R1, #LOW(rf_buf+05H)
+0007 7900     F      463               MOV           R1, #LOW(rf_buf+05H)
+                     464     ;               ; while(len--)
+                     465               ; while(len--)
+                     466     ;       WHILE_LOOP?2:
+0009                 467               WHILE_LOOP?2:
+                     468     ;               MOV             A, R0
+0009 E8              469               MOV           A, R0
+                     470     ;               JZ              END_GET_RAM
+000A 6007            471               JZ            END_GET_RAM
+                     472     ;               DEC             R0
+000C 18              473               DEC           R0
+                     474     ; 
+                     475               
+                     476     ;               MOVX    A, @DPTR
+000D E0              477               MOVX  A, @DPTR
+                     478     ;               MOVX    @R1, A
+000E F3              479               MOVX  @R1, A
+                     480     ; 
+                     481               
+                     482     ;               INC             DPTR
+000F A3              483               INC           DPTR
+                     484     ;               INC             R1
+0010 09              485               INC           R1
+                     486     ;               SJMP    WHILE_LOOP?2
+0011 80F6            487               SJMP  WHILE_LOOP?2
+                     488     ;       END_GET_RAM:
+0013                 489               END_GET_RAM:
+                     490     ; 
+                     491               
+                     492     ;       #pragma endasm
+                     493     ; 
+                     494     ; }
+                     495                             ; SOURCE LINE # 125
+0013 22              496             RET     
+                     497     ; END OF get_ram
+                     498     
+                     499     ; //---------------------------------------------------------------------//
+                     500     ; 
+                     501     ; //Cindy  - test OK 20091011
+                     502     ; void ret_char()
+                     503     
+----                 504             RSEG  ?PR?ret_char?___LE1_LIB_MASS_MASS
+0000                 505     ret_char:
+                     506             USING   0
+                     507                             ; SOURCE LINE # 129
+                     508     ; {
+                     509                             ; SOURCE LINE # 130
+                     510     ;       #pragma asm
+                     511     ;               ; Pop ret address to ret directly back to main while loop
+                     512               ; Pop ret address to ret directly back to main while loop
+                     513     ;               POP             B
+0000 D0F0            514               POP           B
+                     515     ;               POP             B
+0002 D0F0            516               POP           B
+                     517     ;       #pragma endasm
+                     518     ;               
+                     519     ;       /* Set xdata as data space */
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE     9
+
+                     520     ;       MEMCON = 0x00;
+                     521                             ; SOURCE LINE # 138
+0004 E4              522             CLR     A
+0005 F5A7            523             MOV     MEMCON,A
+                     524     ;      
+                     525     ;       #pragma asm
+                     526     ;               MOV     R5,rf_ack_idx
+0007 AD00     F      527               MOV   R5,rf_ack_idx
+                     528     ;               MOV     A,R5
+0009 ED              529               MOV   A,R5
+                     530     ;               RLC     A
+000A 33              531               RLC   A
+                     532     ;               SUBB    A,ACC
+000B 95E0            533               SUBB  A,ACC
+                     534     ;               MOV     R6,A
+000D FE              535               MOV   R6,A
+                     536     ;               MOV     A,#LOW (rf_buf+01H)
+000E 7400     F      537               MOV   A,#LOW (rf_buf+01H)
+                     538     ;               ADD     A,R5
+0010 2D              539               ADD   A,R5
+                     540     ;               MOV     DPL,A
+0011 F582            541               MOV   DPL,A
+                     542     ;               MOV     A,#HIGH (rf_buf+01H)
+0013 7400     F      543               MOV   A,#HIGH (rf_buf+01H)
+                     544     ;               ADDC    A,R6
+0015 3E              545               ADDC  A,R6
+                     546     ;               MOV     DPH,A
+0016 F583            547               MOV   DPH,A
+                     548     ;               
+                     549               
+                     550     ;               MOV     A, R7
+0018 EF              551               MOV   A, R7
+                     552     ;               MOVX    @DPTR,A
+0019 F0              553               MOVX  @DPTR,A
+                     554     ;               
+                     555               
+                     556     ;               ; rf_ack_idx++;
+                     557               ; rf_ack_idx++;
+                     558     ;               INC             rf_ack_idx
+001A 0500     F      559               INC           rf_ack_idx
+                     560     ;       #pragma endasm
+                     561     ;       
+                     562     ; #ifdef DEBUG  
+                     563     ;       epl_uart_putint(4);
+                     564                             ; SOURCE LINE # 161
+001C 7E00            565             MOV     R6,#00H
+001E 7F04            566             MOV     R7,#04H
+0020 020000   F      567             LJMP    _?epl_uart_putint
+                     568     ; END OF ret_char
+                     569     
+                     570     ; #endif
+                     571     ; }
+                     572     ; 
+                     573     ; //Cindy  - test OK 20091011
+                     574     ; void ret_int()
+                     575     
+----                 576             RSEG  ?PR?ret_int?___LE1_LIB_MASS_MASS
+0000                 577     ret_int:
+                     578             USING   0
+                     579                             ; SOURCE LINE # 166
+                     580     ; {
+                     581                             ; SOURCE LINE # 167
+                     582     ;       #pragma asm
+                     583     ;               ; Pop ret address to ret directly back to main while loop
+                     584               ; Pop ret address to ret directly back to main while loop
+                     585     ;               POP             B
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    10
+
+0000 D0F0            586               POP           B
+                     587     ;               POP             B
+0002 D0F0            588               POP           B
+                     589     ;       #pragma endasm
+                     590     ;               
+                     591     ;       /* Set xdata as data space */
+                     592     ;       MEMCON = 0x00;
+                     593                             ; SOURCE LINE # 175
+0004 E4              594             CLR     A
+0005 F5A7            595             MOV     MEMCON,A
+                     596     ;     
+                     597     ;       #pragma asm
+                     598     ;               MOV     R5,rf_ack_idx
+0007 AD00     F      599               MOV   R5,rf_ack_idx
+                     600     ;               MOV     A,R5
+0009 ED              601               MOV   A,R5
+                     602     ;               RLC     A
+000A 33              603               RLC   A
+                     604     ;               SUBB    A,ACC
+000B 95E0            605               SUBB  A,ACC
+                     606     ;               MOV     R4,A
+000D FC              607               MOV   R4,A
+                     608     ;               MOV     A,#LOW (rf_buf+01H)
+000E 7400     F      609               MOV   A,#LOW (rf_buf+01H)
+                     610     ;               ADD     A,R5
+0010 2D              611               ADD   A,R5
+                     612     ;               MOV     DPL,A
+0011 F582            613               MOV   DPL,A
+                     614     ;               MOV     A,#HIGH (rf_buf+01H)
+0013 7400     F      615               MOV   A,#HIGH (rf_buf+01H)
+                     616     ;               ADDC    A,R4
+0015 3C              617               ADDC  A,R4
+                     618     ;               MOV     DPH,A
+0016 F583            619               MOV   DPH,A
+                     620     ;               
+                     621               
+                     622     ;               MOV     A, R6
+0018 EE              623               MOV   A, R6
+                     624     ;               MOVX    @DPTR,A
+0019 F0              625               MOVX  @DPTR,A
+                     626     ;               INC             DPTR
+001A A3              627               INC           DPTR
+                     628     ;               MOV     A, R7
+001B EF              629               MOV   A, R7
+                     630     ;               MOVX    @DPTR,A
+001C F0              631               MOVX  @DPTR,A
+                     632     ; 
+                     633               
+                     634     ;               ; rf_ack_idx += 2;
+                     635               ; rf_ack_idx += 2;
+                     636     ;               INC             rf_ack_idx
+001D 0500     F      637               INC           rf_ack_idx
+                     638     ;               INC             rf_ack_idx
+001F 0500     F      639               INC           rf_ack_idx
+                     640     ;       #pragma endasm
+                     641     ; 
+                     642     ; #ifdef DEBUG  
+                     643     ;       epl_uart_putint(5);
+                     644                             ; SOURCE LINE # 202
+0021 7E00            645             MOV     R6,#00H
+0023 7F05            646             MOV     R7,#05H
+0025 020000   F      647             LJMP    _?epl_uart_putint
+                     648     ; END OF ret_int
+                     649     
+                     650     ; #endif
+                     651     ; }
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    11
+
+                     652     ; 
+                     653     ; //Cindy  - test OK 20091011
+                     654     ; void ret_long()
+                     655     
+----                 656             RSEG  ?PR?ret_long?___LE1_LIB_MASS_MASS
+0000                 657     ret_long:
+                     658             USING   0
+                     659                             ; SOURCE LINE # 207
+                     660     ; {
+                     661                             ; SOURCE LINE # 208
+                     662     ;       #pragma asm
+                     663     ;               ; Pop ret address to ret directly back to main while loop
+                     664               ; Pop ret address to ret directly back to main while loop
+                     665     ;               POP             B
+0000 D0F0            666               POP           B
+                     667     ;               POP             B
+0002 D0F0            668               POP           B
+                     669     ;       #pragma endasm
+                     670     ;               
+                     671     ;       /* Set xdata as data space */
+                     672     ;       MEMCON = 0x00;
+                     673                             ; SOURCE LINE # 216
+0004 E4              674             CLR     A
+0005 F5A7            675             MOV     MEMCON,A
+                     676     ;     
+                     677     ;       #pragma asm
+                     678     ;       
+                     679               
+                     680     ;               MOV     R3,rf_ack_idx
+0007 AB00     F      681               MOV   R3,rf_ack_idx
+                     682     ;               MOV     A,R3
+0009 EB              683               MOV   A,R3
+                     684     ;               RLC     A
+000A 33              685               RLC   A
+                     686     ;               SUBB    A,ACC
+000B 95E0            687               SUBB  A,ACC
+                     688     ;               MOV     R2,A
+000D FA              689               MOV   R2,A
+                     690     ;               MOV     A,#LOW (rf_buf+01H)
+000E 7400     F      691               MOV   A,#LOW (rf_buf+01H)
+                     692     ;               ADD     A,R3
+0010 2B              693               ADD   A,R3
+                     694     ;               MOV     DPL,A
+0011 F582            695               MOV   DPL,A
+                     696     ;               MOV     A,#HIGH (rf_buf+01H)
+0013 7400     F      697               MOV   A,#HIGH (rf_buf+01H)
+                     698     ;               ADDC    A,R2
+0015 3A              699               ADDC  A,R2
+                     700     ;               MOV     DPH,A
+0016 F583            701               MOV   DPH,A
+                     702     ;               
+                     703               
+                     704     ;               MOV     A, R4
+0018 EC              705               MOV   A, R4
+                     706     ;               MOVX    @DPTR,A
+0019 F0              707               MOVX  @DPTR,A
+                     708     ;               INC             DPTR
+001A A3              709               INC           DPTR
+                     710     ;               MOV     A, R5
+001B ED              711               MOV   A, R5
+                     712     ;               MOVX    @DPTR,A
+001C F0              713               MOVX  @DPTR,A
+                     714     ;               INC             DPTR
+001D A3              715               INC           DPTR
+                     716     ;               MOV     A, R6
+001E EE              717               MOV   A, R6
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    12
+
+                     718     ;               MOVX    @DPTR,A
+001F F0              719               MOVX  @DPTR,A
+                     720     ;               INC             DPTR
+0020 A3              721               INC           DPTR
+                     722     ;               MOV     A, R7
+0021 EF              723               MOV   A, R7
+                     724     ;               MOVX    @DPTR,A
+0022 F0              725               MOVX  @DPTR,A
+                     726     ; 
+                     727               
+                     728     ;               ; rf_ack_idx += 4;
+                     729               ; rf_ack_idx += 4;
+                     730     ;               MOV     A,#04H
+0023 7404            731               MOV   A,#04H
+                     732     ;               ADD     A,rf_ack_idx
+0025 2500     F      733               ADD   A,rf_ack_idx
+                     734     ;               MOV     rf_ack_idx,A
+0027 F500     F      735               MOV   rf_ack_idx,A
+                     736     ;       #pragma endasm
+                     737     ; 
+                     738     ; #ifdef DEBUG  
+                     739     ;       epl_uart_putint(6);
+                     740                             ; SOURCE LINE # 251
+0029 7E00            741             MOV     R6,#00H
+002B 7F06            742             MOV     R7,#06H
+002D 020000   F      743             LJMP    _?epl_uart_putint
+                     744     ; END OF ret_long
+                     745     
+                     746     ; #endif
+                     747     ; }
+                     748     ; 
+                     749     ; //Cindy  - test OK 20091011
+                     750     ; void ret_ptr()
+                     751     
+----                 752             RSEG  ?PR?ret_ptr?___LE1_LIB_MASS_MASS
+0000                 753     ret_ptr:
+                     754             USING   0
+                     755                             ; SOURCE LINE # 256
+                     756     ; {
+                     757                             ; SOURCE LINE # 257
+                     758     ;       #pragma asm
+                     759     ;               ; Pop ret address to ret directly back to main while loop
+                     760               ; Pop ret address to ret directly back to main while loop
+                     761     ;               POP             B
+0000 D0F0            762               POP           B
+                     763     ;               POP             B
+0002 D0F0            764               POP           B
+                     765     ;       #pragma endasm
+                     766     ;               
+                     767     ;       /* Set xdata as data space */
+                     768     ;       MEMCON = 0x00;
+                     769                             ; SOURCE LINE # 265
+0004 E4              770             CLR     A
+0005 F5A7            771             MOV     MEMCON,A
+                     772     ;     
+                     773     ;       #pragma asm
+                     774     ;               MOV     R5,rf_ack_idx
+0007 AD00     F      775               MOV   R5,rf_ack_idx
+                     776     ;               MOV     A,R5
+0009 ED              777               MOV   A,R5
+                     778     ;               RLC     A
+000A 33              779               RLC   A
+                     780     ;               SUBB    A,ACC
+000B 95E0            781               SUBB  A,ACC
+                     782     ;               MOV     R6,A
+000D FE              783               MOV   R6,A
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    13
+
+                     784     ;               MOV     A,#LOW (rf_buf+01H)
+000E 7400     F      785               MOV   A,#LOW (rf_buf+01H)
+                     786     ;               ADD     A,R5
+0010 2D              787               ADD   A,R5
+                     788     ;               MOV     DPL,A
+0011 F582            789               MOV   DPL,A
+                     790     ;               MOV     A,#HIGH (rf_buf+01H)
+0013 7400     F      791               MOV   A,#HIGH (rf_buf+01H)
+                     792     ;               ADDC    A,R6
+0015 3E              793               ADDC  A,R6
+                     794     ;               MOV     DPH,A
+0016 F583            795               MOV   DPH,A
+                     796     ;               
+                     797               
+                     798     ;               MOV     A, R1
+0018 E9              799               MOV   A, R1
+                     800     ;               MOVX    @DPTR,A
+0019 F0              801               MOVX  @DPTR,A
+                     802     ;               INC             DPTR
+001A A3              803               INC           DPTR
+                     804     ;               MOV     A, R2
+001B EA              805               MOV   A, R2
+                     806     ;               MOVX    @DPTR,A
+001C F0              807               MOVX  @DPTR,A
+                     808     ;               INC             DPTR
+001D A3              809               INC           DPTR
+                     810     ;               MOV     A, R3
+001E EB              811               MOV   A, R3
+                     812     ;               MOVX    @DPTR,A
+001F F0              813               MOVX  @DPTR,A
+                     814     ; 
+                     815               
+                     816     ;               ; rf_ack_idx += 3;
+                     817               ; rf_ack_idx += 3;
+                     818     ;               MOV     A,#03H
+0020 7403            819               MOV   A,#03H
+                     820     ;               ADD     A,rf_ack_idx
+0022 2500     F      821               ADD   A,rf_ack_idx
+                     822     ;               MOV     rf_ack_idx,A
+0024 F500     F      823               MOV   rf_ack_idx,A
+                     824     ;       #pragma endasm
+                     825     ; 
+                     826     ; #ifdef DEBUG  
+                     827     ;       epl_uart_putint(7);
+                     828                             ; SOURCE LINE # 296
+0026 7E00            829             MOV     R6,#00H
+0028 7F07            830             MOV     R7,#07H
+002A 020000   F      831             LJMP    _?epl_uart_putint
+                     832     ; END OF ret_ptr
+                     833     
+                     834     ; #endif
+                     835     ; }
+                     836     ; 
+                     837     ; //Cindy  - 
+                     838     ; void ret_func()
+                     839     
+----                 840             RSEG  ?PR?ret_func?___LE1_LIB_MASS_MASS
+0000                 841     ret_func:
+                     842             USING   0
+                     843                             ; SOURCE LINE # 301
+                     844     ; {
+                     845                             ; SOURCE LINE # 302
+                     846     ;     unsigned int i; 
+                     847     ;     unsigned char j;
+                     848     ;      
+                     849     ;     #pragma asm
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    14
+
+                     850     ;               ; Pop ret address to ret directly back to while loop
+                     851               ; Pop ret address to ret directly back to while loop
+                     852     ;               POP             B
+0000 D0F0            853               POP           B
+                     854     ;               POP             B
+0002 D0F0            855               POP           B
+                     856     ;       #pragma endasm
+                     857     ;               
+                     858     ;       /* Set xdata as data space */
+                     859     ;       MEMCON = 0x00;
+                     860                             ; SOURCE LINE # 313
+0004 E4              861             CLR     A
+0005 F5A7            862             MOV     MEMCON,A
+                     863     ;      
+                     864     ; #ifdef DEBUG
+                     865     ;     epl_uart_putchar('f');     
+                     866                             ; SOURCE LINE # 316
+0007 7F66            867             MOV     R7,#066H
+0009 120000   F      868             LCALL   _epl_uart_putchar
+                     869     ; #endif                       
+                     870     ;     //Return Function result to host //
+                     871     ;     result_buf[0] = rf_buf.buffer[7];
+                     872                             ; SOURCE LINE # 319
+000C 900000   F      873             MOV     DPTR,#rf_buf+08H
+000F E0              874             MOVX    A,@DPTR
+0010 900000   F      875             MOV     DPTR,#result_buf
+0013 F0              876             MOVX    @DPTR,A
+                     877     ;     result_buf[1] = group_id;
+                     878                             ; SOURCE LINE # 320
+0014 900000   F      879             MOV     DPTR,#group_id
+0017 E0              880             MOVX    A,@DPTR
+0018 FF              881             MOV     R7,A
+0019 900000   F      882             MOV     DPTR,#result_buf+01H
+001C F0              883             MOVX    @DPTR,A
+                     884     ;                  
+                     885     ;     // Delay to avoid collision //
+                     886     ;     if(rf_buf.buffer[8]){             
+                     887                             ; SOURCE LINE # 323
+001D 900000   F      888             MOV     DPTR,#rf_buf+09H
+0020 E0              889             MOVX    A,@DPTR
+0021 600B            890             JZ      ?C0008
+                     891     ;         // Delay to avoid collision //
+                     892     ;         /*for(i = 0;i < group_id * 100 ;i++){
+                     893     ;               for(j = 0;j < 140;j++)
+                     894     ;                     ;
+                     895     ;         }*/
+                     896     ;         epl_mdelay(group_id*10);
+                     897                             ; SOURCE LINE # 329
+0023 EF              898             MOV     A,R7
+0024 75F00A          899             MOV     B,#0AH
+0027 A4              900             MUL     AB
+0028 FF              901             MOV     R7,A
+0029 AEF0            902             MOV     R6,B
+002B 120000   F      903             LCALL   _epl_mdelay
+                     904     ;     }
+                     905                             ; SOURCE LINE # 330
+002E                 906     ?C0008:
+                     907     ; 
+                     908     ;     return_flag = 1;
+                     909                             ; SOURCE LINE # 332
+002E 750001   F      910             MOV     return_flag,#01H
+                     911     ; }
+                     912                             ; SOURCE LINE # 333
+0031 22              913             RET     
+                     914     ; END OF ret_func
+                     915     
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    15
+
+                     916     ; 
+                     917     ; //Cindy  - 
+                     918     ; void set_rfaddr()
+                     919     
+----                 920             RSEG  ?PR?set_rfaddr?___LE1_LIB_MASS_MASS
+0000                 921     set_rfaddr:
+                     922             USING   0
+                     923                             ; SOURCE LINE # 336
+                     924     ; {
+                     925                             ; SOURCE LINE # 337
+                     926     ;     unsigned char i;
+                     927     ;      
+                     928     ;       #pragma asm
+                     929     ;               ; Pop ret address to ret directly back to while loop
+                     930               ; Pop ret address to ret directly back to while loop
+                     931     ;               POP             B
+0000 D0F0            932               POP           B
+                     933     ;               POP             B
+0002 D0F0            934               POP           B
+                     935     ;       #pragma endasm
+                     936     ;               
+                     937     ;       /* Set xdata as data space */
+                     938     ;       MEMCON = 0x00;
+                     939                             ; SOURCE LINE # 347
+0004 E4              940             CLR     A
+0005 F5A7            941             MOV     MEMCON,A
+                     942     ;       
+                     943     ; #ifdef DEBUG  
+                     944     ;       epl_uart_putchar('c'); 
+                     945                             ; SOURCE LINE # 350
+0007 7F63            946             MOV     R7,#063H
+0009 120000   F      947             LCALL   _epl_uart_putchar
+                     948     ; #endif
+                     949     ; 
+                     950     ;     //Reset pkt sequence number
+                     951     ;     //pkt_seq = 0;
+                     952     ; 
+                     953     ;     // Change group rf addr //
+                     954     ;     rf_rx_addr2[0] = rf_buf.buffer[7];
+                     955                             ; SOURCE LINE # 357
+000C 900000   F      956             MOV     DPTR,#rf_buf+08H
+000F E0              957             MOVX    A,@DPTR
+0010 F500     F      958             MOV     rf_rx_addr2,A
+                     959     ;     rf_rx_addr2[1] = rf_buf.buffer[8];
+                     960                             ; SOURCE LINE # 358
+0012 A3              961             INC     DPTR
+0013 E0              962             MOVX    A,@DPTR
+0014 F500     F      963             MOV     rf_rx_addr2+01H,A
+                     964     ;     
+                     965     ;     hal_nrf_set_address(HAL_NRF_PIPE0, rf_rx_addr2);    
+                     966                             ; SOURCE LINE # 360
+0016 7B00            967             MOV     R3,#00H
+0018 7A00     F      968             MOV     R2,#HIGH (rf_rx_addr2)
+001A 7900     F      969             MOV     R1,#LOW (rf_rx_addr2)
+001C E4              970             CLR     A
+001D FF              971             MOV     R7,A
+001E 120000   F      972             LCALL   _hal_nrf_set_address
+                     973     ;     
+                     974     ;     // Initialize bitmap //
+                     975     ;     for(i = 0; i < rf_buf.buffer[10]; i++){
+                     976                             ; SOURCE LINE # 363
+                     977     ;---- Variable 'i?842' assigned to Register 'R7' ----
+0021 E4              978             CLR     A
+0022 FF              979             MOV     R7,A
+0023                 980     ?C0010:
+0023 900000   F      981             MOV     DPTR,#rf_buf+0BH
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    16
+
+0026 E0              982             MOVX    A,@DPTR
+0027 FE              983             MOV     R6,A
+0028 EF              984             MOV     A,R7
+0029 C3              985             CLR     C
+002A 9E              986             SUBB    A,R6
+002B 500F            987             JNC     ?C0011
+                     988     ;           bm0[i] = 0;
+                     989                             ; SOURCE LINE # 364
+002D 7400     F      990             MOV     A,#LOW (bm0)
+002F 2F              991             ADD     A,R7
+0030 F582            992             MOV     DPL,A
+0032 E4              993             CLR     A
+0033 3400     F      994             ADDC    A,#HIGH (bm0)
+0035 F583            995             MOV     DPH,A
+0037 E4              996             CLR     A
+0038 F0              997             MOVX    @DPTR,A
+                     998     ;     }                           
+                     999                             ; SOURCE LINE # 365
+0039 0F             1000             INC     R7
+003A 80E7           1001             SJMP    ?C0010
+003C                1002     ?C0011:
+                    1003     ;     
+                    1004     ;     // Initialize group id //
+                    1005     ;     group_id = rf_buf.buffer[11];
+                    1006                             ; SOURCE LINE # 368
+003C 900000   F     1007             MOV     DPTR,#rf_buf+0CH
+003F E0             1008             MOVX    A,@DPTR
+0040 900000   F     1009             MOV     DPTR,#group_id
+0043 F0             1010             MOVX    @DPTR,A
+                    1011     ; 
+                    1012     ; }
+                    1013                             ; SOURCE LINE # 370
+0044 22             1014             RET     
+                    1015     ; END OF set_rfaddr
+                    1016     
+                    1017     ; 
+                    1018     ; //Cindy  - 
+                    1019     ; void ret_bitmap()
+                    1020     
+----                1021             RSEG  ?PR?ret_bitmap?___LE1_LIB_MASS_MASS
+0000                1022     ret_bitmap:
+                    1023             USING   0
+                    1024                             ; SOURCE LINE # 373
+                    1025     ; {
+                    1026                             ; SOURCE LINE # 374
+                    1027     ;     unsigned int i; 
+                    1028     ;     unsigned char j, delay;
+                    1029     ;      
+                    1030     ;       #pragma asm
+                    1031     ;               ; Pop ret address to ret directly back to while loop
+                    1032               ; Pop ret address to ret directly back to while loop
+                    1033     ;               POP             B
+0000 D0F0           1034               POP           B
+                    1035     ;               POP             B
+0002 D0F0           1036               POP           B
+                    1037     ;       #pragma endasm
+                    1038     ;               
+                    1039     ;       /* Set xdata as data space */
+                    1040     ;       MEMCON = 0x00;
+                    1041                             ; SOURCE LINE # 385
+0004 E4             1042             CLR     A
+0005 F5A7           1043             MOV     MEMCON,A
+                    1044     ;       
+                    1045     ; #ifdef DEBUG  
+                    1046     ;       epl_uart_putchar('r'); 
+                    1047                             ; SOURCE LINE # 388
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    17
+
+0007 7F72           1048             MOV     R7,#072H
+0009 120000   F     1049             LCALL   _epl_uart_putchar
+                    1050     ; #endif
+                    1051     ; 
+                    1052     ;      delay = rf_buf.buffer[9];
+                    1053                             ; SOURCE LINE # 391
+000C 900000   F     1054             MOV     DPTR,#rf_buf+0AH
+000F E0             1055             MOVX    A,@DPTR
+0010 FF             1056             MOV     R7,A
+                    1057     ;---- Variable 'delay?945' assigned to Register 'R7' ----
+                    1058     ; 
+                    1059     ;     //Return Bitmap to host //
+                    1060     ;      rf_buf.buffer[0] = rf_buf.buffer[7];
+                    1061                             ; SOURCE LINE # 394
+0011 900000   F     1062             MOV     DPTR,#rf_buf+08H
+0014 E0             1063             MOVX    A,@DPTR
+0015 900000   F     1064             MOV     DPTR,#rf_buf+01H
+0018 F0             1065             MOVX    @DPTR,A
+                    1066     ;      rf_buf.buffer[1] = group_id;
+                    1067                             ; SOURCE LINE # 395
+0019 900000   F     1068             MOV     DPTR,#group_id
+001C E0             1069             MOVX    A,@DPTR
+001D 900000   F     1070             MOV     DPTR,#rf_buf+02H
+0020 F0             1071             MOVX    @DPTR,A
+                    1072     ;                     
+                    1073     ;      for( i=rf_buf.buffer[8] ; i >0 ; i--){
+                    1074                             ; SOURCE LINE # 397
+0021 900000   F     1075             MOV     DPTR,#rf_buf+09H
+0024 E0             1076             MOVX    A,@DPTR
+0025 FD             1077             MOV     R5,A
+0026 7C00           1078             MOV     R4,#00H
+                    1079     ;---- Variable 'i?943' assigned to Register 'R4/R5' ----
+0028                1080     ?C0014:
+0028 D3             1081             SETB    C
+0029 ED             1082             MOV     A,R5
+002A 9400           1083             SUBB    A,#00H
+002C EC             1084             MOV     A,R4
+002D 9400           1085             SUBB    A,#00H
+002F 401F           1086             JC      ?C0015
+                    1087     ;           rf_buf.buffer[i+1] = bm0[i-1]; 
+                    1088                             ; SOURCE LINE # 398
+0031 7400     F     1089             MOV     A,#LOW (bm0+0FFFFH)
+0033 2D             1090             ADD     A,R5
+0034 F582           1091             MOV     DPL,A
+0036 E4             1092             CLR     A
+0037 3400     F     1093             ADDC    A,#HIGH (bm0+0FFFFH)
+0039 F583           1094             MOV     DPH,A
+003B E0             1095             MOVX    A,@DPTR
+003C FE             1096             MOV     R6,A
+003D 7400     F     1097             MOV     A,#LOW (rf_buf+02H)
+003F 2D             1098             ADD     A,R5
+0040 F582           1099             MOV     DPL,A
+0042 E4             1100             CLR     A
+0043 3400     F     1101             ADDC    A,#HIGH (rf_buf+02H)
+0045 F583           1102             MOV     DPH,A
+0047 EE             1103             MOV     A,R6
+0048 F0             1104             MOVX    @DPTR,A
+                    1105     ;      }    
+                    1106                             ; SOURCE LINE # 399
+0049 ED             1107             MOV     A,R5
+004A 1D             1108             DEC     R5
+004B 70DB           1109             JNZ     ?C0014
+004D 1C             1110             DEC     R4
+004E                1111     ?C0024:
+004E 80D8           1112             SJMP    ?C0014
+0050                1113     ?C0015:
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    18
+
+                    1114     ;      
+                    1115     ;      if(delay){
+                    1116                             ; SOURCE LINE # 401
+0050 EF             1117             MOV     A,R7
+0051 600E           1118             JZ      ?C0018
+                    1119     ;          // Delay to avoid collision //
+                    1120     ;          /*for(i = 0;i < group_id * 100 ;i++){
+                    1121     ;                for(j = 0;j < 140;j++)
+                    1122     ;                      ;
+                    1123     ;          }
+                    1124     ;          */
+                    1125     ;          epl_mdelay(group_id*10);
+                    1126                             ; SOURCE LINE # 408
+0053 900000   F     1127             MOV     DPTR,#group_id
+0056 E0             1128             MOVX    A,@DPTR
+0057 75F00A         1129             MOV     B,#0AH
+005A A4             1130             MUL     AB
+005B FF             1131             MOV     R7,A
+005C AEF0           1132             MOV     R6,B
+005E 120000   F     1133             LCALL   _epl_mdelay
+                    1134     ;      }
+                    1135                             ; SOURCE LINE # 409
+                    1136     ; 
+                    1137     ; }
+                    1138                             ; SOURCE LINE # 411
+0061                1139     ?C0018:
+0061 22             1140             RET     
+                    1141     ; END OF ret_bitmap
+                    1142     
+                    1143     ; 
+                    1144     ; 
+                    1145     ; //Cindy  - 
+                    1146     ; void set_bitmap()
+                    1147     
+----                1148             RSEG  ?PR?set_bitmap?___LE1_LIB_MASS_MASS
+0000                1149     set_bitmap:
+                    1150             USING   0
+                    1151                             ; SOURCE LINE # 415
+                    1152     ; {
+                    1153                             ; SOURCE LINE # 416
+                    1154     ;     unsigned int i; 
+                    1155     ;     
+                    1156     ;     #pragma asm
+                    1157     ;               ; Pop ret address to ret directly back to while loop
+                    1158               ; Pop ret address to ret directly back to while loop
+                    1159     ;               POP             B
+0000 D0F0           1160               POP           B
+                    1161     ;               POP             B
+0002 D0F0           1162               POP           B
+                    1163     ;       #pragma endasm
+                    1164     ;               
+                    1165     ;       /* Set xdata as data space */
+                    1166     ;       MEMCON = 0x00;
+                    1167                             ; SOURCE LINE # 426
+0004 E4             1168             CLR     A
+0005 F5A7           1169             MOV     MEMCON,A
+                    1170     ;       
+                    1171     ; #ifdef DEBUG  
+                    1172     ;       epl_uart_putchar('y'); 
+                    1173                             ; SOURCE LINE # 429
+0007 7F79           1174             MOV     R7,#079H
+0009 120000   F     1175             LCALL   _epl_uart_putchar
+                    1176     ; #endif
+                    1177     ;     
+                    1178     ;     // Initialize bitmap //
+                    1179     ;     for(i = 0; i < rf_buf.buffer[7]; i++){
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    19
+
+                    1180                             ; SOURCE LINE # 433
+                    1181     ;---- Variable 'i?1046' assigned to Register 'R6/R7' ----
+000C E4             1182             CLR     A
+000D FF             1183             MOV     R7,A
+000E FE             1184             MOV     R6,A
+000F                1185     ?C0019:
+000F 900000   F     1186             MOV     DPTR,#rf_buf+08H
+0012 E0             1187             MOVX    A,@DPTR
+0013 FD             1188             MOV     R5,A
+0014 C3             1189             CLR     C
+0015 EF             1190             MOV     A,R7
+0016 9D             1191             SUBB    A,R5
+0017 EE             1192             MOV     A,R6
+0018 9400           1193             SUBB    A,#00H
+001A 5013           1194             JNC     ?C0022
+                    1195     ;           bm0[i] = 0;
+                    1196                             ; SOURCE LINE # 434
+001C 7400     F     1197             MOV     A,#LOW (bm0)
+001E 2F             1198             ADD     A,R7
+001F F582           1199             MOV     DPL,A
+0021 E4             1200             CLR     A
+0022 3400     F     1201             ADDC    A,#HIGH (bm0)
+0024 F583           1202             MOV     DPH,A
+0026 E4             1203             CLR     A
+0027 F0             1204             MOVX    @DPTR,A
+                    1205     ;     }       
+                    1206                             ; SOURCE LINE # 435
+0028 0F             1207             INC     R7
+0029 BF0001         1208             CJNE    R7,#00H,?C0025
+002C 0E             1209             INC     R6
+002D                1210     ?C0025:
+002D 80E0           1211             SJMP    ?C0019
+                    1212     ;     
+                    1213     ; }
+                    1214                             ; SOURCE LINE # 437
+002F                1215     ?C0022:
+002F 22             1216             RET     
+                    1217     ; END OF set_bitmap
+                    1218     
+                    1219     ; 
+                    1220     ; //Cindy  - test OK 20091011
+                    1221     ; void put_addr()
+                    1222     
+----                1223             RSEG  ?PR?put_addr?___LE1_LIB_MASS_MASS
+0000                1224     put_addr:
+                    1225             USING   0
+                    1226                             ; SOURCE LINE # 440
+                    1227     ; {
+                    1228                             ; SOURCE LINE # 441
+                    1229     ;       /* Set xdata as data space */
+                    1230     ;       MEMCON = 0x00;
+                    1231                             ; SOURCE LINE # 443
+0000 E4             1232             CLR     A
+0001 F5A7           1233             MOV     MEMCON,A
+                    1234     ; #ifdef DEBUG  
+                    1235     ;     epl_uart_putint(0);
+                    1236                             ; SOURCE LINE # 445
+0003 FE             1237             MOV     R6,A
+0004 FF             1238             MOV     R7,A
+0005 120000   F     1239             LCALL   _?epl_uart_putint
+                    1240     ; #endif
+                    1241     ;     
+                    1242     ;       /* Set ACK packet SRC address */
+                    1243     ;       rf_buf.buffer[0] = id;
+                    1244                             ; SOURCE LINE # 449
+0008 900000   F     1245             MOV     DPTR,#rf_buf+01H
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    20
+
+000B E500     F     1246             MOV     A,id
+000D F0             1247             MOVX    @DPTR,A
+                    1248     ;       rf_buf.buffer[1] = EXECUTE_SUCCESS;
+                    1249                             ; SOURCE LINE # 450
+000E E4             1250             CLR     A
+000F A3             1251             INC     DPTR
+0010 F0             1252             MOVX    @DPTR,A
+                    1253     ;       rf_buf.buffer[2] = rf_rx_addr[0];
+                    1254                             ; SOURCE LINE # 451
+0011 A3             1255             INC     DPTR
+0012 E500     F     1256             MOV     A,rf_rx_addr
+0014 F0             1257             MOVX    @DPTR,A
+                    1258     ;       rf_buf.buffer[3] = rf_rx_addr[1];
+                    1259                             ; SOURCE LINE # 452
+0015 A3             1260             INC     DPTR
+0016 E500     F     1261             MOV     A,rf_rx_addr+01H
+0018 F0             1262             MOVX    @DPTR,A
+                    1263     ;       rf_buf.buffer[4] = rf_rx_addr[2];
+                    1264                             ; SOURCE LINE # 453
+0019 A3             1265             INC     DPTR
+001A E500     F     1266             MOV     A,rf_rx_addr+02H
+001C F0             1267             MOVX    @DPTR,A
+                    1268     ; 
+                    1269     ;       //Cindy - 為什麼是7?
+                    1270     ;       rf_ack_idx = 7;
+                    1271                             ; SOURCE LINE # 456
+001D 750007   F     1272             MOV     rf_ack_idx,#07H
+                    1273     ; 
+                    1274     ;       /* Set xdata as code space */
+                    1275     ;       MEMCON = 0x01;
+                    1276                             ; SOURCE LINE # 459
+0020 75A701         1277             MOV     MEMCON,#01H
+                    1278     ; }
+                    1279                             ; SOURCE LINE # 460
+0023 22             1280             RET     
+                    1281     ; END OF put_addr
+                    1282     
+                    1283             END
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    21
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                              T Y P E  V A L U E   ATTRIBUTES
+
+?C0008. . . . . . . . . . . . . . .  C ADDR   002EH   R   SEG=?PR?RET_FUNC?___LE1_LIB_MASS_MASS
+?C0010. . . . . . . . . . . . . . .  C ADDR   0023H   R   SEG=?PR?SET_RFADDR?___LE1_LIB_MASS_MASS
+?C0011. . . . . . . . . . . . . . .  C ADDR   003CH   R   SEG=?PR?SET_RFADDR?___LE1_LIB_MASS_MASS
+?C0014. . . . . . . . . . . . . . .  C ADDR   0028H   R   SEG=?PR?RET_BITMAP?___LE1_LIB_MASS_MASS
+?C0015. . . . . . . . . . . . . . .  C ADDR   0050H   R   SEG=?PR?RET_BITMAP?___LE1_LIB_MASS_MASS
+?C0018. . . . . . . . . . . . . . .  C ADDR   0061H   R   SEG=?PR?RET_BITMAP?___LE1_LIB_MASS_MASS
+?C0019. . . . . . . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?SET_BITMAP?___LE1_LIB_MASS_MASS
+?C0022. . . . . . . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?SET_BITMAP?___LE1_LIB_MASS_MASS
+?C0024. . . . . . . . . . . . . . .  C ADDR   004EH   R   SEG=?PR?RET_BITMAP?___LE1_LIB_MASS_MASS
+?C0025. . . . . . . . . . . . . . .  C ADDR   002DH   R   SEG=?PR?SET_BITMAP?___LE1_LIB_MASS_MASS
+?DT?RET_BITMAP?___LE1_LIB_MASS_MASS  D SEG    0001H       REL=UNIT
+?DT?RET_FUNC?___LE1_LIB_MASS_MASS .  D SEG    0003H       REL=UNIT
+?PR?GET_DATA?___LE1_LIB_MASS_MASS .  C SEG    001BH       REL=UNIT
+?PR?GET_RAM?___LE1_LIB_MASS_MASS. .  C SEG    0014H       REL=UNIT
+?PR?PUT_ADDR?___LE1_LIB_MASS_MASS .  C SEG    0024H       REL=UNIT
+?PR?RET_BITMAP?___LE1_LIB_MASS_MASS  C SEG    0062H       REL=UNIT
+?PR?RET_CHAR?___LE1_LIB_MASS_MASS .  C SEG    0023H       REL=UNIT
+?PR?RET_FUNC?___LE1_LIB_MASS_MASS .  C SEG    0032H       REL=UNIT
+?PR?RET_INT?___LE1_LIB_MASS_MASS. .  C SEG    0028H       REL=UNIT
+?PR?RET_LONG?___LE1_LIB_MASS_MASS .  C SEG    0030H       REL=UNIT
+?PR?RET_PTR?___LE1_LIB_MASS_MASS. .  C SEG    002DH       REL=UNIT
+?PR?SET_BITMAP?___LE1_LIB_MASS_MASS  C SEG    0030H       REL=UNIT
+?PR?SET_DATA?___LE1_LIB_MASS_MASS .  C SEG    001BH       REL=UNIT
+?PR?SET_RFADDR?___LE1_LIB_MASS_MASS  C SEG    0045H       REL=UNIT
+?RET_BITMAP?BYTE. . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?RET_BITMAP?___LE1_LIB_MASS_MASS
+?RET_FUNC?BYTE. . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?RET_FUNC?___LE1_LIB_MASS_MASS
+AC. . . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+ADCCON1 . . . . . . . . . . . . . .  D ADDR   00D3H   A   
+ADCCON2 . . . . . . . . . . . . . .  D ADDR   00D2H   A   
+ADCCON3 . . . . . . . . . . . . . .  D ADDR   00D1H   A   
+ADCDATH . . . . . . . . . . . . . .  D ADDR   00D4H   A   
+ADCDATL . . . . . . . . . . . . . .  D ADDR   00D5H   A   
+ADCON . . . . . . . . . . . . . . .  D ADDR   00D8H   A   
+ARCON . . . . . . . . . . . . . . .  D ADDR   00EFH   A   
+B . . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BD. . . . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+BM0 . . . . . . . . . . . . . . . .  X ADDR   -----       EXT
+CC1 . . . . . . . . . . . . . . . .  D ADDR   00C2H   A   
+CC2 . . . . . . . . . . . . . . . .  D ADDR   00C4H   A   
+CC3 . . . . . . . . . . . . . . . .  D ADDR   00C6H   A   
+CCEN. . . . . . . . . . . . . . . .  D ADDR   00C1H   A   
+CCH1. . . . . . . . . . . . . . . .  D ADDR   00C3H   A   
+CCH2. . . . . . . . . . . . . . . .  D ADDR   00C5H   A   
+CCH3. . . . . . . . . . . . . . . .  D ADDR   00C7H   A   
+CCL1. . . . . . . . . . . . . . . .  D ADDR   00C2H   A   
+CCL2. . . . . . . . . . . . . . . .  D ADDR   00C4H   A   
+CCL3. . . . . . . . . . . . . . . .  D ADDR   00C6H   A   
+CCPDATIA. . . . . . . . . . . . . .  D ADDR   00DDH   A   
+CCPDATIB. . . . . . . . . . . . . .  D ADDR   00DEH   A   
+CCPDATO . . . . . . . . . . . . . .  D ADDR   00DFH   A   
+CLKCTRL . . . . . . . . . . . . . .  D ADDR   00A3H   A   
+CLKLFCTRL . . . . . . . . . . . . .  D ADDR   00ADH   A   
+COMPCON . . . . . . . . . . . . . .  D ADDR   00DBH   A   
+CRC . . . . . . . . . . . . . . . .  D ADDR   00CAH   A   
+CRCH. . . . . . . . . . . . . . . .  D ADDR   00CBH   A   
+CRCL. . . . . . . . . . . . . . . .  D ADDR   00CAH   A   
+CY. . . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+DPH . . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPH1. . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    22
+
+DPL . . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+DPL1. . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+DPS . . . . . . . . . . . . . . . .  D ADDR   0092H   A   
+EA. . . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+END_GET_DATA. . . . . . . . . . . .  C ADDR   0014H   R   SEG=?PR?GET_DATA?___LE1_LIB_MASS_MASS
+END_GET_RAM . . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?GET_RAM?___LE1_LIB_MASS_MASS
+END_SET_DATA. . . . . . . . . . . .  C ADDR   0014H   R   SEG=?PR?SET_DATA?___LE1_LIB_MASS_MASS
+ES0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . . . .  B ADDR   00B8H.7 A   
+EXF2. . . . . . . . . . . . . . . .  B ADDR   00C0H.7 A   
+F0. . . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+FCR . . . . . . . . . . . . . . . .  D ADDR   00FAH   A   
+FDCR. . . . . . . . . . . . . . . .  D ADDR   00FBH   A   
+FPCR. . . . . . . . . . . . . . . .  D ADDR   00F9H   A   
+FSR . . . . . . . . . . . . . . . .  D ADDR   00F8H   A   
+GET_DATA. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GET_DATA?___LE1_LIB_MASS_MASS
+GET_RAM . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GET_RAM?___LE1_LIB_MASS_MASS
+GROUP_ID. . . . . . . . . . . . . .  X ADDR   -----       EXT
+I2FR. . . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+I3FR. . . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+I?740 . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?RET_FUNC?___LE1_LIB_MASS_MASS
+ID. . . . . . . . . . . . . . . . .  D ADDR   -----       EXT
+IE0 . . . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+IEN0. . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IEN1. . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+INFEN . . . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+INTEXP. . . . . . . . . . . . . . .  D ADDR   00A6H   A   
+IP0 . . . . . . . . . . . . . . . .  D ADDR   00A9H   A   
+IP1 . . . . . . . . . . . . . . . .  D ADDR   00B9H   A   
+IRCON . . . . . . . . . . . . . . .  D ADDR   00C0H   A   
+IT0 . . . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+J?741 . . . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=?DT?RET_FUNC?___LE1_LIB_MASS_MASS
+J?944 . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?RET_BITMAP?___LE1_LIB_MASS_MASS
+MCDIS . . . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+MD0 . . . . . . . . . . . . . . . .  D ADDR   00E9H   A   
+MD1 . . . . . . . . . . . . . . . .  D ADDR   00EAH   A   
+MD2 . . . . . . . . . . . . . . . .  D ADDR   00EBH   A   
+MD3 . . . . . . . . . . . . . . . .  D ADDR   00ECH   A   
+MD4 . . . . . . . . . . . . . . . .  D ADDR   00EDH   A   
+MD5 . . . . . . . . . . . . . . . .  D ADDR   00EEH   A   
+MEMCON. . . . . . . . . . . . . . .  D ADDR   00A7H   A   
+MISC. . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+MISCF . . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+MPAGE . . . . . . . . . . . . . . .  D ADDR   00C9H   A   
+OPMCON. . . . . . . . . . . . . . .  D ADDR   00AEH   A   
+OV. . . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P0CON . . . . . . . . . . . . . . .  D ADDR   009EH   A   
+P0DIR . . . . . . . . . . . . . . .  D ADDR   0093H   A   
+P1. . . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    23
+
+P10 . . . . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P1CON . . . . . . . . . . . . . . .  D ADDR   009FH   A   
+P1DIR . . . . . . . . . . . . . . .  D ADDR   0094H   A   
+P2. . . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P2CON . . . . . . . . . . . . . . .  D ADDR   0097H   A   
+P2DIR . . . . . . . . . . . . . . .  D ADDR   0095H   A   
+P3. . . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P3CON . . . . . . . . . . . . . . .  D ADDR   008FH   A   
+P3DIR . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+PCON. . . . . . . . . . . . . . . .  D ADDR   0087H   A   
+POFCON. . . . . . . . . . . . . . .  D ADDR   00DCH   A   
+PSW . . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PUT_ADDR. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?PUT_ADDR?___LE1_LIB_MASS_MASS
+PWMCON. . . . . . . . . . . . . . .  D ADDR   00B2H   A   
+PWMDC0. . . . . . . . . . . . . . .  D ADDR   00A1H   A   
+PWMDC1. . . . . . . . . . . . . . .  D ADDR   00A2H   A   
+PWRDWN. . . . . . . . . . . . . . .  D ADDR   00A4H   A   
+RB80. . . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RDEND . . . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+RDIS. . . . . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+RDYN. . . . . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+REN0. . . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RESULT_BUF. . . . . . . . . . . . .  X ADDR   -----       EXT
+RETURN_FLAG . . . . . . . . . . . .  D ADDR   -----       EXT
+RET_BITMAP. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_BITMAP?___LE1_LIB_MASS_MASS
+RET_CHAR. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_CHAR?___LE1_LIB_MASS_MASS
+RET_FUNC. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_FUNC?___LE1_LIB_MASS_MASS
+RET_INT . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_INT?___LE1_LIB_MASS_MASS
+RET_LONG. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_LONG?___LE1_LIB_MASS_MASS
+RET_PTR . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?RET_PTR?___LE1_LIB_MASS_MASS
+RF. . . . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+RFCE. . . . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+RFCKEN. . . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+RFCON . . . . . . . . . . . . . . .  D ADDR   00E8H   A   
+RFCSN . . . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+RFF . . . . . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+RFSPI . . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+RFSPIF. . . . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+RF_ACK_IDX. . . . . . . . . . . . .  D ADDR   -----       EXT
+RF_BUF. . . . . . . . . . . . . . .  X ADDR   -----       EXT
+RF_RX_ADDR. . . . . . . . . . . . .  D ADDR   -----       EXT
+RF_RX_ADDR2 . . . . . . . . . . . .  D ADDR   -----       EXT
+RI0 . . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    24
+
+RNGCTL. . . . . . . . . . . . . . .  D ADDR   00D6H   A   
+RNGDAT. . . . . . . . . . . . . . .  D ADDR   00D7H   A   
+RS0 . . . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTREAS . . . . . . . . . . . . . .  D ADDR   00B1H   A   
+RTC2CMP0. . . . . . . . . . . . . .  D ADDR   00B4H   A   
+RTC2CMP1. . . . . . . . . . . . . .  D ADDR   00B5H   A   
+RTC2CON . . . . . . . . . . . . . .  D ADDR   00B3H   A   
+RTC2CPT00 . . . . . . . . . . . . .  D ADDR   00B6H   A   
+RTC2CPT01 . . . . . . . . . . . . .  D ADDR   00ABH   A   
+RTC2CPT10 . . . . . . . . . . . . .  D ADDR   00ACH   A   
+S0BUF . . . . . . . . . . . . . . .  D ADDR   0099H   A   
+S0CON . . . . . . . . . . . . . . .  D ADDR   0098H   A   
+S0RELH. . . . . . . . . . . . . . .  D ADDR   00BAH   A   
+S0RELL. . . . . . . . . . . . . . .  D ADDR   00AAH   A   
+SET_BITMAP. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?SET_BITMAP?___LE1_LIB_MASS_MASS
+SET_DATA. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?SET_DATA?___LE1_LIB_MASS_MASS
+SET_RFADDR. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?SET_RFADDR?___LE1_LIB_MASS_MASS
+SM0 . . . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI . . . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+SPIF. . . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+SPIMCON0. . . . . . . . . . . . . .  D ADDR   00FCH   A   
+SPIMCON1. . . . . . . . . . . . . .  D ADDR   00FDH   A   
+SPIMDAT . . . . . . . . . . . . . .  D ADDR   00FFH   A   
+SPIMSTAT. . . . . . . . . . . . . .  D ADDR   00FEH   A   
+SPIRCON0. . . . . . . . . . . . . .  D ADDR   00E4H   A   
+SPIRCON1. . . . . . . . . . . . . .  D ADDR   00E5H   A   
+SPIRDAT . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+SPIRSTAT. . . . . . . . . . . . . .  D ADDR   00E6H   A   
+SPISCON0. . . . . . . . . . . . . .  D ADDR   00BCH   A   
+SPISCON1. . . . . . . . . . . . . .  D ADDR   00BDH   A   
+SPISDAT . . . . . . . . . . . . . .  D ADDR   00BFH   A   
+SPISRDSZ. . . . . . . . . . . . . .  D ADDR   00B7H   A   
+SPISSTAT. . . . . . . . . . . . . .  D ADDR   00BEH   A   
+STP . . . . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+T2. . . . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+T2CM. . . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+T2CON . . . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T2I0. . . . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+T2I1. . . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+T2PS. . . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+T2R0. . . . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+T2R1. . . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TB80. . . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCON. . . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TF0 . . . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+TH0 . . . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI0 . . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+W2CON0. . . . . . . . . . . . . . .  D ADDR   00E2H   A   
+W2CON1. . . . . . . . . . . . . . .  D ADDR   00E1H   A   
+W2DAT . . . . . . . . . . . . . . .  D ADDR   00DAH   A   
+W2SADR. . . . . . . . . . . . . . .  D ADDR   00D9H   A   
+WDSV. . . . . . . . . . . . . . . .  D ADDR   00AFH   A   
+A51 MACRO ASSEMBLER  ___LE1_LIB_MASS_MASS                                                 06/03/2010 14:40:48 PAGE    25
+
+WEN . . . . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+WHILE_LOOP. . . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?GET_DATA?___LE1_LIB_MASS_MASS
+WHILE_LOOP?2. . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?GET_RAM?___LE1_LIB_MASS_MASS
+WHILE_LOOP?3. . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?SET_DATA?___LE1_LIB_MASS_MASS
+WPEN. . . . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+WUCON . . . . . . . . . . . . . . .  D ADDR   00A5H   A   
+WUF . . . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+WUIRQ . . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+WUOPC0. . . . . . . . . . . . . . .  D ADDR   00CFH   A   
+WUOPC1. . . . . . . . . . . . . . .  D ADDR   00CEH   A   
+WUPIN . . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+WUPINF. . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+_?EPL_UART_PUTINT . . . . . . . . .  C ADDR   -----       EXT
+_EPL_MDELAY . . . . . . . . . . . .  C ADDR   -----       EXT
+_EPL_UART_PUTCHAR . . . . . . . . .  C ADDR   -----       EXT
+_HAL_NRF_SET_ADDRESS. . . . . . . .  C ADDR   -----       EXT
+___LE1_LIB_MASS_MASS. . . . . . . .  N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

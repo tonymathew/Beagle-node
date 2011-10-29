@@ -1,0 +1,519 @@
+; ../LE1/lib/HAL/hal_rtc.SRC generated from: ../LE1/lib/HAL/hal_rtc.c
+; COMPILER INVOKED BY:
+;        C:\KEIL\C51\BIN\C51.exe ../LE1/lib/HAL/hal_rtc.c INCDIR(../LE1/include) BROWSE DEBUG CD SB OMF2 WL(0) PREPRINT SRC
+
+$NOMOD51
+
+NAME	___LE1_LIB_HAL_HAL_RTC
+
+TB80	BIT	098H.3
+SPISSTAT	DATA	0BEH
+T2I0	BIT	0C8H.0
+CCH1	DATA	0C3H
+P0	DATA	080H
+T2I1	BIT	0C8H.1
+CCPDATO	DATA	0DFH
+CCH2	DATA	0C5H
+P1	DATA	090H
+CCH3	DATA	0C7H
+P2	DATA	0A0H
+SM20	BIT	098H.5
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+CCL1	DATA	0C2H
+CCL2	DATA	0C4H
+BD	BIT	0D8H.7
+RFSPI	BIT	0B8H.0
+EA	BIT	0A8H.7
+T2	DATA	0CCH
+CCL3	DATA	0C6H
+SPISRDSZ	DATA	0B7H
+T2R0	BIT	0C8H.3
+T2R1	BIT	0C8H.4
+IEN0	DATA	0A8H
+IEN1	DATA	0B8H
+WUCON	DATA	0A5H
+DPH1	DATA	085H
+COMPCON	DATA	0DBH
+CLKCTRL	DATA	0A3H
+DPL1	DATA	084H
+I2FR	BIT	0C8H.5
+WUPIN	BIT	0B8H.3
+I3FR	BIT	0C8H.6
+SPIMDAT	DATA	0FFH
+EXF2	BIT	0C0H.7
+REN0	BIT	098H.4
+T2CM	BIT	0C8H.2
+RF	BIT	0B8H.1
+WUIRQ	BIT	0B8H.5
+SPIRDAT	DATA	0E7H
+CCEN	DATA	0C1H
+W2CON0	DATA	0E2H
+SPISDAT	DATA	0BFH
+CY	BIT	0D0H.7
+W2CON1	DATA	0E1H
+FDCR	DATA	0FBH
+RFCE	BIT	0E8H.0
+CRCH	DATA	0CBH
+SP	DATA	081H
+OV	BIT	0D0H.2
+CRCL	DATA	0CAH
+CLKLFCTRL	DATA	0ADH
+RSTREAS	DATA	0B1H
+T2PS	BIT	0C8H.7
+FPCR	DATA	0F9H
+MISC	BIT	0B8H.4
+PWMDC0	DATA	0A1H
+RTC2CMP0	DATA	0B4H
+PWMDC1	DATA	0A2H
+RTC2CMP1	DATA	0B5H
+P00	BIT	080H.0
+S0RELH	DATA	0BAH
+P10	BIT	090H.0
+P01	BIT	080H.1
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SPIF	BIT	0C0H.2
+RDIS	BIT	0F8H.2
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+S0RELL	DATA	0AAH
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+W2SADR	DATA	0D9H
+TMOD	DATA	089H
+TCON	DATA	088H
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+CC1	DATA	0C2H
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+CC2	DATA	0C4H
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+CC3	DATA	0C6H
+P37	BIT	0B0H.7
+RFCKEN	BIT	0E8H.2
+WPEN	BIT	0F8H.0
+CCPDATIA	DATA	0DDH
+CCPDATIB	DATA	0DEH
+IE0	BIT	088H.1
+RDYN	BIT	0F8H.4
+IE1	BIT	088H.3
+WUOPC0	DATA	0CFH
+B	DATA	0F0H
+MD0	DATA	0E9H
+WUOPC1	DATA	0CEH
+MEMCON	DATA	0A7H
+MD1	DATA	0EAH
+RNGDAT	DATA	0D7H
+MD2	DATA	0EBH
+MD3	DATA	0ECH
+MD4	DATA	0EDH
+WDSV	DATA	0AFH
+MD5	DATA	0EEH
+ACC	DATA	0E0H
+POFCON	DATA	0DCH
+ES0	BIT	0A8H.4
+ET0	BIT	0A8H.1
+IP0	DATA	0A9H
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+IP1	DATA	0B9H
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+RFSPIF	BIT	0C0H.0
+TF2	BIT	0C0H.6
+SPIMCON0	DATA	0FCH
+RNGCTL	DATA	0D6H
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+SPIMCON1	DATA	0FDH
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+OPMCON	DATA	0AEH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+SPIRCON0	DATA	0E4H
+TL1	DATA	08BH
+SPIRCON1	DATA	0E5H
+TL2	DATA	0CCH
+SPISCON0	DATA	0BCH
+SPISCON1	DATA	0BDH
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+PWMCON	DATA	0B2H
+TR1	BIT	088H.6
+CRC	DATA	0CAH
+INTEXP	DATA	0A6H
+WUPINF	BIT	0C0H.3
+FCR	DATA	0FAH
+ADCCON1	DATA	0D3H
+ADCCON2	DATA	0D2H
+DPH	DATA	083H
+ADCCON3	DATA	0D1H
+RFF	BIT	0C0H.1
+P0DIR	DATA	093H
+DPL	DATA	082H
+P0CON	DATA	09EH
+S0BUF	DATA	099H
+P1DIR	DATA	094H
+P1CON	DATA	09FH
+P2DIR	DATA	095H
+EXEN2	BIT	0B8H.7
+W2DAT	DATA	0DAH
+P2CON	DATA	097H
+P3DIR	DATA	096H
+PWRDWN	DATA	0A4H
+S0CON	DATA	098H
+P3CON	DATA	08FH
+RTC2CPT00	DATA	0B6H
+ADCON	DATA	0D8H
+RTC2CPT10	DATA	0ACH
+RTC2CPT01	DATA	0ABH
+T2CON	DATA	0C8H
+DPS	DATA	092H
+WEN	BIT	0F8H.5
+FSR	DATA	0F8H
+ADCDATH	DATA	0D4H
+MPAGE	DATA	0C9H
+SPI	BIT	0B8H.2
+RDEND	BIT	0F8H.1
+ADCDATL	DATA	0D5H
+INFEN	BIT	0F8H.3
+MCDIS	BIT	0F8H.7
+WUF	BIT	0C0H.5
+MISCF	BIT	0C0H.4
+ARCON	DATA	0EFH
+F0	BIT	0D0H.5
+STP	BIT	0F8H.6
+SPIMSTAT	DATA	0FEH
+RFCON	DATA	0E8H
+PSW	DATA	0D0H
+RB80	BIT	098H.2
+IRCON	DATA	0C0H
+RFCSN	BIT	0E8H.1
+SPIRSTAT	DATA	0E6H
+RTC2CON	DATA	0B3H
+?PR?hal_rtc_capture?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?_hal_rtc_radio_capture_enable?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?_hal_rtc_set_compare_mode?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?_hal_rtc_start?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?_hal_rtc_set_compare_value?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?hal_rtc_get_compare_value?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?hal_rtc_get_capture_value?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+?PR?hal_rtc_get_capture_clock_cycles?___LE1_LIB_HAL_HAL_RTC SEGMENT CODE 
+	PUBLIC	hal_rtc_get_capture_clock_cycles
+	PUBLIC	hal_rtc_get_capture_value
+	PUBLIC	hal_rtc_get_compare_value
+	PUBLIC	_hal_rtc_set_compare_value
+	PUBLIC	_hal_rtc_start
+	PUBLIC	_hal_rtc_set_compare_mode
+	PUBLIC	_hal_rtc_radio_capture_enable
+	PUBLIC	hal_rtc_capture
+; /* Copyright (c) 2008 Nordic Semiconductor. All Rights Reserved.
+;  *
+;  * The information contained herein is property of Nordic Semiconductor ASA.
+;  * Terms and conditions of usage are described in detail in NORDIC
+;  * SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT. 
+;  *
+;  * Licensees are granted free, non-transferable use of the information. NO
+;  * WARRENTY of ANY KIND is provided. This heading must NOT be removed from
+;  * the file.
+;  *
+;  * $LastChangedRevision$
+;  */ 
+; 
+; /** @file
+;  * @brief Implementation of hal_rtc
+;  */
+; 
+; #include <Nordic\reg24le1.h>
+; #include <HAL/hal_rtc.h>
+; #include <HAL/nordic_common.h>
+; 
+; void hal_rtc_capture(void)
+
+	RSEG  ?PR?hal_rtc_capture?___LE1_LIB_HAL_HAL_RTC
+hal_rtc_capture:
+	USING	0
+			; SOURCE LINE # 22
+; {
+			; SOURCE LINE # 23
+;   RTC2CON |= BIT_4;                         // Set "sfrCapture" bit(Trig. sig.)
+			; SOURCE LINE # 24
+	ORL  	RTC2CON,#010H
+; }
+			; SOURCE LINE # 25
+	RET  	
+; END OF hal_rtc_capture
+
+; 
+; void hal_rtc_radio_capture_enable(bool en)
+
+	RSEG  ?PR?_hal_rtc_radio_capture_enable?___LE1_LIB_HAL_HAL_RTC
+_hal_rtc_radio_capture_enable:
+	USING	0
+			; SOURCE LINE # 27
+;---- Variable 'en?140' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 28
+;   if(en)
+			; SOURCE LINE # 29
+	MOV  	A,R7
+	JZ   	?C0002
+;   {
+			; SOURCE LINE # 30
+;     RTC2CON |= BIT_3;                       // Set "enableExtCapture" bit
+			; SOURCE LINE # 31
+	ORL  	RTC2CON,#08H
+;   }
+			; SOURCE LINE # 32
+	RET  	
+?C0002:
+;   else
+;   {
+			; SOURCE LINE # 34
+;     RTC2CON &= ~BIT_3;                      // Clear "enableExtCapture" bit
+			; SOURCE LINE # 35
+	ANL  	RTC2CON,#0F7H
+;   }
+			; SOURCE LINE # 36
+; }
+			; SOURCE LINE # 37
+?C0004:
+	RET  	
+; END OF _hal_rtc_radio_capture_enable
+
+; 
+; void hal_rtc_set_compare_mode(hal_rtc_compare_mode_t mode)
+
+	RSEG  ?PR?_hal_rtc_set_compare_mode?___LE1_LIB_HAL_HAL_RTC
+_hal_rtc_set_compare_mode:
+	USING	0
+			; SOURCE LINE # 39
+;---- Variable 'mode?241' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 40
+;   RTC2CON = (RTC2CON & 0xF9) | ((mode << 1) & ~0xF9); // Set "compareMode" bits
+			; SOURCE LINE # 41
+	MOV  	A,R7
+	ADD  	A,ACC
+	ANL  	A,#06H
+	MOV  	R7,A
+	MOV  	A,RTC2CON
+	ANL  	A,#0F9H
+	ORL  	A,R7
+	MOV  	RTC2CON,A
+; }
+			; SOURCE LINE # 42
+	RET  	
+; END OF _hal_rtc_set_compare_mode
+
+; 
+; void hal_rtc_start(bool en)
+
+	RSEG  ?PR?_hal_rtc_start?___LE1_LIB_HAL_HAL_RTC
+_hal_rtc_start:
+	USING	0
+			; SOURCE LINE # 44
+;---- Variable 'en?342' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 45
+;   if(en)
+			; SOURCE LINE # 46
+	MOV  	A,R7
+	JZ   	?C0006
+;   { 
+			; SOURCE LINE # 47
+;     RTC2CON |= BIT_0;                       // Set "rtc2Enable" bit
+			; SOURCE LINE # 48
+	ORL  	RTC2CON,#01H
+;   }
+			; SOURCE LINE # 49
+	RET  	
+?C0006:
+;   else
+;   {
+			; SOURCE LINE # 51
+;     RTC2CON &= ~BIT_0;                      // Clear "rtc2Enable" bit
+			; SOURCE LINE # 52
+	ANL  	RTC2CON,#0FEH
+;   }
+			; SOURCE LINE # 53
+; }
+			; SOURCE LINE # 54
+?C0008:
+	RET  	
+; END OF _hal_rtc_start
+
+; 
+; void hal_rtc_set_compare_value(unsigned int value)
+
+	RSEG  ?PR?_hal_rtc_set_compare_value?___LE1_LIB_HAL_HAL_RTC
+_hal_rtc_set_compare_value:
+	USING	0
+			; SOURCE LINE # 56
+;---- Variable 'value?443' assigned to Register 'R6/R7' ----
+; {
+			; SOURCE LINE # 57
+;   unsigned char compare_status;                   
+;   compare_status = (RTC2CON & (BIT_1 | BIT_2)); // Save "compareMode" bits
+			; SOURCE LINE # 59
+	MOV  	A,RTC2CON
+	ANL  	A,#06H
+	MOV  	R5,A
+;---- Variable 'compare_status?444' assigned to Register 'R5' ----
+;   RTC2CON &= ~(BIT_1 | BIT_2);              // Disable compare
+			; SOURCE LINE # 60
+	ANL  	RTC2CON,#0F9H
+;   RTC2CMP0 = LSB(value);                    // Write LSB
+			; SOURCE LINE # 61
+	MOV  	A,R7
+	MOV  	RTC2CMP0,A
+;   RTC2CMP1 = MSB(value);                    // Write MSB
+			; SOURCE LINE # 62
+	MOV  	A,R6
+	MOV  	RTC2CMP1,A
+;   RTC2CON |= compare_status;                // Update compare status 
+			; SOURCE LINE # 63
+	MOV  	A,R5
+	ORL  	RTC2CON,A
+; }
+			; SOURCE LINE # 64
+	RET  	
+; END OF _hal_rtc_set_compare_value
+
+; 
+; unsigned int hal_rtc_get_compare_value(void)
+
+	RSEG  ?PR?hal_rtc_get_compare_value?___LE1_LIB_HAL_HAL_RTC
+hal_rtc_get_compare_value:
+	USING	0
+			; SOURCE LINE # 66
+; {
+			; SOURCE LINE # 67
+;   unsigned char compare_status;  
+;   unsigned int value;                           // Create temporary output variable
+;   compare_status = (RTC2CON & (BIT_1 | BIT_2)); // Save "compareMode" bits
+			; SOURCE LINE # 70
+	MOV  	A,RTC2CON
+	ANL  	A,#06H
+;---- Variable 'compare_status?545' assigned to Register 'R5' ----
+	MOV  	R5,A
+;   RTC2CON &= ~(BIT_1 | BIT_2);              // Disable compare
+			; SOURCE LINE # 71
+	ANL  	RTC2CON,#0F9H
+;   value = RTC2CMP1;                         // Read MSB
+			; SOURCE LINE # 72
+	MOV  	R7,RTC2CMP1
+;---- Variable 'value?546' assigned to Register 'R6/R7' ----
+;   value <<= 8;                              // Shift to correct position
+			; SOURCE LINE # 73
+	MOV  	A,R7
+	MOV  	R6,A
+;   value |= RTC2CMP0;                        // Add LSB
+			; SOURCE LINE # 74
+	MOV  	R4,RTC2CMP0
+	MOV  	A,R4
+	MOV  	R7,A
+;   RTC2CON |= compare_status;                // Update compare status 
+			; SOURCE LINE # 75
+	MOV  	A,R5
+	ORL  	RTC2CON,A
+;   return value;                             // Return compare value
+			; SOURCE LINE # 76
+; }
+			; SOURCE LINE # 77
+?C0010:
+	RET  	
+; END OF hal_rtc_get_compare_value
+
+; 
+; unsigned int hal_rtc_get_capture_value(void)
+
+	RSEG  ?PR?hal_rtc_get_capture_value?___LE1_LIB_HAL_HAL_RTC
+hal_rtc_get_capture_value:
+	USING	0
+			; SOURCE LINE # 79
+; {
+			; SOURCE LINE # 80
+;   unsigned char capture_status;                 
+;   unsigned int value;                           // Create temporary output variable
+;   capture_status = (RTC2CON & BIT_3);       // Save "compareMode" bits
+			; SOURCE LINE # 83
+	MOV  	A,RTC2CON
+	ANL  	A,#08H
+;---- Variable 'capture_status?647' assigned to Register 'R5' ----
+	MOV  	R5,A
+;   RTC2CON &= ~BIT_3;                        // Disable compare
+			; SOURCE LINE # 84
+	ANL  	RTC2CON,#0F7H
+;   value = RTC2CPT01;                        // Read MSB
+			; SOURCE LINE # 85
+	MOV  	R7,RTC2CPT01
+;---- Variable 'value?648' assigned to Register 'R6/R7' ----
+;   value <<= 8;                              // Shift to correct position
+			; SOURCE LINE # 86
+	MOV  	A,R7
+	MOV  	R6,A
+;   value |= RTC2CPT00;                       // Add LSB
+			; SOURCE LINE # 87
+	MOV  	R4,RTC2CPT00
+	MOV  	A,R4
+	MOV  	R7,A
+;   RTC2CON |= capture_status;                // Update external capture status
+			; SOURCE LINE # 88
+	MOV  	A,R5
+	ORL  	RTC2CON,A
+;   return value;                             // Return timer value
+			; SOURCE LINE # 89
+; }
+			; SOURCE LINE # 90
+?C0011:
+	RET  	
+; END OF hal_rtc_get_capture_value
+
+; 
+; unsigned char hal_rtc_get_capture_clock_cycles(void)
+
+	RSEG  ?PR?hal_rtc_get_capture_clock_cycles?___LE1_LIB_HAL_HAL_RTC
+hal_rtc_get_capture_clock_cycles:
+	USING	0
+			; SOURCE LINE # 92
+; {
+			; SOURCE LINE # 93
+;   return RTC2CPT10;                         // Return register
+			; SOURCE LINE # 94
+	MOV  	R7,RTC2CPT10
+; }			; SOURCE LINE # 95
+?C0012:
+	RET  	
+; END OF hal_rtc_get_capture_clock_cycles
+
+	END
